@@ -68,4 +68,8 @@
     <!-- Exitstrategie -->
     <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum sollten wir uns doch erstmal genau anschauen, was trotz aller Schwierigkeiten - in der Kommunikation mit anderen gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Ich bitte dich in den kommenden 10 Tagen eine Liste zusammenzustellen, in der du beschreibst, worauf du besonders stolz im Umgang mit anderen bist.</string>
 
+    <!-- Wunderbar -->
+    <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
+    <string name="wunderbar_Button">Weiter</string>
+
 </resources>
