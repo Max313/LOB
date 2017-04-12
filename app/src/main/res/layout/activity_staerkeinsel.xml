@@ -51,173 +51,158 @@
 
         <TableRow>
 
-            <EditText
-                android:layout_weight="0.33"
-                android:background="@drawable/table_value_border_odd"
-                android:textSize="@dimen/activity_tablecontent"
-                android:textAlignment="center"
+            <TextView
                 android:id="@+id/valueEditText1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Value 1" />
-
-            <EditText
-
                 android:layout_weight="0.33"
-                android:textAlignment="center"
-                android:textSize="@dimen/activity_tablecontent"
-
                 android:background="@drawable/table_value_border_odd"
+                android:text="@string/value1_TextView"
+                android:gravity="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
+            <TextView
                 android:id="@+id/valueEditText2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:inputType="textPersonName"
-                android:text="Value 2" />
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_odd"
+                android:text="@string/value2_TextView"
+                android:gravity="center"
+                android:textSize="@dimen/activity_tablecontent" />
+
+            <TextView
+                android:id="@+id/valueEditText3"
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_odd"
+                android:text="@string/value3_TextView"
+                android:gravity="center"
+                android:textSize="@dimen/activity_tablecontent" />
+            
+        </TableRow>
+
+
+
+        <TableRow>
 
             <EditText
-                android:layout_weight="0.33"
-                android:textAlignment="center"
-                android:textSize="@dimen/activity_tablecontent"
-
-                android:background="@drawable/table_value_border_odd"
-
-                android:id="@+id/valueEditText3"
+                android:id="@+id/valueEditText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:text="Value 3" />
-        </TableRow>
+                android:text="@string/value4_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
+            <EditText
+                android:id="@+id/valueEditText5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value5_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
-        <TableRow>
+            <EditText
+                android:id="@+id/valueEditText6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
-
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 4" />
-
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
-
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 5" />
-
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
-
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText6"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 6" />
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value6_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
 
         <TableRow>
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
+            <EditText
+                android:id="@+id/valueEditText7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:background="@drawable/table_value_border_odd"
-            android:id="@+id/valueEditText7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 7" />
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_odd"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value7_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
+            <EditText
+                android:id="@+id/valueEditText8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:background="@drawable/table_value_border_odd"
-            android:id="@+id/valueEditText8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 8" />
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_odd"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value8_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
+            <EditText
+                android:id="@+id/valueEditText9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:background="@drawable/table_value_border_odd"
-            android:id="@+id/valueEditText9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 9" />
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_odd"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value9_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
 
         <TableRow>
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
 
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText10"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 10" />
+            <EditText
+                android:id="@+id/valueEditText10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value10_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 11" />
+            <EditText
+                android:id="@+id/valueEditText11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-        <EditText
-            android:layout_weight="0.33"
-            android:textAlignment="center"
-            android:textSize="@dimen/activity_tablecontent"
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value11_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
 
-            android:background="@drawable/table_value_border_even"
-            android:id="@+id/valueEditText12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Value 12" />
+            <EditText
+                android:id="@+id/valueEditText12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="0.33"
+                android:background="@drawable/table_value_border_even"
+                android:ems="10"
+                android:inputType="textPersonName"
+                android:text="@string/value12_EditView"
+                android:textAlignment="center"
+                android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
     </TableLayout>
 

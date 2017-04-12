@@ -72,4 +72,18 @@
     <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
     <string name="wunderbar_Button">Weiter</string>
 
+    <!-- Stärkeinsel -->
+    <string name="value1_TextView">Beispiel 1</string>
+    <string name="value2_TextView">Beispiel 2</string>
+    <string name="value3_TextView">Beispiel 3</string>
+    <string name="value4_EditView">Value 1</string>
+    <string name="value5_EditView">Value 2</string>
+    <string name="value6_EditView">Value 3</string>
+    <string name="value7_EditView">Value 4</string>
+    <string name="value8_EditView">Value 5</string>
+    <string name="value9_EditView">Value 6</string>
+    <string name="value10_EditView">Value 7</string>
+    <string name="value11_EditView">Value 8</string>
+    <string name="value12_EditView">Value 9</string>
+
 </resources>
