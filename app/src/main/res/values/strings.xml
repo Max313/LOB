@@ -27,7 +27,9 @@
     <string name="zielVerwahren_TextView">Wahnsinn!\nDas ist keine leichte Aufgabe.\nDu kannst stolz auf dich sein, dass du dich mit dem Ziel auseinander gesetzt hast.\nDas klare Ziel ist die halbe Miete.</string>
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
-
+    <!-- Wunderbar -->
+    <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
+    <string name="wunderbar_Button">Weiter</string>
 
 
 </resources>
