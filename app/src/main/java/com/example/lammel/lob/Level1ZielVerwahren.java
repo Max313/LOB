@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,6 @@ public class Level1ZielVerwahren extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         //startActivity level 2
-
+        startActivity(new Intent(this, Level2Loesungswege.class));
     }
 }

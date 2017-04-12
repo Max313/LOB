@@ -19,9 +19,7 @@
         <activity android:name=".Level1Problemdefinition" />
         <activity android:name=".ProblemBeschreibung" />
         <activity android:name=".Level1Zieldefinition" />
-        <activity android:name=".Level1ZielVerwahren" />
-        <activity android:name=".Wunderbar" />
-        <activity android:name=".Staerkeinsel"></activity>
+        <activity android:name=".Level1ZielVerwahren"></activity>
     </application>
 
 </manifest>
