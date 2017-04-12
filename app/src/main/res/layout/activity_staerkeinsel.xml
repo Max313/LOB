@@ -22,29 +22,39 @@
         <TableRow>
 
             <TextView
+                android:id="@+id/verhaltenTextView"
                 android:layout_weight="0.33"
-                android:textColor="@color/colorTableHeaderText"
                 android:background="@drawable/table_header_border"
-                android:textSize="@dimen/activity_header"
+                android:clickable="true"
                 android:gravity="center"
-                android:text="Verhalten"/>
+                android:onClick="onClick"
+                android:text="@string/verhalten_TextView"
+                android:textColor="@color/colorTableHeaderText"
+                android:textSize="@dimen/activity_header" />
+
 
             <TextView
-                android:textColor="@color/colorTableHeaderText"
-                android:background="@drawable/table_header_border"
+                android:id="@+id/komplimentTextView"
                 android:layout_weight="0.33"
-                android:textSize="@dimen/activity_header"
+                android:background="@drawable/table_header_border"
+                android:clickable="true"
                 android:gravity="center"
-                android:text="Kompliment"
-                />
+                android:onClick="onClick"
+                android:text="@string/kompliment_TextView"
+                android:textColor="@color/colorTableHeaderText"
+                android:textSize="@dimen/activity_header" />
+
+
             <TextView
+                android:id="@+id/ressourcenTextView"
                 android:layout_weight="0.33"
-                android:textColor="@color/colorTableHeaderText"
                 android:background="@drawable/table_header_border"
-                android:textSize="@dimen/activity_header"
+                android:clickable="true"
                 android:gravity="center"
-                android:text="Ressourcen"
-                />
+                android:onClick="onClick"
+                android:text="@string/ressourcen_TextView"
+                android:textColor="@color/colorTableHeaderText"
+                android:textSize="@dimen/activity_header" />
         </TableRow>
 
 
@@ -194,7 +204,6 @@
                 android:id="@+id/valueEditText12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"

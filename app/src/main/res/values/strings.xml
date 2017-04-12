@@ -73,6 +73,9 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
+    <string name="verhalten_TextView">Verhalten</string>
+    <string name="kompliment_TextView">Kompliment</string>
+    <string name="ressourcen_TextView">Ressourcen</string>
     <string name="value1_TextView">Beispiel 1</string>
     <string name="value2_TextView">Beispiel 2</string>
     <string name="value3_TextView">Beispiel 3</string>
@@ -86,5 +89,6 @@
     <string name="value11_EditView">Value 8</string>
     <string name="value12_EditView">Value 9</string>
     <string name="speichern_Button">Speichern</string>
+    <string name="ok">OK</string>
 
 </resources>
