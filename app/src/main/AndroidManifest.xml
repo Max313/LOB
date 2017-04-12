@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.lammel.lob">
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".Level1Onboarding" />
+        <activity android:name=".Level1Problemdefinition" />
+        <activity android:name=".ProblemBeschreibung" />
+        <activity android:name=".Level1Zieldefinition" />
+        <activity android:name=".Level1ZielVerwahren"></activity>
+    </application>
+
+</manifest>

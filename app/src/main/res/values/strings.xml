@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">LOB</string>
+    <string name="welcome_text">Willkommen bei LOB!</string>
+
+    <string name="start_button">Los gehts!</string>
+    <string name="weiter_button">Weiter!</string>
+
+    <!-- Onboarding -->
+    <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!</string>
+
+    <!-- Problem Definition -->
+    <string name="keinProblem_button">Weiter, ich möchte das Problem nicht aufschreiben</string>
+    <string name="problem_button">Ich möchte das Problem aufschreiben</string>
+    <string name="problem1">Manchmal tut es gut das Problem aufzuschreiben und dann bei Seite zu legen um sich danach frei auf den Weg nach vorne konzentrieren zu können.\nHier bekommst du die Möglichkeit dein Problem einmalig in zwei Sätzen zusammenzufassen.</string>
+
+
+    <!-- Problem Beschreibung -->
+    <string name="problem_beschreibung">Schreibe hier in 2 Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
+    <string name="beschreibung">Beschreibung des Problems</string>
+
+    <!-- Ziel Definition -->
+    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?</string>
+    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen und Änderungen anpassen</string>
+    <string name="zielFesthalten_Button">Ziel festhalten</string>
+
+    <!-- Ziel verwahren -->
+    <string name="zielVerwahren_TextView">Wahnsinn!\nDas ist keine leichte Aufgabe.\nDu kannst stolz auf dich sein, dass du dich mit dem Ziel auseinander gesetzt hast.\nDas klare Ziel ist die halbe Miete.</string>
+    <string name="zielVerwahren_Button">Ziel verwahren</string>
+
+
+
+
+</resources>
