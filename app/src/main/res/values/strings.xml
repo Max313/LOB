@@ -85,5 +85,6 @@
     <string name="value10_EditView">Value 7</string>
     <string name="value11_EditView">Value 8</string>
     <string name="value12_EditView">Value 9</string>
+    <string name="speichern_Button">Speichern</string>
 
 </resources>
