@@ -16,14 +16,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/universalWeiter_Textview"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="0.2"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nenne 5 Möglichkeiten"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="0.6"/>
 
     <LinearLayout
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/weiter_button"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:layout_weight="0.5"
             android:id="@+id/universalWeiter_ButtonWeiter"/>
 
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/universalWeiter_Button2"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:layout_weight="0.5"
             android:id="@+id/universal_Nichts"/>
 

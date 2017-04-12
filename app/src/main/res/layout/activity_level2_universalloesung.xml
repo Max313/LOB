@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/universal_Textview"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="0.8"/>
 
     <LinearLayout
@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/weiter_button"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:layout_weight="0.5"
             android:id="@+id/universal_ButtonWeiter"/>
 
@@ -35,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="@string/universal_Button2"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:layout_weight="0.5"
             android:id="@+id/universal_Anekdote"/>
 

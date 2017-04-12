@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/ausnahmen_Textview"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="0.8"
         android:id="@+id/ausnahmen_Textview"/>
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/weiter_button"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="0.2"
         android:id="@+id/ausnahmen_ButtonWeiter"
         />

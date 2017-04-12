@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/problem_beschreibung"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:id="@+id/problemDank"
         />
 
@@ -24,7 +24,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/beschreibung"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="1"/>
 
     <Button

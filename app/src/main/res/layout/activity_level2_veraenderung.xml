@@ -16,7 +16,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/veraenderung_Textview"
-        android:textSize="25dp"/>
+        android:textSize="@dimen/activity_normalcontent"
+        />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,7 +30,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:text="@string/veraenderung_ButtonJa"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:id="@+id/veraenderung_ButtonJa"/>
 
         <Button
@@ -37,7 +38,7 @@
             android:layout_height="match_parent"
             android:layout_weight="0.5"
             android:text="@string/veraenderung_ButtonNein"
-            android:textSize="25dp"
+            android:textSize="@dimen/activity_normalcontent"
             android:id="@+id/veraenderung_ButtonNein"/>
     </LinearLayout>
 

@@ -15,7 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/zielFesthalten_TextView"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:id="@+id/zielFesthalten_textView"
         />
 
@@ -23,7 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zielFesthalten_EditView"
-        android:textSize="25dp"
+        android:textSize="@dimen/activity_normalcontent"
         android:layout_weight="1"/>
 
     <Button

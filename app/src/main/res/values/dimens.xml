@@ -5,4 +5,5 @@
     <dimen name="activity_header">20dp</dimen>
     <dimen name="activity_tablecontent">20dp</dimen>
     <dimen name="activity_space">60dp</dimen>
+    <dimen name="activity_normalcontent">25dp</dimen>
 </resources>
