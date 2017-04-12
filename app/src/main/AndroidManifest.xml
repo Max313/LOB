@@ -19,7 +19,9 @@
         <activity android:name=".Level1Problemdefinition" />
         <activity android:name=".ProblemBeschreibung" />
         <activity android:name=".Level1Zieldefinition" />
-        <activity android:name=".Level1ZielVerwahren"></activity>
+        <activity android:name=".Level1ZielVerwahren" />
+        <activity android:name=".Level2Loesungswege" />
+        <activity android:name=".Level2Veraenderung"></activity>
     </application>
 
 </manifest>
