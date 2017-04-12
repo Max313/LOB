@@ -52,7 +52,7 @@
     <string name="hypoLoesung_Button">Übung starten</string>
 
     <!-- Phantasiereise -->
-    <string name="phantasie_Textview"> Stell dir vor, du hast die App wieder geschlossen...du gehst deinem üblichen Tagesablauf nach...und langsam wird es Abend..nach dem Abendessen sitzt du vieleicht noch etwas vor dem Fernseher...dann spürst du immer mehr die Müdigkeit...</string>
+    <string name="phantasie_Textview"> Stell dir vor, du hast die App wieder geschlossen...du gehst deinem üblichen Tagesablauf nach...und langsam wird es Abend..nach dem Abendessen sitzt du vieleicht noch etwas vor dem Fernseher...dann spürst du immer mehr die Müdigkeit....</string>
 
     <!-- Universal Lösungsschlüssel -->
     <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt eigentlich nur noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment heruaskäme.</string>
