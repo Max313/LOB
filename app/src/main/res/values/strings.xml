@@ -99,4 +99,8 @@
     in die Welt hinaustragen. Darum lass uns die Liste um ein paar Experimente erweitern.</string>
     <string name="uebungStart_Button">Übung starten</string>
 
+    <!-- Konsolidierung -->
+    <string name="uebersichtSonne_TextView">Sonne der Erkenntnis</string>
+    <string name="uebersichtAuge_TextView">Insel des Sehenden</string>
+
 </resources>

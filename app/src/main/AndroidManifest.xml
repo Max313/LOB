@@ -33,7 +33,8 @@
         <activity android:name=".Level2Exitstrategie" />
         <activity android:name=".Wunderbar" />
         <activity android:name=".Staerkeinsel" />
-        <activity android:name=".Level3UebungStart"></activity>
+        <activity android:name=".Level3UebungStart" />
+        <activity android:name=".Level4Uebersicht"></activity>
     </application>
 
 </manifest>
