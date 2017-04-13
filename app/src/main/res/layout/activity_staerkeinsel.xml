@@ -91,6 +91,7 @@
         <TableRow>
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -98,12 +99,13 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
+                android:hint="@string/value4_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value4_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -111,12 +113,13 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
+                android:hint="@string/value5_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value5_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -124,8 +127,8 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
+                android:hint="@string/value6_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value6_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
@@ -133,6 +136,7 @@
         <TableRow>
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -140,12 +144,13 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:ems="10"
+                android:hint="@string/value7_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value7_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -153,12 +158,13 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:ems="10"
+                android:hint="@string/value8_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value8_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
                 android:id="@+id/valueEditText9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -166,8 +172,8 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:ems="10"
+                android:hint="@string/value9_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value9_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
@@ -175,19 +181,20 @@
         <TableRow>
 
             <EditText
-                android:id="@+id/valueEditText10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:scrollbars="vertical"
 
+                android:inputType="textPersonName"
+                android:id="@+id/valueEditText10"
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
-                android:inputType="textPersonName"
-                android:text="@string/value10_EditView"
+                android:hint="@string/value10_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
+
                 android:id="@+id/valueEditText11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -195,20 +202,22 @@
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
+                android:hint="@string/value11_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value11_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <EditText
+                android:scrollbars="vertical"
+
                 android:id="@+id/valueEditText12"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_even"
                 android:ems="10"
+                android:hint="@string/value12_EditView"
                 android:inputType="textPersonName"
-                android:text="@string/value12_EditView"
                 android:textAlignment="center"
                 android:textSize="@dimen/activity_tablecontent" />
         </TableRow>

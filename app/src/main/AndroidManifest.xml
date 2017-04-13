@@ -31,7 +31,9 @@
         <activity android:name=".Level2UniversalloesungAnekdote" />
         <activity android:name=".Level2UniversalloesungWeiter" />
         <activity android:name=".Level2Exitstrategie" />
-        <activity android:name=".Level1ProblemBeschreibungDank"></activity>
+        <activity android:name=".Wunderbar"></activity>
+        <activity android:name=".Staerkeinsel"></activity>
+
     </application>
 
 </manifest>
