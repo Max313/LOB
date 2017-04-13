@@ -94,4 +94,9 @@
     <string name="speichern_Button">Speichern</string>
     <string name="ok">OK</string>
 
+    <!-- UebungStart -->
+    <string name="uebungStart_TextView">Das nenn ich ein hartes, aber wertvolles Stück Arbeit. Gratulation. Wer so tolle Fähigkeiten und Kompetenzen besitzt muss sie auch
+    in die Welt hinaustragen. Darum lass uns die Liste um ein paar Experimente erweitern.</string>
+    <string name="uebungStart_Button">Übung starten</string>
+
 </resources>

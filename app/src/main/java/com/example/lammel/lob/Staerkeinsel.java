@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class Staerkeinsel extends AppCompatActivity implements View.OnClickListener{
@@ -13,6 +14,7 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
     private TextView verhalten;
     private TextView kompliment;
     private TextView ressourcen;
+    private Button speichern;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +29,12 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
 
         ressourcen = (TextView) findViewById(R.id.ressourcenTextView);
         ressourcen.setOnClickListener(this);
+
+        speichern = (Button) findViewById(R.id.speichernStaerkeButton);
+        speichern.setOnClickListener(this);
+
+
+
 
     }
 
@@ -69,6 +77,9 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
                 AlertDialog dialogR = builder.create();
                 dialogR.show();
                 break;
+
+            case R.id.speichernStaerkeButton:
+                startActivity(new Intent(this, Level3UebungStart.class));
 
             default:
                 break;
