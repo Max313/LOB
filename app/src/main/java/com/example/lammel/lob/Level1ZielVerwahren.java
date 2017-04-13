@@ -14,6 +14,7 @@ public class Level1ZielVerwahren extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zielverwahren);
+        this.setTitle("LOB - Dein Ziel");
         zielVerwahren_Button = (Button) findViewById(R.id.zielVerwahren_Button);
         zielVerwahren_Button.setOnClickListener(this);
     }

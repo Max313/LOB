@@ -14,6 +14,7 @@ public class Level2Veraenderung extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_veraenderung);
+        this.setTitle("LOB - Atolle");
         veraenderungJa = (Button) findViewById(R.id.veraenderung_ButtonJa);
         veraenderungJa.setOnClickListener(this);
         veraenderungNein = (Button) findViewById(R.id.veraenderung_ButtonNein);

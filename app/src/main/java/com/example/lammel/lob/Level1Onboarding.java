@@ -22,11 +22,14 @@ public class Level1Onboarding extends AppCompatActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_onboarding);
+        this.setTitle("LOB - Family Treasure");
+
         onboardingProzessStarten();
     }
 
     private void onboardingProzessStarten() {
         weiter_button = (Button) findViewById(R.id.weiter_button);
+
         onboard = (TextView) findViewById(R.id.onboard_1);
         weiter_button.setOnClickListener(this);
     }

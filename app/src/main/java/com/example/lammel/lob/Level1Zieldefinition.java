@@ -14,6 +14,7 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zieldefinition);
+        this.setTitle("LOB - Dein Ziel");
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setOnClickListener(this);
     }

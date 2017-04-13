@@ -17,6 +17,7 @@ public class Level2Phantasiereise extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_phantasiereise);
+        this.setTitle("LOB - Atolle");
         phantasieText = (TextView) findViewById(R.id.phantasie_Textview);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
         phantasieWeiter.setOnClickListener(this);

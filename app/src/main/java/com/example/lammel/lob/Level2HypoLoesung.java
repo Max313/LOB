@@ -14,6 +14,7 @@ public class Level2HypoLoesung extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_hypo_loesung);
+        this.setTitle("LOB - Atolle");
 
         hypoStarten = (Button) findViewById(R.id.hypoLoesung_Button);
         hypoStarten.setOnClickListener(this);

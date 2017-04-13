@@ -13,6 +13,7 @@ public class Level2VeraenderungJa extends AppCompatActivity implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_veraenderung_ja);
+        this.setTitle("LOB - Atolle");
         veraenderungWeiter = (Button) findViewById(R.id.veraenderungJa_ButtonWeiter);
         veraenderungWeiter.setOnClickListener(this);
     }

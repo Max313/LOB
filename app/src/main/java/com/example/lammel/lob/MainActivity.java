@@ -12,6 +12,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        this.setTitle("LOB - Willkommen");
         Button start_button = (Button) findViewById(R.id.start_button);
         start_button.setOnClickListener(this);
     }

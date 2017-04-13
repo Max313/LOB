@@ -14,6 +14,7 @@ public class Level2UniversalloesungWeiter extends AppCompatActivity implements V
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_universalloesung_weiter);
+        this.setTitle("LOB - Atolle");
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
         universalloesungWeiter_Weiter.setOnClickListener(this);
         universalloesungWeiter_Nichts = (Button) findViewById(R.id.universal_Nichts);

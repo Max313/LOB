@@ -14,6 +14,7 @@ public class Level2UniversalloesungAnekdote extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_universalloesung_anekdote);
+        this.setTitle("LOB - Atolle");
         universalAnekdote_Weiter = (Button) findViewById(R.id.universalAnekdote_ButtonWeiter);
         universalAnekdote_Weiter.setOnClickListener(this);
     }

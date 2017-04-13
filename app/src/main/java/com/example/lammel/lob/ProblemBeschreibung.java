@@ -16,6 +16,7 @@ public class ProblemBeschreibung extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem_beschreibung);
+        this.setTitle("LOB - Das Problem");
         weiterButtonProblem = (Button) findViewById(R.id.weiter_buttonProblem);
         weiterButtonProblem.setOnClickListener(this);
         problemDank = (TextView) findViewById(R.id.problemDank);

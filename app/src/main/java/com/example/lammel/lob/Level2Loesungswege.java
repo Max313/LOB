@@ -15,6 +15,7 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_loesungswege);
+        this.setTitle("LOB - Atolle");
         fertig = (Button) findViewById(R.id.loesungswege_ButtonFertig);
         fertig.setOnClickListener(this);
         mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);

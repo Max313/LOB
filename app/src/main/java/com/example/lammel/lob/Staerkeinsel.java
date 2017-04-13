@@ -18,6 +18,7 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staerkeinsel);
+        this.setTitle("LOB - Stärkeinsel");
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);
 

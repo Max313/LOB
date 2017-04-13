@@ -17,6 +17,7 @@ public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_ausnahmen);
+        this.setTitle("LOB - Atolle");
         ausnahmenText = (TextView) findViewById(R.id.ausnahmen_Textview);
         ausnahmenWeiter = (Button) findViewById(R.id.ausnahmen_ButtonWeiter);
         ausnahmenWeiter.setOnClickListener(this);

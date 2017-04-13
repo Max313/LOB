@@ -14,6 +14,7 @@ public class Level2Exitstrategie extends AppCompatActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_exitstrategie);
+        this.setTitle("LOB - Atolle");
         exitstrategie_Button = (Button) findViewById(R.id.exitstrategie_Button);
         exitstrategie_Button.setOnClickListener(this);
     }

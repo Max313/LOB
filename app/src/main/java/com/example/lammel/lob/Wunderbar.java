@@ -13,6 +13,7 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wunderbar);
+        this.setTitle("LOB - Wunderbar");
         weiter = (Button) findViewById(R.id.button);
         weiter.setOnClickListener(this);
     }

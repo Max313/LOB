@@ -17,6 +17,7 @@ public class Level1Problemdefinition extends AppCompatActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_problemdefinition);
+        this.setTitle("LOB - Das Problem");
         problem = (Button) findViewById(R.id.problemButton);
         keinProblem = (Button) findViewById(R.id.keinProblemButton);
         problem.setOnClickListener(this);

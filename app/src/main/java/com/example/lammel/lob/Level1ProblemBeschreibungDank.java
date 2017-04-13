@@ -14,6 +14,7 @@ public class Level1ProblemBeschreibungDank extends AppCompatActivity implements 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_problem_beschreibung_dank);
+        this.setTitle("LOB - Das Problem");
         problemBeschreibungDank_Button = (Button) findViewById(R.id.problem_BeschreibungDank_Button);
         problemBeschreibungDank_Button.setOnClickListener(this);
     }
