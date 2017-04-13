@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,5 +21,6 @@ public class Level2Exitstrategie extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         //hier gehts weiter
+        //startActivity(new Intent(this, ));
     }
 }

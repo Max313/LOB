@@ -15,11 +15,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Level1Onboarding" />
         <activity android:name=".Level1Problemdefinition" />
         <activity android:name=".ProblemBeschreibung" />
         <activity android:name=".Level1Zieldefinition" />
-        <activity android:name=".Level1ZielVerwahren"></activity>
+        <activity android:name=".Level1ZielVerwahren" />
+        <activity android:name=".Level2Loesungswege" />
+        <activity android:name=".Level2Veraenderung" />
+        <activity android:name=".Level2Ausnahmen" />
+        <activity android:name=".Level2VeraenderungJa" />
+        <activity android:name=".Level2HypoLoesung" />
+        <activity android:name=".Level2Phantasiereise" />
+        <activity android:name=".Level2Universalloesung" />
+        <activity android:name=".Level2UniversalloesungAnekdote" />
+        <activity android:name=".Level2UniversalloesungWeiter" />
+        <activity android:name=".Level2Exitstrategie" />
+
     </application>
 
 </manifest>
