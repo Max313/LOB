@@ -30,7 +30,7 @@ public class Level2Phantasiereise extends AppCompatActivity implements View.OnCl
             counter++;
         }
         else if(counter == 1){
-            phantasieText.setText("Woran werden sie es bemerken?\nUnd wie werden sie darauf reagieren?\nUNd wie wirst du wiederum deren Reaktion aufnehmen?");
+            phantasieText.setText("Woran werden sie es bemerken?\nUnd wie werden sie darauf reagieren?\nUnd wie wirst du wiederum deren Reaktion aufnehmen?");
             counter++;
         }
         else if(counter == 2){

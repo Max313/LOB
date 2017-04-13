@@ -18,6 +18,9 @@
     <string name="problem_beschreibung">Schreibe hier in 2 Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
     <string name="beschreibung">Beschreibung des Problems</string>
 
+    <!-- Problem Beschreibung Dank -->
+    <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem ist häufig sehr belastend und nimmt gedanklich viel Platz ein, raubt Energie und trübt den Blick auf das Positive. Lass uns einen ersten kleinen Versuch starten. Wir nehmen das Problem nun an uns und verwahren es für dich gut auf. Du kannst natürlich jederzeit darauf zugreifen, aber nun bist du erstmal frei. Die belastenden Gedanken liegen an einem anderen Ort und du hast Platz für Neues.</string>
+
     <!-- Ziel Definition -->
     <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?</string>
     <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen und Änderungen anpassen</string>
@@ -42,7 +45,7 @@
     <string name="title_activity_level2_veraenderung_ja">Level2VeraenderungJa</string>
 
     <!-- Veraenderung JA -->
-    <string name="veraenderungJa_Textview">Das klingt phantastisch, erzähl mir mehr.\nWenn die begonnenen Veränderungen in diese Richtung weitergehen, wäre das Ergebnis dessen auch dein Ziel?\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
+    <string name="veraenderungJa_Textview">Das klingt phantastisch, erzähl mir mehr.Wenn die begonnenen Veränderungen in diese Richtung weitergehen, wäre das Ergebnis dessen auch dein Ziel?\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
 
     <!-- Ausnahmen -->
     <string name="ausnahmen_Textview">Ich bin beeindruckt: Obwohl deine Situation schwierig zu sein scheint, bleibst du dran und raffst dich auf. Das spricht für sehr viel Energie.\n\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und die schauen wir uns genauer an.</string>
