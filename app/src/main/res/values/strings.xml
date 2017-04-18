@@ -76,23 +76,37 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
+    <string name="intro_TextView">Im nächsten Schritt möchten wir uns gemeinsam anschauen welches besonders positive Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen die dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, tragen wir sie in eine Tabelle ein. \nDamit du eine bessere Vorstellung bekommst, haben wir das erste Feld bereits beispielhaft ausgefüllt.
+    Hierzu stelle dir einen Vater vor der sich von seiner Partnerin, die Mutter seiner Kinder, trennt. Eine ebenfalls wirklich schwierige Herausforderung.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>
-    <string name="value1_TextView">Beispiel 1</string>
-    <string name="value2_TextView">Beispiel 2</string>
-    <string name="value3_TextView">Beispiel 3</string>
-    <string name="value4_EditView">Value 1</string>
-    <string name="value5_EditView">Value 2</string>
-    <string name="value6_EditView">Value 3</string>
-    <string name="value7_EditView">Value 4</string>
-    <string name="value8_EditView">Value 5</string>
-    <string name="value9_EditView">Value 6</string>
-    <string name="value10_EditView">Value 7</string>
-    <string name="value11_EditView">Value 8</string>
-    <string name="value12_EditView">Value 9</string>
-    <string name="speichern_Button">Speichern</string>
+    <string name="value1_TextView">Value 1</string>
+    <string name="value2_TextView">Value 1</string>
+    <string name="value3_TextView">Value 1</string>
+    <string name="value4_TextView">Value 2</string>
+    <string name="value5_TextView">Value 2</string>
+    <string name="value6_TextView">Value 2</string>
+    <string name="value7_TextView">Value 3</string>
+    <string name="value8_TextView">Value 3</string>
+    <string name="value9_TextView">Value 3</string>
+    <string name="value10_TextView">Value 4</string>
+    <string name="value11_TextView">Value 4</string>
+    <string name="value12_TextView">Value 4</string>
+    <string name="weiter_Button">Weiter</string>
     <string name="ok">OK</string>
+
+    <!-- Verhalten -->
+    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Arbeitet ruhig und gefasst an einer möglichst guten Lösung für seine Kinder, seine Exfrau und sich um die Trennung zu handhaben.</string>
+    <string name="platzhalterVerhalten_EditText">Eingabe</string>
+    <!-- Kompliment -->
+    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Wie überlegt und umsichtig du an die Situation herangehst ist sehr beeindruckend.</string>
+
+    <!-- Ressource -->
+    <string name="beispielRessource_TextView"><b>Beispiel:</b> Gelassenheit</string>
+
+    <!-- Übersicht Stärkeninsel -->
+    <string name="speichern_Button">Speichern</string>
 
     <!-- UebungStart -->
     <string name="uebungStart_TextView">Das nenn ich ein hartes, aber wertvolles Stück Arbeit. Gratulation. Wer so tolle Fähigkeiten und Kompetenzen besitzt muss sie auch
@@ -103,4 +117,12 @@
     <string name="uebersichtSonne_TextView">Sonne der Erkenntnis</string>
     <string name="uebersichtAuge_TextView">Insel des Sehenden</string>
 
+    <!-- Insel des Sehenden -->
+    <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
+    verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen.</string>
+    <string name="fragenStart_Button">Fragen starten</string>
+
+    <!-- Insel Frage1 -->
+    <string name="frage1_TextView">Beschreibe in einem Satz: \nWas ist seit unserem letzten Treffen innerhalb der App besser geworden?</string>
+    <string name="frage1Weiter_Button">Weiter</string>
 </resources>

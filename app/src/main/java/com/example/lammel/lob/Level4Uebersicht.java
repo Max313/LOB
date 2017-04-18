@@ -21,7 +21,7 @@ public class Level4Uebersicht extends AppCompatActivity implements View.OnClickL
         sun = (ImageView) findViewById(R.id.Sonne_imageView);
         sun.setOnClickListener(this);
 
-        eye = (ImageView) findViewById(R.id.Sonne_imageView);
+        eye = (ImageView) findViewById(R.id.Auge_imageView);
         eye.setOnClickListener(this);
 
 
@@ -35,7 +35,7 @@ public class Level4Uebersicht extends AppCompatActivity implements View.OnClickL
                 break;
 
             case R.id.Auge_imageView:
-                startActivity(new Intent(this, Level3UebungStart.class));
+                startActivity(new Intent(this, Level4InselDesSehendenStart.class));
                 break;
             default:
                 break;
