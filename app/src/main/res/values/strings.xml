@@ -128,18 +128,26 @@
     <string name="frage1Weiter_Button">Weiter</string>
 
     <!-- Insel Frage2 -->
-    <string name="frage2_TextView">Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?</string>
     <string name="frage2Weiter_Button">Weiter</string>
 
     <!-- Insel Frage3 -->
-    <string name="frage3_TextView">Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefüh hast, einen Schritt weiter zu sein?</string>
+    <string name="frage3_TextView"></string>
     <string name="frage3Weiter_Button">Weiter</string>
 
     <!-- Insel Frage4 -->
-    <string name="frage4_TextView">Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?</string>
+    <string name="frage4_TextView"></string>
     <string name="frage4Weiter_Button">Weiter</string>
 
-
+    <!-- Sonne der Erkenntnis - Wörter -->
+    <string name="WWort1_TextView">Was?</string>
+    <string name="WWort2_TextView">Wann?</string>
+    <string name="WWort3_TextView">Woran?</string>
+    <string name="WWort4_TextView">Wo?</string>
+    <string name="WWort5_TextView">Welche?</string>
+    <string name="WWort6_TextView">Wie?</string>
+    <string name="WWort7_TextView">Worauf?</string>
+    <string name="WWort8_TextView">Wer?</string>
+    <string name="Mitte_TextView">Veränderung</string>
 
 
 </resources>

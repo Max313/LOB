@@ -23,7 +23,7 @@ public class Level4InselDesSehendenStart extends AppCompatActivity implements Vi
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, Level4InselFrage1.class));
+        startActivity(new Intent(this, Level4InselFragen.class));
 
     }
 }

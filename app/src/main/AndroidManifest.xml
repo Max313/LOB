@@ -36,7 +36,7 @@
         <activity android:name=".Level3UebungStart" />
         <activity android:name=".Level4Uebersicht" />
         <activity android:name=".Level4InselDesSehendenStart" />
-        <activity android:name=".Level4InselFrage1" />
+        <activity android:name=".Level4InselFragen" />
         <activity android:name=".Verhalten" />
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
@@ -44,7 +44,15 @@
         <activity android:name=".Level4InselFrage2" />
         <activity android:name=".Level4InselFrage3" />
         <activity android:name=".Level4InselFrage4" />
-        <activity android:name=".Level4SonneDerErkenntnis"></activity>
+        <activity android:name=".Level4SonneDerErkenntnis" />
+        <activity android:name=".Sonne1" />
+        <activity android:name=".Sonne2" />
+        <activity android:name=".Sonne3" />
+        <activity android:name=".Sonne4" />
+        <activity android:name=".Sonne5" />
+        <activity android:name=".Sonne6" />
+        <activity android:name=".Sonne7" />
+        <activity android:name=".Sonne8"></activity>
     </application>
 
 </manifest>
