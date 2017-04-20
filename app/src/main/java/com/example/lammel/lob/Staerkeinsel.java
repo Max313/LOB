@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 public class Staerkeinsel extends AppCompatActivity implements View.OnClickListener{
@@ -15,6 +16,7 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
     private TextView kompliment;
     private TextView ressourcen;
     private Button speichern;
+    private TableLayout table;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,9 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
 
         speichern = (Button) findViewById(R.id.weiterStaerkeButton);
         speichern.setOnClickListener(this);
+
+        table = (TableLayout) findViewById(R.id.tableSmall);
+        table.setOnClickListener(this);
 
 
 
@@ -81,6 +86,9 @@ public class Staerkeinsel extends AppCompatActivity implements View.OnClickListe
             case R.id.weiterStaerkeButton:
                 startActivity(new Intent(this, Verhalten.class));
 
+
+            case R.id.tableSmall:
+                startActivity(new Intent(this, Verhalten.class));
             default:
                 break;
         }

@@ -39,7 +39,8 @@
         <activity android:name=".Level4InselFrage1" />
         <activity android:name=".Verhalten" />
         <activity android:name=".Kompliment" />
-        <activity android:name=".Ressource"></activity>
+        <activity android:name=".Ressource" />
+        <activity android:name=".UebersichtTable"></activity>
     </application>
 
 </manifest>

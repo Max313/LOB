@@ -51,42 +51,42 @@
         <TableRow>
 
             <EditText
+                android:id="@+id/verhalten1EditText"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-                android:inputType="textMultiLine"
-                />
+                android:inputType="textMultiLine" />
 
         </TableRow>
 
         <TableRow>
 
             <EditText
+                android:id="@+id/verhalten2EditText"
                 android:layout_width="344dp"
-                android:layout_height="wrap_content"
 
+                android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_even"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-                android:inputType="textMultiLine"
-                />
+                android:inputType="textMultiLine" />
 
         </TableRow>
 
         <TableRow>
 
             <EditText
+                android:id="@+id/verhalten3EditText"
                 android:layout_width="344dp"
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-                android:inputType="textMultiLine"
 
-                />
+                android:inputType="textMultiLine" />
 
         </TableRow>
     </TableLayout>
