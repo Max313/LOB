@@ -40,7 +40,11 @@
         <activity android:name=".Verhalten" />
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
-        <activity android:name=".UebersichtTable"></activity>
+        <activity android:name=".UebersichtTable" />
+        <activity android:name=".Level4InselFrage2" />
+        <activity android:name=".Level4InselFrage3" />
+        <activity android:name=".Level4InselFrage4" />
+        <activity android:name=".Level4SonneDerErkenntnis"></activity>
     </application>
 
 </manifest>

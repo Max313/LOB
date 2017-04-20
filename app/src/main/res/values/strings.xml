@@ -119,10 +119,26 @@
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
-    verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen.</string>
+    verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen. Dabei möchte ich dass du dir die Zeit nimmst über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
 
     <!-- Insel Frage1 -->
     <string name="frage1_TextView">Beschreibe in einem Satz: \nWas ist seit unserem letzten Treffen innerhalb der App besser geworden?</string>
     <string name="frage1Weiter_Button">Weiter</string>
+
+    <!-- Insel Frage2 -->
+    <string name="frage2_TextView">Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?</string>
+    <string name="frage2Weiter_Button">Weiter</string>
+
+    <!-- Insel Frage3 -->
+    <string name="frage3_TextView">Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefüh hast, einen Schritt weiter zu sein?</string>
+    <string name="frage3Weiter_Button">Weiter</string>
+
+    <!-- Insel Frage4 -->
+    <string name="frage4_TextView">Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?</string>
+    <string name="frage4Weiter_Button">Weiter</string>
+
+
+
+
 </resources>

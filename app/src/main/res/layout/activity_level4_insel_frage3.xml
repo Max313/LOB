@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level4InselFrage1">
+    tools:context="com.example.lammel.lob.Level4InselFrage3">
 
     <TextView
-        android:id="@+id/frage1_TextView"
+        android:id="@+id/frage3_TextView"
         android:textSize="@dimen/activity_normalcontent"
         android:layout_width="341dp"
         android:layout_height="400dp"
@@ -16,18 +16,19 @@
         android:layout_marginRight="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:text="@string/frage1_TextView"
+        android:text="@string/frage3_TextView"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/frage1_Button"
+        android:id="@+id/frage3_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="@string/frage1Weiter_Button"
+        android:text="@string/frage3Weiter_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
+
 </android.support.constraint.ConstraintLayout>
