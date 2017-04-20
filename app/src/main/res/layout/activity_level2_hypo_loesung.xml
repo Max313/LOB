@@ -11,20 +11,23 @@
     tools:context="com.example.lammel.lob.Level2HypoLoesung"
     android:orientation="vertical"
     android:layout_weight="1">
-
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="0.8"
-        android:text="@string/hypoLoesung_Textview"
-        android:textSize="@dimen/activity_normalcontent"
-        />
-
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.8"
+            android:text="@string/hypoLoesung_Textview"
+            android:textSize="@dimen/activity_normalcontent"
+            />
+    </ScrollView>
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="0.2"
         android:text="@string/hypoLoesung_Button"
         android:textSize="@dimen/activity_normalcontent"
+        android:layout_gravity="bottom|center"
         android:id="@+id/hypoLoesung_Button"/>
 </LinearLayout>

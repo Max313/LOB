@@ -49,9 +49,9 @@ public class Level1Onboarding extends AppCompatActivity implements View.OnClickL
             counter++;
         }
         else if (counter == 3){
-            //startActivity(new Intent(this, Level1Problemdefinition.class));
+            startActivity(new Intent(this, Level1Problemdefinition.class));
 
-            startActivity(new Intent(this, Staerkeinsel.class));
+            //startActivity(new Intent(this, Staerkeinsel.class));
         }
     }
 }

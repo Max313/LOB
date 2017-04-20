@@ -9,25 +9,26 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.lammel.lob.Level2Veraenderung"
-    android:orientation="vertical"
-    android:layout_weight="1.0">
-
-    <TextView
+    android:orientation="vertical">
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/veraenderung_Textview"
-        android:textSize="@dimen/activity_normalcontent"
-        />
-
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/veraenderung_Textview"
+            android:textSize="@dimen/activity_normalcontent"
+            />
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="0.2"
+        android:layout_height="wrap_content"
         android:orientation="horizontal">
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/veraenderung_ButtonJa"
             android:textSize="@dimen/activity_normalcontent"
@@ -35,7 +36,7 @@
 
         <Button
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_weight="0.5"
             android:text="@string/veraenderung_ButtonNein"
             android:textSize="@dimen/activity_normalcontent"

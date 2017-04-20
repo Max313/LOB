@@ -17,15 +17,15 @@
         android:layout_height="wrap_content"
         android:text="@string/ausnahmen_Textview"
         android:textSize="@dimen/activity_normalcontent"
-        android:layout_weight="0.8"
+        android:layout_weight="1"
         android:id="@+id/ausnahmen_Textview"/>
 
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weiter_button"
         android:textSize="@dimen/activity_normalcontent"
-        android:layout_weight="0.2"
+        android:layout_gravity="bottom|center"
         android:id="@+id/ausnahmen_ButtonWeiter"
         />
 

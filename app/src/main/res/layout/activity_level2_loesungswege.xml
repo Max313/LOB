@@ -12,43 +12,55 @@
     android:orientation="vertical"
     android:layout_weight="1">
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/loesungswege_Textview"
-        android:textSize="@dimen/activity_normalcontent"
-        android:layout_weight="0.2"/>
+        android:layout_weight="1">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/loesungswege_Textview"
+                android:textSize="@dimen/activity_normalcontent" />
+            <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="174dp"
+                    android:orientation="vertical">
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loesungswege_EditView1"
+                        android:textSize="@dimen/activity_normalcontent"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loesungswege_EditView2"
+                        android:textSize="@dimen/activity_normalcontent"
+                        />
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/loesungswege_EditView3"
+                        android:textSize="@dimen/activity_normalcontent"
+                        />
+            </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loesungswege_Textview2"
+                    android:textSize="@dimen/activity_normalcontent"/>
+        </LinearLayout>
+    </ScrollView>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.6"
-        android:orientation="vertical">
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/loesungswege_EditView1"
-            android:textSize="@dimen/activity_normalcontent"
-            />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/loesungswege_EditView2"
-            android:textSize="@dimen/activity_normalcontent"
-            />
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/loesungswege_EditView3"
-            android:textSize="@dimen/activity_normalcontent"
-            />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.2">
+        android:layout_height="wrap_content">
         <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"

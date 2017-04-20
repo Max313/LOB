@@ -31,10 +31,11 @@
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
     <!-- Neue Loesungswege -->
-    <string name="loesungswege_Textview">Aller guten Dinge sind drei:</string>
+    <string name="loesungswege_Textview">Denke an Situationen die zu einer Verbesserung geführt haben und schreibe diese auf. Aller guten Dinge sind drei:</string>
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
+    <string name="loesungswege_Textview2">Du hast es solange geschafft trotz dieses Problems durchzuhalten. Was hat dir geholfen, diese Energie immer wieder aufs Neue aufzubringen?</string>
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
