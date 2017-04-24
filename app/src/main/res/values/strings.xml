@@ -124,19 +124,9 @@
     <string name="fragenStart_Button">Fragen starten</string>
 
     <!-- Insel Frage1 -->
-    <string name="frage1_TextView">Beschreibe in einem Satz: \nWas ist seit unserem letzten Treffen innerhalb der App besser geworden?</string>
+    <string name="frage1_TextView"><b>Beschreibe in einem Satz:</b> \nWas ist seit der letzten App Nutzung besser geworden?</string>
     <string name="frage1Weiter_Button">Weiter</string>
 
-    <!-- Insel Frage2 -->
-    <string name="frage2Weiter_Button">Weiter</string>
-
-    <!-- Insel Frage3 -->
-    <string name="frage3_TextView"></string>
-    <string name="frage3Weiter_Button">Weiter</string>
-
-    <!-- Insel Frage4 -->
-    <string name="frage4_TextView"></string>
-    <string name="frage4Weiter_Button">Weiter</string>
 
     <!-- Sonne der Erkenntnis - Wörter -->
     <string name="WWort1_TextView">Was?</string>
@@ -148,6 +138,13 @@
     <string name="WWort7_TextView">Worauf?</string>
     <string name="WWort8_TextView">Wer?</string>
     <string name="Mitte_TextView">Veränderung</string>
+
+    <!-- Sonne der Erkenntnis - Intro -->
+    <string name="SonneIntro_TextView">Wie man sieht hat sich bereits sehr viel verändert. Stellt sich die Frage was genau zu den Veränderungen geführt hat und ob und wie die Veränderungen bereits sichtbar sind. Um dies besser zu verstehen gibt es die Sonne der Erkenntnis. Hier werden 8 W-Fragen gestellt.
+        Bitte nimm dir wieder für jede Frage genügend Zeit und formuliere die Antwort schon mal im Kopf. Damit du die Antwort auch in Zukunft immer parat hast, möchte ich dich bitten diese als Sprachmemo in der App aufzunehmen. So kannst du auch jeder Zeit zu deiner Antwort zurückkehren und sie dir nochmal anhören oder eine neue Antwort aufnehmen.</string>
+
+    <!-- Sonne W1 Frage -->
+    <string name="SonneF1_TextView">Beschreibe in einem Satz: \nWas hat dich auf diese gute Idee gebracht?</string>
 
 
 </resources>

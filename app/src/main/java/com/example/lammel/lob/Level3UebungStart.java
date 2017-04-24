@@ -22,7 +22,7 @@ public class Level3UebungStart extends AppCompatActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, Level4Uebersicht.class));
+        startActivity(new Intent(this, Level4InselDesSehenden.class));
 
     }
 }

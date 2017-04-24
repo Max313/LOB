@@ -34,7 +34,7 @@
         <activity android:name=".Wunderbar" />
         <activity android:name=".Staerkeinsel" />
         <activity android:name=".Level3UebungStart" />
-        <activity android:name=".Level4Uebersicht" />
+        <activity android:name=".Level4InselDesSehenden" />
         <activity android:name=".Level4InselDesSehendenStart" />
         <activity android:name=".Level4InselFragen" />
         <activity android:name=".Verhalten" />
@@ -52,7 +52,8 @@
         <activity android:name=".Sonne5" />
         <activity android:name=".Sonne6" />
         <activity android:name=".Sonne7" />
-        <activity android:name=".Sonne8"></activity>
+        <activity android:name=".Sonne8" />
+        <activity android:name=".SonneDerErkenntnisStart"></activity>
     </application>
 
 </manifest>
