@@ -145,6 +145,45 @@
 
     <!-- Sonne W1 Frage -->
     <string name="SonneF1_TextView">Beschreibe in einem Satz: \nWas hat dich auf diese gute Idee gebracht?</string>
+    <string name="Weiter1_Button">Weiter</string>
+    <string name="ZurUebersicht1_Button">Zur Übersicht</string>
 
+    <!-- Sonne W2 Frage -->
+    <string name="SonneF2_TextView">Wann war das zum ersten Mal so?</string>
+    <string name="Weiter2_Button">Weiter</string>
+    <string name="ZurUebersicht2_Button">Zur Übersicht</string>
+
+    <!-- Sonne W3 Frage -->
+    <string name="SonneF3_TextView">Überlege dir: \nWoran würde ein Außenstehender diese prositiven Konsequenzen erkennen.</string>
+    <string name="Weiter3_Button">Weiter</string>
+    <string name="ZurUebersicht3_Button">Zur Übersicht</string>
+
+    <!-- Sonne W4 Frage -->
+    <string name="SonneF4_TextView">Wo  hast du das noch so gemacht?</string>
+    <string name="Weiter4_Button">Weiter</string>
+    <string name="ZurUebersicht4_Button">Zur Übersicht</string>
+
+    <!-- Sonne W5 Frage -->
+    <string name="SonneF5_TextView">Wer von deinen Bekannten hat die Veränderung als Erster bemerkt?</string>
+    <string name="Weiter5_Button">Weiter</string>
+    <string name="ZurUebersicht5_Button">Zur Übersicht</string>
+
+    <!-- Sonne W6 Frage -->
+    <string name="SonneF6_TextView">Worauf bist du ganz besonders stolz?</string>
+    <string name="Weiter6_Button">Weiter</string>
+    <string name="ZurUebersicht6_Button">Zur Übersicht</string>
+
+    <!-- Sonne W7 Frage -->
+    <string name="SonneF7_TextView">Wie hast du das genau gemacht? Erzähl mir mehr darüber, ich finde das sehr spannend.</string>
+    <string name="Weiter7_Button">Weiter</string>
+    <string name="ZurUebersicht7_Button">Zur Übersicht</string>
+
+    <!-- Sonne W8 Frage -->
+    <string name="SonneF8_TextView">Welche Fähigkeiten waren dir dabei besonders nützlich.</string>
+    <string name="Weiter8_Button">Weiter</string>
+    <string name="ZurUebersicht8_Button">Zur Übersicht</string>
+
+    <!-- Mantra -->
+    <string name="Mantra_TextView">Mach mit dem weiter, was funktioniert! Du bist der Experte deines Lebens.</string>
 
 </resources>

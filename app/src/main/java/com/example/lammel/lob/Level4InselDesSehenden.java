@@ -20,11 +20,6 @@ public class Level4InselDesSehenden extends AppCompatActivity implements View.On
         start = (Button) findViewById(R.id.fragenStart_Button);
         start.setOnClickListener(this);
 
-
-
-
-
-
     }
 
     @Override
