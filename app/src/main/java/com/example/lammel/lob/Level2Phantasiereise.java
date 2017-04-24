@@ -35,8 +35,9 @@ public class Level2Phantasiereise extends AppCompatActivity implements View.OnCl
             counter++;
         }
         else if(counter == 2){
-            startActivity(new Intent(this, Level2Universalloesung.class));
-            counter = 0;
+            Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+            intent.putExtra("LoesungsCounter", 2);
+            startActivity(intent);
         }
     }
 }

@@ -14,12 +14,13 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight="1">
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -30,33 +31,42 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Möglichkeit 1"
+                android:hint="Nenne Möglichkeiten"
                 android:textSize="@dimen/activity_normalcontent"
+                android:id="@+id/universal_EditText"
+                android:layout_weight="1"
                 />
-            <EditText
+         <!--   <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Möglichkeit 2"
                 android:textSize="@dimen/activity_normalcontent"
+                android:id="@+id/universal_EditText2"
+
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Möglichkeit 3"
                 android:textSize="@dimen/activity_normalcontent"
+                android:id="@+id/universal_EditText3"
+
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Möglichkeit 4"
                 android:textSize="@dimen/activity_normalcontent"
+                android:id="@+id/universal_EditText4"
                 />
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Möglichkeit 5"
                 android:textSize="@dimen/activity_normalcontent"
-                />
+                android:id="@+id/universal_EditText5"
+
+                /> -->
         </LinearLayout>
     </ScrollView>
 

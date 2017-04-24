@@ -21,7 +21,8 @@ public class Level2Exitstrategie extends AppCompatActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        //hier gehts weiter
-        startActivity(new Intent(this, Wunderbar.class));
+        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+        intent.putExtra("LoesungsCounter", 4);
+        startActivity(intent);
     }
 }

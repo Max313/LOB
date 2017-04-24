@@ -20,6 +20,8 @@ public class Level2VeraenderungJa extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, Level2Ausnahmen.class));
+        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+        intent.putExtra("LoesungsCounter", 0);
+        startActivity(intent);
     }
 }

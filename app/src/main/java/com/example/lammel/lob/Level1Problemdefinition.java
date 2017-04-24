@@ -14,6 +14,7 @@ public class Level1Problemdefinition extends AppCompatActivity implements View.O
     private Button problem;
     private Button keinProblem;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_problemdefinition);
@@ -32,7 +33,7 @@ public class Level1Problemdefinition extends AppCompatActivity implements View.O
                 break;
 
             case R.id.problemButton:
-                startActivity(new Intent(this, ProblemBeschreibung.class));
+                startActivity(new Intent(this, Level1_ProblemBeschreibung.class));
                 break;
 
             default:

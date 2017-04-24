@@ -3,8 +3,11 @@ package com.example.lammel.lob;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class Level2UniversalloesungWeiter extends AppCompatActivity implements View.OnClickListener{
 
@@ -17,16 +20,35 @@ public class Level2UniversalloesungWeiter extends AppCompatActivity implements V
         this.setTitle("LOB - Atolle");
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
         universalloesungWeiter_Weiter.setOnClickListener(this);
+        universalloesungWeiter_Weiter.setEnabled(false);
         universalloesungWeiter_Nichts = (Button) findViewById(R.id.universal_Nichts);
         universalloesungWeiter_Nichts.setOnClickListener(this);
 
+        final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
+        txt1.addTextChangedListener(new TextWatcher()
+        {
+            public void afterTextChanged(Editable s)
+            {
+                if(txt1.length() == 0)
+                    universalloesungWeiter_Weiter.setEnabled(false); //disable button if no text entered
+                else
+                    universalloesungWeiter_Weiter.setEnabled(true);  //otherwise enable
+
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+            }
+        });
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.universalWeiter_ButtonWeiter:
-                startActivity(new Intent(this, Level2Exitstrategie.class));
+                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent.putExtra("LoesungsCounter", 3);
+                startActivity(intent);
                 break;
 
             case R.id.universal_Nichts:

@@ -29,7 +29,6 @@ public class Level2Veraenderung extends AppCompatActivity implements View.OnClic
                 break;
 
             case R.id.veraenderung_ButtonNein:
-                // oder Dialog?
                 //startActivity(new Intent(this, Level2VeraenderungNein.class));
                 startActivity(new Intent(this, Level2Ausnahmen.class));
                 break;

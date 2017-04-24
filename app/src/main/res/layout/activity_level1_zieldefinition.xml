@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/zielFesthalten_EditView"
         android:textSize="@dimen/activity_normalcontent"
+        android:id="@+id/zieldefinition_EditText"
         android:layout_weight="1"/>
 
     <Button

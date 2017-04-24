@@ -7,6 +7,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import static java.security.AccessController.getContext;
+
 public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickListener {
 
     private Button ausnahmenWeiter;
@@ -31,7 +33,9 @@ public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickLi
             counter++;
         }
         else if (counter == 1){
-            startActivity(new Intent(this, Level2HypoLoesung.class));
+            Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+            intent.putExtra("LoesungsCounter", 1);
+            startActivity(intent);
             counter = 0;
         }
     }

@@ -8,7 +8,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.lammel.lob.ProblemBeschreibung"
+    tools:context="com.example.lammel.lob.Level1_ProblemBeschreibung"
     android:orientation="vertical">
 
     <TextView
@@ -24,6 +24,7 @@
         android:layout_height="wrap_content"
         android:hint="@string/beschreibung"
         android:textSize="@dimen/activity_normalcontent"
+        android:id="@+id/problem_editText"
         android:layout_weight="1"/>
 
     <Button

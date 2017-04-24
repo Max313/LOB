@@ -22,6 +22,6 @@ public class Level1ZielVerwahren extends AppCompatActivity implements View.OnCli
     @Override
     public void onClick(View v) {
         //startActivity level 2
-        startActivity(new Intent(this, Level2Loesungswege.class));
+        startActivity(new Intent(this, Level2Veraenderung.class));
     }
 }

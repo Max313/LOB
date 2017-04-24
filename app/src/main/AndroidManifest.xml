@@ -17,11 +17,12 @@
         </activity>
         <activity android:name=".Level1Onboarding" />
         <activity android:name=".Level1Problemdefinition" />
-        <activity android:name=".ProblemBeschreibung" />
+        <activity android:name=".Level1_ProblemBeschreibung" />
         <activity android:name=".Level1ProblemBeschreibungDank" />
         <activity android:name=".Level1Zieldefinition" />
         <activity android:name=".Level1ZielVerwahren" />
         <activity android:name=".Level2Loesungswege" />
+        <activity android:name=".Level2NeuerWeg" />
         <activity android:name=".Level2Veraenderung" />
         <activity android:name=".Level2Ausnahmen" />
         <activity android:name=".Level2VeraenderungJa" />
@@ -31,19 +32,21 @@
         <activity android:name=".Level2UniversalloesungAnekdote" />
         <activity android:name=".Level2UniversalloesungWeiter" />
         <activity android:name=".Level2Exitstrategie" />
+        <activity android:name=".Level2KeineLoesung" />
         <activity android:name=".Wunderbar" />
         <activity android:name=".Staerkeinsel" />
         <activity android:name=".Level3UebungStart" />
         <activity android:name=".Level4InselDesSehenden" />
-        <activity android:name=".Level4InselDesSehendenStart" />
         <activity android:name=".Level4InselFragen" />
         <activity android:name=".Verhalten" />
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
         <activity android:name=".UebersichtTable" />
-        <activity android:name=".Level4InselFrage2" />
+      <!--<activity android:name=".Level4InselFrage2" />
         <activity android:name=".Level4InselFrage3" />
         <activity android:name=".Level4InselFrage4" />
+        <activity android:name=".Level4InselDesSehendenStart" />
+-->
         <activity android:name=".Level4SonneDerErkenntnis" />
         <activity android:name=".Sonne1" />
         <activity android:name=".Sonne2" />
