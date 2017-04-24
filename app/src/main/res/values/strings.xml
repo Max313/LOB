@@ -142,6 +142,7 @@
     <!-- Sonne der Erkenntnis - Intro -->
     <string name="SonneIntro_TextView">Wie man sieht hat sich bereits sehr viel verändert. Stellt sich die Frage was genau zu den Veränderungen geführt hat und ob und wie die Veränderungen bereits sichtbar sind. Um dies besser zu verstehen gibt es die Sonne der Erkenntnis. Hier werden 8 W-Fragen gestellt.
         Bitte nimm dir wieder für jede Frage genügend Zeit und formuliere die Antwort schon mal im Kopf. Damit du die Antwort auch in Zukunft immer parat hast, möchte ich dich bitten diese als Sprachmemo in der App aufzunehmen. So kannst du auch jeder Zeit zu deiner Antwort zurückkehren und sie dir nochmal anhören oder eine neue Antwort aufnehmen.</string>
+    <string name="zurSonne_Button">Start</string>
 
     <!-- Sonne W1 Frage -->
     <string name="SonneF1_TextView">Beschreibe in einem Satz: \nWas hat dich auf diese gute Idee gebracht?</string>
