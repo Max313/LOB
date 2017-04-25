@@ -54,7 +54,9 @@ public class Level2NeuerWeg extends AppCompatActivity implements View.OnClickLis
 
             case R.id.neuerWeg_ButtonZiel:
                 //Ziel wird geändert
-                //startActivity(new Intent(this, .class));
+                Intent intent = new Intent(v.getContext(), Level2ZieldefinitionNeu.class);
+                intent.putExtra("WegCounter", wegCounter);
+                startActivity(intent);
                 break;
 
             default:

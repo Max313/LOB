@@ -24,14 +24,16 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_level2_loesungswege);
         this.setTitle("LOB - Atolle");
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
+        mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);
+        mirFaelltNichtsEin.setOnClickListener(this);
+        mirFaelltNichtsEin.setEnabled(false);
         fertig = (Button) findViewById(R.id.loesungswege_ButtonFertig);
         if(loesungsCounter != 5){
             fertig.setEnabled(false);
+            mirFaelltNichtsEin.setEnabled(true);
         }
         fertig.setOnClickListener(this);
         enableButton();
-        mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);
-        mirFaelltNichtsEin.setOnClickListener(this);
     }
 
 

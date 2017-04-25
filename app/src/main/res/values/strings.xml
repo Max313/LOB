@@ -44,6 +44,10 @@
     <string name="neuerWeg_ButtonLoesung">Neuer Lösungsweg</string>
     <string name="neuerWeg_ButtonZiel">Ziel neu definieren</string>
 
+    <!-- Ziel Definition Neu -->
+    <string name="zieldefinitionNeu_TextView">Hat sich an deinem Ziel inzwischen etwas verändert?\n Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?</string>
+    <string name="zielFesthalten_zurueckButton">Zurück</string>
+
     <!-- Veraenderung vorab -->
     <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App runterzuladen, ging dem der Entschluss voraus etwas zu unternehmen.\nEin konkreter Schritt in Richtung Veränderung.\nHäufig beginnt damit ein Prozess.\nHat sich vielleich auch bei dir das eine oder andere verändert?\nOder ist es gerade dabei sich positiv zu verändern?</string>
     <string name="veraenderung_ButtonJa">Ja</string>

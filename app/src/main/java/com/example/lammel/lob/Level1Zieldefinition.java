@@ -11,7 +11,9 @@ import android.widget.EditText;
 
 public class Level1Zieldefinition extends AppCompatActivity implements View.OnClickListener{
 
-    Button zielFesthalten_Button;
+    private static String ziel;
+    private Button zielFesthalten_Button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,15 +23,17 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
-        final EditText txt = (EditText) findViewById(R.id.zieldefinition_EditText);
-        txt.addTextChangedListener(new TextWatcher()
+        final EditText zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
+        zieltxt.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt.length() == 0)
+                if(zieltxt.length() == 0)
                     zielFesthalten_Button.setEnabled(false); //disable button if no text entered
                 else
-                    zielFesthalten_Button.setEnabled(true);  //otherwise enable
+                    ziel = zieltxt.getText().toString();
+                    setZiel(ziel);
+                    zielFesthalten_Button.setEnabled(true);  //otherwise enabled
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -42,5 +46,12 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
     @Override
     public void onClick(View v) {
         startActivity(new Intent(this, Level1ZielVerwahren.class));
+    }
+
+    public static void setZiel(String letztesZiel){
+        ziel = letztesZiel;
+    }
+    public static String getZiel(){
+        return ziel;
     }
 }
