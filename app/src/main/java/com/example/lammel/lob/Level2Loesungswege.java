@@ -29,24 +29,22 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
             fertig.setEnabled(false);
         }
         fertig.setOnClickListener(this);
-      //  if(enableButton()){
-    //        fertig.setEnabled(true);
-    //    }
+        enableButton();
         mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);
         mirFaelltNichtsEin.setOnClickListener(this);
     }
 
 
-    public Boolean enableButton(){
+    public void enableButton(){
         final EditText txt1 = (EditText) findViewById(R.id.loesungswege_edittext1);
         txt1.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
             {
                 if(txt1.length() == 0)
-                    txt1leer = false; //disable button if no text entered
+                fertig.setEnabled(false); //disable button if no text entered
                 else
-                    txt1leer = true;  //otherwise enable
+                fertig.setEnabled(true);  //otherwise enable
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -60,9 +58,9 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
             public void afterTextChanged(Editable s)
             {
                 if(txt2.length() == 0)
-                    txt2leer = false; //disable button if no text entered
+                    fertig.setEnabled(false); //disable button if no text entered
                 else
-                    txt2leer = true;  //otherwise enable
+                    fertig.setEnabled(true);  //otherwise enable
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -76,9 +74,9 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
             public void afterTextChanged(Editable s)
             {
                 if(txt3.length() == 0)
-                    txt3leer = false; //disable button if no text entered
+                    fertig.setEnabled(false); //disable button if no text entered
                 else
-                    txt3leer = true;  //otherwise enable
+                    fertig.setEnabled(true);  //otherwise enable
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -86,12 +84,6 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
-        if(txt1leer || txt2leer || txt3leer){
-            return true;
-        }
-        else{
-            return false;
-        }
     }
 
     @Override

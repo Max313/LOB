@@ -65,7 +65,7 @@
 
     <!-- Universal Lösungsschlüssel -->
     <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt eigentlich nur noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment heruaskäme.</string>
-    <string name="universal_Button2">Anekdote</string>
+    <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->
     <string name="universalAnekdote_Textview">Eine kleine Geschichte über den Schatzmeister, der immer die gleiche Strecke von einer zur anderen Insel mit dem Boot gefahren ist. Bis ihm ein weiser Mann dann empfahl die Strecke, da sie nicht so lang ist, zu schwimmen und zu tauchen. Kleiner Film was er auf einmal alles wahrnimmt, Fische, Korallen, etc. Und nur weil er einmal was anders als sonst gemacht hat.</string>

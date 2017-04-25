@@ -32,7 +32,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/loesungswege_EditView1"
+                        android:hint="@string/loesungswege_EditView1"
                         android:textSize="@dimen/activity_normalcontent"
                         android:id="@+id/loesungswege_edittext1"
                         />
@@ -40,7 +40,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/loesungswege_EditView2"
+                        android:hint="@string/loesungswege_EditView2"
                         android:textSize="@dimen/activity_normalcontent"
                         android:id="@+id/loesungswege_edittext2"
 
@@ -49,7 +49,7 @@
                     <EditText
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="@string/loesungswege_EditView3"
+                        android:hint="@string/loesungswege_EditView3"
                         android:textSize="@dimen/activity_normalcontent"
                         android:id="@+id/loesungswege_edittext3"
 
