@@ -200,6 +200,28 @@
     <string name="ZurUebersicht8_Button">Zur Übersicht</string>
 
     <!-- Mantra -->
-    <string name="Mantra_TextView">Mach mit dem weiter, was funktioniert! Du bist der Experte deines Lebens.</string>
+    <string name="Mantra_TextView">Mach mit dem weiter, was funktioniert! \nDu bist der Experte deines Lebens.</string>
+    <string name="mantraWeiter_Button">Weiter</string>
+
+    <!-- Rückblick -->
+    <string name="rueckblick_TextView">Häufig ist es hilfreich noch mal auf das Erreichte zurückzublicken, um sich den Fortschritt bewusst zu machen.
+    Angenommen, die Ziffer 1 steht dafür, wie dein Leben ausgesehen hat, als du die App installiert hast, und die Ziffer 10 dafür, wie es aussehen sollte wenn dein Ziel
+     Final erreicht ist. \nWo stehst du deiner Einschätzung nach heute?</string>
+    <string name="Seek1_TextView">1</string>
+    <string name="Seek2_TextView">10</string>
+    <string name="rWeiter_Button">Weiter</string>
+
+    <!-- Neuorientierung -->
+    <string name="neu_TextView">Du bist noch nicht ganz da, wo du eigentlich sein wolltest? Aber du hast erste Schritte dahin unternommen, und das ist meist das schweirigste
+    Stück des Weges. Wenn man Neues ausprobiert, dann kommt man schon mal ins Stolpern. Das kennt jeder. Du hast sicher schon viele Probleme im Leben gemeistert. Welches Vorgehen
+    hat dir dabei immer geholfen? \nÜberdenke die Situation vielleicht noch mal mit einem neuen Ansatz.</string>
+    <string name="level2_Button">In Level 2 weitermachen.</string>
+    <string name="wEnde_Button">Ich bin zufrieden mit dem Fortschritt. \nWeiter</string>
+
+    <!-- Ende -->
+    <string name="Ende1_TextView">Es ist fantastisch! Du hast einen Unterschied realisiert in deiner Situation, der auch einen Unterschied macht. Sei dir dessen bewusst. Durch die
+    anfängliche Herausforderung hast du die Chance bekommen und ergriffen, dich zu entwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
+    Es ist sogar wichtig, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, nur so führen sie zu automatischen Verhaltensmustern.</string>
+    <string name="Ende_Button">Weiter</string>
 
 </resources>

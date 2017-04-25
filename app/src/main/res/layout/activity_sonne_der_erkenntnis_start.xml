@@ -17,20 +17,10 @@
         app:layout_constraintRight_toLeftOf="@+id/scrollView2"
         app:layout_constraintLeft_toRightOf="@+id/scrollView2" />
 
-    <ImageView
-        android:id="@+id/Sonne_imageView"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        app:srcCompat="@drawable/sunheller"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="32dp" />
-
 
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="420dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         app:layout_constraintLeft_toLeftOf="parent"

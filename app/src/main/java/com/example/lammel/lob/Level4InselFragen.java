@@ -47,7 +47,9 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
         }
         else if(counter == 3){
             counter = 0;
-            startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+           Intent intent = new Intent(view.getContext(), Mantra.class);
+           intent.putExtra("Source", 0);
+           startActivity(intent);
         }
 
     }

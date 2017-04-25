@@ -31,7 +31,9 @@ public class Sonne8 extends AppCompatActivity implements View.OnClickListener{
 
         switch (view.getId()){
             case R.id.Weiter8_Button:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                Intent intent = new Intent(view.getContext(), Mantra.class);
+                intent.putExtra("Source", 1);
+                startActivity(intent);
                 break;
 
             case R.id.zurUebersicht8_Button:

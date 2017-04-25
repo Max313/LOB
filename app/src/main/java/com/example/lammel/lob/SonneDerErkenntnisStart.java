@@ -17,6 +17,7 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
 
         this.setTitle("LOB - Sonne der Erkenntnis");
 
+
         weiter = (Button) findViewById(R.id.zurSonne_Button);
         weiter.setOnClickListener(this);
     }

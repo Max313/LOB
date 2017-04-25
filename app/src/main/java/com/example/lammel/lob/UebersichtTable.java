@@ -265,6 +265,7 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
             case R.id.weiterStaerkeButton:
                 startActivity(new Intent(this, Level3UebungStart.class));
+                break;
 
             case R.id.aendern1_Button:
                 aenderung = true;

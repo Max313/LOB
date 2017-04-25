@@ -42,12 +42,6 @@
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
         <activity android:name=".UebersichtTable" />
-        <!--
-        <activity android:name=".Level4InselFrage2" />
-        <activity android:name=".Level4InselFrage3" />
-        <activity android:name=".Level4InselFrage4" />
-        <activity android:name=".Level4InselDesSehendenStart" />
-        -->
         <activity android:name=".Level4SonneDerErkenntnis" />
         <activity android:name=".Sonne1" />
         <activity android:name=".Sonne2" />
@@ -58,7 +52,12 @@
         <activity android:name=".Sonne7" />
         <activity android:name=".Sonne8" />
         <activity android:name=".SonneDerErkenntnisStart" />
-        <activity android:name=".Level2ZieldefinitionNeu"></activity>
+        <activity android:name=".Level2ZieldefinitionNeu">
+        </activity>
+        <activity android:name=".Mantra"/>
+        <activity android:name=".Ende"/>
+        <activity android:name=".Rueckblick"/>
+        <activity android:name=".Neuorientierung"/>
     </application>
 
 </manifest>
