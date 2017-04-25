@@ -11,7 +11,12 @@ import android.widget.TextView;
 
 public class UebersichtTable extends AppCompatActivity implements View.OnClickListener {
 
+    public static Boolean aenderung = false;
     private Button weiter;
+    private Button aendern1;
+    private Button aendern2;
+    private Button aendern3;
+    private Button aendern4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +25,18 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
         this.setTitle("LOB - Stärkeinsel - Übersicht");
         weiter = (Button) findViewById(R.id.weiterStaerkeButton);
         weiter.setOnClickListener(this);
+
+        aendern1 = (Button) findViewById(R.id.aendern1_Button);
+        aendern1.setOnClickListener(this);
+
+        aendern2 = (Button ) findViewById(R.id.aendern2_Button);
+        aendern2.setOnClickListener(this);
+
+        aendern3 = (Button) findViewById(R.id.aendern3_Button);
+        aendern3.setOnClickListener(this);
+
+        aendern4 = (Button) findViewById(R.id.aendern4_Button);
+        aendern4.setOnClickListener(this);
         this.setTableContent();
 
     }
@@ -248,6 +265,24 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
             case R.id.weiterStaerkeButton:
                 startActivity(new Intent(this, Level3UebungStart.class));
+
+            case R.id.aendern1_Button:
+                aenderung = true;
+                startActivity(new Intent(this, Verhalten.class));
+                break;
+
+            case R.id.aendern2_Button:
+                aenderung = true;
+                startActivity(new Intent(this, Kompliment.class));
+                break;
+
+            case R.id.aendern3_Button:
+                startActivity(new Intent(this, Ressource.class));
+                break;
+
+            case R.id.aendern4_Button:
+                startActivity(new Intent(this, Verhalten.class));
+                break;
 
             default:
                 break;

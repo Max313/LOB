@@ -76,8 +76,14 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
 
                 EditText edit3Text = (EditText) findViewById(R.id.kompliment3EditText);
                 THIRDMESSAGE_KOMPLIMENT = edit3Text.getText().toString();
+                if (!UebersichtTable.aenderung){
+                    startActivity(new Intent(this, Ressource.class));
+                }
+                else{
+                    UebersichtTable.aenderung = false;
+                    startActivity(new Intent(this, UebersichtTable.class));
+                }
 
-                startActivity(new Intent(this, Ressource.class));
                 break;
 
             default:

@@ -101,6 +101,10 @@
     <string name="value10_TextView">Value 4</string>
     <string name="value11_TextView">Value 4</string>
     <string name="value12_TextView">Value 4</string>
+    <string name="aendern1_Button">Bearbeiten</string>
+    <string name="aendern_2Button">Bearbeiten</string>
+    <string name="aendern3_Button">Bearbeiten</string>
+    <string name="aendern4_Button">Bearbeiten</string>
     <string name="weiter_Button">Weiter</string>
     <string name="ok">OK</string>
 

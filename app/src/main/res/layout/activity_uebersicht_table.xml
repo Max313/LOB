@@ -6,15 +6,38 @@
     android:layout_height="match_parent"
     tools:context="com.example.lammel.lob.UebersichtTable">
 
+    <Button
+        android:id="@+id/weiterStaerkeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/weiter_Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/aendern4_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/aendern4_Button"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tableBig" />
+
     <TableLayout
         android:id="@+id/tableBig"
         android:layout_width="340dp"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -62,28 +85,28 @@
 
             <TextView
                 android:id="@+id/Uebersicht1_1"
-                android:scrollbars="horizontal"
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="center"
+                android:scrollbars="horizontal"
                 android:text="@string/value1_TextView"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <TextView
                 android:id="@+id/Uebersicht1_2"
-                android:scrollbars="horizontal"
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="center"
+                android:scrollbars="horizontal"
                 android:text="@string/value2_TextView"
                 android:textSize="@dimen/activity_tablecontent" />
 
             <TextView
                 android:id="@+id/Uebersicht1_3"
-                android:scrollbars="horizontal"
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="center"
+                android:scrollbars="horizontal"
                 android:text="@string/value3_TextView"
                 android:textSize="@dimen/activity_tablecontent" />
 
@@ -150,7 +173,6 @@
                 android:id="@+id/Uebersicht3_3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_weight="0.33"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="center"
@@ -158,17 +180,26 @@
                 android:textSize="@dimen/activity_tablecontent" />
         </TableRow>
 
+        <TableRow
+            android:id="@+id/lastRow"
+            android:background="@drawable/table_value_border_even">
 
+            <Button
+                android:id="@+id/aendern1_Button"
+                android:layout_weight="0.33"
+                android:text="@string/aendern1_Button" />
+
+            <Button
+                android:id="@+id/aendern2_Button"
+                android:layout_weight="0.33"
+                android:text="@string/aendern1_Button" />
+
+            <Button
+                android:id="@+id/aendern3_Button"
+                android:layout_weight="0.33"
+                android:text="@string/aendern1_Button" />
+
+        </TableRow>
     </TableLayout>
-
-    <Button
-        android:id="@+id/weiterStaerkeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:text="@string/weiter_Button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

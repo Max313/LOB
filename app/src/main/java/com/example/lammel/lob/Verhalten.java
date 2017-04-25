@@ -83,7 +83,14 @@ public class Verhalten extends AppCompatActivity implements View.OnClickListener
                 EditText edit3Text = (EditText) findViewById(R.id.verhalten3EditText);
                 THIRDMESSAGE_VERHALTEN = edit3Text.getText().toString();
 
-                startActivity(new Intent(this, Kompliment.class));
+                if (!UebersichtTable.aenderung){
+                    startActivity(new Intent(this, Kompliment.class));
+                }
+
+                else {
+                    UebersichtTable.aenderung = false;
+                    startActivity(new Intent(this, UebersichtTable.class));
+                }
                 break;
 
             default:
