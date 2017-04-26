@@ -6,6 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.lammel.lob.Level4InselFragen">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
+
     <TextView
         android:id="@+id/frage1_TextView"
         android:layout_width="341dp"

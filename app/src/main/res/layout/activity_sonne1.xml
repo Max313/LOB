@@ -6,6 +6,9 @@
     android:layout_height="match_parent"
     tools:context="com.example.lammel.lob.Sonne1">
 
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
 
     <TextView
         android:id="@+id/Sonne1_TextView"

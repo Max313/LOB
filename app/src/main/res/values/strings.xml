@@ -5,6 +5,11 @@
     <string name="start_button">Los gehts!</string>
     <string name="weiter_button">Weiter</string>
 
+    <!-- Menü -->
+    <string name="ziel_Menu">Ziel</string>
+    <string name="tabelle_Menu">Ressourcen Tabelle</string>
+    <string name="sonne_Menu">Sonne der Erkenntnis</string>
+
     <!-- Onboarding -->
     <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!</string>
 
