@@ -10,11 +10,15 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"></include>
 
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"></include>
+
     <Button
         android:id="@+id/weiterStaerkeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="46dp"
         android:text="@string/weiter_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

@@ -10,6 +10,10 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"></include>
 
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"></include>
+
     <TextView
         android:id="@+id/textView2"
         android:textSize="@dimen/activity_normalcontent"
@@ -31,7 +35,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="46dp"
         android:text="@string/uebungStart_Button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"

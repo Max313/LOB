@@ -12,6 +12,7 @@
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"></include>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -32,5 +33,6 @@
         android:text="@string/weiter_button"
         android:id="@+id/problem_BeschreibungDank_Button"
         />
+
 
 </LinearLayout>
