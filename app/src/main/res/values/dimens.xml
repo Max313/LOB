@@ -11,4 +11,5 @@
     <dimen name="activity_smallSpace">20dp</dimen>
     <dimen name="activity_normalcontent">25dp</dimen>
     <dimen name="acitivty_smallcontent">18dp</dimen>
+    <dimen name="activity_suncontent">12dp</dimen>
 </resources>

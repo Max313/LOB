@@ -10,7 +10,7 @@
         android:id="@+id/Sonne3_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/SonneF4_TextView"
+        android:text="@string/SonneF3_TextView"
         android:textSize="@dimen/activity_normalcontent"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="8dp"

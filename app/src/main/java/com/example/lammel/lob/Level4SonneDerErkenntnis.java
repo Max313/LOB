@@ -1,9 +1,11 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.OnClickListener{
@@ -16,6 +18,14 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
     private TextView txt6;
     private TextView txt7;
     private TextView txt8;
+    private ImageView img1;
+    private ImageView img2;
+    private ImageView img3;
+    private ImageView img4;
+    private ImageView img5;
+    private ImageView img6;
+    private ImageView img7;
+    private ImageView img8;
 
 
     @Override
@@ -27,26 +37,50 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
         txt1 = (TextView) findViewById(R.id.sonne1);
         txt1.setOnClickListener(this);
 
+        img1 = (ImageView) findViewById(R.id.Sonne1_imageView);
+        img1.setOnClickListener(this);
+
         txt2 = (TextView) findViewById(R.id.sonne2);
         txt2.setOnClickListener(this);
+
+        img2 = (ImageView) findViewById(R.id.Sonne2_imageView);
+        img2.setOnClickListener(this);
 
         txt3 = (TextView) findViewById(R.id.sonne3);
         txt3.setOnClickListener(this);
 
+        img3 = (ImageView) findViewById(R.id.Sonne3_imageView);
+        img3.setOnClickListener(this);
+
         txt4 = (TextView) findViewById(R.id.sonne4);
         txt4.setOnClickListener(this);
+
+        img4 = (ImageView) findViewById(R.id.Sonne4_imageView);
+        img4.setOnClickListener(this);
 
         txt5 = (TextView) findViewById(R.id.sonne5);
         txt5.setOnClickListener(this);
 
+        img5 = (ImageView) findViewById(R.id.Sonne5_imageView);
+        img5.setOnClickListener(this);
+
         txt6 = (TextView) findViewById(R.id.sonne6);
         txt6.setOnClickListener(this);
+
+        img6 = (ImageView) findViewById(R.id.Sonne6_imageView);
+        img6.setOnClickListener(this);
 
         txt7 = (TextView) findViewById(R.id.sonne7);
         txt7.setOnClickListener(this);
 
+        img7 = (ImageView) findViewById(R.id.Sonne7_imageView);
+        img7.setOnClickListener(this);
+
         txt8 = (TextView) findViewById(R.id.sonne8);
         txt8.setOnClickListener(this);
+
+        img8 = (ImageView) findViewById(R.id.Sonne8_imageView);
+        img8.setOnClickListener(this);
     }
 
     @Override
@@ -58,7 +92,15 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
                 startActivity(new Intent(this, Sonne1.class));
                 break;
 
+            case R.id.Sonne1_imageView:
+                startActivity(new Intent(this, Sonne1.class));
+                break;
+
             case R.id.sonne2:
+                startActivity(new Intent(this, Sonne2.class ));
+                break;
+
+            case R.id.Sonne2_imageView:
                 startActivity(new Intent(this, Sonne2.class ));
                 break;
 
@@ -66,24 +108,48 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
                 startActivity(new Intent(this, Sonne3.class));
                 break;
 
+            case R.id.Sonne3_imageView:
+                startActivity(new Intent(this, Sonne3.class));
+                break;
+
             case R.id.sonne4:
                 startActivity(new Intent(this, Sonne4.class));
                 break;
 
+            case R.id.Sonne4_imageView:
+                startActivity(new Intent(this, Sonne4.class));
+                break;
+
             case R.id.sonne5:
-                startActivity(new Intent(this, Sonne5.class));
+                startActivity(new Intent(this, Sonne8.class));
+                break;
+
+            case R.id.Sonne5_imageView:
+                startActivity(new Intent(this, Sonne8.class));
                 break;
 
             case R.id.sonne6:
-                startActivity(new Intent(this, Sonne6.class));
-                break;
-
-            case R.id.sonne7:
                 startActivity(new Intent(this, Sonne7.class));
                 break;
 
+            case R.id.Sonne6_imageView:
+                startActivity(new Intent(this, Sonne7.class));
+                break;
+
+            case R.id.sonne7:
+                startActivity(new Intent(this, Sonne6.class));
+                break;
+
+            case R.id.Sonne7_imageView:
+                startActivity(new Intent(this, Sonne6.class));
+                break;
+
             case R.id.sonne8:
-                startActivity(new Intent(this, Sonne8.class));
+                startActivity(new Intent(this, Sonne5.class));
+                break;
+
+            case R.id.Sonne8_imageView:
+                startActivity(new Intent(this, Sonne5.class));
                 break;
 
 
