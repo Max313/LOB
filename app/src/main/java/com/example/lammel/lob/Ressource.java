@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -27,6 +30,8 @@ public class Ressource extends AppCompatActivity implements View.OnClickListener
         setContentView(R.layout.activity_ressource);
 
         this.setTitle("LOB - Stärkeinsel - Ressourcen");
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
+        setSupportActionBar(myToolbar);
 
         weiter = (Button) findViewById(R.id.weiterzuUebersicht_Button);
         weiter.setOnClickListener(this);
@@ -50,6 +55,22 @@ public class Ressource extends AppCompatActivity implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        int id = item.getItemId();
+
+        if (id == R.id.activity_main){
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

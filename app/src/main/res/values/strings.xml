@@ -149,14 +149,14 @@
 
 
     <!-- Sonne der Erkenntnis - Wörter -->
-    <string name="WWort1_TextView"><b>WAS?</b></string>
-    <string name="WWort2_TextView"><b>WANN?</b></string>
-    <string name="WWort3_TextView"><b>WORAN?</b></string>
-    <string name="WWort4_TextView"><b>WO?</b></string>
-    <string name="WWort5_TextView"><b>WELCHE?</b></string>
-    <string name="WWort6_TextView"><b>WIE?</b></string>
-    <string name="WWort7_TextView"><b>WORAUF?</b></string>
-    <string name="WWort8_TextView"><b>WER?</b></string>
+    <string name="WWort1_TextView"><b>WAS</b></string>
+    <string name="WWort2_TextView"><b>WANN</b></string>
+    <string name="WWort3_TextView"><b>WORAN</b></string>
+    <string name="WWort4_TextView"><b>WO</b></string>
+    <string name="WWort5_TextView"><b>WELCHE</b></string>
+    <string name="WWort6_TextView"><b>WIE</b></string>
+    <string name="WWort7_TextView"><b>WORAUF</b></string>
+    <string name="WWort8_TextView"><b>WER</b></string>
     <string name="Mitte_TextView">Veränderung</string>
 
     <!-- Sonne der Erkenntnis - Intro -->
