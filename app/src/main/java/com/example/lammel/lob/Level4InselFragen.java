@@ -56,7 +56,7 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
         else if(counter == 1){
             this.setTitle("LOB - Insel des Sehenden - 3/4");
 
-            txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefüh hast, einen Schritt weiter zu sein?");
+            txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
             counter++;
         }
 

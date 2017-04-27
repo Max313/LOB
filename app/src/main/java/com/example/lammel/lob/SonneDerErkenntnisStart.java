@@ -44,7 +44,6 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-
         startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
 
     }

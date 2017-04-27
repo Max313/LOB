@@ -104,7 +104,7 @@
         android:id="@+id/sonne4"
         android:layout_width="88dp"
         android:layout_height="50dp"
-        android:layout_marginLeft="295dp"
+        android:layout_marginLeft="285dp"
         android:layout_marginTop="195dp"
         android:text="@string/WWort4_TextView"
         android:textSize="@dimen/activity_suncontent"
@@ -116,8 +116,8 @@
         android:id="@+id/Sonne5_imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="260dp"
+        android:layout_marginLeft="245dp"
+        android:layout_marginTop="250dp"
         app:srcCompat="@drawable/sun"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -128,41 +128,17 @@
         android:id="@+id/sonne5"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="34dp"
-        android:layout_marginTop="315dp"
-        android:text="@string/WWort5_TextView"
+        android:layout_marginLeft="290dp"
+        android:layout_marginTop="305dp"
+        android:text="@string/WWort8_TextView"
         android:textSize="@dimen/activity_suncontent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        />
 
 
     <ImageView
         android:id="@+id/Sonne6_imageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
-        android:layout_marginLeft="80dp"
-        android:layout_marginTop="330dp"
-        app:srcCompat="@drawable/sun"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
-
-    <TextView
-        android:id="@+id/sonne6"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="127dp"
-        android:layout_marginTop="386dp"
-        android:text="@string/WWort6_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
-
-    <ImageView
-        android:id="@+id/Sonne7_imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
         android:layout_marginLeft="190dp"
@@ -174,23 +150,49 @@
         />
 
     <TextView
-        android:id="@+id/sonne7"
+        android:id="@+id/sonne6"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="225dp"
-        android:layout_marginTop="388dp"
+        android:layout_marginLeft="235dp"
+        android:layout_marginTop="386dp"
         android:text="@string/WWort7_TextView"
         android:textSize="@dimen/activity_suncontent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-         />
+        />
+
+
+    <ImageView
+        android:id="@+id/Sonne7_imageView"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="330dp"
+        app:srcCompat="@drawable/sun"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+
+    <TextView
+        android:id="@+id/sonne7"
+        android:layout_width="88dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="127dp"
+        android:layout_marginTop="386dp"
+        android:text="@string/WWort6_TextView"
+        android:textSize="@dimen/activity_suncontent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 
     <ImageView
         android:id="@+id/Sonne8_imageView"
         android:layout_width="120dp"
         android:layout_height="120dp"
-        android:layout_marginLeft="245dp"
-        android:layout_marginTop="250dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="260dp"
         app:srcCompat="@drawable/sun"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -201,13 +203,20 @@
         android:id="@+id/sonne8"
         android:layout_width="88dp"
         android:layout_height="48dp"
-        android:layout_marginLeft="290dp"
-        android:layout_marginTop="305dp"
-        android:text="@string/WWort8_TextView"
+        android:layout_marginLeft="34dp"
+        android:layout_marginTop="315dp"
+        android:text="@string/WWort5_TextView"
         android:textSize="@dimen/activity_suncontent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
          />
+
+
+
+
+
+
+
 
     <TextView
         android:id="@+id/sonneM"
@@ -222,7 +231,17 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginStart="135dp" />
 
-
+    <Button
+        android:id="@+id/startTour_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/SonneTour_Button"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="46dp" />
 
 
 </android.support.constraint.ConstraintLayout>

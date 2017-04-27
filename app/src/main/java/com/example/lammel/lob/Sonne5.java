@@ -13,6 +13,8 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
 
     private Button weiter;
     private Button uebersicht;
+    private Boolean tour;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,11 +25,20 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
+        tour = getIntent().getExtras().getBoolean("Tour");
+
         weiter = (Button) findViewById(R.id.Weiter5_Button);
         weiter.setOnClickListener(this);
 
         uebersicht = (Button) findViewById(R.id.zurUebersicht5_Button);
         uebersicht.setOnClickListener(this);
+
+        if(tour){
+            uebersicht.setVisibility(View.GONE);
+        }
+        else{
+            weiter.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -53,11 +64,15 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
         switch (view.getId()){
 
             case R.id.Weiter5_Button:
-                startActivity(new Intent(this, Sonne6.class));
+                intent = new Intent(view.getContext(), Sonne6.class);
+                intent.putExtra("Tour", true);
+                startActivity(intent);
                 break;
 
             case R.id.zurUebersicht5_Button:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             default:

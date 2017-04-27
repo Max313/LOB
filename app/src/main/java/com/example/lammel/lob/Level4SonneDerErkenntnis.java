@@ -8,6 +8,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -30,12 +31,16 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
     private ImageView img7;
     private ImageView img8;
 
+    private Button start;
+    private Intent intent;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_sonne_der_erkenntnis);
         this.setTitle("LOB - Sonne der Erkenntnis");
+
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
@@ -86,6 +91,9 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
 
         img8 = (ImageView) findViewById(R.id.Sonne8_imageView);
         img8.setOnClickListener(this);
+
+        start = (Button) findViewById(R.id.startTour_Button);
+        start.setOnClickListener(this);
     }
 
     @Override
@@ -109,70 +117,110 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
 
         switch (view.getId()){
 
+            case R.id.startTour_Button:
+                intent = new Intent(view.getContext(), Sonne1.class);
+                intent.putExtra("Tour", true);
+                startActivity(intent);
+                break;
+
             case R.id.sonne1:
-                startActivity(new Intent(this, Sonne1.class));
+                intent = new Intent(view.getContext(), Sonne1.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne1_imageView:
-                startActivity(new Intent(this, Sonne1.class));
+                intent = new Intent(view.getContext(), Sonne1.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne2:
-                startActivity(new Intent(this, Sonne2.class ));
+                intent = new Intent(view.getContext(), Sonne2.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne2_imageView:
-                startActivity(new Intent(this, Sonne2.class ));
+                intent = new Intent(view.getContext(), Sonne2.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne3:
-                startActivity(new Intent(this, Sonne3.class));
+                intent = new Intent(view.getContext(), Sonne3.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne3_imageView:
-                startActivity(new Intent(this, Sonne3.class));
+                intent = new Intent(view.getContext(), Sonne3.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne4:
-                startActivity(new Intent(this, Sonne4.class));
+                intent = new Intent(view.getContext(), Sonne4.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne4_imageView:
-                startActivity(new Intent(this, Sonne4.class));
+                intent = new Intent(view.getContext(), Sonne4.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne5:
-                startActivity(new Intent(this, Sonne8.class));
+                intent = new Intent(view.getContext(), Sonne5.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne5_imageView:
-                startActivity(new Intent(this, Sonne8.class));
+                intent = new Intent(view.getContext(), Sonne5.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne6:
-                startActivity(new Intent(this, Sonne7.class));
+                intent = new Intent(view.getContext(), Sonne6.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne6_imageView:
-                startActivity(new Intent(this, Sonne7.class));
+                intent = new Intent(view.getContext(), Sonne6.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne7:
-                startActivity(new Intent(this, Sonne6.class));
+                intent = new Intent(view.getContext(), Sonne7.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne7_imageView:
-                startActivity(new Intent(this, Sonne6.class));
+                intent = new Intent(view.getContext(), Sonne7.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.sonne8:
-                startActivity(new Intent(this, Sonne5.class));
+                intent = new Intent(view.getContext(), Sonne8.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
             case R.id.Sonne8_imageView:
-                startActivity(new Intent(this, Sonne5.class));
+                intent = new Intent(view.getContext(), Sonne8.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
                 break;
 
+            default:
+                break;
 
         }
 
