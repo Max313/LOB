@@ -29,6 +29,18 @@ public class Level1Onboarding extends AppCompatActivity implements View.OnClickL
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
         onboardingProzessStarten();
+
+
+    }
+
+
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+       menu.findItem(R.id.ziel).setEnabled(false);
+        menu.findItem(R.id.tabelle).setEnabled(false);
+        menu.findItem(R.id.Sonne).setEnabled(false);
+        return true;
     }
 
     @Override
@@ -39,12 +51,13 @@ public class Level1Onboarding extends AppCompatActivity implements View.OnClickL
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
 
-        if (id == R.id.activity_main){
-            return true;
+        switch(item.getItemId()){
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
+
     }
 
     private void onboardingProzessStarten() {

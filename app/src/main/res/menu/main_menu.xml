@@ -3,7 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:title="@string/ziel_Menu"
+        android:id="@+id/ziel"
         />
-    <item android:title="@string/tabelle_Menu"/>
-    <item android:title="@string/sonne_Menu"/>
+    <item
+        android:title="@string/tabelle_Menu"
+        android:id="@+id/tabelle"/>
+    <item
+        android:title="@string/sonne_Menu"
+        android:id="@+id/Sonne"/>
 </menu>

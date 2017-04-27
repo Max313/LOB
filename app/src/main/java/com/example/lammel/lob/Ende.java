@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -42,12 +43,21 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, Level1Zieldefinition.class));
+                return true;
 
-        if (id == R.id.activity_main){
-            return true;
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

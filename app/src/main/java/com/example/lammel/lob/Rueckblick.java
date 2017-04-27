@@ -51,8 +51,6 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
             }
         });
 
-
-
         weiter = (Button) findViewById(R.id.rWeiter_Button);
         weiter.setOnClickListener(this);
 
@@ -66,12 +64,22 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, Level1Zieldefinition.class));
+                return true;
 
-        if (id == R.id.activity_main){
-            return true;
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

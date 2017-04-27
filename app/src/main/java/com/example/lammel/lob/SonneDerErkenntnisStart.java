@@ -26,6 +26,14 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
         weiter.setOnClickListener(this);
     }
 
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        menu.findItem(R.id.Sonne).setEnabled(false);
+        return true;
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -34,12 +42,18 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, Level1Zieldefinition.class));
+                return true;
 
-        if (id == R.id.activity_main){
-            return true;
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     @Override

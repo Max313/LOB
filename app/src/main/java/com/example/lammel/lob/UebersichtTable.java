@@ -47,6 +47,15 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
     }
 
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        menu.findItem(R.id.tabelle).setEnabled(false);
+        menu.findItem(R.id.Sonne).setEnabled(false);
+        return true;
+    }
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
@@ -55,12 +64,14 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-        int id = item.getItemId();
+        switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, Level1Zieldefinition.class));
+                return true;
 
-        if (id == R.id.activity_main){
-            return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 
     private void setTableContent() {
