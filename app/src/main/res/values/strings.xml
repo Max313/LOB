@@ -63,7 +63,7 @@
     <string name="veraenderungJa_Textview">Das klingt phantastisch, erzähl mir mehr.Wenn die begonnenen Veränderungen in diese Richtung weitergehen, wäre das Ergebnis dessen auch dein Ziel?\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
 
     <!-- Ausnahmen -->
-    <string name="ausnahmen_Textview">Ich bin beeindruckt: Obwohl deine Situation schwierig zu sein scheint, bleibst du dran und raffst dich auf. Das spricht für sehr viel Energie.\n\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und die schauen wir uns genauer an.</string>
+    <string name="ausnahmen_Textview">Obwohl deine Situation schwierig zu sein scheint, bleibst du dran und raffst dich auf. Das spricht für sehr viel Energie.\n\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und die schauen wir uns genauer an.</string>
 
     <!-- Hypothetische Lösung -->
     <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten.\nViele Wege führen bekanntlich nach Rom.\nUnd heute gehst auch du einen anderen.\nVon der Ausnahme zur Regel.\nLass uns deine Vorstellungskraft nutzen, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, etwas Zeit (und Kopfhörer).</string>
