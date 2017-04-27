@@ -1,30 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level2_veraenderung_ja"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level2VeraenderungJa"
-    android:orientation="vertical"
-    android:layout_weight="1">
+    tools:context="com.example.lammel.lob.Mantra">
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+        />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
         android:text="@string/veraenderungJa_Textview"
         android:textSize="@dimen/activity_normalcontent"
-        android:layout_weight="1"/>
+        />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/weiter_button"
-        android:textSize="@dimen/activity_normalcontent"
-        android:layout_gravity="bottom|center"
         android:id="@+id/veraenderungJa_ButtonWeiter"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
         />
-</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

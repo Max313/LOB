@@ -58,7 +58,7 @@
                     android:layout_height="50dp"
                     android:background="@drawable/example_table_field"
                     android:clickable="true"
-                    android:gravity="center"
+                    android:gravity="center_vertical"
                     android:text="@string/beispielRessource_TextView"
                     android:textSize="@dimen/activity_tablecontent"
                     />

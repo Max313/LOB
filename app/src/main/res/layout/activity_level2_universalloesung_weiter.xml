@@ -1,41 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level2_universalloesung_weiter"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level2UniversalloesungWeiter"
-    android:orientation="vertical"
-    android:layout_weight="1">
+    tools:context="com.example.lammel.lob.Mantra">
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+         />
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+         />
+
+
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="@string/universalWeiter_Textview"
                 android:textSize="@dimen/activity_normalcontent"
-                android:paddingBottom="@dimen/activity_normalcontent"/>
+                app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+                android:id="@+id/textView5"
+                android:layout_marginTop="8dp"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent" />
 
             <EditText
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:hint="Nenne Möglichkeiten"
                 android:textSize="@dimen/activity_normalcontent"
                 android:id="@+id/universal_EditText"
                 android:layout_weight="1"
-                />
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginRight="8dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                android:layout_marginBottom="32dp"
+                app:layout_constraintBottom_toTopOf="@+id/universalWeiter_ButtonWeiter" />
          <!--   <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -67,30 +75,32 @@
                 android:id="@+id/universal_EditText5"
 
                 /> -->
-        </LinearLayout>
-    </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.5"
             android:text="@string/weiter_button"
-            android:textSize="@dimen/activity_normalcontent"
-            android:layout_weight="0.5"
-            android:id="@+id/universalWeiter_ButtonWeiter"/>
+            app:layout_constraintBottom_toBottomOf="@+id/footer"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="8dp"
+            android:layout_marginBottom="46dp"
+            android:id="@+id/universalWeiter_ButtonWeiter"
+            android:layout_marginStart="8dp" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/universalWeiter_Button2"
-            android:textSize="@dimen/activity_normalcontent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
             android:layout_weight="0.5"
-            android:id="@+id/universal_Nichts"/>
+            android:text="@string/universalWeiter_Button2"
+            app:layout_constraintBottom_toBottomOf="@+id/footer"
+            android:layout_marginRight="8dp"
+            android:layout_marginBottom="46dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/universal_Nichts"
+            />
 
-    </LinearLayout>
+    </android.support.constraint.ConstraintLayout>
 
-
-</LinearLayout>

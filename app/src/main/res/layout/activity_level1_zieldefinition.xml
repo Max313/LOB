@@ -1,41 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level1_zieldefinition"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level1Zieldefinition"
-    android:orientation="vertical">
+    tools:context="com.example.lammel.lob.Mantra">
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+         />
 
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+         />
 
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/zielFesthalten_TextView"
         android:textSize="@dimen/activity_normalcontent"
         android:id="@+id/zielFesthalten_textView"
-        />
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:hint="@string/zielFesthalten_EditView"
         android:textSize="@dimen/activity_normalcontent"
         android:id="@+id/zieldefinition_EditText"
-        android:layout_weight="1"/>
+        android:layout_weight="1"
+
+        android:layout_marginTop="9dp"
+        app:layout_constraintTop_toBottomOf="@+id/zielFesthalten_textView"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center|bottom"
         android:text="@string/zielFesthalten_Button"
         android:id="@+id/zielFesthalten_Button"
-        />
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/footer"
+        android:layout_marginBottom="46dp" />
 
 
-</LinearLayout>
+</android.support.constraint.ConstraintLayout>

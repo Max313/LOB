@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_level2_hypo_loesung"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level2HypoLoesung"
-    android:orientation="vertical"
-    android:layout_weight="1">
+    tools:context="com.example.lammel.lob.Mantra">
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+         />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+         />
+
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_height="380dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.8"
             android:text="@string/hypoLoesung_Textview"
             android:textSize="@dimen/activity_normalcontent"
             />
@@ -28,7 +39,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hypoLoesung_Button"
-        android:textSize="@dimen/activity_normalcontent"
-        android:layout_gravity="bottom|center"
-        android:id="@+id/hypoLoesung_Button"/>
-</LinearLayout>
+        android:id="@+id/hypoLoesung_Button"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+</android.support.constraint.ConstraintLayout>

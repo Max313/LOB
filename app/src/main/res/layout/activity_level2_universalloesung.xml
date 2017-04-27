@@ -1,46 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_universalloesung"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.lammel.lob.Level2Universalloesung"
-    android:orientation="vertical"
-    android:layout_weight="1">
+    tools:context="com.example.lammel.lob.Mantra">
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+        />
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"
+         />
 
     <ScrollView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/universal_Textview"
             android:textSize="@dimen/activity_normalcontent" />
     </ScrollView>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.5"
             android:text="@string/weiter_button"
-            android:textSize="@dimen/activity_normalcontent"
-            android:layout_weight="0.5"
-            android:id="@+id/universal_ButtonWeiter"/>
+            app:layout_constraintBottom_toBottomOf="@+id/footer"
+            android:layout_marginBottom="46dp"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+
+            android:id="@+id/universal_ButtonWeiter"
+            android:layout_marginStart="8dp" />
 
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="@string/universal_Button2"
-            android:textSize="@dimen/activity_normalcontent"
+            android:layout_width="170dp"
+            android:layout_height="60dp"
             android:layout_weight="0.5"
-            android:id="@+id/universal_Anekdote"/>
+            android:text="@string/universal_Button2"
+            app:layout_constraintBottom_toBottomOf="@+id/footer"
+            android:layout_marginBottom="46dp"
 
-    </LinearLayout>
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginRight="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/universal_Anekdote"
+            app:layout_constraintHorizontal_bias="1.0"
+            android:layout_marginEnd="8dp" />
 
-</LinearLayout>
+    </android.support.constraint.ConstraintLayout>
+
