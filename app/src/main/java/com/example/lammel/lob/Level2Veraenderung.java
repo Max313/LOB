@@ -8,9 +8,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Level2Veraenderung extends AppCompatActivity implements View.OnClickListener{
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons
     Button veraenderungJa, veraenderungNein;
 
     @Override
@@ -20,6 +32,33 @@ public class Level2Veraenderung extends AppCompatActivity implements View.OnClic
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons
         veraenderungJa = (Button) findViewById(R.id.veraenderung_ButtonJa);
         veraenderungJa.setOnClickListener(this);
         veraenderungNein = (Button) findViewById(R.id.veraenderung_ButtonNein);
@@ -62,6 +101,10 @@ public class Level2Veraenderung extends AppCompatActivity implements View.OnClic
             case R.id.veraenderung_ButtonNein:
                 //startActivity(new Intent(this, Level2VeraenderungNein.class));
                 startActivity(new Intent(this, Level2Ausnahmen.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Level1ZielVerwahren.class));
                 break;
 
             default:

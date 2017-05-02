@@ -8,9 +8,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class SonneDerErkenntnisStart extends AppCompatActivity implements View.OnClickListener{
 
+
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons and more
     private Button weiter;
 
     @Override
@@ -22,6 +35,33 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.VISIBLE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.GONE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.VISIBLE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Button on action
         weiter = (Button) findViewById(R.id.zurSonne_Button);
         weiter.setOnClickListener(this);
     }
@@ -58,7 +98,22 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+        switch (view.getId()){
+            case R.id.zurSonne_Button:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, UebersichtTable.class));
+                break;
+
+            case R.id.forward_Button:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                break;
+
+            default:
+                break;
+        }
 
     }
 }

@@ -11,9 +11,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Level2UniversalloesungWeiter extends AppCompatActivity implements View.OnClickListener{
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons
     Button universalloesungWeiter_Weiter, universalloesungWeiter_Nichts;
 
     @Override
@@ -23,6 +35,33 @@ public class Level2UniversalloesungWeiter extends AppCompatActivity implements V
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
         universalloesungWeiter_Weiter.setOnClickListener(this);
         universalloesungWeiter_Weiter.setEnabled(false);
@@ -83,6 +122,10 @@ public class Level2UniversalloesungWeiter extends AppCompatActivity implements V
 
             case R.id.universal_Nichts:
                 startActivity(new Intent(this, Level2UniversalloesungAnekdote.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Level2Universalloesung.class));
                 break;
 
             default:

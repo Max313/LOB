@@ -10,10 +10,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class UebersichtTable extends AppCompatActivity implements View.OnClickListener {
 
+
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons and more
     public static Boolean aenderung = false;
     private Button weiter;
     private Button aendern1;
@@ -29,6 +42,33 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.VISIBLE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterStaerkeButton);
         weiter.setOnClickListener(this);
 
@@ -297,7 +337,9 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.weiterStaerkeButton:
-                startActivity(new Intent(this, Level3UebungStart.class));
+                //startActivity(new Intent(this, Level3UebungStart.class));
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+
                 break;
 
             case R.id.aendern1_Button:
@@ -316,6 +358,16 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
             case R.id.aendern4_Button:
                 startActivity(new Intent(this, Verhalten.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Ressource.class));
+                break;
+
+            case R.id.forward_Button:
+                //startActivity(new Intent(this, Level3UebungStart.class));
+                startActivity(new Intent(this, Level4InselDesSehenden.class));
+
                 break;
 
             default:

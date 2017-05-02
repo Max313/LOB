@@ -9,9 +9,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Level2NeuerWeg extends AppCompatActivity implements View.OnClickListener {
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+
+    //Buttons and more
     private Button neuerWeg;
     private Button neuesZiel;
     private int wegCounter;
@@ -23,6 +36,33 @@ public class Level2NeuerWeg extends AppCompatActivity implements View.OnClickLis
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons Action
         wegCounter = getIntent().getExtras().getInt("WegCounter");
         neuerWeg = (Button) findViewById(R.id.neuerWeg_ButtonLoesung);
         neuerWeg.setOnClickListener(this);
@@ -89,6 +129,11 @@ public class Level2NeuerWeg extends AppCompatActivity implements View.OnClickLis
                 intent.putExtra("WegCounter", wegCounter);
                 startActivity(intent);
                 break;
+
+            case R.id.back_Button:
+                Intent intent2 = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent2.putExtra("LoesungsCounter", wegCounter);
+                startActivity(intent2);
 
             default:
                 break;

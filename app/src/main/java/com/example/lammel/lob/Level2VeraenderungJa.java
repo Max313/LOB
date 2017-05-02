@@ -8,10 +8,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Level2VeraenderungJa extends AppCompatActivity implements View.OnClickListener {
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+
+    //Button
     private Button veraenderungWeiter;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +34,33 @@ public class Level2VeraenderungJa extends AppCompatActivity implements View.OnCl
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Button
         veraenderungWeiter = (Button) findViewById(R.id.veraenderungJa_ButtonWeiter);
         veraenderungWeiter.setOnClickListener(this);
     }
@@ -50,8 +92,25 @@ public class Level2VeraenderungJa extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-        intent.putExtra("LoesungsCounter", 0);
-        startActivity(intent);
+        switch (v.getId()) {
+            case R.id.veraenderungJa_ButtonWeiter:
+                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.forward_Button:
+                Intent intent2 = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
+                break;
+
+            default:
+                break;
+        }
     }
 }

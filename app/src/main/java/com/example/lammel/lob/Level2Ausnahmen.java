@@ -8,12 +8,25 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import static java.security.AccessController.getContext;
 
 public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickListener {
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+
+    //Buttons and more
     private Button ausnahmenWeiter;
     private TextView ausnahmenText;
     private int counter = 0;
@@ -25,6 +38,33 @@ public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickLi
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons and more
         ausnahmenText = (TextView) findViewById(R.id.ausnahmen_Textview);
         ausnahmenWeiter = (Button) findViewById(R.id.ausnahmen_ButtonWeiter);
         ausnahmenWeiter.setOnClickListener(this);
@@ -59,15 +99,50 @@ public class Level2Ausnahmen extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        if (counter == 0){
-            ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
-            counter++;
-        }
-        else if (counter == 1){
-            Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-            intent.putExtra("LoesungsCounter", 1);
-            startActivity(intent);
-            counter = 0;
+
+        switch (v.getId()){
+            case R.id.ausnahmen_ButtonWeiter:
+                if (counter == 0){
+                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
+                    counter++;
+                    break;
+                }
+                else if (counter == 1){
+                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                    intent.putExtra("LoesungsCounter", 1);
+                    startActivity(intent);
+                    counter = 0;
+                    break;
+                }
+
+            case R.id.back_Button:
+                if(counter == 0){
+                    startActivity(new Intent(this, Level2Veraenderung.class));
+                    break;
+                }
+                else if(counter == 1){
+                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
+                    counter--;
+                    break;
+                }
+
+            case R.id.forward_Button:
+                if(counter == 0){
+                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
+                    counter++;
+                    break;
+                }
+
+                else if (counter == 1){
+                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                    intent.putExtra("LoesungsCounter", 1);
+                    startActivity(intent);
+                    counter = 0;
+                    break;
+                }
+
+            default:
+                break;
         }
     }
 }

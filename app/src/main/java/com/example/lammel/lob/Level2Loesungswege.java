@@ -11,11 +11,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import static java.security.AccessController.getContext;
 
 public class Level2Loesungswege extends AppCompatActivity implements View.OnClickListener{
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Some more stuff
     private Button fertig;
     private Button mirFaelltNichtsEin;
     private int loesungsCounter;
@@ -28,6 +40,33 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Action and more
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
         mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);
         mirFaelltNichtsEin.setOnClickListener(this);
@@ -122,7 +161,9 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.loesungswege_ButtonFertig:
-                startActivity(new Intent(this, Wunderbar.class));
+                Intent intent1 = new Intent(v.getContext(), Wunderbar.class);
+                intent1.putExtra("LoesungsCounter", loesungsCounter);
+                startActivity(intent1);
                 break;
 
             case R.id.loesungswege_ButtonNichts:
@@ -156,6 +197,10 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
                     startActivity(intent);
                     break;
                 }
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Level2Ausnahmen.class));
+                break;
 
             default:
                 break;

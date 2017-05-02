@@ -8,9 +8,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Neuorientierung extends AppCompatActivity implements View.OnClickListener{
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons and more
     private Button zuLevel2;
     private Button zumEnde;
 
@@ -23,6 +35,32 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.VISIBLE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.GONE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sunyellow.setVisibility(View.VISIBLE);
+
+        //Buttons in action
         zuLevel2 = (Button) findViewById(R.id.level2_Button);
         zuLevel2.setOnClickListener(this);
 
@@ -68,6 +106,10 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
 
             case R.id.wEnde_Button:
                 startActivity(new Intent(this, Ende.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Rueckblick.class));
                 break;
         }
 

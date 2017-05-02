@@ -13,10 +13,22 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class Kompliment extends AppCompatActivity  implements View.OnClickListener{
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons and more
     public static String FIRSTMESSAGE_KOMPLIMENT;
     public static String SECONDMESSAGE_KOMPLIMENT;
     public static String THIRDMESSAGE_KOMPLIMENT;
@@ -31,6 +43,33 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
         this.setTitle("LOB - Stärkeinsel - Kompliment");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.VISIBLE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuRessource_Button);
         weiter.setOnClickListener(this);
 
@@ -42,10 +81,14 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt.length() == 0)
+                if(txt.length() == 0) {
                     weiter.setEnabled(false); //disable send button if no text entered
-                else
+                    forward.setEnabled(false);
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
+                    forward.setEnabled(true);
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -107,6 +150,29 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
 
                 EditText edit3Text = (EditText) findViewById(R.id.kompliment3EditText);
                 THIRDMESSAGE_KOMPLIMENT = edit3Text.getText().toString();
+                if (!UebersichtTable.aenderung){
+                    startActivity(new Intent(this, Ressource.class));
+                }
+                else{
+                    UebersichtTable.aenderung = false;
+                    startActivity(new Intent(this, UebersichtTable.class));
+                }
+
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Verhalten.class));
+                break;
+
+            case R.id.forward_Button:
+                EditText edit4Text = (EditText) findViewById(R.id.kompliment1EditText);
+                FIRSTMESSAGE_KOMPLIMENT = edit4Text.getText().toString();
+
+                EditText edit5Text = (EditText) findViewById(R.id.kompliment2EditText);
+                SECONDMESSAGE_KOMPLIMENT = edit5Text.getText().toString();
+
+                EditText edit6Text = (EditText) findViewById(R.id.kompliment3EditText);
+                THIRDMESSAGE_KOMPLIMENT = edit6Text.getText().toString();
                 if (!UebersichtTable.aenderung){
                     startActivity(new Intent(this, Ressource.class));
                 }

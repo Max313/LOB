@@ -8,11 +8,24 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class Level2Universalloesung extends AppCompatActivity implements View.OnClickListener {
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+
+    //Buttons
     private Button universalWeiter;
     private Button universalAnekdote;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +33,33 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
         this.setTitle("LOB - Atolle");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setEnabled(false);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.GONE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.VISIBLE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        //Buttons
         universalWeiter = (Button) findViewById(R.id.universal_ButtonWeiter);
         universalWeiter.setOnClickListener(this);
         universalAnekdote = (Button) findViewById(R.id.universal_Anekdote);
@@ -61,6 +101,12 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
 
             case R.id.universal_Anekdote:
                 startActivity(new Intent(this, Level2UniversalloesungAnekdote.class));
+                break;
+
+            case R.id.back_Button:
+                Intent intent = new Intent(this, Level2NeuerWeg.class);
+                intent.putExtra("WegCounter", 2);
+                startActivity(intent);
                 break;
 
             default:

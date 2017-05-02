@@ -96,12 +96,15 @@ public class Level1ZielVerwahren extends AppCompatActivity implements View.OnCli
             //startActivity level 2
             case R.id.zielVerwahren_Button:
                 startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
 
             case R.id.back_Button:
                 startActivity(new Intent(this, Level1Zieldefinition.class));
+                break;
 
             case R.id.forward_Button:
                 startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
 
                 default:
                     break;
