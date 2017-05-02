@@ -1,20 +1,36 @@
 package com.example.lammel.lob;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 
 public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
 
+
+    private ImageView record;
+    private ImageView recordOn;
+    private ImageView play;
+    private ImageView pause;
     private Button weiter;
     private Button uebersicht;
     private Boolean tour;
     private Intent intent;
+    private String fileName;
+    private File file;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,20 +40,48 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
+        fileName = "Sonne1";
+
+        //Ask for Boolean
         tour = getIntent().getExtras().getBoolean("Tour");
 
+        //Set Action - Click
         weiter = (Button) findViewById(R.id.Weiter1_Button);
         weiter.setOnClickListener(this);
 
         uebersicht = (Button) findViewById(R.id.zurUebersicht1_Button);
         uebersicht.setOnClickListener(this);
 
+        play = (ImageView) findViewById(R.id.play1_Button);
+        play.setOnClickListener(this);
+
+        pause = (ImageView) findViewById(R.id.pause1_Button);
+        pause.setOnClickListener(this);
+
+        record = (ImageView) findViewById(R.id.microphone1_Button1);
+        record.setOnClickListener(this);
+
+        recordOn = (ImageView) findViewById(R.id.microphone1_Button2);
+        recordOn.setOnClickListener(this);
+
+
+
+       //Check if a tour is startet or not and set the necessary visibility of the buttons
         if(tour){
             uebersicht.setVisibility(View.GONE);
         }
         else {
             weiter.setVisibility(View.GONE);
         }
+
+        /**file = new File("Sonne1");
+        if(!file.exists()){
+            file = new File(getFilesDir(), fileName);
+            play.setEnabled(false);
+        }
+        else if(file.length() == 0){
+            play.setEnabled(false);
+        }*/
     }
 
     @Override
@@ -72,6 +116,23 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
+
+    //Check if there is the needed permission to record_audio
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults){
+        switch(requestCode){
+            case 101:
+                if(!(grantResults[0] == PackageManager.PERMISSION_GRANTED)) {
+                    record.setEnabled(false);
+                    play.setEnabled(false);
+                    break;
+                }
+            default:
+                super.onRequestPermissionsResult(requestCode, permissions,grantResults);
+                break;
+        }
+    }
+
     @Override
     public void onClick(View view) {
 
@@ -89,11 +150,33 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
                 startActivity(intent);
                 break;
 
+            case R.id.microphone1_Button1:
+                record.setVisibility(view.GONE);
+                recordOn.setVisibility(view.VISIBLE);
+                break;
+
+            case R.id.microphone1_Button2:
+                recordOn.setVisibility(view.GONE);
+                record.setVisibility(view.VISIBLE);
+                break;
+
+
+            case R.id.play1_Button:
+                play.setVisibility(View.GONE);
+                pause.setVisibility(View.VISIBLE);
+
+
+                break;
+
+            case R.id.pause1_Button:
+                pause.setVisibility(View.GONE);
+                play.setVisibility(View.VISIBLE);
+
             default:
                 break;
 
         }
-
-
     }
+
+
 }

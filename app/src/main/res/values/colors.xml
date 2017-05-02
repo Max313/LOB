@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryOld">#3F51B5</color>
-    <color name="colorPrimaryDarkOld">#303F9F</color>
+    <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#2E64FE</color>
     <color name="colorTableHeaderText">#FFFFFF</color>
     <color name="editText">#A4A4A4</color>
     <color name="toolbarBackground">#F2F2F2</color>
     <color name="colorPrimary">#A4A4A4</color>
-    <color name="colorPrimaryDark">#848484</color>
+    <color name="colorPrimaryDarknew">#848484</color>
     <color name="colorAccentOld">#FF4081</color>
 </resources>

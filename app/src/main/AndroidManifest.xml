@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.lammel.lob">
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -59,5 +62,6 @@
         <activity android:name=".Rueckblick"/>
         <activity android:name=".Neuorientierung"/>
     </application>
+
 
 </manifest>

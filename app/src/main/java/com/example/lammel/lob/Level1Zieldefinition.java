@@ -11,8 +11,19 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 public class Level1Zieldefinition extends AppCompatActivity implements View.OnClickListener{
+
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
 
     private static String ziel;
     private Button zielFesthalten_Button;
@@ -25,9 +36,37 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         this.setTitle("LOB - Dein Ziel");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setOnClickListener(this);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.VISIBLE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
+
         final EditText zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
         zieltxt.addTextChangedListener(new TextWatcher()
         {
@@ -74,7 +113,22 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, Level1ZielVerwahren.class));
+        switch (v.getId()) {
+            case R.id.zielFesthalten_Button:
+                startActivity(new Intent(this, Level1ZielVerwahren.class));
+                break;
+
+            case R.id.back_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.forward_Button:
+                startActivity(new Intent(this, Level1ZielVerwahren.class));
+                break;
+
+                default:
+                    break;
+        }
     }
 
     public static void setZiel(String letztesZiel){
@@ -83,4 +137,5 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
     public static String getZiel(){
         return ziel;
     }
+
 }

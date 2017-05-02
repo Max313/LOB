@@ -52,11 +52,23 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="46dp" />
 
-    <ImageButton
-        android:id="@+id/microphone6_Button"
+    <ImageView
+        android:id="@+id/microphone6_Button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:srcCompat="@drawable/microphones"
+        app:srcCompat="@drawable/aufnahmeon"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="32dp"
+        app:layout_constraintTop_toBottomOf="@+id/Sonne6_TextView" />
+
+    <ImageView
+        android:id="@+id/microphone6_Button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/aufnahmeout"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
@@ -74,6 +86,6 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/microphone6_Button" />
+        app:layout_constraintTop_toBottomOf="@+id/microphone6_Button1" />
 
 </android.support.constraint.ConstraintLayout>
