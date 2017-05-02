@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -13,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+//Hier wird in Level 1 das Ziel zum ersten Mal festgelegt und gespeichert.
+//Ab hier kann man im Menü auf Ziele zugreifen
 
 public class Level1Zieldefinition extends AppCompatActivity implements View.OnClickListener{
 
@@ -34,6 +38,8 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
 
     private static String ziel;
     private Button zielFesthalten_Button;
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences settings;
 
 
     @Override
@@ -41,6 +47,7 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zieldefinition);
         this.setTitle("LOB - Dein Ziel");
+        settings = getSharedPreferences(PREFS_NAME, 0);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
 
@@ -158,10 +165,18 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
                 default:
                     break;
         }
+
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString("ZielString", ziel);
+        // Commit the edits!
+        //editor.commit();
+
+        startActivity(new Intent(this, Level1ZielVerwahren.class));
     }
 
     public static void setZiel(String letztesZiel){
         ziel = letztesZiel;
+
     }
     public static String getZiel(){
         return ziel;

@@ -39,7 +39,6 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //Hier ein dein Ziel lautet: ?
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_zieldefinition_neu);
         this.setTitle("LOB - Dein Ziel");

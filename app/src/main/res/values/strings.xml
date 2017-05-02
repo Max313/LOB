@@ -10,6 +10,10 @@
     <string name="tabelle_Menu">Ressourcen Tabelle</string>
     <string name="sonne_Menu">Sonne der Erkenntnis</string>
 
+    <!-- Menü Ziel -->
+    <string name="menuZiel_Textview">Hier kannst du immer dein Ziel betrachten. Du kannst es zu jeder Zeit ändern wenn du das Gefühl hast, dass sich dein Ziel inzwischen verändert hat.</string>
+    <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
+
     <!-- Onboarding -->
     <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!</string>
 
@@ -27,7 +31,7 @@
     <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem ist häufig sehr belastend und nimmt gedanklich viel Platz ein, raubt Energie und trübt den Blick auf das Positive. Lass uns einen ersten kleinen Versuch starten. Wir nehmen das Problem nun an uns und verwahren es für dich gut auf. Du kannst natürlich jederzeit darauf zugreifen, aber nun bist du erstmal frei. Die belastenden Gedanken liegen an einem anderen Ort und du hast Platz für Neues.</string>
 
     <!-- Ziel Definition -->
-    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?</string>
+    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und deinem Verhalten anders als vorher?</string>
     <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen und Änderungen anpassen</string>
     <string name="zielFesthalten_Button">Ziel festhalten</string>
 
@@ -73,7 +77,7 @@
     <string name="phantasie_Textview"> Stell dir vor, du hast die App wieder geschlossen...du gehst deinem üblichen Tagesablauf nach...und langsam wird es Abend..nach dem Abendessen sitzt du vieleicht noch etwas vor dem Fernseher...dann spürst du immer mehr die Müdigkeit....</string>
 
     <!-- Universal Lösungsschlüssel -->
-    <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt eigentlich nur noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment heruaskäme.</string>
+    <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment heruaskäme.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->
@@ -85,6 +89,16 @@
 
     <!-- Exitstrategie -->
     <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum sollten wir uns doch erstmal genau anschauen, was trotz aller Schwierigkeiten - in der Kommunikation mit anderen gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Ich bitte dich in den kommenden 10 Tagen eine Liste zusammenzustellen, in der du beschreibst, worauf du besonders stolz im Umgang mit anderen bist.</string>
+
+    <!-- Zehn Tage Timer -->
+    <string name="zehnTage_Textview1">Hier kannst du aufschreiben worauf du besonders stolz bist. Lass dir ruhig etwas Zeit zum überlegen bevor du weitermachst.</string>
+    <string name="zehnTage_Textview2">timer</string>
+    <string name="zehnTage_EditView1">1. </string>
+    <string name="zehnTage_EditView2">2. </string>
+    <string name="zehnTage_EditView3">3. </string>
+    <string name="zehnTage_EditView4">4. </string>
+    <string name="zehnTage_EditView5">5. </string>
+
 
     <!-- keine Lösung -->
     <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
