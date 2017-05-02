@@ -18,17 +18,24 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
     //Footer Buttons
     private ImageButton back;
     private ImageButton forward;
+    private ImageButton forwardDisabled;
     private ImageButton sungrey;
     private ImageButton sunyellow;
     private ImageButton sun;
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private TextView eins;
+    private TextView zwei;
+    private TextView drei;
+    private TextView vier;
+    private TextView fuenf;
 
     //Buttons and more
     private Button weiter;
     private TextView txt;
     private int counter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +51,10 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
         back.setOnClickListener(this);
 
         forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setEnabled(false);
+        forward.setVisibility(View.GONE);
+
+        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
+        forwardDisabled.setVisibility(View.VISIBLE);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
@@ -62,7 +72,24 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
         sunyellow.setVisibility(View.GONE);
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sunyellow.setVisibility(View.VISIBLE);
+        sun.setVisibility(View.VISIBLE);
+
+        eins = (TextView) findViewById(R.id.footer1_TextView);
+        eins.setVisibility(View.GONE);
+
+        zwei = (TextView) findViewById(R.id.footer2_TextView);
+        zwei.setVisibility(View.GONE);
+
+        drei = (TextView) findViewById(R.id.footer3_TextView);
+        drei.setVisibility(View.GONE);
+
+        vier = (TextView) findViewById(R.id.footer4_TextView);
+        vier.setVisibility(View.GONE);
+
+        fuenf = (TextView) findViewById(R.id.footer5_TextView);
+        fuenf.setVisibility(View.VISIBLE);
+
+
 
         //Button and more (in action)
         weiter = (Button) findViewById(R.id.EndeWeiter_Button);
@@ -156,6 +183,7 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
                         txt.setText("Ganz zum Schluss gibt es noch etwas Wichtiges zu sagen: Alles, wirklich alles, was du an Veränderungen erreicht hast, ist ganz allein aus deiner Idee und aus deinen " +
                                 "Kräften erwachsen. LOB hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!");
                         weiter.setVisibility(View.GONE);
+                        forward.setVisibility(View.GONE);
                         counter = 0;
                         break;
                     }

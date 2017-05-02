@@ -9,18 +9,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Neuorientierung extends AppCompatActivity implements View.OnClickListener{
 
     //Footer Buttons
     private ImageButton back;
     private ImageButton forward;
+    private ImageButton forwardDisabled;
     private ImageButton sungrey;
     private ImageButton sunyellow;
     private ImageButton sun;
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private TextView eins;
+    private TextView zwei;
+    private TextView drei;
+    private TextView vier;
+    private TextView fuenf;
 
     //Buttons and more
     private Button zuLevel2;
@@ -40,7 +47,10 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
         back.setOnClickListener(this);
 
         forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setEnabled(false);
+        forward.setVisibility(View.GONE);
+
+        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
+        forwardDisabled.setVisibility(View.VISIBLE);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
@@ -58,7 +68,22 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
         sunyellow.setVisibility(View.GONE);
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sunyellow.setVisibility(View.VISIBLE);
+        sun.setVisibility(View.VISIBLE);
+
+        eins = (TextView) findViewById(R.id.footer1_TextView);
+        eins.setVisibility(View.GONE);
+
+        zwei = (TextView) findViewById(R.id.footer2_TextView);
+        zwei.setVisibility(View.GONE);
+
+        drei = (TextView) findViewById(R.id.footer3_TextView);
+        drei.setVisibility(View.GONE);
+
+        vier = (TextView) findViewById(R.id.footer4_TextView);
+        vier.setVisibility(View.GONE);
+
+        fuenf = (TextView) findViewById(R.id.footer5_TextView);
+        fuenf.setVisibility(View.VISIBLE);
 
         //Buttons in action
         zuLevel2 = (Button) findViewById(R.id.level2_Button);

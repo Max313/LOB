@@ -16,12 +16,18 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
     //Footer Buttons
     private ImageButton back;
     private ImageButton forward;
+    private ImageButton forwardDisabled;
     private ImageButton sungrey;
     private ImageButton sunyellow;
     private ImageButton sun;
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private TextView eins;
+    private TextView zwei;
+    private TextView drei;
+    private TextView vier;
+    private TextView fuenf;
 
     //Buttons and more
     private int counter = 0;
@@ -42,6 +48,10 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
 
         forward = (ImageButton) findViewById(R.id.forward_Button);
         forward.setOnClickListener(this);
+        forward.setVisibility(View.VISIBLE);
+
+        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
+        forwardDisabled.setVisibility(View.GONE);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
@@ -60,6 +70,21 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
         sun.setVisibility(View.GONE);
+
+        eins = (TextView) findViewById(R.id.footer1_TextView);
+        eins.setVisibility(View.GONE);
+
+        zwei = (TextView) findViewById(R.id.footer2_TextView);
+        zwei.setVisibility(View.GONE);
+
+        drei = (TextView) findViewById(R.id.footer3_TextView);
+        drei.setVisibility(View.GONE);
+
+        vier = (TextView) findViewById(R.id.footer4_TextView);
+        vier.setVisibility(View.VISIBLE);
+
+        fuenf = (TextView) findViewById(R.id.footer5_TextView);
+        fuenf.setVisibility(View.GONE);
 
         //Button on action
         weiter = (Button) findViewById(R.id.frage1_Button);

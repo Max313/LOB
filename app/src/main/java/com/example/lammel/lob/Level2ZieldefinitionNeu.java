@@ -11,9 +11,28 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.OnClickListener {
 
+    //Footer Buttons
+    private ImageButton back;
+    private ImageButton forward;
+    private ImageButton forwardDisabled;
+    private ImageButton sungrey;
+    private ImageButton sunyellow;
+    private ImageButton sun;
+    private ImageButton glowgrey;
+    private ImageButton glowcolor;
+    private ImageButton glow;
+    private TextView eins;
+    private TextView zwei;
+    private TextView drei;
+    private TextView vier;
+    private TextView fuenf;
+
+    //Buttons and more
     private Button zieldefinition_zielButton, zurueckButton;
     private int wegCounter;
     private String ziel;
@@ -26,6 +45,54 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
         this.setTitle("LOB - Dein Ziel");
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
+
+        //Footer Buttons
+        back = (ImageButton) findViewById(R.id.back_Button);
+        back.setOnClickListener(this);
+
+        forward = (ImageButton) findViewById(R.id.forward_Button);
+        forward.setVisibility(View.GONE);
+
+        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
+        forwardDisabled.setVisibility(View.VISIBLE);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.VISIBLE);
+
+        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
+        glowgrey.setVisibility(View.VISIBLE);
+
+        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
+        glowcolor.setVisibility(View.GONE);
+
+        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
+        glow.setVisibility(View.GONE);
+
+        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
+        sungrey.setVisibility(View.VISIBLE);
+
+        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
+        sunyellow.setVisibility(View.GONE);
+
+        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
+        sun.setVisibility(View.GONE);
+
+        eins = (TextView) findViewById(R.id.footer1_TextView);
+        eins.setVisibility(View.GONE);
+
+        zwei = (TextView) findViewById(R.id.footer2_TextView);
+        zwei.setVisibility(View.VISIBLE);
+
+        drei = (TextView) findViewById(R.id.footer3_TextView);
+        drei.setVisibility(View.GONE);
+
+        vier = (TextView) findViewById(R.id.footer4_TextView);
+        vier.setVisibility(View.GONE);
+
+        fuenf = (TextView) findViewById(R.id.footer5_TextView);
+        fuenf.setVisibility(View.GONE);
+
+        //Button and more in action
         ziel = Level1Zieldefinition.getZiel();
         wegCounter = getIntent().getExtras().getInt("WegCounter");
         zurueckButton = (Button) findViewById(R.id.zieldefinitionNeu_zurueckButton);
@@ -92,6 +159,12 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
                 Intent intent2 = new Intent(v.getContext(), Level2NeuerWeg.class);
                 intent2.putExtra("WegCounter", wegCounter);
                 startActivity(intent2);
+                break;
+
+            case R.id.back_Button:
+                Intent intent3 = new Intent(v.getContext(), Level2NeuerWeg.class);
+                intent3.putExtra("WegCounter", wegCounter);
+                startActivity(intent3);
                 break;
 
             default:

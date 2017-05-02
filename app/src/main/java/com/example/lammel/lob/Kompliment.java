@@ -21,6 +21,7 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
     //Footer Buttons
     private ImageButton back;
     private ImageButton forward;
+    private ImageButton forwardDisabled;
     private ImageButton sungrey;
     private ImageButton sunyellow;
     private ImageButton sun;
@@ -50,6 +51,10 @@ public class Kompliment extends AppCompatActivity  implements View.OnClickListen
 
         forward = (ImageButton) findViewById(R.id.forward_Button);
         forward.setOnClickListener(this);
+        forward.setVisibility(View.VISIBLE);
+
+        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
+        forwardDisabled.setVisibility(View.GONE);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
