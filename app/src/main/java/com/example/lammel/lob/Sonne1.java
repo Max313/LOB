@@ -13,6 +13,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -29,6 +30,11 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private TextView eins;
+    private TextView zwei;
+    private TextView drei;
+    private TextView vier;
+    private TextView fuenf;
 
     //Buttons and more
     private ImageView record;
@@ -75,6 +81,21 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
         sun.setVisibility(View.GONE);
+
+        eins = (TextView) findViewById(R.id.footer1_TextView);
+        eins.setVisibility(View.GONE);
+
+        zwei = (TextView) findViewById(R.id.footer2_TextView);
+        zwei.setVisibility(View.GONE);
+
+        drei = (TextView) findViewById(R.id.footer3_TextView);
+        drei.setVisibility(View.GONE);
+
+        vier = (TextView) findViewById(R.id.footer4_TextView);
+        vier.setVisibility(View.VISIBLE);
+
+        fuenf = (TextView) findViewById(R.id.footer5_TextView);
+        fuenf.setVisibility(View.GONE);
 
         //Buttons and more on action
         fileName = "Sonne1";
