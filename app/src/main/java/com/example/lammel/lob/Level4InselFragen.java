@@ -23,6 +23,8 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
+    private Button ressource;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -53,6 +55,9 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -61,6 +66,11 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
+
+        ressource = (Button) findViewById(R.id.ressourcen_Button);
+        ressource.setOnClickListener(this);
+
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.GONE);
@@ -211,6 +221,21 @@ public class Level4InselFragen extends AppCompatActivity implements View.OnClick
                     startActivity(intent);
                     break;
                 }
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen_Button:
+                startActivity(new Intent(this, Staerkeinsel.class));
+                break;
+
+            default:
+                break;
 
         }
 

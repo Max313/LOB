@@ -26,6 +26,7 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -60,6 +61,9 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -68,6 +72,7 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.VISIBLE);
@@ -393,6 +398,14 @@ public class UebersichtTable extends AppCompatActivity implements View.OnClickLi
                 //startActivity(new Intent(this, Level3UebungStart.class));
                 startActivity(new Intent(this, Level4InselDesSehenden.class));
 
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
                 break;
 
             default:

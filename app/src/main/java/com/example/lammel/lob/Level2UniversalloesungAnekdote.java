@@ -23,6 +23,7 @@ public class Level2UniversalloesungAnekdote extends AppCompatActivity implements
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -50,6 +51,9 @@ public class Level2UniversalloesungAnekdote extends AppCompatActivity implements
 
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
+
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
@@ -127,6 +131,10 @@ public class Level2UniversalloesungAnekdote extends AppCompatActivity implements
 
             case R.id.forward_Button:
                 startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
                 break;
         }
 

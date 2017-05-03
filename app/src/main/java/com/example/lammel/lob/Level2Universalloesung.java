@@ -23,6 +23,7 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -50,6 +51,9 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
 
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
+
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
@@ -132,6 +136,10 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
                 Intent intent = new Intent(this, Level2NeuerWeg.class);
                 intent.putExtra("WegCounter", 2);
                 startActivity(intent);
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
                 break;
 
             default:

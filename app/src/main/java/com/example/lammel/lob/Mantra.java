@@ -80,7 +80,7 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
         drei.setVisibility(View.GONE);
 
         vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
+        vier.setVisibility(View.VISIBLE);
 
         fuenf = (TextView) findViewById(R.id.footer5_TextView);
         fuenf.setVisibility(View.GONE);

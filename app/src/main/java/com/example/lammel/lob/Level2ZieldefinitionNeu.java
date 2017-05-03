@@ -26,6 +26,7 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button zielButton;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -56,8 +57,8 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
+        zielButton = (Button) findViewById(R.id.ziel_Button);
+        zielButton.setOnClickListener(this);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.VISIBLE);
@@ -165,6 +166,10 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
                 Intent intent3 = new Intent(v.getContext(), Level2NeuerWeg.class);
                 intent3.putExtra("WegCounter", wegCounter);
                 startActivity(intent3);
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
                 break;
 
             default:

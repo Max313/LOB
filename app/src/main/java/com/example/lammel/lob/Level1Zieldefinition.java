@@ -58,9 +58,6 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.VISIBLE);
 
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
-
         glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
         glowcolor.setVisibility(View.GONE);
 
