@@ -129,7 +129,7 @@
         android:layout_width="88dp"
         android:layout_height="48dp"
         android:layout_marginLeft="302dp"
-        android:layout_marginTop="315dp"
+        android:layout_marginTop="312dp"
         android:text="@string/WWort8_TextView"
         android:textSize="@dimen/activity_suncontent"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -204,18 +204,12 @@
         android:layout_width="88dp"
         android:layout_height="48dp"
         android:layout_marginLeft="46dp"
-        android:layout_marginTop="325dp"
+        android:layout_marginTop="322dp"
         android:text="@string/WWort5_TextView"
         android:textSize="@dimen/activity_suncontent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
          />
-
-
-
-
-
-
 
 
     <TextView
@@ -231,6 +225,18 @@
         />
 
     <Button
+        android:id="@+id/fertig_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Fertig_Button"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="46dp" />
+
+    <Button
         android:id="@+id/startTour_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -241,6 +247,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="46dp" />
+
+
 
 
 </android.support.constraint.ConstraintLayout>

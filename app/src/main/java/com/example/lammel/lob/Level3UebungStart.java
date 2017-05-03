@@ -23,6 +23,7 @@ public class Level3UebungStart extends AppCompatActivity implements View.OnClick
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -51,17 +52,18 @@ public class Level3UebungStart extends AppCompatActivity implements View.OnClick
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
 
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
+        glowgrey.setVisibility(View.GONE);
 
         glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
         glowcolor.setVisibility(View.GONE);
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.GONE);
+        glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.VISIBLE);
@@ -134,6 +136,14 @@ public class Level3UebungStart extends AppCompatActivity implements View.OnClick
 
             case R.id.forward_Button:
                 startActivity(new Intent(this, Level4InselDesSehenden.class));
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
                 break;
 
             default:

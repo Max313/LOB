@@ -23,6 +23,8 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
+    private Button ressource;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -52,6 +54,9 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -60,6 +65,10 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
+
+        ressource = (Button) findViewById(R.id.ressourcen_Button);
+        ressource.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.GONE);
@@ -69,6 +78,7 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
         sun.setVisibility(View.VISIBLE);
+        sun.setOnClickListener(this);
 
         eins = (TextView) findViewById(R.id.footer1_TextView);
         eins.setVisibility(View.GONE);
@@ -130,11 +140,31 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.wEnde_Button:
-                startActivity(new Intent(this, Ende.class));
+                Intent intent = new Intent(view.getContext(), Ende.class);
+                intent.putExtra("Source", 1);
+                startActivity(intent);
                 break;
 
             case R.id.back_Button:
                 startActivity(new Intent(this, Rueckblick.class));
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen_Button:
+                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
+                break;
+
+            case R.id.sonneLeuchtend_Button:
+                startActivity(new Intent(this, Level4InselDesSehenden.class));
                 break;
         }
 

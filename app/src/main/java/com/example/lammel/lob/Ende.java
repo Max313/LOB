@@ -25,6 +25,8 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
+    private Button ressource;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -35,6 +37,7 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
     private Button weiter;
     private TextView txt;
     private int counter;
+    private int source;
 
 
     @Override
@@ -56,6 +59,9 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -64,6 +70,10 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
+
+        ressource = (Button) findViewById(R.id.ressourcen_Button);
+        ressource.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.GONE);
@@ -73,6 +83,7 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
         sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
         sun.setVisibility(View.VISIBLE);
+        sun.setOnClickListener(this);
 
         eins = (TextView) findViewById(R.id.footer1_TextView);
         eins.setVisibility(View.GONE);
@@ -96,6 +107,8 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
         weiter.setOnClickListener(this);
 
         txt = (TextView) findViewById(R.id.Ende_TextView);
+
+        source = getIntent().getExtras().getInt("Source");
 
 
     }
@@ -150,8 +163,13 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.back_Button:
                 if(counter == 0){
-                    startActivity(new Intent(this, Rueckblick.class));
+                    if(source == 0){
+                        startActivity(new Intent(this, Rueckblick.class));
+                    }
+                    else{
+                    startActivity(new Intent(this, Neuorientierung.class));
                     break;
+                    }
                 }
                 else if(counter == 1){
                     startActivity(new Intent(this, Ende.class));
@@ -187,6 +205,24 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
                         counter = 0;
                         break;
                     }
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen_Button:
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
+                break;
+
+            case R.id.sonneLeuchtend_Button:
+                startActivity(new Intent(this, Level4InselDesSehenden.class));
+                break;
 }
 
 

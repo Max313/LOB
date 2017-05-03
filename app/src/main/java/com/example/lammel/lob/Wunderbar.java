@@ -23,6 +23,7 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -63,6 +64,9 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.GONE);
+
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.VISIBLE);
@@ -122,7 +126,9 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent1 = new Intent(this, Staerkeinsel.class);
+                intent1.putExtra("LoesungsCounter", loesungsCounter);
+                startActivity(intent1);
                 break;
 
             case R.id.back_Button:
@@ -132,7 +138,13 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
                 break;
 
             case R.id.forward_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent3 = new Intent(this, Staerkeinsel.class);
+                intent3.putExtra("LoesungsCounter", loesungsCounter);
+                startActivity(intent3);
+                break;
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
                 break;
 
             default:

@@ -24,6 +24,8 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
+    private Button ressource;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -57,6 +59,9 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -65,6 +70,10 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
+
+        ressource = (Button) findViewById(R.id.ressourcen_Button);
+        ressource.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.GONE);
@@ -151,7 +160,7 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.zurUebersicht6_Button:
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Tour", false);
+                intent.putExtra("Source", 6);
                 startActivity(intent);
                 break;
 
@@ -164,7 +173,7 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
                 }
                 else{
                     intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Tour", false);
+                    intent.putExtra("Source", 6);
                     startActivity(intent);
                     break;
                 }
@@ -178,10 +187,24 @@ public class Sonne6 extends AppCompatActivity implements View.OnClickListener{
                 }
                 else{
                     intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Tour", false);
+                    intent.putExtra("Source", 6);
                     startActivity(intent);
                     break;
                 }
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen_Button:
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
+                break;
 
             default:
                 break;
