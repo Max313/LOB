@@ -129,13 +129,15 @@ public class Level2Universalloesung extends AppCompatActivity implements View.On
                 break;
 
             case R.id.universal_Anekdote:
-                startActivity(new Intent(this, Level2UniversalloesungAnekdote.class));
+                Intent intent = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                intent.putExtra("Source", 0);
+                startActivity(intent);
                 break;
 
             case R.id.back_Button:
-                Intent intent = new Intent(this, Level2NeuerWeg.class);
-                intent.putExtra("WegCounter", 2);
-                startActivity(intent);
+                Intent intent2 = new Intent(this, Level2NeuerWeg.class);
+                intent2.putExtra("WegCounter", 2);
+                startActivity(intent2);
                 break;
 
             case R.id.ziel_Button:

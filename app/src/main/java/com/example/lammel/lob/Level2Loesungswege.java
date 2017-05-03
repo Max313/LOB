@@ -228,8 +228,35 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
                 }
 
             case R.id.back_Button:
-                startActivity(new Intent(this, Level2Ausnahmen.class));
-                break;
+                if(loesungsCounter == 0){
+                    startActivity(new Intent(this, Level2VeraenderungJa.class));
+                    break;
+                }
+
+                else if(loesungsCounter == 1) {
+                    startActivity(new Intent(this, Level2Ausnahmen.class));
+                    break;
+                }
+
+                else if(loesungsCounter == 2){
+                    startActivity(new Intent(this, Level2Phantasiereise.class));
+                    break;
+                }
+
+                else if(loesungsCounter == 3){
+                    startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
+                    break;
+                }
+
+                else if(loesungsCounter == 4){
+                    startActivity(new Intent(this, Level2Exitstrategie.class));
+                    break;
+                }
+
+                else if(loesungsCounter == 5){
+                    startActivity(new Intent(this, Level2KeineLoesung.class));
+                    break;
+                }
 
             case R.id.ziel_Button:
                 startActivity(new Intent(this, Level1Problemdefinition.class));

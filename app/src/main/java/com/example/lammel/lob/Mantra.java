@@ -24,6 +24,8 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
     private ImageButton glowgrey;
     private ImageButton glowcolor;
     private ImageButton glow;
+    private Button ziel;
+    private Button ressource;
     private TextView eins;
     private TextView zwei;
     private TextView drei;
@@ -54,6 +56,9 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
+        ziel = (Button) findViewById(R.id.ziel_Button);
+        ziel.setOnClickListener(this);
+
         glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
         glowgrey.setVisibility(View.GONE);
 
@@ -62,6 +67,10 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
 
         glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
         glow.setVisibility(View.VISIBLE);
+        glow.setOnClickListener(this);
+
+        ressource = (Button) findViewById(R.id.ressourcen_Button);
+        ressource.setOnClickListener(this);
 
         sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
         sungrey.setVisibility(View.GONE);
@@ -80,20 +89,22 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
         drei.setVisibility(View.GONE);
 
         vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.VISIBLE);
 
         fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.GONE);
+
 
 
         if(source == 0){
-
             sunyellow.setVisibility(View.VISIBLE);
             sun.setVisibility(View.GONE);
+            vier.setVisibility(View.VISIBLE);
+            fuenf.setVisibility(View.GONE);
         }
         else{
             sunyellow.setVisibility(View.GONE);
             sun.setVisibility(View.VISIBLE);
+            vier.setVisibility(View.GONE);
+            fuenf.setVisibility(View.VISIBLE);
         }
 
         //Button on action
@@ -175,6 +186,23 @@ public class Mantra extends AppCompatActivity implements View.OnClickListener{
                     break;
 
                 }
+
+            case R.id.ziel_Button:
+                startActivity(new Intent(this, Level1Problemdefinition.class));
+                break;
+
+            case R.id.gluehbirneLeuchtend_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen_Button:
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
+                break;
+
+            default:
+                break;
 
         }
 

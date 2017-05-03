@@ -140,7 +140,9 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.wEnde_Button:
-                startActivity(new Intent(this, Ende.class));
+                Intent intent = new Intent(view.getContext(), Ende.class);
+                intent.putExtra("Source", 1);
+                startActivity(intent);
                 break;
 
             case R.id.back_Button:
@@ -156,7 +158,9 @@ public class Neuorientierung extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.ressourcen_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
                 break;
 
             case R.id.sonneLeuchtend_Button:

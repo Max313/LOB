@@ -155,7 +155,9 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
                 break;
 
             case R.id.ressourcen_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
                 break;
 
             default:

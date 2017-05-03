@@ -150,7 +150,9 @@ public class Level2UniversalloesungWeiter extends AppCompatActivity implements V
                 break;
 
             case R.id.universal_Nichts:
-                startActivity(new Intent(this, Level2UniversalloesungAnekdote.class));
+                Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                intent2.putExtra("Source", 1);
+                startActivity(intent2);
                 break;
 
             case R.id.back_Button:

@@ -176,7 +176,9 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
 
             case R.id.forward_Button:
                 if(fortschritt >= 8){
-                    startActivity(new Intent(this, Ende.class));
+                    Intent intent = new Intent(view.getContext(), Ende.class);
+                    intent.putExtra("Source", 0);
+                    startActivity(intent);
                     break;
                 }
 
@@ -194,7 +196,9 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case R.id.ressourcen_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
                 break;
 
             case R.id.sonneLeuchtend_Button:

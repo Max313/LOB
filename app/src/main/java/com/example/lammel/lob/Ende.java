@@ -37,6 +37,7 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
     private Button weiter;
     private TextView txt;
     private int counter;
+    private int source;
 
 
     @Override
@@ -107,6 +108,8 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
         txt = (TextView) findViewById(R.id.Ende_TextView);
 
+        source = getIntent().getExtras().getInt("Source");
+
 
     }
 
@@ -160,8 +163,13 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.back_Button:
                 if(counter == 0){
-                    startActivity(new Intent(this, Rueckblick.class));
+                    if(source == 0){
+                        startActivity(new Intent(this, Rueckblick.class));
+                    }
+                    else{
+                    startActivity(new Intent(this, Neuorientierung.class));
                     break;
+                    }
                 }
                 else if(counter == 1){
                     startActivity(new Intent(this, Ende.class));
@@ -207,7 +215,9 @@ public class Ende extends AppCompatActivity implements View.OnClickListener{
                 break;
 
             case R.id.ressourcen_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
+                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                intent.putExtra("LoesungsCounter", 0);
+                startActivity(intent);
                 break;
 
             case R.id.sonneLeuchtend_Button:
