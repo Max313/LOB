@@ -110,10 +110,10 @@
     <string name="value10_TextView">Value 4</string>
     <string name="value11_TextView">Value 4</string>
     <string name="value12_TextView">Value 4</string>
-    <string name="aendern1_Button">Bearbeiten</string>
-    <string name="aendern_2Button">Bearbeiten</string>
-    <string name="aendern3_Button">Bearbeiten</string>
-    <string name="aendern4_Button">Bearbeiten</string>
+    <string name="aendern1_Button">Spalte\nBearbeiten</string>
+    <string name="aendern_2Button">Spalte\nBearbeiten</string>
+    <string name="aendern3_Button">Spalte\nBearbeiten</string>
+    <string name="aendern4_Button">Tabelle\nBearbeiten</string>
     <string name="weiter_Button">Weiter</string>
     <string name="ok">OK</string>
 
@@ -165,6 +165,7 @@
     <string name="zurSonne_Button">Weiter</string>
 
     <string name="SonneTour_Button">Start</string>
+    <string name="Fertig_Button">Fertig</string>
 
     <!-- Sonne W1 Frage -->
     <string name="SonneF1_TextView">Was hat dich auf die guten Ideen gebracht, die zur Veränderung geführt haben?</string>

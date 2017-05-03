@@ -135,7 +135,9 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.zurSonne_Button:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                Intent intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
+                intent.putExtra("Source", 0);
+                startActivity(intent);
                 break;
 
             case R.id.back_Button:
@@ -155,9 +157,9 @@ public class SonneDerErkenntnisStart extends AppCompatActivity implements View.O
                 break;
 
             case R.id.ressourcen_Button:
-                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
-                intent.putExtra("LoesungsCounter", 0);
-                startActivity(intent);
+                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
                 break;
 
             default:

@@ -156,7 +156,7 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.zurUebersicht5_Button:
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Tour", false);
+                intent.putExtra("Source", 5);
                 startActivity(intent);
                 break;
 
@@ -169,7 +169,7 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
                 }
                 else{
                     intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Tour", false);
+                    intent.putExtra("Source", 5);
                     startActivity(intent);
                     break;
                 }
@@ -183,7 +183,7 @@ public class Sonne5 extends AppCompatActivity implements View.OnClickListener{
                 }
                 else{
                     intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Tour", false);
+                    intent.putExtra("Source", 5);
                     startActivity(intent);
                     break;
                 }

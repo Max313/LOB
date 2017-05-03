@@ -218,7 +218,7 @@ public class Sonne1 extends AppCompatActivity implements View.OnClickListener{
 
             case R.id.zurUebersicht1_Button:
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Tour", false);
+                intent.putExtra("Source", 1);
                 startActivity(intent);
                 break;
 

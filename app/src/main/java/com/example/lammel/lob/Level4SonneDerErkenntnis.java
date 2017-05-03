@@ -51,8 +51,11 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
     private ImageView img7;
     private ImageView img8;
 
+    //Buttons and more
     private Button start;
+    private Button fertig;
     private Intent intent;
+    private int source;
 
 
     @Override
@@ -166,8 +169,22 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
         img8 = (ImageView) findViewById(R.id.Sonne8_imageView);
         img8.setOnClickListener(this);
 
+        //Button and more action
         start = (Button) findViewById(R.id.startTour_Button);
-        start.setOnClickListener(this);
+
+        fertig = (Button) findViewById(R.id.fertig_Button);
+
+        source = getIntent().getExtras().getInt("Source");
+        if(source == 0){
+            start.setVisibility(View.VISIBLE);
+            start.setOnClickListener(this);
+            fertig.setVisibility(View.GONE);
+        }
+        else{
+            fertig.setVisibility(View.VISIBLE);
+            fertig.setOnClickListener(this);
+            start.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -306,8 +323,71 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
                 break;
 
             case R.id.back_Button:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                break;
+                if(source == 0){
+                    startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                    break;
+                }
+
+                else if(source == 1){
+                    intent = new Intent(view.getContext(), Sonne1.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 2){
+                    intent = new Intent(view.getContext(), Sonne2.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 3){
+                    intent = new Intent(view.getContext(), Sonne3.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 4){
+                    intent = new Intent(view.getContext(), Sonne4.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 5){
+                    intent = new Intent(view.getContext(), Sonne5.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 6){
+                    intent = new Intent(view.getContext(), Sonne6.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 7){
+                    intent = new Intent(view.getContext(), Sonne7.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+                else if(source == 8){
+                    intent = new Intent(view.getContext(), Sonne8.class);
+                    intent.putExtra("Tour", false);
+                    startActivity(intent);
+                    break;
+                }
+
+            case R.id.fertig_Button:
+                Intent intent = new Intent(view.getContext(), Mantra.class);
+                intent.putExtra("Source", 1);
+                startActivity(intent);
 
             case R.id.forward_Button:
                 intent = new Intent(view.getContext(), Sonne1.class);
@@ -324,9 +404,9 @@ public class Level4SonneDerErkenntnis extends AppCompatActivity implements View.
                 break;
 
             case R.id.ressourcen_Button:
-                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
-                intent.putExtra("LoesungsCounter", 0);
-                startActivity(intent);
+                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
                 break;
 
             default:
