@@ -66,7 +66,7 @@
 
         <ImageButton
             android:id="@+id/gluehbirneDurchsichtig_Button"
-            android:background="@drawable/gluehbirnedunkeldurchsichtig"
+            android:background="@drawable/gluehbirneaus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="62dp"
         android:layout_marginTop="5dp"
-        android:background="@drawable/gluehbirnedunkel"
+        android:background="@drawable/gluehbirnestart"
         app:layout_constraintLeft_toRightOf="@+id/back_Button"
         app:layout_constraintTop_toTopOf="parent" />
 

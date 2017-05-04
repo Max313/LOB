@@ -34,21 +34,6 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private Button ziel;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private Button ressource;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button loesung;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
-
 
     // Button and more
     private Button weiter_button;
@@ -58,6 +43,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     //shared Preferences zum Speichern
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     //Heranführen an das Thema Lösungsorientierte Beratung
@@ -66,6 +52,12 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_onboarding);
         this.setTitle("LOB - Family Treasure");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putInt("tabStatus", 0);
+        editor.apply();
 
         //Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -101,7 +93,6 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
 
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
-
 
     }
 

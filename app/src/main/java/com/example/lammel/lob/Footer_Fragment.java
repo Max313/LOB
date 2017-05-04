@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -25,7 +26,7 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     public int ressourceStatus;
     public int sonneStatus;
     public int loesungStatus;
-    public int forwardStatus;
+    public int tabStatus;
 
     //Buttons
     private Button ziel;
@@ -37,8 +38,7 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     private ImageButton sunColor;
     private ImageButton sun;
     private Button loesung;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
+
 
     //TextView
     private TextView eins;
@@ -47,6 +47,10 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     private TextView vier;
     private TextView fuenf;
 
+    //shared Preferences
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -54,9 +58,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.footer, container, false);
 
-        //Button forward
-        forward = (ImageButton) view.findViewById(R.id.forward_Button);
-        forwardDisabled = (ImageButton) view.findViewById(R.id.forwardgrey_Button);
 
         //Ziel Button
         ziel = (Button) view.findViewById(R.id.ziel_Button);
@@ -91,45 +92,34 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     }
 
     public void updateStati(){
-        zielStatus = MainActivity.zielStatus;
-        ideeStatus = MainActivity.ideeStatus;
-        ressourceStatus = MainActivity.ressourceStatus;
-        sonneStatus = MainActivity.sonneStatus;
-        loesungStatus = MainActivity.loesungStatus;
+        saved = this.getActivity().getSharedPreferences(PREFS_NAME, 0);
 
-        setFooterContent();
+        zielStatus =  saved.getInt("zielStatus", 0);
+        ideeStatus = saved.getInt("ideeStatus", 0);
+        ressourceStatus = saved.getInt("ressourceStatus", 0);
+        sonneStatus = saved.getInt("sonneStatus", 0);
+        loesungStatus = saved.getInt("loesungStatus", 0);
+
+        tabStatus = saved.getInt("tabStatus", 0);
+
+        setPictures();
+        setTab();
     }
 
-    public void setFooterContent(){
-        switch(forwardStatus){
-            //Enabled
-            case 0:
-                forward.setVisibility(View.VISIBLE);
-                forwardDisabled.setVisibility(View.GONE);
-                break;
-            //Disabled
-            case 1:
-                forward.setVisibility(View.GONE);
-                forwardDisabled.setVisibility(View.VISIBLE);
-                break;
-        }
+    public void setPictures(){
+
         switch(zielStatus){
             //noch nicht da
             case 0:
-                //Tab
-                eins.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
-                //Tab
-                eins.setVisibility(View.VISIBLE);
+
                 break;
             //beendet
             case 2:
                 //Icon
                 ziel.setOnClickListener(this);
-                //Tab
-                eins.setVisibility(View.GONE);
                 break;
 
             default:
@@ -143,8 +133,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 glowGrey.setVisibility(View.VISIBLE);
                 glowColor.setVisibility(View.GONE);
                 glow.setVisibility(View.GONE);
-                //Tab
-                zwei.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
@@ -152,8 +140,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 glowGrey.setVisibility(View.GONE);
                 glowColor.setVisibility(View.VISIBLE);
                 glow.setVisibility(View.GONE);
-                //Tab
-                zwei.setVisibility(View.VISIBLE);
                 break;
             //beendet
             case 2:
@@ -162,8 +148,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 glowColor.setVisibility(View.GONE);
                 glow.setVisibility(View.VISIBLE);
                 glow.setOnClickListener(this);
-                //Tab
-                zwei.setVisibility(View.GONE);
                 break;
 
             default:
@@ -173,20 +157,14 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (ressourceStatus){
             //noch nicht da
             case 0:
-                //Tab
-                drei.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
-                //Tab
-                drei.setVisibility(View.VISIBLE);
                 break;
             //beendet
             case 2:
                 //Icon
                 ressource.setOnClickListener(this);
-                //Tab
-                drei.setVisibility(View.GONE);
                 break;
 
             default:
@@ -200,8 +178,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 sunGrey.setVisibility(View.VISIBLE);
                 sunColor.setVisibility(View.GONE);
                 sun.setVisibility(View.GONE);
-                //Tab
-                vier.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
@@ -209,8 +185,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 sunGrey.setVisibility(View.GONE);
                 sunColor.setVisibility(View.VISIBLE);
                 sun.setVisibility(View.GONE);
-                //Tab
-                vier.setVisibility(View.VISIBLE);
                 break;
             //beendet
             case 2:
@@ -219,8 +193,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 sunColor.setVisibility(View.GONE);
                 sun.setVisibility(View.VISIBLE);
                 sun.setOnClickListener(this);
-                //Tab
-                vier.setVisibility(View.GONE);
                 break;
 
             default:
@@ -229,28 +201,77 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (loesungStatus){
             //noch nicht da
             case 0:
-                //Tab
-                fuenf.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
-                //Tab
-                fuenf.setVisibility(View.VISIBLE);
                 break;
             //beendet
             case 2:
                 //Icon
                 loesung.setOnClickListener(this);
-                //Tab
-                fuenf.setVisibility(View.GONE);
                 break;
 
             default:
                 break;
         }
-
-
     }
+
+    public void setTab(){
+        switch(tabStatus){
+            case 0:
+                eins.setVisibility(View.GONE);
+                zwei.setVisibility(View.GONE);
+                drei.setVisibility(View.GONE);
+                vier.setVisibility(View.GONE);
+                fuenf.setVisibility(View.GONE);
+                break;
+
+            case 1:
+                eins.setVisibility(View.VISIBLE);
+                zwei.setVisibility(View.GONE);
+                drei.setVisibility(View.GONE);
+                vier.setVisibility(View.GONE);
+                fuenf.setVisibility(View.GONE);
+                break;
+
+            case 2:
+                eins.setVisibility(View.GONE);
+                zwei.setVisibility(View.VISIBLE);
+                drei.setVisibility(View.GONE);
+                vier.setVisibility(View.GONE);
+                fuenf.setVisibility(View.GONE);
+                break;
+
+            case 3:
+                eins.setVisibility(View.GONE);
+                zwei.setVisibility(View.GONE);
+                drei.setVisibility(View.VISIBLE);
+                vier.setVisibility(View.GONE);
+                fuenf.setVisibility(View.GONE);
+                break;
+
+            case 4:
+                eins.setVisibility(View.GONE);
+                zwei.setVisibility(View.GONE);
+                drei.setVisibility(View.GONE);
+                vier.setVisibility(View.VISIBLE);
+                fuenf.setVisibility(View.GONE);
+                break;
+
+            case 5:
+                eins.setVisibility(View.GONE);
+                zwei.setVisibility(View.GONE);
+                drei.setVisibility(View.GONE);
+                vier.setVisibility(View.GONE);
+                fuenf.setVisibility(View.VISIBLE);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {

@@ -25,34 +25,37 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons
     private Button veraenderungJa, veraenderungNein;
     private AppCompatDelegate delegate;
-    private int zielStatus;
-    private int ideeStatus;
+
 
     //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_veraenderung);
         this.setTitle("LOB - Level 2");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("zielStatus", 0) < 2){
+            editor.putInt("zielStatus", 2);
+        }
+
+        else if(saved.getInt("ideeStatus",0) < 1){
+            editor.putInt("ideeStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 2);
+        editor.apply();
 
 
         //Add Footer

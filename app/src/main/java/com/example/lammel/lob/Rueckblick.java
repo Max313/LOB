@@ -27,19 +27,6 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private Button ressource;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     private SeekBar seekBar;
@@ -51,6 +38,8 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +47,19 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         setContentView(R.layout.activity_rueckblick);
 
         this.setTitle("LOB - Rückblick");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("sonneStatus", 0) < 2){
+            editor.putInt("sonneStatus", 2);
+        }
+        else if(saved.getInt("loesungStatus", 0) < 1){
+            editor.putInt("loesungStatus", 1);
+        }
+        editor.putInt("tabStatus", 5);
+        editor.apply();
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

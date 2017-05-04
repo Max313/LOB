@@ -25,24 +25,12 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
+
 
     //Button
     private AppCompatDelegate delegate;
     Button zielVerwahren_Button;
 
-    private int zielStatus;
-    private int ideeStatus;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -54,17 +42,6 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         setContentView(R.layout.activity_level1_zielverwahren);
         this.setTitle("LOB - Dein Ziel");
 
-        //set Status
-        zielStatus = 2;
-        ideeStatus = 1;
-
-        if(zielStatus > MainActivity.zielStatus){
-            MainActivity.zielStatus = zielStatus;
-        }
-
-        else if(ideeStatus > MainActivity.ideeStatus){
-            MainActivity.ideeStatus = ideeStatus;
-        }
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

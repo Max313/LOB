@@ -31,18 +31,8 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
+    //Toolbar
     private AppCompatDelegate delegate;
 
     //EditText und Ziel
@@ -65,6 +55,8 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zieldefinition);
         this.setTitle("LOB - Dein Ziel");
+
+
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -101,6 +93,8 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
+
+
 
         //Edit Text + sharedPreference
         saved = getSharedPreferences(PREFS_NAME, 0);

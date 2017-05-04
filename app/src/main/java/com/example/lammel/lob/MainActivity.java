@@ -22,12 +22,7 @@ import android.widget.Button;
 
 public class MainActivity extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //global Stati
-    public static int zielStatus;
-    public static int ideeStatus;
-    public static int ressourceStatus;
-    public static int sonneStatus;
-    public static int loesungStatus;
+
 
     private AppCompatDelegate delegate;
 
@@ -61,12 +56,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Stati initial
-        zielStatus = 0;
-        ideeStatus = 0;
-        ressourceStatus = 0;
-        sonneStatus = 0;
-        loesungStatus = 0;
 
         //Check for Permission preparation
         int userVersion = Build.VERSION.SDK_INT;

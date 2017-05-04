@@ -27,19 +27,6 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private Button ressource;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     private Button weiter;
@@ -51,6 +38,7 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -59,6 +47,16 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
         setContentView(R.layout.activity_ende);
 
         this.setTitle("LOB - ...und am Ende...");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if(saved.getInt("loesungStatus", 0) < 2){
+            editor = saved.edit();
+            editor.putInt("loesungStatus", 2);
+            editor.apply();
+        }
+
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -28,18 +28,6 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     private TextView verhalten;
@@ -53,12 +41,26 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staerkeinsel);
         this.setTitle("LOB - Stärkeinsel - Intro");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+         if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
+        }
+        else if(saved.getInt("ressourceStatus", 0) < 1){
+             editor.putInt("ressourceStatus", 1);
+         }
+        editor.putInt("tabStatus", 3);
+        editor.apply();
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

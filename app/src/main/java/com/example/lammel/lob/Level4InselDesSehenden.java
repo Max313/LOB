@@ -27,19 +27,7 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private Button ressource;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
+
 
     //Button and more
     private Button start;
@@ -48,12 +36,28 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_insel_des_sehenden);
         this.setTitle("LOB - Insel des Sehenden");
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ressourceStatus", 0) < 2){
+            editor.putInt("ressourceStatus", 2);
+        }
+
+        else if(saved.getInt("sonneStatus", 0) < 1){
+            editor.putInt("sonneStatus", 1);
+        }
+        editor.putInt("tabStatus", 4);
+        editor.apply();
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

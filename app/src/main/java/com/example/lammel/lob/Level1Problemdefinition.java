@@ -28,31 +28,18 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private Button ziel;
-    private Button ressource;
-    private Button loesung;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Button and more
     private Button problem;
     private Button keinProblem;
     private AppCompatDelegate delegate;
-    private int status;
 
 
     //Shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
 
 
     //Hier kann sich der Nutzer entscheiden ob er sein Problem aufschreiben will oder nicht
@@ -61,11 +48,16 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
         setContentView(R.layout.level1_problemdefinition);
         this.setTitle("LOB - Das Problem");
 
-        status = 1;
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
 
-        if(status > MainActivity.zielStatus){
-            MainActivity.zielStatus = status;
+        if(saved.getInt("zielStatus", 0) < 1){
+            editor.putInt("zielStatus", 1);
         }
+
+        editor.putInt("tabStatus", 1);
+        editor.apply();
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -97,31 +89,6 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
-        /**Ziel Button
-        ziel = (Button) findViewById(R.id.ziel_Button);
-
-        //Idee Button
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-
-        //Ressource Button
-        ressource = (Button) findViewById(R.id.ressourcen_Button);
-
-        //Sun Button
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-
-        //Loesung Button
-        loesung = (Button) findViewById(R.id.loesung_Button);
-
-        //Tabs
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);*/
 
         //Buttons
         problem = (Button) findViewById(R.id.problemButton);
