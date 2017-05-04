@@ -2,8 +2,15 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -18,7 +25,7 @@ import android.widget.TextView;
 //Hier wird in Level 1 das Ziel zum ersten Mal festgelegt und gespeichert.
 //Ab hier kann man im Menü auf Ziele zugreifen
 
-public class Level1Zieldefinition extends AppCompatActivity implements View.OnClickListener{
+public class Level1Zieldefinition extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Footer Buttons
     private ImageButton back;
@@ -36,6 +43,7 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
     private TextView vier;
     private TextView fuenf;
 
+    private AppCompatDelegate delegate;
     private static String ziel;
     private Button zielFesthalten_Button;
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -48,10 +56,28 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_level1_zieldefinition);
         this.setTitle("LOB - Dein Ziel");
         settings = getSharedPreferences(PREFS_NAME, 0);
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
 
-        //Footer Buttons
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.level1_zieldefinition, fragment);
+        transaction.commit();
+
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_level1_zieldefinition);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
+
+        //Footer_Fragment Buttons
         back = (ImageButton) findViewById(R.id.back_Button);
         back.setOnClickListener(this);
 
@@ -62,40 +88,7 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
-
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glowcolor.setVisibility(View.GONE);
-
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.GONE);
-
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sungrey.setVisibility(View.VISIBLE);
-
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sunyellow.setVisibility(View.GONE);
-
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sun.setVisibility(View.GONE);
-
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        eins.setVisibility(View.VISIBLE);
-
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        zwei.setVisibility(View.GONE);
-
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        drei.setVisibility(View.GONE);
-
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
-
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.GONE);
-
-
+        //Buttons
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
@@ -105,13 +98,14 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
         {
             public void afterTextChanged(Editable s)
             {
-                if(zieltxt.length() == 0)
-                    zielFesthalten_Button.setEnabled(false); //disable button if no text entered
-                else
-                    ziel = zieltxt.getText().toString();
-                    setZiel(ziel);
-                    zielFesthalten_Button.setEnabled(true);  //otherwise enabled
-
+                if(zieltxt.length() == 0){
+                    zielFesthalten_Button.setEnabled(false); //disable button if no text entered//
+                     }
+                else{
+                        ziel = zieltxt.getText().toString();
+                        setZiel(ziel);
+                        zielFesthalten_Button.setEnabled(true);  //otherwise enabled
+                    }
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
             }
@@ -173,10 +167,25 @@ public class Level1Zieldefinition extends AppCompatActivity implements View.OnCl
 
     public static void setZiel(String letztesZiel){
         ziel = letztesZiel;
-
     }
     public static String getZiel(){
         return ziel;
+    }
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 
 }

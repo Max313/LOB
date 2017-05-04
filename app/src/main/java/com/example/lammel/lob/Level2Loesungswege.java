@@ -2,8 +2,15 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -15,10 +22,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-
 import static java.security.AccessController.getContext;
 
-public class Level2Loesungswege extends AppCompatActivity implements View.OnClickListener{
+public class Level2Loesungswege extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Footer Buttons
     private ImageButton back;
@@ -42,6 +48,7 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
     private Button mirFaelltNichtsEin;
     private TextView anfangsText;
     private int loesungsCounter;
+    private AppCompatDelegate delegate;
     private Boolean txt1leer, txt2leer, txt3leer;
     public static final String PREFS_NAME = "LOBPrefFile";
 
@@ -50,8 +57,28 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_loesungswege);
         this.setTitle("LOB - Lösungswege");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
+
+
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.level2_loesungswege, fragment);
+        transaction.commit();
+
+        //Toolbar
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_level2_loesungswege);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
 
         //Footer Buttons
         back = (ImageButton) findViewById(R.id.back_Button);
@@ -63,41 +90,6 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
-        ziel = (Button) findViewById(R.id.ziel_Button);
-        ziel.setOnClickListener(this);
-
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.GONE);
-
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glowcolor.setVisibility(View.VISIBLE);
-
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.GONE);
-
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sungrey.setVisibility(View.VISIBLE);
-
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sunyellow.setVisibility(View.GONE);
-
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sun.setVisibility(View.GONE);
-
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        eins.setVisibility(View.GONE);
-
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        zwei.setVisibility(View.VISIBLE);
-
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        drei.setVisibility(View.GONE);
-
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
-
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.GONE);
 
         //Action and more
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
@@ -288,25 +280,25 @@ public class Level2Loesungswege extends AppCompatActivity implements View.OnClic
                     break;
                 }
 
-            case R.id.ziel_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
 
             default:
                 break;
         }
     }
 
-    protected void onStop(){
-        //Beim Stoppen wird das Ziel abgespeichert damit man beim erneute öffnen darauf zugreifen kann
-        super.onStop();
-        String ziel = Level1Zieldefinition.getZiel();
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("ZielString", ziel);
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
 
-        // Commit the edits!
-        editor.commit();
+    }
 
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }

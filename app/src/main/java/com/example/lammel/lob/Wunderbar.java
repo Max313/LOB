@@ -1,8 +1,15 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,7 +18,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Wunderbar extends AppCompatActivity implements View.OnClickListener{
+public class Wunderbar extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Footer Buttons
     private ImageButton back;
@@ -33,14 +40,34 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
     //Buttons
     private Button weiter;
     private int loesungsCounter;
+    private AppCompatDelegate delegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wunderbar);
         this.setTitle("LOB - Wunderbar");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
+
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.wunderbar, fragment);
+        transaction.commit();
+
+        //Toolbar
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_wunderbar);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
 
         //Footer Buttons
         back = (ImageButton) findViewById(R.id.back_Button);
@@ -56,41 +83,6 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
 
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.GONE);
-
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glowcolor.setVisibility(View.VISIBLE);
-
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.GONE);
-
-        ziel = (Button) findViewById(R.id.ziel_Button);
-        ziel.setOnClickListener(this);
-
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sungrey.setVisibility(View.VISIBLE);
-
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sunyellow.setVisibility(View.GONE);
-
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sun.setVisibility(View.GONE);
-
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        eins.setVisibility(View.GONE);
-
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        zwei.setVisibility(View.VISIBLE);
-
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        drei.setVisibility(View.GONE);
-
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
-
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.GONE);
 
         //Buttons
         weiter = (Button) findViewById(R.id.button);
@@ -143,12 +135,25 @@ public class Wunderbar extends AppCompatActivity implements View.OnClickListener
                 startActivity(intent3);
                 break;
 
-            case R.id.ziel_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
 
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }

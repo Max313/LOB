@@ -1,8 +1,15 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -14,7 +21,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.OnClickListener {
+public class Level2ZieldefinitionNeu extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Footer Buttons
     private ImageButton back;
@@ -37,14 +44,34 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
     private Button zieldefinition_zielButton, zurueckButton;
     private int wegCounter;
     private String ziel;
+    private AppCompatDelegate delegate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_zieldefinition_neu);
         this.setTitle("LOB - Dein Ziel");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
+
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.level2_zieldefinition_neu, fragment);
+        transaction.commit();
+
+        //Toolbar
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_level2_zieldefinition_neu);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
 
         //Footer Buttons
         back = (ImageButton) findViewById(R.id.back_Button);
@@ -56,41 +83,6 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.VISIBLE);
 
-        zielButton = (Button) findViewById(R.id.ziel_Button);
-        zielButton.setOnClickListener(this);
-
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.VISIBLE);
-
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glowcolor.setVisibility(View.GONE);
-
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.GONE);
-
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sungrey.setVisibility(View.VISIBLE);
-
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sunyellow.setVisibility(View.GONE);
-
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sun.setVisibility(View.GONE);
-
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        eins.setVisibility(View.GONE);
-
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        zwei.setVisibility(View.VISIBLE);
-
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        drei.setVisibility(View.GONE);
-
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
-
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.GONE);
 
         //Button and more in action
         ziel = Level1Zieldefinition.getZiel();
@@ -167,12 +159,24 @@ public class Level2ZieldefinitionNeu extends AppCompatActivity implements View.O
                 startActivity(intent3);
                 break;
 
-            case R.id.ziel_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
-
             default:
                 break;
         }
+    }
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }
