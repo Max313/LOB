@@ -3,9 +3,16 @@ package com.example.lammel.lob;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,7 +21,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-public class MenuHausaufgabe extends AppCompatActivity implements View.OnClickListener{
+public class MenuHausaufgabe extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     //Footer Buttons
@@ -35,6 +42,7 @@ public class MenuHausaufgabe extends AppCompatActivity implements View.OnClickLi
 
     //Buttons
     private Button hausaufgabe1, hausaufgabe2, hausaufgabe3, zurueck;
+    private AppCompatDelegate delegate;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -58,8 +66,26 @@ public class MenuHausaufgabe extends AppCompatActivity implements View.OnClickLi
         zurueck.setOnClickListener(this);
 
 
-    Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-    setSupportActionBar(myToolbar);
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.menu_hausaufgabe, fragment);
+        transaction.commit();
+
+        //Toolbar
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_menu_hausaufgabe);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
 
     //Footer Buttons
     back = (ImageButton) findViewById(R.id.back_Button);
@@ -150,6 +176,11 @@ public class MenuHausaufgabe extends AppCompatActivity implements View.OnClickLi
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -211,5 +242,21 @@ public class MenuHausaufgabe extends AppCompatActivity implements View.OnClickLi
                 break;
         }
 
+    }
+
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
+
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }
