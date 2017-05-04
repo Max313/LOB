@@ -1,8 +1,15 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatCallback;
+import android.support.v7.app.AppCompatDelegate;
+import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,10 +19,10 @@ import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class Rueckblick extends AppCompatActivity implements View.OnClickListener{
+public class Rueckblick extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    //Footer Buttons
+    //Footer_Fragment Buttons
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
@@ -38,6 +45,7 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
     private Button weiter;
     private TextView txt;
     private int fortschritt;
+    private AppCompatDelegate delegate;
 
 
     @Override
@@ -46,11 +54,29 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
         setContentView(R.layout.activity_rueckblick);
 
         this.setTitle("LOB - Rückblick");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
 
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.rueckblick, fragment);
+        transaction.commit();
 
-        //Footer Buttons
+        //Toolbar
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_rueckblick);
+
+        //Add the Toolbar
+        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
+
+        //Footer_Fragment Buttons
         back = (ImageButton) findViewById(R.id.back_Button);
         back.setOnClickListener(this);
 
@@ -60,47 +86,6 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
 
         forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
         forwardDisabled.setVisibility(View.GONE);
-
-        ziel = (Button) findViewById(R.id.ziel_Button);
-        ziel.setOnClickListener(this);
-
-        glowgrey = (ImageButton) findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowgrey.setVisibility(View.GONE);
-
-        glowcolor = (ImageButton) findViewById(R.id.gluehbirneDunkel_Button);
-        glowcolor.setVisibility(View.GONE);
-
-        glow = (ImageButton) findViewById(R.id.gluehbirneLeuchtend_Button);
-        glow.setVisibility(View.VISIBLE);
-        glow.setOnClickListener(this);
-
-        ressource = (Button) findViewById(R.id.ressourcen_Button);
-        ressource.setOnClickListener(this);
-
-        sungrey = (ImageButton) findViewById(R.id.sonneGrau_Button);
-        sungrey.setVisibility(View.GONE);
-
-        sunyellow = (ImageButton) findViewById(R.id.sonneLeer_Button);
-        sunyellow.setVisibility(View.GONE);
-
-        sun = (ImageButton) findViewById(R.id.sonneLeuchtend_Button);
-        sun.setVisibility(View.VISIBLE);
-        sun.setOnClickListener(this);
-
-        eins = (TextView) findViewById(R.id.footer1_TextView);
-        eins.setVisibility(View.GONE);
-
-        zwei = (TextView) findViewById(R.id.footer2_TextView);
-        zwei.setVisibility(View.GONE);
-
-        drei = (TextView) findViewById(R.id.footer3_TextView);
-        drei.setVisibility(View.GONE);
-
-        vier = (TextView) findViewById(R.id.footer4_TextView);
-        vier.setVisibility(View.GONE);
-
-        fuenf = (TextView) findViewById(R.id.footer5_TextView);
-        fuenf.setVisibility(View.VISIBLE);
 
         //Buttons and more in action
         txt = (TextView) findViewById(R.id.Seek1_TextView);
@@ -162,7 +147,9 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
         switch(view.getId()){
             case R.id.rWeiter_Button:
                 if(fortschritt >= 8){
-                    startActivity(new Intent(this, Ende.class));
+                    Intent intent = new Intent(view.getContext(), Ende.class);
+                    intent.putExtra("Source", 0);
+                    startActivity(intent);
                     break;
                 }
 
@@ -187,26 +174,25 @@ public class Rueckblick extends AppCompatActivity implements View.OnClickListene
                     break;
                 }
 
-            case R.id.ziel_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
-
-            case R.id.gluehbirneLeuchtend_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
-                break;
-
-            case R.id.ressourcen_Button:
-                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
-                intent.putExtra("LoesungsCounter", 0);
-                startActivity(intent);
-                break;
-
-            case R.id.sonneLeuchtend_Button:
-                startActivity(new Intent(this, Level4InselDesSehenden.class));
-                break;
+           default:
+               break;
         }
 
+    }
 
+    @Override
+    public void onSupportActionModeStarted(ActionMode mode) {
 
+    }
+
+    @Override
+    public void onSupportActionModeFinished(ActionMode mode) {
+
+    }
+
+    @Nullable
+    @Override
+    public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
+        return null;
     }
 }

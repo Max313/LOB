@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/level1_onboarding"
+
     tools:context="com.example.lammel.lob.Mantra">
 
     <include
@@ -14,7 +16,8 @@
     <include
         android:id="@+id/footer"
         layout="@layout/footer"
-         />
+        />
+
 
     <TextView
         android:text="@string/onboard1"
