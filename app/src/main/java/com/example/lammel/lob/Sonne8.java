@@ -25,19 +25,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private Button ressource;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     private Button weiter;
@@ -49,6 +36,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -148,6 +136,11 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

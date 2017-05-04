@@ -25,18 +25,6 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Button and more
     private Button universalAnekdote_Weiter;
@@ -50,6 +38,7 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     //dritter Lösungsweg
@@ -149,6 +138,11 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

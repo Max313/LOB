@@ -36,6 +36,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -130,6 +131,11 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

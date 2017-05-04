@@ -28,18 +28,6 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button zielButton;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     private Button zieldefinition_zielButton, zurueckButton;
@@ -167,6 +155,11 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

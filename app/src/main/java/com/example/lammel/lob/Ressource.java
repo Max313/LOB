@@ -31,18 +31,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     public static String FIRSTMESSAGE_RESSOURCE;
@@ -56,6 +44,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -167,6 +156,11 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

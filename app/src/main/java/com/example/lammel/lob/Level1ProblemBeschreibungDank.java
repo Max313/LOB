@@ -25,17 +25,7 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
+
 
     //Button
     private Button problemBeschreibungDank_Button;
@@ -44,6 +34,7 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
     //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
 
@@ -127,6 +118,12 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
 
             case R.id.Sonne:
                 startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -171,6 +171,11 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

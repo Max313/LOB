@@ -25,18 +25,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
+
 
     //Button and more
     private Button keineLoseungWeiter;
@@ -45,6 +34,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     //fünter/letzter Lösungsweg
     //falls keine der Methoden hilft wird angeboten die App weiter zu explorieren oder einen Berater aufzusuchen
@@ -136,6 +126,11 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

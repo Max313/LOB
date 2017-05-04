@@ -143,6 +143,11 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

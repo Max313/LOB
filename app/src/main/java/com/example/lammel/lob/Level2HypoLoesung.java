@@ -25,18 +25,6 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Button and more
     private Button hypoStarten;
@@ -45,6 +33,7 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
     //shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     //zweiter Lösungsweg
     //Die Hypothetische Lösung ist der Startpunkt für die Phantasiereise
@@ -132,6 +121,11 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
                 return true;
 
             default:

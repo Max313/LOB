@@ -141,6 +141,11 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

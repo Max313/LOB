@@ -35,6 +35,8 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,6 +133,12 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
 
             default:
                 return super.onOptionsItemSelected(item);

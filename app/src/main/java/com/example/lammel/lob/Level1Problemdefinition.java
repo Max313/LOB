@@ -140,6 +140,11 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

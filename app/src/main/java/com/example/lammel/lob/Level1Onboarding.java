@@ -140,6 +140,11 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
+
             default:
                 return super.onOptionsItemSelected(item);
         }

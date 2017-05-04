@@ -25,19 +25,6 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
     private ImageButton back;
     private ImageButton forward;
     private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
-
 
     //Button and more
     private Button veraenderungWeiter;
@@ -46,6 +33,7 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
     //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -130,6 +118,12 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
 
             case R.id.Sonne:
                 startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.action_delete:
+                editor.clear();
+                editor.apply();
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);

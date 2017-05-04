@@ -114,12 +114,12 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //in progress
             case 1:
-
+                //Visibility and action
+                ziel.setOnClickListener(this);
                 break;
             //beendet
             case 2:
-                //Icon
-                ziel.setOnClickListener(this);
+
                 break;
 
             default:
@@ -129,21 +129,22 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (ideeStatus){
             //noch nicht da
             case 0:
-                //Icon
+                //Visibility and action
                 glowGrey.setVisibility(View.VISIBLE);
                 glowColor.setVisibility(View.GONE);
                 glow.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
-                //Icon
+                //Visibility and action
                 glowGrey.setVisibility(View.GONE);
                 glowColor.setVisibility(View.VISIBLE);
                 glow.setVisibility(View.GONE);
+                glowColor.setOnClickListener(this);
                 break;
             //beendet
             case 2:
-                //Icon
+                //Visibility and action
                 glowGrey.setVisibility(View.GONE);
                 glowColor.setVisibility(View.GONE);
                 glow.setVisibility(View.VISIBLE);
@@ -160,11 +161,12 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //in progress
             case 1:
+                //Visibility and action
+                ressource.setOnClickListener(this);
                 break;
             //beendet
             case 2:
-                //Icon
-                ressource.setOnClickListener(this);
+
                 break;
 
             default:
@@ -174,21 +176,22 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (sonneStatus){
             //noch nicht da
             case 0:
-                //Icon
+                //Visibility and action
                 sunGrey.setVisibility(View.VISIBLE);
                 sunColor.setVisibility(View.GONE);
                 sun.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
-                //Icon
+                //Visibility and action
                 sunGrey.setVisibility(View.GONE);
                 sunColor.setVisibility(View.VISIBLE);
                 sun.setVisibility(View.GONE);
+                sunColor.setOnClickListener(this);
                 break;
             //beendet
             case 2:
-                //Icon
+                //Visibility and action
                 sunGrey.setVisibility(View.GONE);
                 sunColor.setVisibility(View.GONE);
                 sun.setVisibility(View.VISIBLE);
@@ -204,11 +207,12 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //in progress
             case 1:
+                //Visibility and action
+                loesung.setOnClickListener(this);
                 break;
             //beendet
             case 2:
-                //Icon
-                loesung.setOnClickListener(this);
+
                 break;
 
             default:
@@ -296,6 +300,14 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
 
             case R.id.loesung_Button:
                 startActivity(new Intent(view.getContext(), Rueckblick.class));
+                break;
+
+            case R.id.gluehbirneDunkel_Button:
+                startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
+                break;
+
+            case R.id.sonneLeer_Button:
+                startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
                 break;
 
             default:
