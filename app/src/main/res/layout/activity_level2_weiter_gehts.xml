@@ -4,61 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/problem_Beschreibung"
-    tools:context="com.example.lammel.lob.Mantra">
+    tools:context="com.example.lammel.lob.Level2WeiterGehts">
 
     <include
         android:id="@+id/tool_bar"
         layout="@layout/tool_bar"
-         />
+        />
 
     <include
         android:id="@+id/footer"
         layout="@layout/footer"
-         />
+        />
+
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/problem_beschreibung"
+        android:text="@string/weiterGehts_Textview"
         android:textSize="@dimen/activity_normalcontent"
-        android:id="@+id/problemDank"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/weiterGehts_Textview"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="@string/beschreibung"
-        android:textSize="@dimen/activity_normalcontent"
-        android:id="@+id/problem_editText"
-        android:layout_weight="1"
-        android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/weiter_buttonProblem" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="46dp"
-        android:layout_marginLeft="8dp"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_weight="0.5"
+        android:text="@string/weiterGehts_Button1"
         app:layout_constraintBottom_toBottomOf="@+id/footer"
+        android:layout_marginBottom="46dp"
+        android:id="@+id/weiterGehts_Button1"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="8dp" />
+
+    <Button
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:layout_weight="0.5"
+        android:text="@string/weiterGehts_Button2"
+        android:id="@+id/weiterGehts_Button2"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        android:layout_marginBottom="46dp"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:text="@string/weiter_button"
-        android:id="@+id/weiter_buttonProblem"
-        />
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>
-

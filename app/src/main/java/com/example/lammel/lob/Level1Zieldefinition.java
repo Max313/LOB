@@ -44,18 +44,27 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     private TextView fuenf;
 
     private AppCompatDelegate delegate;
-    private static String ziel;
+
+    //EditText und Ziel
+    private String ziel;
+    private String defaultZiel = "Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen und Änderungen anpassen";
+    private EditText zieltxt;
+
+    //Button Weiter
     private Button zielFesthalten_Button;
+
+    //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
-    private SharedPreferences settings;
+    private SharedPreferences saved;
+    SharedPreferences.Editor editor;
 
 
+    //Hier wird das Ziel festgelegt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zieldefinition);
         this.setTitle("LOB - Dein Ziel");
-        settings = getSharedPreferences(PREFS_NAME, 0);
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -74,7 +83,7 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         delegate.setContentView(R.layout.activity_level1_zieldefinition);
 
         //Add the Toolbar
-        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
         //Footer_Fragment Buttons
@@ -93,44 +102,80 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
 
-        final EditText zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
-        zieltxt.addTextChangedListener(new TextWatcher()
-        {
-            public void afterTextChanged(Editable s)
-            {
-                if(zieltxt.length() == 0){
+        //Edit Text + sharedPreference
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        ziel = saved.getString("ZielSave", defaultZiel);
+        zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
+        if (ziel != defaultZiel) {
+            zieltxt.setText(ziel);
+            zielFesthalten_Button.setEnabled(true);
+        }
+        zieltxt.addTextChangedListener(new TextWatcher() {
+            public void afterTextChanged(Editable s) {
+                if (zieltxt.length() == 0) {
                     zielFesthalten_Button.setEnabled(false); //disable button if no text entered//
-                     }
-                else{
-                        ziel = zieltxt.getText().toString();
-                        setZiel(ziel);
-                        zielFesthalten_Button.setEnabled(true);  //otherwise enabled
-                    }
+                } else {
+                    ziel = zieltxt.getText().toString();
+                    zielFesthalten_Button.setEnabled(true);  //otherwise enabled
+                }
+                if (zieltxt.length() == 0)
+                    zielFesthalten_Button.setEnabled(false); //disable button if no text entered
+                else
+                    ziel = zieltxt.getText().toString();
+                zielFesthalten_Button.setEnabled(true);  //otherwise enabled
+
             }
-            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
-            public void onTextChanged(CharSequence s, int start, int before, int count){
+
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
             }
         });
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.ziel).setEnabled(false);
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)) {
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)) {
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
 
+    //Menüaktivität
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ziel:
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -142,6 +187,12 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zielFesthalten_Button:
+                //Weiter und Ziel abspeichern
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putString("ZielSave", ziel);
+                editor.putBoolean("MenuZiel", true);
+                editor.apply();
                 startActivity(new Intent(this, Level1ZielVerwahren.class));
                 break;
 
@@ -153,23 +204,10 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
                 startActivity(new Intent(this, Level1ZielVerwahren.class));
                 break;
 
-                default:
-                    break;
+            default:
+                break;
         }
 
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("ZielString", ziel);
-        // Commit the edits!
-        //editor.commit();
-
-        startActivity(new Intent(this, Level1ZielVerwahren.class));
-    }
-
-    public static void setZiel(String letztesZiel){
-        ziel = letztesZiel;
-    }
-    public static String getZiel(){
-        return ziel;
     }
 
     @Override
@@ -187,5 +225,4 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
-
 }

@@ -17,26 +17,32 @@ public class MenuZiel extends AppCompatActivity implements View.OnClickListener{
 
     private Button speicherButton, zurueckButton;
     private String ziel;
-    public static final String PREFS_NAME = "LOBPrefFile";
-    private SharedPreferences settings;
 
+    //shared Preferences
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
+
+    //Hier ist man im Menübereich "Ziel" wo man jederzeit sein Ziel ansehen und ändern kann, wenn man es bereits festgelegt hat in Level1Zieldefinition
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_ziel);
         this.setTitle("LOB - Dein Ziel");
 
-        settings = getSharedPreferences(PREFS_NAME, 0);
-        ziel = settings.getString("ZielString", "default");
-
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
         setSupportActionBar(myToolbar);
-        //ziel = Level1Zieldefinition.getZiel();
+
         zurueckButton = (Button) findViewById(R.id.menuZiel_zurueckButton);
         zurueckButton.setOnClickListener(this);
         speicherButton = (Button) findViewById(R.id.menuZiel_zielButton);
         speicherButton.setEnabled(false);
         speicherButton.setOnClickListener(this);
+
+        //EditText und sharedPreferences
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        ziel = saved.getString("ZielSave", "Hier kannst du dein Ziel eintragen.");
         final EditText txt = (EditText) findViewById(R.id.menuZiel_EditText);
         txt.setHint(ziel);
         txt.addTextChangedListener(new TextWatcher()
@@ -57,10 +63,20 @@ public class MenuZiel extends AppCompatActivity implements View.OnClickListener{
         });
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -70,11 +86,24 @@ public class MenuZiel extends AppCompatActivity implements View.OnClickListener{
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:
@@ -85,8 +114,12 @@ public class MenuZiel extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View v) {
         switch(v.getId()) {
+            //Ziel neu abspeichern und zurück
             case R.id.menuZiel_zielButton:
-                Level1Zieldefinition.setZiel(ziel);
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putString("ZielSave", ziel);
+                editor.apply();
                 onBackPressed();
                 break;
 
@@ -99,17 +132,4 @@ public class MenuZiel extends AppCompatActivity implements View.OnClickListener{
         }
     }
 
-    protected void onStop(){
-        //Beim Stoppen wird das Ziel abgespeichert damit man beim erneute öffnen darauf zugreifen kann
-        super.onStop();
-        String ziel = Level1Zieldefinition.getZiel();
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        SharedPreferences.Editor editor = settings.edit();
-        editor.putString("ZielString", ziel);
-        editor.putBoolean("ZielAktiv", true);
-
-        // Commit the edits!
-        editor.commit();
-
-    }
 }

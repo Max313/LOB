@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -39,14 +40,25 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
 
     //Button and more
     private Button universalAnekdote_Weiter;
+    private TextView textViewAnekdote;
     private int source;
     private AppCompatDelegate delegate;
 
+    //Boolean Neu: neue Anekdote
+    private Boolean neu = false;
+
+    //Speicher
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+
+
+    //dritter Lösungsweg
+    //Beispiel für eine Universallösung
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_universalloesung_anekdote);
-        this.setTitle("LOB - Atolle");
+        this.setTitle("LOB - Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -84,15 +96,30 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
         universalAnekdote_Weiter = (Button) findViewById(R.id.universalAnekdote_ButtonWeiter);
         universalAnekdote_Weiter.setOnClickListener(this);
 
+        //Text festlegen
+        textViewAnekdote = (TextView) findViewById(R.id.universalAnekdote_Textview);
+        neu = getIntent().getExtras().getBoolean("Anekdote2");
+        if(neu == true){
+            textViewAnekdote.setText("Anekdote, bei der etwas Unvernünftiges ausprobiert wird was funktioniert");
+        }
+
         source = getIntent().getExtras().getInt("Source");
     }
 
-
-    // Menu items able/disable
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -102,12 +129,26 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
+
     // Menu action
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:

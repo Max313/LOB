@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
@@ -54,6 +55,12 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     private TextView onboard;
     private AppCompatDelegate delegate;
 
+    //shared Preferences zum Speichern
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+
+
+    //Heranführen an das Thema Lösungsorientierte Beratung
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -102,9 +109,17 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-       menu.findItem(R.id.ziel).setEnabled(false);
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -114,15 +129,29 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-
         switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     private void onboardingProzessStarten() {
@@ -138,11 +167,11 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
 
             case R.id.weiter_button:
             if (counter == 0) {
-                onboard.setText("Du bist der Meinung Familie ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
+                onboard.setText("Du bist der Meinung dein Umfeld ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
                 counter++;
                 break;
             } else if (counter == 1) {
-                onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Beziehung in der Zukunft siehst.");
+                onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Situation in der Zukunft siehst.");
                 counter++;
                 break;
             } else if (counter == 2) {

@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -43,9 +44,19 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
     //Buttons and more
     private Button zieldefinition_zielButton, zurueckButton;
     private int wegCounter;
+
+    //String fürs Ziel
     private String ziel;
+    private String defaultZiel = "Hat sich an deinem Ziel inzwischen etwas verändert?\\n Woran wirst du merken dass dein Problem gelöst ist?\\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?";
     private AppCompatDelegate delegate;
 
+    //shared Preference
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
+
+    //In Level2 soll man immer wieder mit seinem Ziel konfrontiert werden, deswegen besteht hier zusätzlich zum Menü die Option das Ziel zu ändern
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,13 +96,16 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
 
 
         //Button and more in action
-        ziel = Level1Zieldefinition.getZiel();
         wegCounter = getIntent().getExtras().getInt("WegCounter");
         zurueckButton = (Button) findViewById(R.id.zieldefinitionNeu_zurueckButton);
         zurueckButton.setOnClickListener(this);
         zieldefinition_zielButton = (Button) findViewById(R.id.zieldefinitionNeu_zielButton);
         zieldefinition_zielButton.setEnabled(false);
         zieldefinition_zielButton.setOnClickListener(this);
+
+        //EditText Feld und shared Preferences
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        ziel = saved.getString("ZielSave", defaultZiel);
         final EditText txt = (EditText) findViewById(R.id.zieldefinitionNeu_EditText);
         txt.setHint(ziel);
         txt.addTextChangedListener(new TextWatcher()
@@ -112,10 +126,20 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
         });
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
     
@@ -125,11 +149,24 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:
@@ -140,8 +177,13 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //Ziel neu abspeichern und Weiter
             case R.id.zieldefinitionNeu_zielButton:
-                Level1Zieldefinition.setZiel(ziel);
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putString("ZielSave", ziel);
+                editor.apply();
+
                 Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                 intent.putExtra("WegCounter", wegCounter);
                 startActivity(intent);

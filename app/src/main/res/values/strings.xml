@@ -9,10 +9,17 @@
     <string name="ziel_Menu">Ziel</string>
     <string name="tabelle_Menu">Ressourcen Tabelle</string>
     <string name="sonne_Menu">Sonne der Erkenntnis</string>
+    <string name="hausaufgabe_Menu">Hausaufgaben</string>
 
     <!-- Menü Ziel -->
     <string name="menuZiel_Textview">Hier kannst du immer dein Ziel betrachten. Du kannst es zu jeder Zeit ändern wenn du das Gefühl hast, dass sich dein Ziel inzwischen verändert hat.</string>
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
+
+    <!-- Menü Hausaufgabe -->
+    <string name="hausaufgabe_Textview">Hausaufgaben sind keine Pflicht! Aber die Übungen können dir dabei helfen, das Erlernte anzuwenden und der Lösung ein Stückchen näher zu kommen. Du schaltest die einzelnen Aufgaben nach und nach frei.</string>
+    <string name="hausaufgabe_Button1">Tagebuch</string>
+    <string name="hausaufgabe_Button2">Würfelübung</string>
+    <string name="hausaufgabe_Button3">Münzwurf</string>
 
     <!-- Onboarding -->
     <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!</string>
@@ -44,7 +51,7 @@
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
-    <string name="loesungswege_Textview2">Du hast es solange geschafft trotz dieses Problems durchzuhalten. Was hat dir geholfen, diese Energie immer wieder aufs Neue aufzubringen?</string>
+    <string name="loesungswege_Textview2">Was hat dir geholfen, trotz deines Problems immer wieder Energie aufzubringen?</string>
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
@@ -74,10 +81,10 @@
     <string name="hypoLoesung_Button">Übung starten</string>
 
     <!-- Phantasiereise -->
-    <string name="phantasie_Textview"> Stell dir vor, du hast die App wieder geschlossen...du gehst deinem üblichen Tagesablauf nach...und langsam wird es Abend..nach dem Abendessen sitzt du vieleicht noch etwas vor dem Fernseher...dann spürst du immer mehr die Müdigkeit....</string>
+    <string name="phantasie_Textview"> Stell dir  vor, wir haben unser Gespräch hier beendet...Du gehst wieder  deinem üblichen Tagesablauf nach...und langsam wird es Abend...<!--Nach dem Abendessen sitzt du vielleicht noch etwas vor dem Fernseher...Dann spürst du immer mehr die Müdigkeit...und freust dich ins Bett gehen zu können...Du schläfst ein...(lange Pause) ...Während du nun schläfst, geschieht ein Wunder...Das Problem, weswegen du zur Beratung gekommen bist und über das wir gesprochen haben, verschwindet einfach, löst sich in Luft auf – ganz einfach so...(Schnippen mit den Fingern)...Aber weil das passiert, während du schläfst, bekommst du bewusst gar nicht mit, dass dieses Wunder stattgefunden hat und das Problem gelöst ist. Wenn du nun morgens aufwachst und deinen Tag beginnst, wird dich aber manches stutzig machen, weil es anders ist als sonst...weil du sich irgendwie anders verhältst...Was wird dann anders sein? Was wirst du dann tun, was du bislang nicht so machst? ...Wer von deinen Bekannten und Freunden wird es zuerst bemerken? Woranwerden diese es bemerken?...Und wie werden die darauf reagieren?...Und wie wirst du wiederum deren Reaktion aufnehmen? ...--></string>
 
     <!-- Universal Lösungsschlüssel -->
-    <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment heruaskäme.</string>
+    <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment herauskäme.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->
@@ -102,6 +109,12 @@
 
     <!-- keine Lösung -->
     <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
+
+    <!-- Weiter Gehts -->
+    <string name="weiterGehts_Textview">Wie auch immer die Übung gelaufen ist du hast dich un deine Situation besser kennengelernt, das kann dir keiner mehr nehmen. Hat dir diese Übung schon weiter geholfen?</string>
+    <string name="weiterGehts_Button1">Ja, weiter geht\'s</string>
+    <string name="weiterGehts_Button2">Nein, leider noch nicht</string>
+
     <!-- Wunderbar -->
     <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
     <string name="wunderbar_Button">Weiter</string>

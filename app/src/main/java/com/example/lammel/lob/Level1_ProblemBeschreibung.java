@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -43,8 +44,17 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
 
+    //EditText
+    private EditText txt;
+    private String problem;
+
+    //Shared Preferences
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
+    //Hier beschreibt der Nutzer sein Problem
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,7 +96,17 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         weiterButtonProblem = (Button) findViewById(R.id.weiter_buttonProblem);
         weiterButtonProblem.setEnabled(false);
         weiterButtonProblem.setOnClickListener(this);
-        final EditText txt = (EditText) findViewById(R.id.problem_editText);
+
+        //Problembeschreibung Speicher
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        //Edit Text Action -> enables Button and saves Problem
+        txt = (EditText) findViewById(R.id.problem_editText);
+        problem = saved.getString("ProblemSave", "");
+        if(problem != ""){
+            txt.setText(problem);
+            weiterButtonProblem.setEnabled(true);
+        }
         txt.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
@@ -101,6 +121,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                     weiterButtonProblem.setEnabled(true);  //otherwise enable
                     forward.setVisibility(View.VISIBLE);
                     forwardDisabled.setVisibility(View.GONE);
+                    problem = txt.getText().toString();
                 }
 
             }
@@ -111,11 +132,21 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         });
     }
 
+
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.ziel).setEnabled(false);
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -125,9 +156,25 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -139,6 +186,11 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.weiter_buttonProblem:
+                //Weiter und Problem abspeichern
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putString("ProblemSave", problem);
+                editor.apply();
                 startActivity(new Intent(this, Level1ProblemBeschreibungDank.class));
                 break;
 

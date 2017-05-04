@@ -43,15 +43,25 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     private TextView vier;
     private TextView fuenf;
 
-    //Some more stuff
+    //Viewteile der Activity (Buttons, Textviews,..)
     private Button fertig;
     private Button mirFaelltNichtsEin;
     private TextView anfangsText;
     private int loesungsCounter;
     private AppCompatDelegate delegate;
     private Boolean txt1leer, txt2leer, txt3leer;
-    public static final String PREFS_NAME = "LOBPrefFile";
+    private EditText txt1, txt2, txt3;
 
+
+    //shared Preferences als Speicher
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+    private String weg1, weg2, weg3;
+
+    //hier kann man Lösungswege angeben die man ausprobieren kann
+    //findet sich eine Lösung so kann man weiter zu Level 3
+    //findet sich noch kein Lösungsweg so werden neue Wege angeboten
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,45 +106,83 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         anfangsText = (TextView) findViewById(R.id.textView4);
         switch(loesungsCounter){
             case 1:
-                anfangsText.setText("Es ist nicht immer einfach solch eine Ausnahme zu finden. Aber vielleicht hat dir diese Übung schon dabei geholfen auf einen Lösungsweg zu kommen.");
+                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
                 break;
 
             case 2:
-                anfangsText.setText("Hoffentlich hast du ein lebhaftes Bild davon bekommen wie eine Zukunft ohne Problem aussehen kann. Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
+                anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
                 break;
 
             case 3:
-                anfangsText.setText("Oft kann schon eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden so eine Methode einzusetzen um eine positive Veränderung zu erzielen?");
+                anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
                 break;
 
             case 4:
-                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Aus welchen Situationen schöpfst du Energie und Freude?");
+                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und Freude?");
                 break;
 
             case 5:
-                anfangsText.setText("Wenn du noch keinen Lösungsweg gefunden hast ist das kein Problem. Klicke einfach auf den Weiter-Button wenn du die App weiter erforschen willst und vielleicht tun sich zu einem späteren Zeitpunkt noch Lösungswege auf.");
+                anfangsText.setText("Klicke einfach auf den Weiter-Button wenn du die App weiter erforschen willst und vielleicht tun sich zu einem späteren Zeitpunkt noch Lösungswege auf.");
                 break;
 
             default:
                 break;
         }
 
+        //Buttons
         mirFaelltNichtsEin = (Button) findViewById(R.id.loesungswege_ButtonNichts);
         mirFaelltNichtsEin.setOnClickListener(this);
         mirFaelltNichtsEin.setEnabled(false);
         fertig = (Button) findViewById(R.id.loesungswege_ButtonFertig);
+
         if(loesungsCounter != 5){
             fertig.setEnabled(false);
             mirFaelltNichtsEin.setEnabled(true);
         }
+
         fertig.setOnClickListener(this);
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        weg1 = saved.getString("loesungsweg1", "");
+        weg2 = saved.getString("loesungsweg2", "");
+        weg3 = saved.getString("loesungsweg3", "");
+
+
+        txt1 = (EditText) findViewById(R.id.loesungswege_edittext1);
+        if(weg1 != ""){
+            txt1.setText(weg1);
+            fertig.setEnabled(true);
+        }
+
+        txt2 = (EditText) findViewById(R.id.loesungswege_edittext2);
+        if(weg2 != ""){
+            txt2.setText(weg2);
+            fertig.setEnabled(true);
+        }
+
+        txt3 = (EditText) findViewById(R.id.loesungswege_edittext3);
+        if(weg3 != ""){
+            txt3.setText(weg3);
+            fertig.setEnabled(true);
+        }
+        //checkt ob Text geschrieben wurde
         enableButton();
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -144,11 +192,24 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:
@@ -158,7 +219,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
 
     public void enableButton(){
-        final EditText txt1 = (EditText) findViewById(R.id.loesungswege_edittext1);
+
         txt1.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
@@ -167,6 +228,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 fertig.setEnabled(false); //disable button if no text entered
                 else
                 fertig.setEnabled(true);  //otherwise enable
+                weg1 = txt1.getText().toString();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -174,7 +236,8 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
-        final EditText txt2 = (EditText) findViewById(R.id.loesungswege_edittext2);
+
+
         txt2.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
@@ -183,6 +246,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     fertig.setEnabled(false); //disable button if no text entered
                 else
                     fertig.setEnabled(true);  //otherwise enable
+                weg2 = txt2.getText().toString();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -190,7 +254,8 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
-        final EditText txt3 = (EditText) findViewById(R.id.loesungswege_edittext3);
+
+
         txt3.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
@@ -199,6 +264,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     fertig.setEnabled(false); //disable button if no text entered
                 else
                     fertig.setEnabled(true);  //otherwise enable
+                    weg3 = txt3.getText().toString();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -210,12 +276,46 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putString("loesungsweg1", weg1);
+        editor.putString("loesungsweg2", weg2);
+        editor.putString("loesungsweg3", weg3);
+        editor.apply();
+
         switch (v.getId()) {
             case R.id.loesungswege_ButtonFertig:
-                Intent intent1 = new Intent(v.getContext(), Wunderbar.class);
-                intent1.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent1);
-                break;
+                if(loesungsCounter == 0){
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 0);
+                    startActivity(intent);
+                    break;
+                }
+                else if(loesungsCounter == 1){
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 1);
+                    startActivity(intent);
+                    break;
+                }
+                else if(loesungsCounter == 2){
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 2);
+                    startActivity(intent);
+                    break;
+                }
+                else if(loesungsCounter == 3) {
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 3);
+                    startActivity(intent);
+                    break;
+                }
+                else if(loesungsCounter == 4) {
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 4);
+                    startActivity(intent);
+                    break;
+                }
 
             case R.id.loesungswege_ButtonNichts:
                 if(loesungsCounter == 0){

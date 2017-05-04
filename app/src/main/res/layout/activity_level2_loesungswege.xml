@@ -52,7 +52,6 @@
                         android:hint="@string/loesungswege_EditView2"
                         android:textSize="@dimen/activity_tablecontent"
                         android:id="@+id/loesungswege_edittext2"
-
                         android:layout_marginLeft="8dp"
                         app:layout_constraintLeft_toLeftOf="@+id/footer"
                         android:layout_marginTop="8dp"
@@ -65,7 +64,6 @@
                         android:hint="@string/loesungswege_EditView3"
                         android:textSize="@dimen/activity_tablecontent"
                         android:id="@+id/loesungswege_edittext3"
-
                         android:layout_marginLeft="8dp"
                         app:layout_constraintLeft_toLeftOf="parent"
                         android:layout_marginTop="8dp"

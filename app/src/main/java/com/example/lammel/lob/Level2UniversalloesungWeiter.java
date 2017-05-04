@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -41,14 +42,23 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     private TextView fuenf;
 
     //Buttons and more
-    Button universalloesungWeiter_Weiter, universalloesungWeiter_Nichts;
+    private Button universalloesungWeiter_Weiter, universalloesungWeiter_Nichts;
     private AppCompatDelegate delegate;
+    private String universal;
 
+    //shared Preferences
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
+
+
+    //dritter Lösungsweg
+    //gib eine Möglichkeit an für so eine Universallösung
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_universalloesung_weiter);
-        this.setTitle("LOB - Atolle");
+        this.setTitle("LOB - Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -88,7 +98,15 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         universalloesungWeiter_Nichts = (Button) findViewById(R.id.universal_Nichts);
         universalloesungWeiter_Nichts.setOnClickListener(this);
 
+
+        //Edit Text und gespeicherter Text
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        universal = saved.getString("UniversalSave", "");
         final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
+        if(universal!=""){
+            txt1.setText(universal);
+            universalloesungWeiter_Weiter.setEnabled(true);
+        }
         txt1.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
@@ -96,6 +114,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 if(txt1.length() == 0)
                     universalloesungWeiter_Weiter.setEnabled(false); //disable button if no text entered
                 else
+                    universal = txt1.getText().toString();
                     universalloesungWeiter_Weiter.setEnabled(true);  //otherwise enable
 
             }
@@ -106,10 +125,20 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         });
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -119,11 +148,24 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:
@@ -134,7 +176,12 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            //Text abspeichern und weiter
             case R.id.universalWeiter_ButtonWeiter:
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putString("UniversalSave", universal);
+                editor.apply();
                 Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                 intent.putExtra("LoesungsCounter", 3);
                 startActivity(intent);
@@ -142,8 +189,11 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
 
             case R.id.universal_Nichts:
                 Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                intent2.putExtra("Anekdote2", true);
                 intent2.putExtra("Source", 1);
                 startActivity(intent2);
+                //Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                //startActivity(intent2);
                 break;
 
             case R.id.back_Button:

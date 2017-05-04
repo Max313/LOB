@@ -9,6 +9,10 @@
         android:title="@string/tabelle_Menu"
         android:id="@+id/tabelle"/>
     <item
-        android:title="@string/sonne_Menu"
-        android:id="@+id/Sonne"/>
+    android:title="@string/sonne_Menu"
+    android:id="@+id/Sonne"/>
+
+    <item
+        android:title="@string/hausaufgabe_Menu"
+        android:id="@+id/Hausaufgabe"/>
 </menu>

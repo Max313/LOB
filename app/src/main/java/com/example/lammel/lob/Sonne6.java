@@ -5,6 +5,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -45,6 +46,10 @@ public class Sonne6 extends FragmentActivity implements View.OnClickListener, Ap
     private Boolean tour;
     private Intent intent;
     private AppCompatDelegate delegate;
+
+    //Speicher
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
 
 
     @Override
@@ -107,9 +112,20 @@ public class Sonne6 extends FragmentActivity implements View.OnClickListener, Ap
 
     }
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -119,15 +135,24 @@ public class Sonne6 extends FragmentActivity implements View.OnClickListener, Ap
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
                 return true;
 
             case R.id.tabelle:
                 startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:

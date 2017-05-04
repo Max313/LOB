@@ -40,21 +40,19 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
     //Button
     private AppCompatDelegate delegate;
     Button zielVerwahren_Button;
-    private static String ziel;
+
     private int zielStatus;
     private int ideeStatus;
+
+    //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
-
-
-
+    private SharedPreferences saved;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zielverwahren);
         this.setTitle("LOB - Dein Ziel");
-        Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
-        setSupportActionBar(myToolbar);
 
         //set Status
         zielStatus = 2;
@@ -106,10 +104,28 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         zielVerwahren_Button.setOnClickListener(this);
     }
 
+    private void checkMenu() {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        saved.getBoolean("MenuZiel", false);
+        saved.getBoolean("MenuTabelle", false);
+        saved.getBoolean("MenuSonne", false);
+
+    }
+
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -119,16 +135,29 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
-            switch(item.getItemId()){
-                case R.id.ziel:
-                        startActivity(new Intent(this, MenuZiel.class));
-                    return true;
+        switch(item.getItemId()){
+            case R.id.ziel:
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
 
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
@@ -155,14 +184,6 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
 
         }
     }
-
-    public static void setZiel(String letztesZiel){
-        ziel = letztesZiel;
-    }
-    public static String getZiel(){
-        return ziel;
-    }
-
 
 
     @Override

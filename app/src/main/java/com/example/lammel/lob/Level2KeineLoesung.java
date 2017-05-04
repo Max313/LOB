@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -41,11 +42,17 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     private Button keineLoseungWeiter;
     private AppCompatDelegate delegate;
 
+    //Speicher
+    public static final String PREFS_NAME = "LOBPrefFile";
+    private SharedPreferences saved;
+
+    //fünter/letzter Lösungsweg
+    //falls keine der Methoden hilft wird angeboten die App weiter zu explorieren oder einen Berater aufzusuchen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_keine_loesung);
-        this.setTitle("LOB - Atolle");
+        this.setTitle("LOB - Lösungswege");
 
 
         //Add Footer
@@ -87,10 +94,20 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     }
 
 
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
-        menu.findItem(R.id.tabelle).setEnabled(false);
-        menu.findItem(R.id.Sonne).setEnabled(false);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
         return true;
     }
 
@@ -101,11 +118,24 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
         return true;
     }
 
+    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
             case R.id.ziel:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
+                startActivity(new Intent(this, MenuZiel.class));
+                return true;
+
+            case R.id.tabelle:
+                startActivity(new Intent(this, UebersichtTable.class));
+                return true;
+
+            case R.id.Sonne:
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             default:
