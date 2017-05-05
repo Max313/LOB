@@ -15,9 +15,31 @@
         android:id="@+id/footer"
         layout="@layout/footer"></include>
 
+    <ImageView
+        android:id="@+id/Sonne8_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sonnevollgross"
+
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <TextView
+        android:id="@+id/sonne8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="68dp"
+        android:layout_marginTop="65dp"
+        android:text="@string/WWort5_TextView"
+        android:textSize="@dimen/activity_suncontent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
     <TextView
         android:id="@+id/Sonne8_TextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/SonneF8_TextView"
         android:textSize="@dimen/activity_normalcontent"
@@ -25,8 +47,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/Sonne8_imageView" />
 
     <Button
         android:id="@+id/Weiter8_Button"

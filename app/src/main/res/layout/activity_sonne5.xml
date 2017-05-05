@@ -9,15 +9,40 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+        ></include>
 
     <include
         android:id="@+id/footer"
-        layout="@layout/footer"></include>
+        layout="@layout/footer"
+        ></include>
+
+    <ImageView
+        android:id="@+id/Sonne5_imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sonnevollgross"
+
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="16dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
+    <TextView
+        android:id="@+id/sonne5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/WWort8_TextView"
+        android:textSize="@dimen/activity_suncontent"
+        android:layout_marginLeft="77dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="65dp"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+
 
     <TextView
         android:id="@+id/Sonne5_TextView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/SonneF5_TextView"
         android:textSize="@dimen/activity_normalcontent"
@@ -27,7 +52,9 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/Sonne5_imageView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/Weiter5_Button"
@@ -39,7 +66,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/zurUebersicht5_Button"
@@ -51,7 +80,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/microphone5_Button2"
@@ -63,7 +94,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/Sonne5_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Sonne5_TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/microphone5_Button1"
@@ -75,7 +108,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="32dp"
-        app:layout_constraintTop_toBottomOf="@+id/Sonne5_TextView" />
+        app:layout_constraintTop_toBottomOf="@+id/Sonne5_TextView"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/pause5_Button"
@@ -87,7 +122,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/microphone5_Button1" />
+        app:layout_constraintTop_toBottomOf="@+id/microphone5_Button1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <ImageView
         android:id="@+id/play5_Button"
@@ -99,6 +136,8 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/microphone5_Button1" />
+        app:layout_constraintTop_toBottomOf="@+id/microphone5_Button1"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
 </android.support.constraint.ConstraintLayout>

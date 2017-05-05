@@ -26,6 +26,7 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
     private int counter = 0;
     private Button weiter;
     private TextView txt;
+    private TextView header;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -37,7 +38,7 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_insel_fragen);
-        this.setTitle("LOB - Insel des Sehenden - 1/4");
+        this.setTitle("LOB - Insel des Sehenden");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -127,23 +128,23 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         txt = (TextView) findViewById(R.id.frage1_TextView);
+        header = (TextView) findViewById(R.id.header_Fragen);
         switch (counter) {
 
             case 0:
-                this.setTitle("LOB - Insel des Sehenden - 2/4");
+                header.setText("Frage 2/4");
                 txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
                 counter++;
                 break;
 
             case 1:
-                this.setTitle("LOB - Insel des Sehenden - 3/4");
-
+                header.setText("Frage 3/4");
                 txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
                 counter++;
                 break;
 
             case 2:
-                this.setTitle("LOB - Insel des Sehenden - 4/4");
+                header.setText("Frage 4/4");
                 txt.setText("Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?");
                 counter++;
                 break;

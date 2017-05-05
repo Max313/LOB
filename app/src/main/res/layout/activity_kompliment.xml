@@ -16,7 +16,7 @@
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="400dp"
+        android:layout_height="wrap_content"
         android:scrollbars="horizontal"
         android:layout_weight="1"
         android:layout_marginTop="8dp"
@@ -27,8 +27,8 @@
         app:layout_constraintRight_toRightOf="parent">
 
         <TableLayout
-            android:layout_width="344dp"
-            android:layout_height="410dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginLeft="0dp"
@@ -38,7 +38,7 @@
 
             <TableRow>
                 <TextView
-                    android:layout_width="344dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/komplimentTextView"
                     android:background="@drawable/table_header_border"
@@ -52,7 +52,7 @@
 
             <TableRow>
                 <TextView
-                    android:layout_width="344dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="100dp"
                     android:background="@drawable/example_table_field"
                     android:clickable="true"
@@ -66,7 +66,7 @@
 
                 <EditText
                     android:id="@+id/kompliment1EditText"
-                    android:layout_width="344dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"
@@ -79,7 +79,7 @@
 
                 <EditText
                     android:id="@+id/kompliment2EditText"
-                    android:layout_width="344dp"
+                    android:layout_width="wrap_content"
 
                     android:layout_height="wrap_content"
                     android:background="@drawable/table_value_border_even"
@@ -93,7 +93,7 @@
 
                 <EditText
                     android:id="@+id/kompliment3EditText"
-                    android:layout_width="344dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"

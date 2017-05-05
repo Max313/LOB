@@ -53,7 +53,7 @@
 
         <TableRow>
             <TextView
-                android:layout_width="344dp"
+                android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:background="@drawable/example_table_field"
                 android:clickable="true"
@@ -67,7 +67,7 @@
 
             <EditText
                 android:id="@+id/verhalten1EditText"
-                android:layout_width="344dp"
+                android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_odd"
@@ -81,7 +81,7 @@
 
             <EditText
                 android:id="@+id/verhalten2EditText"
-                android:layout_width="344dp"
+                android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_even"
@@ -95,7 +95,7 @@
 
             <EditText
                 android:id="@+id/verhalten3EditText"
-                android:layout_width="344dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="top|left"

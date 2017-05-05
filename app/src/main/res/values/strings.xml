@@ -161,17 +161,17 @@
     in die Welt hinaustragen. Darum lass uns die Liste um ein paar Experimente erweitern.</string>
     <string name="uebungStart_Button">Übung starten</string>
 
-    <!-- Konsolidierung -->
-    <string name="uebersichtSonne_TextView">Sonne der Erkenntnis</string>
-    <string name="uebersichtAuge_TextView">Insel des Sehenden</string>
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
     verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen. Dabei möchte ich dass du dir die Zeit nimmst über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
+    <string name="f1_TextView">Frage 1/4</string>
+
+
 
     <!-- Insel Frage1 -->
-    <string name="frage1_TextView"><b>Beschreibe in einem Satz:</b> \nWas ist seit der letzten App Nutzung besser geworden?</string>
+    <string name="frage1_TextView">Was ist seit der letzten App Nutzung besser geworden?</string>
     <string name="frage1Weiter_Button">Weiter</string>
 
 
