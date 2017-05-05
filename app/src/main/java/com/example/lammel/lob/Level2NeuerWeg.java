@@ -152,9 +152,9 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
                 return true;
 
             case R.id.action_delete:
-                editor.clear();
-                editor.apply();
-                startActivity(new Intent(this, MainActivity.class));
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                settings.edit().clear().commit();
+                startNew();
                 return true;
 
             default:
@@ -162,6 +162,9 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
         }
     }
 
+    public void startNew(){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 
     @Override
     public void onClick(View v) {

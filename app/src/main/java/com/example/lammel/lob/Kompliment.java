@@ -168,14 +168,18 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 return true;
 
             case R.id.action_delete:
-                editor.clear();
-                editor.apply();
-                startActivity(new Intent(this, MainActivity.class));
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                settings.edit().clear().commit();
+                startNew();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    public void startNew(){
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override

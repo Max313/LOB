@@ -141,9 +141,9 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 return true;
 
             case R.id.action_delete:
-                editor.clear();
-                editor.apply();
-                startActivity(new Intent(this, MainActivity.class));
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                settings.edit().clear().commit();
+                startNew();
                 return true;
 
             default:
@@ -155,6 +155,10 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         weiter_button = (Button) findViewById(R.id.weiter_button);
         onboard = (TextView) findViewById(R.id.onboard_1);
         weiter_button.setOnClickListener(this);
+    }
+
+    public void startNew(){
+        startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override

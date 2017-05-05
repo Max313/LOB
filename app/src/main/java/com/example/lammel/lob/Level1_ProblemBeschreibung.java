@@ -167,9 +167,9 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                 return true;
 
             case R.id.action_delete:
-                editor.clear();
-                editor.apply();
-                startActivity(new Intent(this, MainActivity.class));
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                settings.edit().clear().commit();
+                startNew();
                 return true;
 
             default:
@@ -177,6 +177,9 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         }
     }
 
+    public void startNew(){
+        startActivity(new Intent(this, MainActivity.class));
+    }
 
     @Override
     public void onClick(View v) {
