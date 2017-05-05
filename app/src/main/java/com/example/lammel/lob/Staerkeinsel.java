@@ -161,6 +161,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
             
             default:

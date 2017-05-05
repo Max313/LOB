@@ -154,6 +154,7 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

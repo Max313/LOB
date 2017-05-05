@@ -142,6 +142,7 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

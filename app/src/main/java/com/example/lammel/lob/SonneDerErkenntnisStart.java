@@ -128,6 +128,7 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

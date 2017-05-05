@@ -128,6 +128,7 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

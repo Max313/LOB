@@ -131,6 +131,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

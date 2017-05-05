@@ -212,6 +212,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

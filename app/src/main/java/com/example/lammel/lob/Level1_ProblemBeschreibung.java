@@ -169,6 +169,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

@@ -168,6 +168,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:

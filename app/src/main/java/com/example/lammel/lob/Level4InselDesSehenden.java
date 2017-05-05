@@ -144,6 +144,7 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
             case R.id.action_delete:
                 editor.clear();
                 editor.apply();
+                startActivity(new Intent(this, MainActivity.class));
                 return true;
 
             default:
