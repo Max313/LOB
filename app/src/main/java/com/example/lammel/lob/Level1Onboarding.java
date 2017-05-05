@@ -27,13 +27,7 @@ import android.widget.TextView;
 public class Level1Onboarding extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-
     private int counter = 0;
-
-    //Footer_Fragment Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
 
     // Button and more
     private Button weiter_button;
@@ -81,18 +75,6 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         delegate.setSupportActionBar(toolbar);
 
         onboardingProzessStarten();
-
-
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
     }
 
@@ -189,53 +171,13 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
             }
 
-            case R.id.back_Button:
-                if (counter == 0) {
-                    startActivity(new Intent(this, MainActivity.class));
-                }
-                else if(counter == 3){
-                    onboard.setText("Deswegen spielt das Problem hier eine untergeordnete Rolle.\nEs geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.");
-                    counter--;
-                    break;
-                } else if (counter == 2) {
-                    onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Beziehung in der Zukunft siehst.");
-                    counter--;
-                    break;
-                } else if (counter == 1) {
-                    onboard.setText("Du bist der Meinung Familie ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
-                    counter--;
-                    break;
-                }
-
-
-            case R.id.forward_Button:
-                if (counter == 0) {
-                    onboard.setText("Du bist der Meinung Familie ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
-                    counter++;
-                    break;
-                } else if (counter == 1) {
-                    onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Beziehung in der Zukunft siehst.");
-                    counter++;
-                    break;
-                } else if (counter == 2) {
-                    onboard.setText("Deswegen spielt das Problem hier eine untergeordnete Rolle.\nEs geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.");
-                    counter++;
-                    break;
-                } else if (counter == 3) {
-                    startActivity(new Intent(this, Level1Problemdefinition.class));
-
-                    //startActivity(new Intent(this, Staerkeinsel.class));
-
-                    //startActivity(new Intent(this, Rueckblick.class));
-
-                    //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                }
-
             default:
                 break;
 
         }
     }
+
+
 
 
     @Override

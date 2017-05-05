@@ -24,11 +24,6 @@ import android.widget.TextView;
 
 public class Level2UniversalloesungWeiter extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button universalloesungWeiter_Weiter, universalloesungWeiter_Nichts;
     private AppCompatDelegate delegate;
@@ -68,16 +63,6 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
 
         //Buttons
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
@@ -192,10 +177,6 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 startActivity(intent2);
                 //Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
                 //startActivity(intent2);
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level2Universalloesung.class));
                 break;
 
             default:

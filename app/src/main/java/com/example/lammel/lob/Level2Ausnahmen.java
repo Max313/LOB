@@ -23,13 +23,6 @@ import static java.security.AccessController.getContext;
 
 public class Level2Ausnahmen extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
-
     //Buttons and more
     private Button ausnahmenWeiter;
     private TextView ausnahmenText;
@@ -69,17 +62,6 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
 
         //Buttons and more
@@ -165,33 +147,6 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
                     counter = 0;
                     break;
                 }
-
-            case R.id.back_Button:
-                if(counter == 0){
-                    startActivity(new Intent(this, Level2Veraenderung.class));
-                    break;
-                }
-                else if(counter == 1){
-                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
-                    counter--;
-                    break;
-                }
-
-            case R.id.forward_Button:
-                if(counter == 0){
-                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schimm erlebt hast?\nWas genau war da anders als sonst?\nWer einen Schatz finden will, muss genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
-                    counter++;
-                    break;
-                }
-
-                else if (counter == 1){
-                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 1);
-                    startActivity(intent);
-                    counter = 0;
-                    break;
-                }
-
 
             default:
                 break;

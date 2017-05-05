@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class Wunderbar extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Buttons
     private Button weiter;
     private int loesungsCounter;
@@ -64,24 +58,28 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
 
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
-
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
 
         //Buttons
         weiter = (Button) findViewById(R.id.button);
         weiter.setOnClickListener(this);
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
+        }
+        else if(saved.getInt("ressourceStatus", 0) < 1){
+            editor.putInt("ressourceStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -144,29 +142,11 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.button:
+
                 Intent intent1 = new Intent(this, Staerkeinsel.class);
                 intent1.putExtra("LoesungsCounter", loesungsCounter);
                 startActivity(intent1);
-                break;
 
-            case R.id.back_Button:
-                Intent intent = new Intent(this, Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent);
-                break;
-
-            case R.id.forward_Button:
-                Intent intent3 = new Intent(this, Staerkeinsel.class);
-                intent3.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent3);
-                break;
-
-
-            default:
-                break;
-        }
     }
 
     @Override

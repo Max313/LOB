@@ -18,28 +18,16 @@
     android:layout_height="match_parent">
 
 
-
-    <ImageButton
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/back"
-        android:layout_marginLeft="6dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="0dp"
-        android:id="@+id/back_Button" />
-
             <TextView
                 android:id="@+id/footer1_TextView"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
                 android:background="@color/colorTableHeaderText"
-                app:layout_constraintLeft_toRightOf="@+id/back_Button"
-                android:layout_marginLeft="0dp"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="0dp" />
+                android:layout_marginLeft="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="16dp" />
 
     <Button
         android:id="@+id/ziel_Button"
@@ -49,8 +37,9 @@
         android:layout_height="30dp"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="5dp"
-        app:layout_constraintLeft_toRightOf="@+id/back_Button"
-        android:layout_marginLeft="7dp" />
+        android:layout_marginLeft="24dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="24dp" />
 
             <TextView
                 android:id="@+id/footer2_TextView"
@@ -58,11 +47,9 @@
                 android:layout_height="40dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="0dp"
-                app:layout_constraintLeft_toRightOf="@+id/back_Button"
-                android:layout_marginLeft="50dp" />
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginLeft="85dp" />
 
         <ImageButton
             android:id="@+id/gluehbirneDurchsichtig_Button"
@@ -71,19 +58,19 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="5dp"
-            app:layout_constraintLeft_toRightOf="@+id/back_Button"
-            android:layout_marginLeft="62dp" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="95dp" />
 
 
     <ImageButton
         android:id="@+id/gluehbirneDunkel_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="62dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/gluehbirnestart"
-        app:layout_constraintLeft_toRightOf="@+id/back_Button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="95dp" />
 
         <ImageButton
             android:id="@+id/gluehbirneLeuchtend_Button"
@@ -93,8 +80,8 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="5dp"
-            app:layout_constraintLeft_toRightOf="@+id/back_Button"
-            android:layout_marginLeft="62dp" />
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginLeft="95dp" />
 
             <TextView
                 android:id="@+id/footer3_TextView"
@@ -102,58 +89,53 @@
                 android:layout_height="40dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintTop_toTopOf="parent"
-                android:layout_marginTop="0dp"
-                android:layout_marginLeft="105dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                android:layout_marginBottom="0dp"
-                app:layout_constraintLeft_toRightOf="@+id/back_Button"
 
-                 />
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent" />
 
-        <Button
-            android:id="@+id/ressourcen_Button"
+            <Button
+                android:id="@+id/ressourcen_Button"
 
-            android:background="@drawable/button"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="4dp"
-            app:layout_constraintRight_toLeftOf="@+id/loesung_Button"
-            android:layout_marginRight="70dp" />
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/button"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
             <TextView
                 android:id="@+id/footer4_TextView"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="155dp"
-                android:layout_marginTop="0dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/back_Button"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintRight_toLeftOf="parent"
+                android:layout_marginRight="85dp" />
 
 
     <ImageButton
         android:id="@+id/sonneGrau_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/sonnegrau"
-        app:layout_constraintLeft_toRightOf="@+id/back_Button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:layout_marginRight="90dp" />
 
     <ImageButton
         android:id="@+id/sonneLeer_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="160dp"
         android:layout_marginTop="6dp"
         android:background="@drawable/sonneleer"
-        app:layout_constraintLeft_toRightOf="@+id/back_Button"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginRight="90dp"
+        app:layout_constraintRight_toRightOf="parent" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -161,21 +143,19 @@
         android:background="@drawable/sonnevoll"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="6dp"
-        app:layout_constraintLeft_toRightOf="@+id/back_Button"
-        android:layout_marginLeft="160dp"
-        android:id="@+id/sonneLeuchtend_Button" />
+        android:id="@+id/sonneLeuchtend_Button"
+        app:layout_constraintRight_toLeftOf="parent"
+        android:layout_marginRight="90dp" />
 
             <TextView
                 android:id="@+id/footer5_TextView"
                 android:layout_width="45dp"
                 android:layout_height="40dp"
-                android:layout_marginBottom="0dp"
-                android:layout_marginLeft="205dp"
-                android:layout_marginTop="0dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toRightOf="@+id/back_Button"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginRight="16dp"
+                app:layout_constraintRight_toRightOf="parent" />
 
         <Button
             android:id="@+id/loesung_Button"
@@ -184,28 +164,9 @@
             android:layout_height="30dp"
             app:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="4dp"
-            android:layout_marginRight="60dp"
+            android:layout_marginRight="24dp"
             app:layout_constraintRight_toRightOf="parent" />
 
-    <ImageButton
-        android:id="@+id/forwardgrey_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/forwardgrey"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/forward_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginRight="8dp"
-        android:layout_marginTop="0dp"
-        android:background="@drawable/forward"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

@@ -22,12 +22,6 @@ import android.widget.TextView;
 
 public class Rueckblick extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer_Fragment Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private SeekBar seekBar;
     private Button weiter;
@@ -82,16 +76,6 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Buttons and more in action
         txt = (TextView) findViewById(R.id.Seek1_TextView);
@@ -182,39 +166,19 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.rWeiter_Button:
+
                 if(fortschritt >= 8){
                     Intent intent = new Intent(view.getContext(), Ende.class);
                     intent.putExtra("Source", 0);
                     startActivity(intent);
-                    break;
+
                 }
 
                 else {
                     startActivity(new Intent(this, Neuorientierung.class));
-                    break;
-                }
-            case R.id.back_Button:
-                startActivity(new Intent(this, Sonne8.class));
-                break;
-
-            case R.id.forward_Button:
-                if(fortschritt >= 8){
-                    Intent intent = new Intent(view.getContext(), Ende.class);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
-                    break;
                 }
 
-                else {
-                    startActivity(new Intent(this, Neuorientierung.class));
-                    break;
-                }
 
-           default:
-               break;
-        }
 
     }
 

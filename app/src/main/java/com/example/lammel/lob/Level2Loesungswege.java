@@ -26,23 +26,6 @@ import static java.security.AccessController.getContext;
 
 public class Level2Loesungswege extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
-
     //Viewteile der Activity (Buttons, Textviews,..)
     private Button fertig;
     private Button mirFaelltNichtsEin;
@@ -89,16 +72,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
 
 
         //Action and more
@@ -357,38 +330,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     startActivity(intent);
                     break;
                 }
-
-            case R.id.back_Button:
-                if(loesungsCounter == 0){
-                    startActivity(new Intent(this, Level2VeraenderungJa.class));
-                    break;
-                }
-
-                else if(loesungsCounter == 1) {
-                    startActivity(new Intent(this, Level2Ausnahmen.class));
-                    break;
-                }
-
-                else if(loesungsCounter == 2){
-                    startActivity(new Intent(this, Level2Phantasiereise.class));
-                    break;
-                }
-
-                else if(loesungsCounter == 3){
-                    startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
-                    break;
-                }
-
-                else if(loesungsCounter == 4){
-                    startActivity(new Intent(this, Level2Exitstrategie.class));
-                    break;
-                }
-
-                else if(loesungsCounter == 5){
-                    startActivity(new Intent(this, Level2KeineLoesung.class));
-                    break;
-                }
-
 
             default:
                 break;

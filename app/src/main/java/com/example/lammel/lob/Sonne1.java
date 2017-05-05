@@ -29,11 +29,6 @@ import java.io.FileOutputStream;
 
 public class Sonne1 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private ImageView record;
     private ImageView recordOn;
@@ -79,18 +74,6 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
 
         //Buttons and more on action
@@ -250,15 +233,6 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
                 play.setVisibility(View.VISIBLE);
                 break;
 
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
-                break;
-
-            case R.id.forward_Button:
-                intent = new Intent(view.getContext(), Sonne2.class);
-                intent.putExtra("Tour", true);
-                startActivity(intent);
-                break;
 
             default:
                 break;

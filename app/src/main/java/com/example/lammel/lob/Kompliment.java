@@ -26,22 +26,6 @@ import android.widget.TextView;
 
 public class Kompliment extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-    private ImageButton sungrey;
-    private ImageButton sunyellow;
-    private ImageButton sun;
-    private ImageButton glowgrey;
-    private ImageButton glowcolor;
-    private ImageButton glow;
-    private Button ziel;
-    private TextView eins;
-    private TextView zwei;
-    private TextView drei;
-    private TextView vier;
-    private TextView fuenf;
 
     //Buttons and more
     public static String FIRSTMESSAGE_KOMPLIMENT;
@@ -84,17 +68,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuRessource_Button);
         weiter.setOnClickListener(this);
@@ -109,11 +82,9 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             {
                 if(txt.length() == 0) {
                     weiter.setEnabled(false); //disable send button if no text entered
-                    forward.setEnabled(false);
                 }
                 else {
                     weiter.setEnabled(true);  //otherwise enable
-                    forward.setEnabled(true);
                 }
 
             }
@@ -217,30 +188,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 }
 
                 break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Verhalten.class));
-                break;
-
-            case R.id.forward_Button:
-                EditText edit4Text = (EditText) findViewById(R.id.kompliment1EditText);
-                FIRSTMESSAGE_KOMPLIMENT = edit4Text.getText().toString();
-
-                EditText edit5Text = (EditText) findViewById(R.id.kompliment2EditText);
-                SECONDMESSAGE_KOMPLIMENT = edit5Text.getText().toString();
-
-                EditText edit6Text = (EditText) findViewById(R.id.kompliment3EditText);
-                THIRDMESSAGE_KOMPLIMENT = edit6Text.getText().toString();
-                if (!UebersichtTable.aenderung){
-                    startActivity(new Intent(this, Ressource.class));
-                    break;
-                }
-                else{
-                    UebersichtTable.aenderung = false;
-                    startActivity(new Intent(this, UebersichtTable.class));
-                    break;
-                }
-
 
             default:
                 break;

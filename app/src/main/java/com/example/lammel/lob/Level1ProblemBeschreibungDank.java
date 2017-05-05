@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class Level1ProblemBeschreibungDank extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Button
     private Button problemBeschreibungDank_Button;
     private AppCompatDelegate delegate;
@@ -65,16 +59,6 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Buttons
         problemBeschreibungDank_Button = (Button) findViewById(R.id.problem_BeschreibungDank_Button);
@@ -139,14 +123,6 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.problem_BeschreibungDank_Button:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1_ProblemBeschreibung.class));
-                break;
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level1Zieldefinition.class));
                 break;
 

@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class Level1ZielVerwahren extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Button
     private AppCompatDelegate delegate;
     Button zielVerwahren_Button;
@@ -35,6 +29,7 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
 
     @Override
@@ -66,20 +61,23 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         delegate.setSupportActionBar(toolbar);
 
 
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
         //Button
         zielVerwahren_Button = (Button) findViewById(R.id.zielVerwahren_Button);
         zielVerwahren_Button.setOnClickListener(this);
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("zielStatus", 0) < 2){
+            editor.putInt("zielStatus", 2);
+        }
+
+        else if(saved.getInt("ideeStatus",0) < 1){
+            editor.putInt("ideeStatus", 1);
+        }
+        editor.apply();
+
     }
 
     private void checkMenu() {
@@ -156,14 +154,6 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
 
             //startActivity level 2
             case R.id.zielVerwahren_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1Zieldefinition.class));
-                break;
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level2Veraenderung.class));
                 break;
 

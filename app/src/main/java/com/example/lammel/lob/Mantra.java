@@ -22,12 +22,6 @@ import android.widget.TextView;
 public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Buttons and more
     private Button weiter;
     private int source;
@@ -65,32 +59,22 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
 
+        if(source == 1){
+            //Set Status - Footer
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
 
-        /**if(source == 0){
-            sunyellow.setVisibility(View.VISIBLE);
-            sun.setVisibility(View.GONE);
-            vier.setVisibility(View.VISIBLE);
-            fuenf.setVisibility(View.GONE);
+            if(saved.getInt("sonneStatus", 0) < 2){
+                editor.putInt("sonneStatus", 2);
+            }
+            else if(saved.getInt("loesungStatus", 0) < 1){
+                editor.putInt("loesungStatus", 1);
+            }
+            editor.apply();
         }
-        else{
-            sunyellow.setVisibility(View.GONE);
-            sun.setVisibility(View.VISIBLE);
-            vier.setVisibility(View.GONE);
-            fuenf.setVisibility(View.VISIBLE);
-        }
-*/
+
         //Button on action
         weiter = (Button) findViewById(R.id.mantraWeiter_Button);
         weiter.setOnClickListener(this);
@@ -157,42 +141,14 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.mantraWeiter_Button:
-                if(source == 0){
-                    startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                    break;
-                }
+        switch (source){
+            case 0:
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                break;
 
-                else if(source == 1){
-                    startActivity(new Intent(this, Rueckblick.class));
-                    break;
-
-                }
-
-            case R.id.back_Button:
-                if(source == 0){
-                    startActivity(new Intent(this, Level4InselFragen.class));
-                    break;
-                }
-
-                else if(source == 1){
-                    startActivity(new Intent(this, Sonne8.class));
-                    break;
-                }
-
-            case R.id.forward_Button:
-                if(source == 0){
-                    startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                    break;
-                }
-
-                else if(source == 1){
-                    startActivity(new Intent(this, Rueckblick.class));
-
-                    break;
-
-                }
+            case 1:
+                startActivity(new Intent(this, Rueckblick.class));
+                break;
 
             default:
                 break;

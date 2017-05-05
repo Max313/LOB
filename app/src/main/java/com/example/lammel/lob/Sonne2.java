@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class Sonne2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button weiter;
     private Button uebersicht;
@@ -66,18 +60,6 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -168,35 +150,6 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
                 intent.putExtra("Source", 2);
                 startActivity(intent);
                 break;
-
-            case R.id.back_Button:
-                if(tour){
-                    intent = new Intent(view.getContext(), Sonne1.class);
-                    intent.putExtra("Tour", true);
-                    startActivity(intent);
-                    break;
-                }
-                else{
-                    intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Source", 2);
-                    startActivity(intent);
-                    break;
-                }
-
-            case R.id.forward_Button:
-                if(tour){
-                    intent = new Intent(view.getContext(), Sonne3.class);
-                    intent.putExtra("Tour", true);
-                    startActivity(intent);
-                    break;
-                }
-                else{
-                    intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Tour", false);
-                    startActivity(intent);
-                    break;
-                }
-
 
             default:
                 break;

@@ -140,22 +140,8 @@ public class Level3UebungStart extends FragmentActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.button3:
+
                 startActivity(new Intent(this, Level4InselDesSehenden.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, UebersichtTable.class));
-                break;
-
-            case R.id.forward_Button:
-                startActivity(new Intent(this, Level4InselDesSehenden.class));
-                break;
-
-            default:
-                break;
-        }
 
     }
 

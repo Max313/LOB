@@ -23,11 +23,6 @@ import org.w3c.dom.Text;
 
 public class Ende extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button weiter;
     private TextView txt;
@@ -78,16 +73,6 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
 
 
         //Button and more (in action)
@@ -180,51 +165,6 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
                     break;
 
                 }
-
-            case R.id.back_Button:
-                if(counter == 0){
-                    if(source == 0){
-                        startActivity(new Intent(this, Rueckblick.class));
-                    }
-                    else{
-                    startActivity(new Intent(this, Neuorientierung.class));
-                    break;
-                    }
-                }
-                else if(counter == 1){
-                    startActivity(new Intent(this, Ende.class));
-                    break;
-                }
-
-                else if(counter == 2){
-                    this.setTitle("LOB - Geschenke");
-                    txt.setText("Wenn du gleich die Schatzruhe erreichst habe ich darin ein persönliches Geschenk für dich. Denn ich möchte mich für die gute Zusammenarbeit, dein Durchhaltevermögen " +
-                            "und deine Kreativität bedanken. Zudem möchte ich dir vorschlagen, dass du dich auch selbst beschenkst. Vielleicht findest du eine Kleinigkeit die für dich deine Kompetenzen " +
-                            "symbolisiert. Nimm dir ruhig Zeit bei der Wahl, zelebriere es. Vielleicht ist es ein Bild oder eine Figur, du wirst es sicher erkennen wenn du es siehst.");
-                    counter--;
-                    break;
-
-                }
-
-            case R.id.forward_Button:
-                    if(counter == 0){
-                        this.setTitle("LOB - Geschenke");
-                        txt.setText("Wenn du gleich die Schatzruhe erreichst habe ich darin ein persönliches Geschenk für dich. Denn ich möchte mich für die gute Zusammenarbeit, dein Durchhaltevermögen " +
-                                "und deine Kreativität bedanken. Zudem möchte ich dir vorschlagen, dass du dich auch selbst beschenkst. Vielleicht findest du eine Kleinigkeit die für dich deine Kompetenzen " +
-                                "symbolisiert. Nimm dir ruhig Zeit bei der Wahl, zelebriere es. Vielleicht ist es ein Bild oder eine Figur, du wirst es sicher erkennen wenn du es siehst.");
-                        counter++;
-                        break;
-                    }
-
-                    else if(counter == 1) {
-                        this.setTitle("LOB - Verabschiedung");
-                        txt.setText("Ganz zum Schluss gibt es noch etwas Wichtiges zu sagen: Alles, wirklich alles, was du an Veränderungen erreicht hast, ist ganz allein aus deiner Idee und aus deinen " +
-                                "Kräften erwachsen. LOB hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!");
-                        weiter.setVisibility(View.GONE);
-                        forward.setVisibility(View.GONE);
-                        counter = 0;
-                        break;
-                    }
 
            default:
                break;

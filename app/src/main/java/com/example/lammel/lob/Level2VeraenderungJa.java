@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2VeraenderungJa extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Button and more
     private Button veraenderungWeiter;
     private AppCompatDelegate delegate;
@@ -63,18 +58,6 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
 
         //Button
         veraenderungWeiter = (Button) findViewById(R.id.veraenderungJa_ButtonWeiter);
@@ -137,27 +120,11 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.veraenderungJa_ButtonWeiter:
+
                 Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                 intent.putExtra("LoesungsCounter", 0);
                 startActivity(intent);
-                break;
 
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
-                break;
-
-            case R.id.forward_Button:
-                Intent intent2 = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent2.putExtra("LoesungsCounter", 0);
-                startActivity(intent2);
-                break;
-
-
-            default:
-                break;
-        }
     }
 
     @Override

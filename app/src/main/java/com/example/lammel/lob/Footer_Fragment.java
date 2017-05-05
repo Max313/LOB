@@ -58,7 +58,6 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         View view = inflater.inflate(R.layout.footer, container, false);
 
-
         //Ziel Button
         ziel = (Button) view.findViewById(R.id.ziel_Button);
 
@@ -119,7 +118,7 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //beendet
             case 2:
-
+                ziel.setOnClickListener(this);
                 break;
 
             default:
@@ -166,7 +165,7 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //beendet
             case 2:
-
+                ressource.setOnClickListener(this);
                 break;
 
             default:
@@ -212,7 +211,7 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 break;
             //beendet
             case 2:
-
+                loesung.setOnClickListener(this);
                 break;
 
             default:
@@ -310,11 +309,14 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
                 startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
                 break;
 
+
             default:
                 break;
         }
 
     }
+
+
 
 
 }

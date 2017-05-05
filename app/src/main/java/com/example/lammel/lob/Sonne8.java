@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Sonne8 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button weiter;
     private Button uebersicht;
@@ -66,16 +61,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -92,6 +77,8 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         else{
             weiter.setVisibility(View.GONE);
         }
+
+
 
      }
 
@@ -168,35 +155,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
                 intent.putExtra("Source", 8);
                 startActivity(intent);
                 break;
-
-            case R.id.back_Button:
-                if(tour){
-                    intent = new Intent(view.getContext(), Sonne7.class);
-                    intent.putExtra("Tour", true);
-                    startActivity(intent);
-                    break;
-                }
-                else{
-                    intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Source", 8);
-                    startActivity(intent);
-                    break;
-                }
-
-            case R.id.forward_Button:
-                if(tour) {
-                    intent = new Intent(view.getContext(), Mantra.class);
-                    intent.putExtra("Source", 1);
-                    startActivity(intent);
-                    break;
-                }
-                else{
-                    intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                    intent.putExtra("Source", 8);
-                    startActivity(intent);
-                    break;
-                }
-
 
             default:
                 break;

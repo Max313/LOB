@@ -23,13 +23,6 @@ import android.widget.TextView;
 
 public class UebersichtTable extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer_Fragment Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Buttons and more
     public static Boolean aenderung = false;
     private Button weiter;
@@ -71,19 +64,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
-
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterStaerkeButton);
         weiter.setOnClickListener(this);
@@ -100,6 +80,19 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         aendern4 = (Button) findViewById(R.id.aendern4_Button);
         aendern4.setOnClickListener(this);
         this.setTableContent();
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ressourceStatus", 0) < 2){
+            editor.putInt("ressourceStatus", 2);
+        }
+
+        else if(saved.getInt("sonneStatus", 0) == 0){
+            editor.putInt("sonneStatus", 1);
+        }
+        editor.apply();
 
     }
 
@@ -405,15 +398,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
             case R.id.aendern4_Button:
                 startActivity(new Intent(this, Verhalten.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Ressource.class));
-                break;
-
-            case R.id.forward_Button:
-                //startActivity(new Intent(this, Level3UebungStart.class));
-                startActivity(new Intent(this, Level4InselDesSehenden.class));
                 break;
 
             default:

@@ -143,99 +143,37 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
     @Override
     public void onClick(View view) {
         txt = (TextView) findViewById(R.id.frage1_TextView);
+        switch (counter) {
 
-        switch(view.getId()){
-            case R.id.frage1_Button:
-                if(counter == 0){
-                    this.setTitle("LOB - Insel des Sehenden - 2/4");
-                    txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
-                    counter++;
-                    break;
-                }
+            case 0:
+                this.setTitle("LOB - Insel des Sehenden - 2/4");
+                txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
+                counter++;
+                break;
 
-                else if(counter == 1){
-                    this.setTitle("LOB - Insel des Sehenden - 3/4");
+            case 1:
+                this.setTitle("LOB - Insel des Sehenden - 3/4");
 
-                    txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
-                    counter++;
-                    break;
-                }
+                txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
+                counter++;
+                break;
 
-                else if(counter == 2) {
-                    this.setTitle("LOB - Insel des Sehenden - 4/4");
-                    txt.setText("Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 3){
-                    counter = 0;
-                    Intent intent = new Intent(view.getContext(), Mantra.class);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
-                    break;
-                }
-
-            case R.id.back_Button:
-
-                if(counter == 0){
-                    startActivity(new Intent(this, Level4InselDesSehenden.class));
-                    break;
-                }
-                else if(counter == 1){
-                    startActivity(new Intent(this, Level4InselFragen.class));
-                    counter--;
-                    break;
-                }
-                else if(counter == 2){
-                    this.setTitle("LOB - Insel des Sehenden - 2/4");
-                    txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
-                    counter--;
-                    break;
-                }
-
-                else if(counter == 3) {
-                    this.setTitle("LOB - Insel des Sehenden - 3/4");
-                    txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
-                    counter--;
-                    break;
-                }
-
-
-            case R.id.forward_Button:
-
-                if(counter == 0){
-                    this.setTitle("LOB - Insel des Sehenden - 2/4");
-                    txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
-                    counter++;
-                    break;
-                }
-
-                else if(counter == 1){
-                    this.setTitle("LOB - Insel des Sehenden - 3/4");
-
-                    txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
-                    counter++;
-                    break;
-                }
-
-                else if(counter == 2) {
-                    this.setTitle("LOB - Insel des Sehenden - 4/4");
-                    txt.setText("Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 3){
-                    counter = 0;
-                    Intent intent = new Intent(view.getContext(), Mantra.class);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
-                    break;
-                }
+            case 2:
+                this.setTitle("LOB - Insel des Sehenden - 4/4");
+                txt.setText("Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?");
+                counter++;
+                break;
+            case 3:
+                counter = 0;
+                Intent intent = new Intent(view.getContext(), Mantra.class);
+                intent.putExtra("Source", 0);
+                startActivity(intent);
+                break;
 
             default:
                 break;
-
         }
+
 
     }
 

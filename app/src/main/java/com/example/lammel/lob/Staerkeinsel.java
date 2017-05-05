@@ -24,11 +24,6 @@ import android.widget.TextView;
 
 public class Staerkeinsel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private TextView verhalten;
     private TextView kompliment;
@@ -56,7 +51,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
          if(saved.getInt("ideeStatus",0) < 2){
             editor.putInt("ideeStatus", 2);
         }
-        else if(saved.getInt("ressourceStatus", 0) < 1){
+        else if(saved.getInt("ressourceStatus", 0) == 0){
              editor.putInt("ressourceStatus", 1);
          }
         editor.putInt("tabStatus", 3);
@@ -82,18 +77,6 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
 
         //Buttons and more
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
@@ -221,17 +204,6 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
             case R.id.tableSmall:
                 startActivity(new Intent(this, Verhalten.class));
                 break;
-
-            case R.id.back_Button:
-                Intent intent = new Intent(view.getContext(), Wunderbar.class);
-                intent.putExtra("LoesungsCounter", backCounter);
-                startActivity(intent);
-                break;
-
-            case R.id.forward_Button:
-                startActivity(new Intent(this, Verhalten.class));
-                break;
-
 
             default:
                 break;

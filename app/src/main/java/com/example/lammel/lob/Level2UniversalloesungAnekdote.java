@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2UniversalloesungAnekdote extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Button and more
     private Button universalAnekdote_Weiter;
     private TextView textViewAnekdote;
@@ -69,17 +64,6 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Button and more in action
         universalAnekdote_Weiter = (Button) findViewById(R.id.universalAnekdote_ButtonWeiter);
@@ -160,21 +144,6 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.universalAnekdote_ButtonWeiter:
-                startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
-                break;
-
-            case R.id.back_Button:
-                if(source == 0){
-                    startActivity(new Intent(this, Level2Universalloesung.class));
-                    break;
-                }
-                else{
-                    startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
-                    break;
-                }
-
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
                 break;
 

@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2NeuerWeg extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button neuerWeg;
     private Button neuesZiel;
@@ -67,17 +62,6 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
-
 
         //Buttons Action
         wegCounter = getIntent().getExtras().getInt("WegCounter");
@@ -198,12 +182,6 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
                 Intent intent = new Intent(v.getContext(), Level2ZieldefinitionNeu.class);
                 intent.putExtra("WegCounter", wegCounter);
                 startActivity(intent);
-                break;
-
-            case R.id.back_Button:
-                Intent intent2 = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent2.putExtra("LoesungsCounter", wegCounter);
-                startActivity(intent2);
                 break;
 
             default:

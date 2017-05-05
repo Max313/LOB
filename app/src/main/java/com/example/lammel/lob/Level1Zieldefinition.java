@@ -27,11 +27,6 @@ import android.widget.TextView;
 
 public class Level1Zieldefinition extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Toolbar
     private AppCompatDelegate delegate;
 
@@ -77,17 +72,6 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         //Add the Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Buttons
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
@@ -196,14 +180,6 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
                 editor.putString("ZielSave", ziel);
                 editor.putBoolean("MenuZiel", true);
                 editor.apply();
-                startActivity(new Intent(this, Level1ZielVerwahren.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level1ZielVerwahren.class));
                 break;
 

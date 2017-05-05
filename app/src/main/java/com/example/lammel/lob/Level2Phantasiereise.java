@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2Phantasiereise extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button phantasieWeiter;
     private TextView phantasieText;
@@ -64,17 +59,6 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Buttons and more in action
         phantasieText = (TextView) findViewById(R.id.phantasie_Textview);
@@ -160,45 +144,6 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     startActivity(intent);
                     break;
                 }
-
-            case R.id.back_Button:
-                if(counter==0){
-                    startActivity(new Intent(this, Level2HypoLoesung.class));
-                    break;
-                }
-                else if(counter == 1){
-                    phantasieText.setText("Was wird dann anders sein?\nWas wirst du oder ihr tun, was du oder ihr lange nicht getan habt?\nWer von deinen Freunden oder Bekannten wird es zuerst bemerken?");
-                    counter--;
-                    break;
-                }
-
-                else if(counter == 2){
-                    phantasieText.setText("Woran werden sie es bemerken?\nUnd wie werden sie darauf reagieren?\nUnd wie wirst du wiederum deren Reaktion aufnehmen?");
-                    counter--;
-                    break;
-                }
-
-            case R.id.forward_Button:
-                if(counter == 0){
-                    phantasieText.setText("Was wird dann anders sein?\nWas wirst du oder ihr tun, was du oder ihr lange nicht getan habt?\nWer von deinen Freunden oder Bekannten wird es zuerst bemerken?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 1){
-                    phantasieText.setText("Woran werden sie es bemerken?\nUnd wie werden sie darauf reagieren?\nUnd wie wirst du wiederum deren Reaktion aufnehmen?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 2){
-                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 2);
-                    startActivity(intent);
-                    break;
-                }
-
-            case R.id.ziel_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
 
                 default:
                     break;

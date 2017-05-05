@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2Veraenderung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons
     private Button veraenderungJa, veraenderungNein;
     private AppCompatDelegate delegate;
@@ -78,17 +73,6 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
-
 
         //Buttons
         veraenderungJa = (Button) findViewById(R.id.veraenderung_ButtonJa);
@@ -166,11 +150,6 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
                 //startActivity(new Intent(this, Level2VeraenderungNein.class));
                 startActivity(new Intent(this, Level2Ausnahmen.class));
                 break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1ZielVerwahren.class));
-                break;
-
 
             default:
                 break;

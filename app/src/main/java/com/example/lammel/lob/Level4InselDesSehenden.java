@@ -22,13 +22,6 @@ import android.widget.TextView;
 
 public class Level4InselDesSehenden extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Button and more
     private Button start;
     private AppCompatDelegate delegate;
@@ -53,7 +46,7 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
             editor.putInt("ressourceStatus", 2);
         }
 
-        else if(saved.getInt("sonneStatus", 0) < 1){
+        else if(saved.getInt("sonneStatus", 0) == 0){
             editor.putInt("sonneStatus", 1);
         }
         editor.putInt("tabStatus", 4);
@@ -79,18 +72,6 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Button on action
         start = (Button) findViewById(R.id.fragenStart_Button);
@@ -159,24 +140,9 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.fragenStart_Button:
+
                 startActivity(new Intent(this, Level4InselFragen.class));
-                break;
 
-            case R.id.back_Button:
-                startActivity(new Intent(this, UebersichtTable.class));
-                break;
-
-            case R.id.forward_Button:
-                startActivity(new Intent(this, Level4InselFragen.class));
-                break;
-
-
-            default:
-                break;
-
-        }
 
     }
 

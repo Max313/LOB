@@ -24,12 +24,6 @@ import android.widget.TextView;
 
 public class Level1_ProblemBeschreibung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Button
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
@@ -71,16 +65,6 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Button Action
         weiterButtonProblem = (Button) findViewById(R.id.weiter_buttonProblem);
@@ -103,14 +87,10 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
             {
                 if(txt.length() == 0) {
                     weiterButtonProblem.setEnabled(false); //disable button if no text entered
-                    forward.setVisibility(View.GONE);
-                    forwardDisabled.setVisibility(View.VISIBLE);
 
                 }
                 else {
                     weiterButtonProblem.setEnabled(true);  //otherwise enable
-                    forward.setVisibility(View.VISIBLE);
-                    forwardDisabled.setVisibility(View.GONE);
                     problem = txt.getText().toString();
                 }
 
@@ -190,14 +170,6 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                 editor = saved.edit();
                 editor.putString("ProblemSave", problem);
                 editor.apply();
-                startActivity(new Intent(this, Level1ProblemBeschreibungDank.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1Problemdefinition.class));
-                break;
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level1ProblemBeschreibungDank.class));
                 break;
 

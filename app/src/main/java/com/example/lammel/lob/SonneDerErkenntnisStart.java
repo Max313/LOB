@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class SonneDerErkenntnisStart extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button weiter;
     private AppCompatDelegate delegate;
@@ -63,18 +57,6 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Button on action
         weiter = (Button) findViewById(R.id.zurSonne_Button);
@@ -142,25 +124,10 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.zurSonne_Button:
+
                 Intent intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
                 intent.putExtra("Source", 0);
                 startActivity(intent);
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level4InselFragen.class));
-                break;
-
-            case R.id.forward_Button:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
-                break;
-
-
-            default:
-                break;
-        }
 
     }
 

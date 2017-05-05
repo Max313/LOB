@@ -21,12 +21,6 @@ import android.widget.TextView;
 
 public class Level2KeineLoesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Button and more
     private Button keineLoseungWeiter;
     private AppCompatDelegate delegate;
@@ -65,18 +59,6 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
 
         //Button Action
         keineLoseungWeiter = (Button) findViewById(R.id.keineLoesung_ButtonWeiter);
@@ -150,18 +132,6 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
                 Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                 intent.putExtra("LoesungsCounter", 5);
                 startActivity(intent);
-                break;
-
-            case R.id.back_Button:
-                Intent intent2 = new Intent(v.getContext(), Level2NeuerWeg.class);
-                intent2.putExtra("WegCounter", 4);
-                startActivity(intent2);
-                break;
-
-            case R.id.forward_Button:
-                Intent intent3 = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent3.putExtra("LoesungsCounter", 5);
-                startActivity(intent3);
                 break;
 
             default:

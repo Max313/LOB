@@ -26,12 +26,6 @@ import android.widget.TextView;
 
 public class Verhalten extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Buttons and more
     public static String FIRSTMESSAGE_VERHALTEN;
     public static String SECONDMESSAGE_VERHALTEN;
@@ -73,18 +67,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
-
-
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuKompliment_Button);
         weiter.setEnabled(false);
@@ -98,13 +80,13 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
             {
                 public void afterTextChanged(Editable s)
                 {
-                    if(txt.length() == 0) {
+                    if(txt.length() > 1) {
                         weiter.setEnabled(false);
-                        forward.setEnabled(false);//disable button if no text entered
+                        //disable button if no text entered
                     }
                     else{
                         weiter.setEnabled(true);  //otherwise enable
-                        forward.setEnabled(true);
+
                          }
 
                 }
@@ -213,32 +195,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     startActivity(new Intent(this, UebersichtTable.class));
                 }
                 break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Staerkeinsel.class));
-                break;
-
-            case R.id.forward_Button:
-                EditText edit4Text = (EditText) findViewById(R.id.verhalten1EditText);
-                FIRSTMESSAGE_VERHALTEN = edit4Text.getText().toString();
-
-                EditText edit5Text = (EditText) findViewById(R.id.verhalten2EditText);
-                SECONDMESSAGE_VERHALTEN = edit5Text.getText().toString();
-
-                EditText edit6Text = (EditText) findViewById(R.id.verhalten3EditText);
-                THIRDMESSAGE_VERHALTEN = edit6Text.getText().toString();
-
-                if (!UebersichtTable.aenderung){
-                    startActivity(new Intent(this, Kompliment.class));
-                    break;
-                }
-
-                else {
-                    UebersichtTable.aenderung = false;
-                    startActivity(new Intent(this, UebersichtTable.class));
-                    break;
-                }
-
 
             default:
                 break;

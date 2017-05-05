@@ -24,11 +24,6 @@ import android.widget.TextView;
  */
 public class Level1Problemdefinition extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Button and more
     private Button problem;
     private Button keinProblem;
@@ -52,7 +47,7 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
-        if(saved.getInt("zielStatus", 0) < 1){
+        if(saved.getInt("zielStatus", 0) == 0){
             editor.putInt("zielStatus", 1);
         }
 
@@ -78,17 +73,6 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer_Fragment Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
-
 
         //Buttons
         problem = (Button) findViewById(R.id.problemButton);
@@ -164,10 +148,6 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
 
             case R.id.problemButton:
                 startActivity(new Intent(this, Level1_ProblemBeschreibung.class));
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Level1Onboarding.class));
                 break;
 
             default:

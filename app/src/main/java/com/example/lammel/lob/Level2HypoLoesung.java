@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Level2HypoLoesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Button and more
     private Button hypoStarten;
     private AppCompatDelegate delegate;
@@ -63,17 +58,6 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setOnClickListener(this);
-        forward.setVisibility(View.VISIBLE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.GONE);
 
         //Button
         hypoStarten = (Button) findViewById(R.id.hypoLoesung_Button);
@@ -143,16 +127,6 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
         switch (v.getId()){
 
             case R.id.hypoLoesung_Button:
-                startActivity(new Intent(this, Level2Phantasiereise.class));
-                break;
-
-            case R.id.back_Button:
-                Intent intent = new Intent(this, Level2NeuerWeg.class);
-                intent.putExtra("WegCounter", 1);
-                startActivity(intent);
-                break;
-
-            case R.id.forward_Button:
                 startActivity(new Intent(this, Level2Phantasiereise.class));
                 break;
 

@@ -21,11 +21,6 @@ import android.widget.TextView;
 
 public class Neuorientierung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
     //Buttons and more
     private Button zuLevel2;
     private Button zumEnde;
@@ -64,15 +59,6 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
 
         //Buttons in action
         zuLevel2 = (Button) findViewById(R.id.level2_Button);
@@ -153,10 +139,6 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
                 Intent intent = new Intent(view.getContext(), Ende.class);
                 intent.putExtra("Source", 1);
                 startActivity(intent);
-                break;
-
-            case R.id.back_Button:
-                startActivity(new Intent(this, Rueckblick.class));
                 break;
 
             default:
