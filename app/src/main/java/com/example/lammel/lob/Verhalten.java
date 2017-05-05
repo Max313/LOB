@@ -27,13 +27,13 @@ import android.widget.TextView;
 public class Verhalten extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    public static String FIRSTMESSAGE_VERHALTEN;
-    public static String SECONDMESSAGE_VERHALTEN;
-    public static String THIRDMESSAGE_VERHALTEN;
-
     private Button weiter;
+    private Boolean aenderung = false;
     private TextView verhalten;
     private AppCompatDelegate delegate;
+
+    //Tabelleninhalt
+    private String v1, v2, v3;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -74,6 +74,24 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);
+
+        //Tabelle befüllen falls nötig
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        v1 = saved.getString("Verhalten1", "");
+        v2 = saved.getString("Verhalten2", "");
+        v3 = saved.getString("Verhalten3", "");
+
+        if(v1 != "" || v2 != "" || v3 != ""){
+            EditText zeile1 = (EditText) findViewById(R.id.verhalten1EditText);
+            EditText zeile2 = (EditText) findViewById(R.id.verhalten2EditText);
+            EditText zeile3 = (EditText) findViewById(R.id.verhalten3EditText);
+
+            zeile1.setText(v1);
+            zeile2.setText(v2);
+            zeile3.setText(v3);
+
+            weiter.setEnabled(true);  //enable
+        }
 
         final EditText txt1 = (EditText) findViewById(R.id.verhalten1EditText);
             txt1.addTextChangedListener(new TextWatcher()
@@ -160,7 +178,10 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     @Override
     public void onClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Verhalten.this);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         switch (view.getId()) {
+
             case R.id.verhaltenTextView:
 
                 builder.setTitle("Verhalten");
@@ -178,20 +199,21 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
             case R.id.weiterzuKompliment_Button:
                 EditText edit1Text = (EditText) findViewById(R.id.verhalten1EditText);
-                FIRSTMESSAGE_VERHALTEN = edit1Text.getText().toString();
+                editor.putString("Verhalten1", edit1Text.getText().toString());
 
                 EditText edit2Text = (EditText) findViewById(R.id.verhalten2EditText);
-                SECONDMESSAGE_VERHALTEN = edit2Text.getText().toString();
+                editor.putString("Verhalten2", edit2Text.getText().toString());
 
                 EditText edit3Text = (EditText) findViewById(R.id.verhalten3EditText);
-                THIRDMESSAGE_VERHALTEN = edit3Text.getText().toString();
+                editor.putString("Verhalten3", edit3Text.getText().toString());
 
-                if (!UebersichtTable.aenderung){
+                aenderung = saved.getBoolean("TabelleÄndern", false);
+                if(!aenderung){
                     startActivity(new Intent(this, Kompliment.class));
                 }
 
                 else {
-                    UebersichtTable.aenderung = false;
+                    editor.putBoolean("TabelleÄndern", false);
                     startActivity(new Intent(this, UebersichtTable.class));
                 }
                 break;
@@ -200,6 +222,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 break;
 
         }
+        editor.apply();
     }
 
     @Override

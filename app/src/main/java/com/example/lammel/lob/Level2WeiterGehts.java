@@ -37,6 +37,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_weiter_gehts);
         this.setTitle("LOB - Lösungswege");
+
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();

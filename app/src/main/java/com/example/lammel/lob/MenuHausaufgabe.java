@@ -21,6 +21,8 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+
+
 public class MenuHausaufgabe extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
@@ -41,15 +43,14 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         this.setTitle("LOB - Hausaufgaben");
 
         //Buttons und Funktion
-        hausaufgabe1 = (Button) findViewById(R.id.hausaufgabe_Button1);
+        hausaufgabe1 = (Button) findViewById(R.id.hausaufgabe_ButtonDiary);
         hausaufgabe1.setOnClickListener(this);
-        hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_Button2);
+        hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_ButtonCube);
         hausaufgabe2.setOnClickListener(this);
-        hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_Button3);
+        hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_ButtonCoin);
         hausaufgabe3.setOnClickListener(this);
-        zurueck = (Button) findViewById(R.id.hausaufgabe_Button4);
+        zurueck = (Button) findViewById(R.id.hausaufgabe_ButtonBack);
         zurueck.setOnClickListener(this);
-
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -138,7 +139,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
     public void onClick(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MenuHausaufgabe.this);
         switch(v.getId()){
-            case R.id.hausaufgabe_Button1:
+            case R.id.hausaufgabe_ButtonDiary:
                 builder.setTitle("Tagebuch");
                 builder.setMessage("Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. " +
                         "Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen darüber machst, welche positiven Veränderungen du bemerkt hast. Viel Spaß dabei!" +
@@ -152,7 +153,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
                 dialogV.show();
                 break;
 
-            case R.id.hausaufgabe_Button2:
+            case R.id.hausaufgabe_ButtonCube:
                 builder.setTitle("Würfelspiel");
                 builder.setMessage("Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu: " +
                         "\nWürfle einen Würfel. Kommt eine gerade Zahl raus, dann wende das neue Verhalten in einer Problemsituation an. Kommt eine ungerade heraus so bleibt alles bisher. " +
@@ -167,7 +168,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
                 break;
 
 
-            case R.id.hausaufgabe_Button3:
+            case R.id.hausaufgabe_ButtonCoin:
                 builder.setTitle("Münzwurf");
                 builder.setMessage("Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Also gibt es jetzt ein keines Experiment dazu:  " +
                         "\nBevor du mit einer anderen Person in Berührung kommst werfe eine Münze und wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. " +
@@ -181,7 +182,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
                 dialogY.show();
                 break;
 
-            case R.id.hausaufgabe_Button4:
+            case R.id.hausaufgabe_ButtonBack:
                 onBackPressed();
                 break;
 

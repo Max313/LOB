@@ -28,13 +28,13 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
 
     //Buttons and more
-    public static String FIRSTMESSAGE_RESSOURCE;
-    public static String SECONDMESSAGE_RESSOURCE;
-    public static String THIRDMESSAGE_RESSOURCE;
-
     private Button weiter;
     private TextView ressource;
     private AppCompatDelegate delegate;
+    private Boolean aenderung;
+
+    //Tabelleninhalt
+    private String r1, r2, r3;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -76,6 +76,24 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
         ressource = (TextView) findViewById(R.id.ressourcenTextView);
         ressource.setOnClickListener(this);
+
+        //Tabelle befüllen falls nötig
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        r1 = saved.getString("Ressource1", "");
+        r2 = saved.getString("Ressource2", "");
+        r3 = saved.getString("Ressource3", "");
+
+        if(r1 != "" || r2 != "" || r3 != ""){
+            EditText zeile1 = (EditText) findViewById(R.id.ressource1EditText);
+            EditText zeile2 = (EditText) findViewById(R.id.ressource2EditText);
+            EditText zeile3 = (EditText) findViewById(R.id.ressource3EditText);
+
+            zeile1.setText(r1);
+            zeile2.setText(r2);
+            zeile3.setText(r3);
+
+            weiter.setEnabled(true);  //enable
+        }
 
         final EditText txt2 = (EditText) findViewById(R.id.ressource1EditText);
         txt2.addTextChangedListener(new TextWatcher()
@@ -157,6 +175,9 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     @Override
     public void onClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Ressource.this);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        aenderung = saved.getBoolean("TabelleÄndern", false);
+        editor = saved.edit();
         switch (view.getId()) {
             case R.id.ressourcenTextView:
 
@@ -173,13 +194,17 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
             case R.id.weiterzuUebersicht_Button:
 
                 EditText edit1Text = (EditText) findViewById(R.id.ressource1EditText);
-                FIRSTMESSAGE_RESSOURCE = edit1Text.getText().toString();
+                editor.putString("Ressource1", edit1Text.getText().toString());
+
 
                 EditText edit2Text = (EditText) findViewById(R.id.ressource2EditText);
-                SECONDMESSAGE_RESSOURCE = edit2Text.getText().toString();
+                editor.putString("Ressource2", edit2Text.getText().toString());
+
 
                 EditText edit3Text = (EditText) findViewById(R.id.ressource3EditText);
-                THIRDMESSAGE_RESSOURCE = edit3Text.getText().toString();
+                editor.putString("Ressource3", edit3Text.getText().toString());
+
+
 
                 startActivity(new Intent(this, UebersichtTable.class));
                 break;
@@ -188,6 +213,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                 break;
 
         }
+        editor.apply();
     }
 
     @Override

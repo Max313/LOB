@@ -24,13 +24,17 @@ import android.widget.TextView;
 public class UebersichtTable extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    public static Boolean aenderung = false;
     private Button weiter;
     private Button aendern1;
     private Button aendern2;
     private Button aendern3;
     private Button aendern4;
     private AppCompatDelegate delegate;
+
+
+    //Tabelleninhalt
+    private String v1, v2, v3, k1, k2, k3, r1, r2, r3;
+
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -156,13 +160,26 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
     private void setTableContent() {
 
+
         TextView text1View = (TextView) findViewById(R.id.Uebersicht1_1);
         text1View.setOnClickListener(this);
 
-        if (Verhalten.FIRSTMESSAGE_VERHALTEN.length() <= 12) {
-            text1View.setText(Verhalten.FIRSTMESSAGE_VERHALTEN);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        v1 = saved.getString("Verhalten1", "");
+        v2 = saved.getString("Verhalten2", "");
+        v3 = saved.getString("Verhalten3", "");
+        k1 = saved.getString("Kompliment1", "");
+        k2 = saved.getString("Kompliment2", "");
+        k3 = saved.getString("Kompliment3", "");
+        r1 = saved.getString("Ressource1", "");
+        r2 = saved.getString("Ressource2", "");
+        r3 = saved.getString("Ressource3", "");
+
+
+        if (v1.length() <= 12) {
+            text1View.setText(v1);
         } else {
-            String shortString = Verhalten.FIRSTMESSAGE_VERHALTEN.substring(0, 9) + "...";
+            String shortString = v1.substring(0, 9) + "...";
             text1View.setText(shortString);
         }
 
@@ -170,10 +187,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text2View = (TextView) findViewById(R.id.Uebersicht2_1);
         text2View.setOnClickListener(this);
 
-        if (Verhalten.SECONDMESSAGE_VERHALTEN.length() <= 12) {
-            text2View.setText(Verhalten.SECONDMESSAGE_VERHALTEN);
+        if (v2.length() <= 12) {
+            text2View.setText(v2);
         } else {
-            String shortString = Verhalten.SECONDMESSAGE_VERHALTEN.substring(0, 9) + "...";
+            String shortString = v2.substring(0, 9) + "...";
             text2View.setText(shortString);
         }
 
@@ -181,10 +198,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text3View = (TextView) findViewById(R.id.Uebersicht3_1);
         text3View.setOnClickListener(this);
 
-        if (Verhalten.THIRDMESSAGE_VERHALTEN.length() <= 12) {
-            text3View.setText(Verhalten.THIRDMESSAGE_VERHALTEN);
+        if (v3.length() <= 12) {
+            text3View.setText(v3);
         } else {
-            String shortString = Verhalten.THIRDMESSAGE_VERHALTEN.substring(0, 9) + "...";
+            String shortString = v3.substring(0, 9) + "...";
             text3View.setText(shortString);
         }
 
@@ -192,10 +209,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text4View = (TextView) findViewById(R.id.Uebersicht1_2);
         text4View.setOnClickListener(this);
 
-        if (Kompliment.FIRSTMESSAGE_KOMPLIMENT.length() <= 12) {
-            text4View.setText(Kompliment.FIRSTMESSAGE_KOMPLIMENT);
+        if (k1.length() <= 12) {
+            text4View.setText(k1);
         } else {
-            String shortString = Kompliment.FIRSTMESSAGE_KOMPLIMENT.substring(0, 9) + "...";
+            String shortString = k1.substring(0, 9) + "...";
             text4View.setText(shortString);
         }
 
@@ -203,10 +220,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text5View = (TextView) findViewById(R.id.Uebersicht2_2);
         text5View.setOnClickListener(this);
 
-        if (Kompliment.SECONDMESSAGE_KOMPLIMENT.length() <= 12) {
-            text5View.setText(Kompliment.SECONDMESSAGE_KOMPLIMENT);
+        if (k2.length() <= 12) {
+            text5View.setText(k2);
         } else {
-            String shortString = Kompliment.SECONDMESSAGE_KOMPLIMENT.substring(0, 9) + "...";
+            String shortString = k2.substring(0, 9) + "...";
             text5View.setText(shortString);
         }
 
@@ -214,10 +231,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text6View = (TextView) findViewById(R.id.Uebersicht3_2);
         text6View.setOnClickListener(this);
 
-        if (Kompliment.THIRDMESSAGE_KOMPLIMENT.length() <= 12) {
-            text6View.setText(Kompliment.THIRDMESSAGE_KOMPLIMENT);
+        if (k3.length() <= 12) {
+            text6View.setText(k3);
         } else {
-            String shortString = Kompliment.THIRDMESSAGE_KOMPLIMENT.substring(0, 9) + "...";
+            String shortString = k3.substring(0, 9) + "...";
             text6View.setText(shortString);
         }
 
@@ -225,20 +242,20 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text7View = (TextView) findViewById(R.id.Uebersicht1_3);
         text7View.setOnClickListener(this);
 
-        if (Ressource.FIRSTMESSAGE_RESSOURCE.length() <= 12) {
-            text7View.setText(Ressource.FIRSTMESSAGE_RESSOURCE);
+        if (r1.length() <= 12) {
+            text7View.setText(r1);
         } else {
-            String shortString = Ressource.FIRSTMESSAGE_RESSOURCE.substring(0, 9) + "...";
+            String shortString = r1.substring(0, 9) + "...";
             text7View.setText(shortString);
         }
 
         TextView text8View = (TextView) findViewById(R.id.Uebersicht2_3);
         text8View.setOnClickListener(this);
 
-        if (Ressource.SECONDMESSAGE_RESSOURCE.length() <= 12) {
-            text8View.setText(Ressource.SECONDMESSAGE_RESSOURCE);
+        if (r2.length() <= 12) {
+            text8View.setText(r2);
         } else {
-            String shortString = Ressource.SECONDMESSAGE_RESSOURCE.substring(0, 9) + "...";
+            String shortString = r2.substring(0, 9) + "...";
             text8View.setText(shortString);
         }
 
@@ -246,10 +263,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text9View = (TextView) findViewById(R.id.Uebersicht3_3);
         text9View.setOnClickListener(this);
 
-        if (Ressource.THIRDMESSAGE_RESSOURCE.length() <= 12) {
-            text9View.setText(Ressource.THIRDMESSAGE_RESSOURCE);
+        if (r3.length() <= 12) {
+            text9View.setText(r3);
         } else {
-            String shortString = Ressource.THIRDMESSAGE_RESSOURCE.substring(0, 9) + "...";
+            String shortString = r3.substring(0, 9) + "...";
             text8View.setText(shortString);
         }
 
@@ -258,11 +275,13 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         switch (view.getId()) {
             case R.id.Uebersicht1_1:
 
                 builder.setTitle("Verhalten");
-                builder.setMessage(Verhalten.FIRSTMESSAGE_VERHALTEN);
+                builder.setMessage(v1);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -272,10 +291,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogV1.show();
                 break;
 
-            case R.id.Uebersicht1_2:
+            case R.id.Uebersicht2_1:
 
                 builder.setTitle("Verhalten");
-                builder.setMessage(Verhalten.SECONDMESSAGE_VERHALTEN);
+                builder.setMessage(v2);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -285,10 +304,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogV2.show();
                 break;
 
-            case R.id.Uebersicht1_3:
+            case R.id.Uebersicht3_1:
 
                 builder.setTitle("Verhalten");
-                builder.setMessage(Verhalten.THIRDMESSAGE_VERHALTEN);
+                builder.setMessage(v3);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -298,10 +317,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogV3.show();
                 break;
 
-            case R.id.Uebersicht2_1:
+            case R.id.Uebersicht1_2:
 
                 builder.setTitle("Kompliment");
-                builder.setMessage(Kompliment.FIRSTMESSAGE_KOMPLIMENT);
+                builder.setMessage(k1);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -314,7 +333,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             case R.id.Uebersicht2_2:
 
                 builder.setTitle("Kompliment");
-                builder.setMessage(Kompliment.SECONDMESSAGE_KOMPLIMENT);
+                builder.setMessage(k2);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -324,10 +343,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogK2.show();
                 break;
 
-            case R.id.Uebersicht2_3:
+            case R.id.Uebersicht3_2:
 
                 builder.setTitle("Kompliment");
-                builder.setMessage(Kompliment.THIRDMESSAGE_KOMPLIMENT);
+                builder.setMessage(k3);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -337,10 +356,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogK3.show();
                 break;
 
-            case R.id.Uebersicht3_1:
+            case R.id.Uebersicht1_3:
 
                 builder.setTitle("Ressourcen");
-                builder.setMessage(Ressource.FIRSTMESSAGE_RESSOURCE);
+                builder.setMessage(r1);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -350,10 +369,10 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 dialogR1.show();
                 break;
 
-            case R.id.Uebersicht3_2:
+            case R.id.Uebersicht2_3:
 
                 builder.setTitle("Ressourcen");
-                builder.setMessage(Ressource.SECONDMESSAGE_RESSOURCE);
+                builder.setMessage(r2);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -366,7 +385,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             case R.id.Uebersicht3_3:
 
                 builder.setTitle("Ressourcen");
-                builder.setMessage(Ressource.THIRDMESSAGE_RESSOURCE);
+                builder.setMessage(r3);
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -383,12 +402,12 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 break;
 
             case R.id.aendern1_Button:
-                aenderung = true;
+                editor.putBoolean("TabelleÄndern", true);
                 startActivity(new Intent(this, Verhalten.class));
                 break;
 
             case R.id.aendern2_Button:
-                aenderung = true;
+                editor.putBoolean("TabelleÄndern", true);
                 startActivity(new Intent(this, Kompliment.class));
                 break;
 
@@ -403,8 +422,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             default:
                 break;
         }
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
+
         editor.putBoolean("MenuTabelle", true);
         editor.apply();
     }
