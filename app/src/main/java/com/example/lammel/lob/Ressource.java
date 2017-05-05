@@ -72,6 +72,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuUebersicht_Button);
         weiter.setOnClickListener(this);
+        weiter.setEnabled(false);
 
         ressource = (TextView) findViewById(R.id.ressourcenTextView);
         ressource.setOnClickListener(this);
@@ -79,15 +80,12 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         final EditText txt2 = (EditText) findViewById(R.id.ressource1EditText);
         txt2.addTextChangedListener(new TextWatcher()
         {
-            public void afterTextChanged(Editable s)
-            {
+            public void afterTextChanged(Editable s) {
                 if(txt2.length() == 0) {
                     weiter.setEnabled(false); //disable send button if no text entered
-
                 }
                 else {
                     weiter.setEnabled(true);  //otherwise enable
-
                 }
 
             }

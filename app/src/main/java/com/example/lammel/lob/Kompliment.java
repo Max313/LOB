@@ -71,6 +71,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuRessource_Button);
         weiter.setOnClickListener(this);
+        weiter.setEnabled(false);
 
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
