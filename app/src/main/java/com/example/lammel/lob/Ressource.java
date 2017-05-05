@@ -76,12 +76,12 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         ressource = (TextView) findViewById(R.id.ressourcenTextView);
         ressource.setOnClickListener(this);
 
-        final EditText txt = (EditText) findViewById(R.id.ressource1EditText);
-        txt.addTextChangedListener(new TextWatcher()
+        final EditText txt2 = (EditText) findViewById(R.id.ressource1EditText);
+        txt2.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt.length() > 1) {
+                if(txt2.length() == 0) {
                     weiter.setEnabled(false); //disable send button if no text entered
 
                 }

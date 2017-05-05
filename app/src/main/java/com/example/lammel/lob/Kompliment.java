@@ -75,12 +75,12 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
 
-        final EditText txt = (EditText) findViewById(R.id.kompliment1EditText);
-        txt.addTextChangedListener(new TextWatcher()
+        final EditText txt3 = (EditText) findViewById(R.id.kompliment1EditText);
+        txt3.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt.length() == 0) {
+                if(txt3.length() == 0) {
                     weiter.setEnabled(false); //disable send button if no text entered
                 }
                 else {

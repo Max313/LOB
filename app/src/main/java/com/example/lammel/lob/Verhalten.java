@@ -75,12 +75,12 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);
 
-        final EditText txt = (EditText) findViewById(R.id.verhalten1EditText);
-            txt.addTextChangedListener(new TextWatcher()
+        final EditText txt1 = (EditText) findViewById(R.id.verhalten1EditText);
+            txt1.addTextChangedListener(new TextWatcher()
             {
                 public void afterTextChanged(Editable s)
                 {
-                    if(txt.length() > 1) {
+                    if(txt1.length() == 0) {
                         weiter.setEnabled(false);
                         //disable button if no text entered
                     }

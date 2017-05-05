@@ -21,13 +21,6 @@ import android.widget.TextView;
 
 public class Level2WeiterGehts extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Footer Buttons
-    private ImageButton back;
-    private ImageButton forward;
-    private ImageButton forwardDisabled;
-
-
     //Buttons
     private Button button1, button2;
     private int loesungsCounter;
@@ -77,16 +70,6 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         button1.setOnClickListener(this);
         button2.setOnClickListener(this);
 
-
-        //Footer Buttons
-        back = (ImageButton) findViewById(R.id.back_Button);
-        back.setOnClickListener(this);
-
-        forward = (ImageButton) findViewById(R.id.forward_Button);
-        forward.setVisibility(View.GONE);
-
-        forwardDisabled = (ImageButton) findViewById(R.id.forwardgrey_Button);
-        forwardDisabled.setVisibility(View.VISIBLE);
 
     }
 
@@ -188,12 +171,6 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     startActivity(intent);
                     break;
                 }
-
-            case R.id.back_Button:
-                Intent intent = new Intent(this, Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent);
-                break;
 
             default:
                 break;
