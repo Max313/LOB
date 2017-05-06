@@ -34,10 +34,31 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
+    //Während den 10 Tagen Wartezeit kann man Liste zusammenstellen von Dingen auf die man besonders stolz ist
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zehn_tage);
+
+        //Add Footer
+        Footer_Fragment fragment = new Footer_Fragment();
+        FragmentManager manager = getSupportFragmentManager();
+        FragmentTransaction transaction = manager.beginTransaction();
+        transaction.add(R.id.zehnTage, fragment);
+        transaction.commit();
+
+        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
+        delegate = AppCompatDelegate.create(this, this);
+
+        //Call the onCreate() of the AppCompatDelegate
+        delegate.onCreate(savedInstanceState);
+
+        //Use the delegate to inflate the layout
+        delegate.setContentView(R.layout.activity_zehn_tage);
+
+        //Add the Toolbar
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
+        delegate.setSupportActionBar(toolbar);
 
         fertig = (Button) findViewById(R.id.zehnTage_Button);
         fertig.setEnabled(false);
@@ -58,28 +79,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         }.start();
 ;
 
-        //Währenddessen kann man Liste zusammenstellen von Dingen auf die man besonders stolz ist
 
-        //Add Footer
-        Footer_Fragment fragment = new Footer_Fragment();
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.zehnTage, fragment);
-        transaction.commit();
-
-        //Toolbar
-        //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
-        delegate = AppCompatDelegate.create(this, this);
-
-        //Call the onCreate() of the AppCompatDelegate
-        delegate.onCreate(savedInstanceState);
-
-        //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_zehn_tage);
-
-        //Add the Toolbar
-        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
-        delegate.setSupportActionBar(toolbar);
 
     }
 
@@ -141,8 +141,8 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     }
 
     @Override
-    public void onClick(View v) {
-        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+    public void onClick(View view) {
+        Intent intent = new Intent(view.getContext(), Level2Loesungswege.class);
         intent.putExtra("LoesungsCounter", 4);
         startActivity(intent);
     }

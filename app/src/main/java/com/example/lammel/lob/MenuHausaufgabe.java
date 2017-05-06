@@ -42,15 +42,6 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         setContentView(R.layout.activity_menu_hausaufgabe);
         this.setTitle("LOB - Hausaufgaben");
 
-        //Buttons und Funktion
-        hausaufgabe1 = (Button) findViewById(R.id.hausaufgabe_ButtonDiary);
-        hausaufgabe1.setOnClickListener(this);
-        hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_ButtonCube);
-        hausaufgabe2.setOnClickListener(this);
-        hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_ButtonCoin);
-        hausaufgabe3.setOnClickListener(this);
-        zurueck = (Button) findViewById(R.id.hausaufgabe_ButtonBack);
-        zurueck.setOnClickListener(this);
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -59,7 +50,6 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         transaction.add(R.id.menu_hausaufgabe, fragment);
         transaction.commit();
 
-        //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);
 
@@ -70,8 +60,21 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         delegate.setContentView(R.layout.activity_menu_hausaufgabe);
 
         //Add the Toolbar
-        Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
+
+
+        //Buttons und Funktion
+        hausaufgabe1 = (Button) findViewById(R.id.hausaufgabe_ButtonDiary);
+        hausaufgabe1.setOnClickListener(this);
+        hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_ButtonCube);
+        hausaufgabe2.setOnClickListener(this);
+        hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_ButtonCoin);
+        hausaufgabe3.setOnClickListener(this);
+        zurueck = (Button) findViewById(R.id.hausaufgabe_ButtonBack);
+        zurueck.setOnClickListener(this);
+
+
 
 
     }
@@ -136,9 +139,9 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
 
 
     @Override
-    public void onClick(View v) {
+    public void onClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(MenuHausaufgabe.this);
-        switch(v.getId()){
+        switch(view.getId()){
             case R.id.hausaufgabe_ButtonDiary:
                 builder.setTitle("Tagebuch");
                 builder.setMessage("Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. " +

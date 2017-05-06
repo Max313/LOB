@@ -298,6 +298,12 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     startActivity(intent);
                     break;
                 }
+                else if(loesungsCounter == 5) {
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 5);
+                    startActivity(intent);
+                    break;
+                }
 
             case R.id.loesungswege_ButtonNichts:
                 if(loesungsCounter == 0){

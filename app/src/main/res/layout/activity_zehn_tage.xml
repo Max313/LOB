@@ -48,7 +48,7 @@
         />
 
     <EditText
-        android:layout_width="6dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zehnTage_EditView1"
         android:textSize="@dimen/activity_tablecontent"
@@ -60,7 +60,7 @@
         android:layout_marginStart="8dp" />
 
     <EditText
-        android:layout_width="6dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zehnTage_EditView2"
         android:textSize="@dimen/activity_tablecontent"
@@ -73,7 +73,7 @@
         android:layout_marginStart="8dp" />
 
     <EditText
-        android:layout_width="6dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zehnTage_EditView3"
         android:textSize="@dimen/activity_tablecontent"
@@ -86,7 +86,7 @@
         android:layout_marginStart="8dp" />
 
     <EditText
-        android:layout_width="6dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zehnTage_EditView4"
         android:textSize="@dimen/activity_tablecontent"
@@ -99,7 +99,7 @@
         android:layout_marginStart="8dp" />
 
     <EditText
-        android:layout_width="6dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zehnTage_EditView5"
         android:textSize="@dimen/activity_tablecontent"
