@@ -65,12 +65,26 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
 
 
         //Buttons und Funktion
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
         hausaufgabe1 = (Button) findViewById(R.id.hausaufgabe_ButtonDiary);
+        if(saved.getBoolean("TagebuchSave", false) != true){
+            hausaufgabe1.setEnabled(false);
+        }
         hausaufgabe1.setOnClickListener(this);
+
         hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_ButtonCube);
+        if(saved.getBoolean("WürfelSave", false) != true){
+            hausaufgabe2.setEnabled(false);
+        }
         hausaufgabe2.setOnClickListener(this);
+
         hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_ButtonCoin);
+        if(saved.getBoolean("MünzeSave", false) != true){
+            hausaufgabe3.setEnabled(false);
+        }
         hausaufgabe3.setOnClickListener(this);
+
         zurueck = (Button) findViewById(R.id.hausaufgabe_ButtonBack);
         zurueck.setOnClickListener(this);
 

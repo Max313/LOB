@@ -65,7 +65,6 @@
         android:hint="@string/zehnTage_EditView2"
         android:textSize="@dimen/activity_tablecontent"
         android:id="@+id/zehnTage_edittext2"
-
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="@+id/footer"
         android:layout_marginTop="8dp"
@@ -78,7 +77,6 @@
         android:hint="@string/zehnTage_EditView3"
         android:textSize="@dimen/activity_tablecontent"
         android:id="@+id/zehnTage_edittext3"
-
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
@@ -91,7 +89,6 @@
         android:hint="@string/zehnTage_EditView4"
         android:textSize="@dimen/activity_tablecontent"
         android:id="@+id/zehnTage_edittext4"
-
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"
@@ -104,7 +101,6 @@
         android:hint="@string/zehnTage_EditView5"
         android:textSize="@dimen/activity_tablecontent"
         android:id="@+id/zehnTage_edittext5"
-
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="8dp"

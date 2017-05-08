@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -74,19 +76,57 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         delegate.setSupportActionBar(toolbar);
 
 
-        //Action and more
+
+
+        //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
         anfangsText = (TextView) findViewById(R.id.textView4);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
         switch(loesungsCounter){
             case 1:
+                builder.setTitle("Hausaufgabe");
+                builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir helfen das Konzept besser zu verstehen und erlerntes zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
+                editor.putBoolean("TagebuchSave", true);
+                editor.apply();
                 anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
                 break;
 
             case 2:
+                builder.setTitle("Hausaufgabe");
+                builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogY = builder.create();
+                dialogY.show();
+                editor.putBoolean("MünzeSave", true);
+                editor.apply();
                 anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
                 break;
 
             case 3:
+                builder.setTitle("Hausaufgabe");
+                builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogZ = builder.create();
+                dialogZ.show();
+                editor.putBoolean("WürfelSave", true);
+                editor.apply();
                 anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
                 break;
 

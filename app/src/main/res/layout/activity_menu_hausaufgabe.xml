@@ -43,17 +43,6 @@
         app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_Textview" />
 
     <Button
-        android:id="@+id/hausaufgabe_ButtonCube"
-        android:layout_width="170dp"
-        android:layout_height="60dp"
-        android:text="@string/hausaufgabe_Button2"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginRight="8dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonDiary" />
-
-    <Button
         android:id="@+id/hausaufgabe_ButtonCoin"
         android:layout_width="170dp"
         android:layout_height="60dp"
@@ -62,8 +51,19 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonCube"
+        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonDiary"
         />
+
+    <Button
+        android:id="@+id/hausaufgabe_ButtonCube"
+        android:layout_width="170dp"
+        android:layout_height="60dp"
+        android:text="@string/hausaufgabe_Button2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonCoin" />
 
     <Button
         android:id="@+id/hausaufgabe_ButtonBack"
@@ -74,7 +74,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonCoin"
+        app:layout_constraintTop_toBottomOf="@+id/hausaufgabe_ButtonCube"
         android:layout_marginBottom="46dp"
         />
 

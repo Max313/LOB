@@ -17,14 +17,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ZehnTage extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    TextView timer;
-    Button fertig;
-    CountDownTimer countdown;
+    private TextView timer;
+    private Button fertig;
+    private CountDownTimer countdown;
+    private EditText edit1, edit2, edit3, edit4, edit5;
+    private String inhalt1, inhalt2, inhalt3, inhalt4, inhalt5;
 
     //Toolbar
     private AppCompatDelegate delegate;
@@ -77,6 +80,45 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 fertig.setEnabled(true);
             }
         }.start();
+
+        //Speicherung Text
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        inhalt1 = saved.getString("ZehntageEdit1", "");
+        inhalt2 = saved.getString("ZehntageEdit2", "");
+        inhalt3 = saved.getString("ZehntageEdit3", "");
+        inhalt4 = saved.getString("ZehntageEdit4", "");
+        inhalt5 = saved.getString("ZehntageEdit5", "");
+
+        edit1 = (EditText) findViewById(R.id.zehnTage_edittext1);
+        edit2 = (EditText) findViewById(R.id.zehnTage_edittext2);
+        edit3 = (EditText) findViewById(R.id.zehnTage_edittext3);
+        edit4 = (EditText) findViewById(R.id.zehnTage_edittext4);
+        edit5 = (EditText) findViewById(R.id.zehnTage_edittext5);
+
+        if(inhalt1 != ""){
+            edit1.setText(inhalt1);
+            fertig.setEnabled(true);
+        }
+        if(inhalt2 != ""){
+            edit2.setText(inhalt2);
+            fertig.setEnabled(true);
+        }
+        if(inhalt3 != ""){
+            edit3.setText(inhalt3);
+            fertig.setEnabled(true);
+        }
+        if(inhalt4 != ""){
+            edit4.setText(inhalt4);
+            fertig.setEnabled(true);
+        }
+        if(inhalt5 != ""){
+            edit5.setText(inhalt5);
+            fertig.setEnabled(true);
+        }
+
+
+
 ;
 
 
@@ -142,6 +184,21 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
     @Override
     public void onClick(View view) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        inhalt1 = edit1.getText().toString();
+        editor.putString("ZehntageEdit1", inhalt1);
+        inhalt2 = edit2.getText().toString();
+        editor.putString("ZehntageEdit2", inhalt2);
+        inhalt3 = edit3.getText().toString();
+        editor.putString("ZehntageEdit3", inhalt3);
+        inhalt4 = edit4.getText().toString();
+        editor.putString("ZehntageEdit4", inhalt4);
+        inhalt5 = edit5.getText().toString();
+        editor.putString("ZehntageEdit5", inhalt5);
+
+        editor.apply();
+
         Intent intent = new Intent(view.getContext(), Level2Loesungswege.class);
         intent.putExtra("LoesungsCounter", 4);
         startActivity(intent);
