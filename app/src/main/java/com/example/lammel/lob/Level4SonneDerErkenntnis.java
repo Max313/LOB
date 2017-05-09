@@ -21,6 +21,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.io.File;
+
 public class Level4SonneDerErkenntnis extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
@@ -33,6 +35,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
     private TextView txt7;
     private TextView txt8;
     private ImageView img1;
+    private ImageView img1hell;
     private ImageView img2;
     private ImageView img3;
     private ImageView img4;
@@ -85,7 +88,11 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         txt1.setOnClickListener(this);
 
         img1 = (ImageView) findViewById(R.id.Sonne1_imageView);
+
         img1.setOnClickListener(this);
+
+        img1hell = (ImageView) findViewById(R.id.SonneHell1_imageView);
+        img1hell.setOnClickListener(this);
 
         txt2 = (TextView) findViewById(R.id.sonne2);
         txt2.setOnClickListener(this);
@@ -144,6 +151,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
             fertig.setVisibility(View.VISIBLE);
             fertig.setOnClickListener(this);
             start.setVisibility(View.GONE);
+            isfinished();
         }
     }
 
@@ -201,6 +209,18 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         }
     }
 
+    public void isfinished(){
+        File file = new File("Sonne1");
+        if(!file.exists()){
+            img1.setVisibility(View.GONE);
+            img1hell.setVisibility(View.VISIBLE);
+        }
+        else{
+            img1.setVisibility(View.VISIBLE);
+            img1hell.setVisibility(View.GONE);
+        }
+    }
+
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -223,6 +243,12 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
                 break;
 
             case R.id.Sonne1_imageView:
+                intent = new Intent(view.getContext(), Sonne1.class);
+                intent.putExtra("Tour", false);
+                startActivity(intent);
+                break;
+
+            case R.id.SonneHell1_imageView:
                 intent = new Intent(view.getContext(), Sonne1.class);
                 intent.putExtra("Tour", false);
                 startActivity(intent);

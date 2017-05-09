@@ -38,7 +38,6 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
     private Button uebersicht;
     private Boolean tour;
     private Intent intent;
-    private String fileName;
     private File file;
     private AppCompatDelegate delegate;
 
@@ -77,8 +76,6 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
 
 
         //Buttons and more on action
-        fileName = "Sonne1";
-
         //Ask for Boolean
         tour = getIntent().getExtras().getBoolean("Tour");
 
@@ -90,12 +87,14 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
         uebersicht.setOnClickListener(this);
 
         play = (ImageView) findViewById(R.id.play1_Button);
+        play.setVisibility(View.VISIBLE);
         play.setOnClickListener(this);
 
         pause = (ImageView) findViewById(R.id.pause1_Button);
         pause.setOnClickListener(this);
 
         record = (ImageView) findViewById(R.id.microphone1_Button1);
+        record.setVisibility(View.VISIBLE);
         record.setOnClickListener(this);
 
         recordOn = (ImageView) findViewById(R.id.microphone1_Button2);
@@ -111,14 +110,16 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
             weiter.setVisibility(View.GONE);
         }
 
-        /**file = new File("Sonne1");
+       // this.deleteFile("Sonne1");
+
+       file = new File("Sonne1");
         if(!file.exists()){
-            file = new File(getFilesDir(), fileName);
+            file = new File(getFilesDir(), "Sonne1");
             play.setEnabled(false);
         }
         else if(file.length() == 0){
             play.setEnabled(false);
-        }*/
+        }
     }
 
     //Welche Menüoptionen sind enabled

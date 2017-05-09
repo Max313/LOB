@@ -29,6 +29,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
     //Buttons and more
     private Button weiter;
+    private Button q;
     private TextView ressource;
     private AppCompatDelegate delegate;
     private Boolean aenderung;
@@ -73,6 +74,9 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         weiter = (Button) findViewById(R.id.weiterzuUebersicht_Button);
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
+
+        q = (Button) findViewById(R.id.erklaerungR_Button);
+        q.setOnClickListener(this);
 
         ressource = (TextView) findViewById(R.id.ressourcenTextView);
         ressource.setOnClickListener(this);
@@ -179,9 +183,22 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         aenderung = saved.getBoolean("TabelleÄndern", false);
         editor = saved.edit();
         switch (view.getId()) {
+
+            case R.id.erklaerungR_Button:
+                builder.setTitle("Ressource");
+                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogR = builder.create();
+                dialogR.show();
+                break;
+
             case R.id.ressourcenTextView:
 
-                builder.setTitle("Verhalten");
+                builder.setTitle("Ressource");
                 builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -191,6 +208,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                 AlertDialog dialogV = builder.create();
                 dialogV.show();
                 break;
+
             case R.id.weiterzuUebersicht_Button:
 
                 EditText edit1Text = (EditText) findViewById(R.id.ressource1EditText);
@@ -203,8 +221,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
                 EditText edit3Text = (EditText) findViewById(R.id.ressource3EditText);
                 editor.putString("Ressource3", edit3Text.getText().toString());
-
-
 
                 startActivity(new Intent(this, UebersichtTable.class));
                 break;

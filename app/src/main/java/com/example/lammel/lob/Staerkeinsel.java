@@ -185,7 +185,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
                 dialogK.show();
                 break;
             case R.id.ressourcenTextView:
-                builder.setTitle("Ressourcen");
+                builder.setTitle("Ressource");
                 builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

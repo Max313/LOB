@@ -32,6 +32,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     private String k1, k2, k3;
 
     private Button weiter;
+    private Button q;
     private TextView kompliment;
     private AppCompatDelegate delegate;
     private Boolean aenderung = false;
@@ -72,6 +73,9 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         weiter = (Button) findViewById(R.id.weiterzuRessource_Button);
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
+
+        q = (Button) findViewById(R.id.erklaerungK_Button);
+        q.setOnClickListener(this);
 
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
@@ -179,9 +183,22 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         aenderung = saved.getBoolean("TabelleÄndern", false);
         editor = saved.edit();
         switch (view.getId()) {
+
+            case R.id.erklaerungK_Button:
+                builder.setTitle("Kompliment");
+                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogK = builder.create();
+                dialogK.show();
+                break;
+
             case R.id.komplimentTextView:
 
-                builder.setTitle("Verhalten");
+                builder.setTitle("Kompliment");
                 builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {

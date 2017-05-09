@@ -142,6 +142,7 @@
     <string name="aendern3_Button">Spalte\nBearbeiten</string>
     <string name="aendern4_Button">Tabelle\nBearbeiten</string>
     <string name="weiter_Button">Weiter</string>
+    <string name="erklaerung_Button">\?</string>
     <string name="ok">OK</string>
 
     <!-- Verhalten -->

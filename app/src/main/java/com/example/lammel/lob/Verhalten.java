@@ -28,6 +28,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
     //Buttons and more
     private Button weiter;
+    private Button q;
     private Boolean aenderung = false;
     private TextView verhalten;
     private AppCompatDelegate delegate;
@@ -71,6 +72,9 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         weiter = (Button) findViewById(R.id.weiterzuKompliment_Button);
         weiter.setEnabled(false);
         weiter.setOnClickListener(this);
+
+        q = (Button) findViewById(R.id.erklaerungV_Button);
+        q.setOnClickListener(this);
 
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);
@@ -181,6 +185,19 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         switch (view.getId()) {
+
+            case R.id.erklaerungV_Button:
+                builder.setTitle("Verhalten");
+                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
+                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogV1 = builder.create();
+                dialogV1.show();
+                break;
 
             case R.id.verhaltenTextView:
 
