@@ -152,7 +152,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     //Ask for Permission
     private void requestForSpecificPermission(){
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 101);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 200);
     }
 
     @Override

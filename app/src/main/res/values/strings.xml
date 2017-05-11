@@ -84,7 +84,7 @@
     <string name="hypoLoesung_Button">Übung starten</string>
 
     <!-- Phantasiereise -->
-    <string name="phantasie_Textview"> Stell dir  vor, wir haben unser Gespräch hier beendet...Du gehst wieder  deinem üblichen Tagesablauf nach...und langsam wird es Abend...<!--Nach dem Abendessen sitzt du vielleicht noch etwas vor dem Fernseher...Dann spürst du immer mehr die Müdigkeit...und freust dich ins Bett gehen zu können...Du schläfst ein...(lange Pause) ...Während du nun schläfst, geschieht ein Wunder...Das Problem, weswegen du zur Beratung gekommen bist und über das wir gesprochen haben, verschwindet einfach, löst sich in Luft auf – ganz einfach so...(Schnippen mit den Fingern)...Aber weil das passiert, während du schläfst, bekommst du bewusst gar nicht mit, dass dieses Wunder stattgefunden hat und das Problem gelöst ist. Wenn du nun morgens aufwachst und deinen Tag beginnst, wird dich aber manches stutzig machen, weil es anders ist als sonst...weil du sich irgendwie anders verhältst...Was wird dann anders sein? Was wirst du dann tun, was du bislang nicht so machst? ...Wer von deinen Bekannten und Freunden wird es zuerst bemerken? Woranwerden diese es bemerken?...Und wie werden die darauf reagieren?...Und wie wirst du wiederum deren Reaktion aufnehmen? ...--></string>
+    <string name="phantasie_Textview"> Stell dir  vor, wir haben unser Gespräch hier beendet...Du gehst wieder  deinem üblichen Tagesablauf nach...und langsam wird es Abend...<!--Nach dem Abendessen sitzt du vielleicht noch etwas vor dem Fernseher...Dann spürst du immer mehr die Müdigkeit...und freust dich ins Bett gehen zu können...Du schläfst ein...(lange Pause) ...Während du nun schläfst, geschieht ein Wunder...Das Problem, weswegen du zur Beratung gekommen bist und über das wir gesprochen haben, verschwindet einfach, löst sich in Luft auf – ganz einfach so...(Schnippen mit den Fingern)...Aber weil das passiert, während du schläfst, bekommst du bewusst gar nicht mit, dass dieses Wunder stattgefunden hat und das Problem gelöst ist. Wenn du nun morgens aufwachst und deinen Tag beginnst, wird dich aber manches stutzig machen, weil es anders ist als sonst...weil du sich irgendwie anders verhältst...Was wird dann anders sein? Was wirst du dann tun, was du bislang nicht so machst? ...Wer von deinen Bekannten und Freunden wird es zuerst bemerken? Woran werden diese es bemerken?...Und wie werden die darauf reagieren?...Und wie wirst du wiederum deren Reaktion aufnehmen? ...--></string>
 
     <!-- Universal Lösungsschlüssel -->
     <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment herauskäme.</string>
@@ -94,7 +94,7 @@
     <string name="universalAnekdote_Textview">Eine kleine Geschichte über den Schatzmeister, der immer die gleiche Strecke von einer zur anderen Insel mit dem Boot gefahren ist. Bis ihm ein weiser Mann dann empfahl die Strecke, da sie nicht so lang ist, zu schwimmen und zu tauchen. Kleiner Film was er auf einmal alles wahrnimmt, Fische, Korallen, etc. Und nur weil er einmal was anders als sonst gemacht hat.</string>
 
     <!-- Universal Weiter -->
-    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltsensweisen in einer solchen schwierigen Situation geben könnte.</string>
+    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in einer solchen schwierigen Situation geben könnte.</string>
     <string name="universalWeiter_Button2">Mir fällt nichts ein</string>
 
     <!-- Exitstrategie -->
@@ -114,7 +114,7 @@
     <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
 
     <!-- Weiter Gehts -->
-    <string name="weiterGehts_Textview">Wie auch immer die Übung gelaufen ist du hast dich un deine Situation besser kennengelernt, das kann dir keiner mehr nehmen. Hat dir diese Übung schon weiter geholfen?</string>
+    <string name="weiterGehts_Textview">Wie auch immer die Übung gelaufen ist du hast dich und deine Situation besser kennengelernt, das kann dir keiner mehr nehmen. Hat dir diese Übung schon weiter geholfen?</string>
     <string name="weiterGehts_Button1">Ja, weiter geht\'s</string>
     <string name="weiterGehts_Button2">Nein, leider noch nicht</string>
 

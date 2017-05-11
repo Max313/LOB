@@ -13,4 +13,5 @@
     <dimen name="acitivty_smallcontent">18dp</dimen>
     <dimen name="activity_suncontent">12dp</dimen>
     <dimen name="activity_questions">40dp</dimen>
+    <dimen name="timer">24dp</dimen>
 </resources>
