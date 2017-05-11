@@ -21,6 +21,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.io.File;
+
 public class Ende extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
@@ -131,11 +133,56 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
             case R.id.action_delete:
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 settings.edit().clear().commit();
+                deleteFiles();
                 startNew();
                 return true;
 
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void deleteFiles(){
+        File file1 = new File(this.getFilesDir() +"/" + "sonne1" +".3gp");
+        if(file1.exists()){
+            file1.delete();
+        }
+
+        File file2 = new File(this.getFilesDir() + "/"+ "sonne2" + ".3gp");
+        if(file2.exists()){
+            file2.delete();
+        }
+
+        File file3 = new File(this.getFilesDir() + "/"+ "sonne3" + ".3gp");
+        if(file3.exists()){
+            file3.delete();
+        }
+
+        File file4 = new File(this.getFilesDir() + "/"+ "sonne4" + ".3gp");
+        if(file4.exists()){
+            file4.delete();
+        }
+
+        File file5 = new File(this.getFilesDir() + "/"+ "sonne5" + ".3gp");
+        if(file5.exists()){
+            file5.delete();
+        }
+
+        File file6 = new File(this.getFilesDir() + "/"+ "sonne6" + ".3gp");
+        if(file6.exists()){
+            file6.delete();
+        }
+
+
+        File file7 = new File(this.getFilesDir() + "/"+ "sonne7" + ".3gp");
+        if(file7.exists()){
+            file7.delete();
+        }
+
+
+        File file8 = new File(this.getFilesDir() + "/"+ "sonne8" + ".3gp");
+        if(file8.exists()){
+            file8.delete();
         }
     }
 
