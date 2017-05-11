@@ -120,10 +120,10 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
-
-                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", 0);
-                startActivity(intent);
+                startActivity(new Intent(this, Level2Start.class));
+                //Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                //intent.putExtra("LoesungsCounter", 0);
+                //startActivity(intent);
 
     }
 

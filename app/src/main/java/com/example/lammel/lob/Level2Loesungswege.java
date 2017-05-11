@@ -23,7 +23,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import static java.security.AccessController.getContext;
 
 public class Level2Loesungswege extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
@@ -52,7 +51,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_loesungswege);
         this.setTitle("LOB - Lösungswege");
-
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -94,7 +92,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     }
                 });
                 AlertDialog dialogX = builder.create();
-                dialogX.show();
+                //dialogX.show();
                 editor.putBoolean("TagebuchSave", true);
                 editor.apply();
                 anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
@@ -109,7 +107,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     }
                 });
                 AlertDialog dialogY = builder.create();
-                dialogY.show();
+                //dialogY.show();
                 editor.putBoolean("MünzeSave", true);
                 editor.apply();
                 anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
@@ -124,7 +122,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     }
                 });
                 AlertDialog dialogZ = builder.create();
-                dialogZ.show();
+                //dialogZ.show();
                 editor.putBoolean("WürfelSave", true);
                 editor.apply();
                 anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
@@ -347,33 +345,39 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
             case R.id.loesungswege_ButtonNichts:
                 if(loesungsCounter == 0){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 0);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 0);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Ausnahmen.class));
+
                     break;
                 }
                 else if(loesungsCounter == 1){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 1);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 1);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2HypoLoesung.class));
                     break;
                 }
                 else if(loesungsCounter == 2){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 2);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 2);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Universalloesung.class));
                     break;
                 }
                else if(loesungsCounter == 3) {
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 3);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 3);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Exitstrategie.class));
                     break;
                 }
                 else if(loesungsCounter == 4) {
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 4);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 4);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2KeineLoesung.class));
                     break;
                 }
 

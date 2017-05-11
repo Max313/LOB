@@ -44,7 +44,7 @@ public class MenuZiel extends FragmentActivity implements View.OnClickListener, 
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.menu_hausaufgabe, fragment);
+        transaction.add(R.id.menuziel, fragment);
         transaction.commit();
 
         //Toolbar
@@ -55,7 +55,7 @@ public class MenuZiel extends FragmentActivity implements View.OnClickListener, 
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_menu_hausaufgabe);
+        delegate.setContentView(R.layout.activity_menu_ziel);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);

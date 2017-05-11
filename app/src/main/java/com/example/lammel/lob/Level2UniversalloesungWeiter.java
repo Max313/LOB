@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -28,6 +30,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     private Button universalloesungWeiter_Weiter, universalloesungWeiter_Nichts;
     private AppCompatDelegate delegate;
     private String universal;
+    private int counter = 0;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -158,16 +161,31 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
 
     @Override
     public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level2UniversalloesungWeiter.this);
         switch (v.getId()) {
             //Text abspeichern und weiter
             case R.id.universalWeiter_ButtonWeiter:
-                saved = getSharedPreferences(PREFS_NAME, 0);
-                editor = saved.edit();
-                editor.putString("UniversalSave", universal);
-                editor.apply();
-                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", 3);
-                startActivity(intent);
+                if(counter == 0){
+                    builder.setTitle("Hausaufgabe");
+                    builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialogZ = builder.create();
+                    dialogZ.show();
+                    counter++;
+                }
+                else{
+                    saved = getSharedPreferences(PREFS_NAME, 0);
+                    editor = saved.edit();
+                    editor.putString("UniversalSave", universal);
+                    editor.apply();
+                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                    intent.putExtra("LoesungsCounter", 3);
+                    startActivity(intent);
+                }
                 break;
 
             case R.id.universal_Nichts:

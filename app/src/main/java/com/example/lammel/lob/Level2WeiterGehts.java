@@ -143,33 +143,38 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
             case R.id.weiterGehts_Button2:
                 if(loesungsCounter == 0){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 0);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 0);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Ausnahmen.class));
                     break;
                 }
                 else if(loesungsCounter == 1){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 1);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 1);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2HypoLoesung.class));
                     break;
                 }
                 else if(loesungsCounter == 2){
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 2);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 2);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Universalloesung.class));
                     break;
                 }
                 else if(loesungsCounter == 3) {
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 3);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 3);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Exitstrategie.class));
                     break;
                 }
                 else if(loesungsCounter == 4) {
-                    Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    intent.putExtra("WegCounter", 4);
-                    startActivity(intent);
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 4);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2KeineLoesung.class));
                     break;
                 }
 

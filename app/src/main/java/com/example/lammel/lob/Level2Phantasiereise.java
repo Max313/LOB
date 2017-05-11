@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -126,6 +128,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
         switch (v.getId()){
             case R.id.phantasie_ButtonWeiter:
                 if(counter == 0){
@@ -139,6 +142,19 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     break;
                 }
                 else if(counter == 2){
+                    builder.setTitle("Hausaufgabe");
+                    builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialogY = builder.create();
+                    dialogY.show();
+                    counter++;
+                    break;
+                }
+                else if(counter == 3){
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                     intent.putExtra("LoesungsCounter", 2);
                     startActivity(intent);

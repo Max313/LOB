@@ -46,6 +46,9 @@
     <string name="zielVerwahren_TextView">Wahnsinn!\nDas ist keine leichte Aufgabe.\nDu kannst stolz auf dich sein, dass du dich mit dem Ziel auseinander gesetzt hast.\nDas klare Ziel ist die halbe Miete.</string>
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
+    <!-- Level2 Start -->
+    <string name="level2Start_Textview">Gratulation! Ab jetzt bist du im zweiten Level und hier geht es darum Wege herauszufinden und auszuprobieren, die dir beim Erreichen deines Ziels helfen sollen. Wenn dir zu Beginn noch keine Lösung einfällt kannst du hier Übungen kennenlernen, die dich dabei unterstützen. </string>
+
     <!-- Loesungswege -->
     <string name="loesungswege_Textview">Denke an Situationen die zu einer Verbesserung geführt haben und schreibe diese auf. Aller guten Dinge sind drei:</string>
     <string name="loesungswege_EditView1">1. </string>
@@ -168,7 +171,6 @@
     verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen. Dabei möchte ich dass du dir die Zeit nimmst über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
     <string name="f1_TextView">Frage 1/4</string>
-
 
 
     <!-- Insel Frage1 -->

@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -133,6 +135,7 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
 
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level2Ausnahmen.this);
         switch (v.getId()){
             case R.id.ausnahmen_ButtonWeiter:
                 if (counter == 0){
@@ -141,6 +144,19 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
                     break;
                 }
                 else if (counter == 1){
+                    builder.setTitle("Hausaufgabe");
+                    builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir helfen das Konzept besser zu verstehen und erlerntes zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialogX = builder.create();
+                    dialogX.show();
+                    counter++;
+                    break;
+                }
+                else if (counter == 2){
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                     intent.putExtra("LoesungsCounter", 1);
                     startActivity(intent);
