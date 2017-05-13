@@ -71,6 +71,11 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
         universalloesungWeiter_Weiter.setOnClickListener(this);

@@ -71,6 +71,12 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level1));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.bergbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
 
         //Button Action
         weiterButtonProblem = (Button) findViewById(R.id.weiter_buttonProblem);

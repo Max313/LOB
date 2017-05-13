@@ -63,6 +63,12 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level1));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.bergbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
 
         //Buttons
         problemBeschreibungDank_Button = (Button) findViewById(R.id.problem_BeschreibungDank_Button);

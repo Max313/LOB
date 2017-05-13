@@ -59,6 +59,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         //Check for Permission preparation
         int userVersion = Build.VERSION.SDK_INT;

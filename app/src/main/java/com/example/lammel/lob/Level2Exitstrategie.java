@@ -64,6 +64,11 @@ public class Level2Exitstrategie extends FragmentActivity implements View.OnClic
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons Action
         exitstrategie_Button = (Button) findViewById(R.id.exitstrategie_Button);
         exitstrategie_Button.setOnClickListener(this);

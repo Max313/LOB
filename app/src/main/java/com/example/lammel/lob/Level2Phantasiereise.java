@@ -66,6 +66,11 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons and more in action
         phantasieText = (TextView) findViewById(R.id.phantasie_Textview);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);

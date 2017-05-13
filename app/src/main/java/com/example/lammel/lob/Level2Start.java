@@ -59,6 +59,12 @@ public class Level2Start extends FragmentActivity implements View.OnClickListene
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
         level2Weiter = (Button) findViewById(R.id.level2Start_Button);
         level2Weiter.setOnClickListener(this);
     }

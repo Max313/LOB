@@ -63,6 +63,11 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button
         hypoStarten = (Button) findViewById(R.id.hypoLoesung_Button);
         hypoStarten.setOnClickListener(this);

@@ -62,6 +62,11 @@ public class Level3UebungStart extends FragmentActivity implements View.OnClickL
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.baumbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button action
         uebung = (Button) findViewById(R.id.button3);
         uebung.setOnClickListener(this);

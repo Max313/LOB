@@ -64,6 +64,11 @@ public class Level2Universalloesung extends FragmentActivity implements View.OnC
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons
         universalWeiter = (Button) findViewById(R.id.universal_ButtonWeiter);
         universalWeiter.setOnClickListener(this);

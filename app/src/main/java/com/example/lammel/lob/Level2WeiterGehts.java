@@ -63,6 +63,11 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
 
         button1 = (Button) findViewById(R.id.weiterGehts_Button1);

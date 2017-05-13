@@ -69,6 +69,11 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button and more in action
         universalAnekdote_Weiter = (Button) findViewById(R.id.universalAnekdote_ButtonWeiter);
         universalAnekdote_Weiter.setOnClickListener(this);

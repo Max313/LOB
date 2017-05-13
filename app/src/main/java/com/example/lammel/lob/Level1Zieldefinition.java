@@ -77,6 +77,13 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level1));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.bergbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+
+
         //Buttons
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);

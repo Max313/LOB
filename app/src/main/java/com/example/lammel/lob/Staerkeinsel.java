@@ -82,6 +82,11 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.baumbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons and more
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);

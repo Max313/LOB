@@ -77,6 +77,11 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level4));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button on action
         start = (Button) findViewById(R.id.fragenStart_Button);
         start.setOnClickListener(this);

@@ -64,6 +64,11 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button Action
         keineLoseungWeiter = (Button) findViewById(R.id.keineLoesung_ButtonWeiter);
         keineLoseungWeiter.setOnClickListener(this);

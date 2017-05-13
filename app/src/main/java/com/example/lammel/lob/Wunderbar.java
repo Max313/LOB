@@ -60,6 +60,11 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.baumbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
 

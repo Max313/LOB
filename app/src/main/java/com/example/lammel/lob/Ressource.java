@@ -74,6 +74,11 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.baumbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons and more in action
         weiter = (Button) findViewById(R.id.weiterzuUebersicht_Button);
         weiter.setOnClickListener(this);

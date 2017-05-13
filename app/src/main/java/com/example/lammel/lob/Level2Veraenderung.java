@@ -78,6 +78,11 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons
         veraenderungJa = (Button) findViewById(R.id.veraenderung_ButtonJa);
         veraenderungJa.setOnClickListener(this);
