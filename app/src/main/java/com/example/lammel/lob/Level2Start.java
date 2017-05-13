@@ -35,7 +35,7 @@ public class Level2Start extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_start);
-        this.setTitle("Level 2");
+        this.setTitle("Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -78,7 +78,7 @@ public class Level2Start extends FragmentActivity implements View.OnClickListene
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
