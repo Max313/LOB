@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/sonne2_xml"
+    android:background="@color/level4Background"
     tools:context="com.example.lammel.lob.Sonne2">
 
     <include

@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/problem_Beschreibung"
-    tools:context="com.example.lammel.lob.Mantra">
+    android:background="@color/level1Background"
+    tools:context="com.example.lammel.lob.Level1_ProblemBeschreibung">
 
     <include
         android:id="@+id/tool_bar"

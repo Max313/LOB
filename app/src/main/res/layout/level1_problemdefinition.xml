@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/level1Background"
     android:id="@+id/level1_problemdefinition"
 
-    tools:context="com.example.lammel.lob.Neuorientierung">
+    tools:context="com.example.lammel.lob.Level1Problemdefinition">
 
     <include
         android:id="@+id/tool_bar"

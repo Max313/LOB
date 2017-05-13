@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/level2_start"
+    android:background="@color/level2Background"
     tools:context="com.example.lammel.lob.Level2Start">
 
     <include

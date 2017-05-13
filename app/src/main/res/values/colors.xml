@@ -10,10 +10,15 @@
     <color name="colorPrimaryDark">#A4A4A4</color>
     <color name="colorAccentOld">#FF4081</color>
     <color name="level1">#E2F3FC</color>
+    <color name="level1Background">#F1F9FC</color>
     <color name="level2">#FCE2E2</color>
+    <color name="level2Background">#FDF7F7</color>
     <color name="level3">#EDFCE2</color>
+    <color name="level3Background">#F7FDF3</color>
     <color name="level4">#FCFBE2</color>
+    <color name="level4Background">#FDFDF6</color>
     <color name="level5">#F6E3CE</color>
+    <color name="level5Background">#F6F0EA</color>
 
 </resources>
 

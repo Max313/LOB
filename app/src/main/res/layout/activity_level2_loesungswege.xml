@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/level2_loesungswege"
-    tools:context="com.example.lammel.lob.Mantra">
+    android:background="@color/level2Background"
+    tools:context="com.example.lammel.lob.Level2Loesungswege">
 
     <include
         android:id="@+id/tool_bar"
@@ -20,7 +21,7 @@
 
 
             <TextView
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/loesungswege_Textview"
                 android:textSize="@dimen/activity_normalcontent"
