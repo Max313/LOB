@@ -72,9 +72,9 @@
                 android:id="@+id/wegweiser1_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/wegweisersw"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/wegweiserswshort"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,20 +83,19 @@
                 android:id="@+id/wegweiser2_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/wegweiser"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/wegweisershort"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
                 android:id="@+id/wegweiser3_Button"
-
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="80dp"
-                android:layout_marginTop="0dp"
-                android:background="@drawable/wegweiserbunt"
+                android:layout_marginLeft="75dp"
+                android:layout_marginTop="2dp"
+                android:background="@drawable/wegweiserbuntshort"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
