@@ -22,21 +22,39 @@
                 android:id="@+id/footer1_TextView"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="14dp"
+                android:layout_marginLeft="12dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/ziel_Button"
-
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginLeft="24dp"
-                android:layout_marginStart="24dp"
+            <ImageButton
+                android:id="@+id/ziel1_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_marginTop="5dp"
-                android:background="@drawable/button"
+                android:background="@drawable/berggrau"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ziel2_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/bergbunt"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ziel3_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/berg"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -44,46 +62,43 @@
                 android:id="@+id/footer2_TextView"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="80dp"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/gluehbirneDurchsichtig_Button"
-            android:background="@drawable/gluehbirneaus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="5dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="90dp"
-           />
+            <ImageButton
+                android:id="@+id/wegweiser1_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/wegweisersw"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    <ImageButton
-        android:id="@+id/gluehbirneDunkel_Button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/gluehbirnestart"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="90dp"
-         />
+            <ImageButton
+                android:id="@+id/wegweiser2_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/wegweiser"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <ImageButton
-            android:id="@+id/gluehbirneLeuchtend_Button"
+            <ImageButton
+                android:id="@+id/wegweiser3_Button"
 
-            android:background="@drawable/gluehbirne"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="5dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:layout_marginLeft="90dp"
-             />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/wegweiserbunt"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/footer3_TextView"
@@ -97,13 +112,32 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/ressourcen_Button"
+            <ImageButton
+                android:id="@+id/ressourcen1_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/baumsw"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/button"
+            <ImageButton
+                android:id="@+id/ressourcen2_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/baumbunt"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/ressourcen3_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/baum"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -113,7 +147,7 @@
                 android:id="@+id/footer4_TextView"
                 android:layout_width="50dp"
                 android:layout_height="40dp"
-                android:layout_marginRight="75dp"
+                android:layout_marginRight="90dp"
                 android:layout_weight="0.2"
                 android:background="@color/colorTableHeaderText"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -129,7 +163,7 @@
         android:background="@drawable/sonnegrau"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
-        android:layout_marginRight="85dp"
+        android:layout_marginRight="95dp"
         />
 
     <ImageButton
@@ -139,7 +173,7 @@
         android:layout_marginTop="6dp"
         android:background="@drawable/sonneleer"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="85dp"
+        android:layout_marginRight="95dp"
         app:layout_constraintRight_toRightOf="parent"
         />
 
@@ -151,7 +185,7 @@
         android:layout_marginTop="6dp"
         android:id="@+id/sonneLeuchtend_Button"
         app:layout_constraintRight_toLeftOf="parent"
-        android:layout_marginRight="85dp"
+        android:layout_marginRight="95dp"
          />
 
             <TextView
@@ -166,13 +200,33 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
-                android:id="@+id/loesung_Button"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_marginRight="28dp"
-                android:layout_marginTop="4dp"
-                android:background="@drawable/button"
+            <ImageButton
+                android:id="@+id/loesung1_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/untergangsw"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/loesung2_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/untergangbunt"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/loesung3_Button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/untergang"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 

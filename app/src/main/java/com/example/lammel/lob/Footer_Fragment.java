@@ -29,15 +29,21 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     public int tabStatus;
 
     //Buttons
-    private Button ziel;
-    private ImageButton glowGrey;
-    private ImageButton glowColor;
-    private ImageButton glow;
-    private Button ressource;
+    private ImageButton zielsw;
+    private ImageButton zielb;
+    private ImageButton ziel;
+    private ImageButton wegweisersw;
+    private ImageButton wegweiserb;
+    private ImageButton wegweiser;
+    private ImageButton ressourcesw;
+    private ImageButton ressourceb;
+    private ImageButton ressource;
     private ImageButton sunGrey;
     private ImageButton sunColor;
     private ImageButton sun;
-    private Button loesung;
+    private ImageButton loesungsw;
+    private ImageButton loesungb;
+    private ImageButton loesung;
 
 
     //TextView
@@ -59,15 +65,19 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         View view = inflater.inflate(R.layout.footer, container, false);
 
         //Ziel Button
-        ziel = (Button) view.findViewById(R.id.ziel_Button);
+        zielsw = (ImageButton) view.findViewById(R.id.ziel1_Button);
+        zielb = (ImageButton) view.findViewById(R.id.ziel2_Button);
+        ziel = (ImageButton) view.findViewById(R.id.ziel3_Button);
 
         //Idee Button
-        glowGrey = (ImageButton) view.findViewById(R.id.gluehbirneDurchsichtig_Button);
-        glowColor = (ImageButton) view.findViewById(R.id.gluehbirneDunkel_Button);
-        glow = (ImageButton) view.findViewById(R.id.gluehbirneLeuchtend_Button);
+         wegweisersw= (ImageButton) view.findViewById(R.id.wegweiser1_Button);
+        wegweiserb = (ImageButton) view.findViewById(R.id.wegweiser2_Button);
+        wegweiser = (ImageButton) view.findViewById(R.id.wegweiser3_Button);
 
         //Ressource Button
-        ressource = (Button) view.findViewById(R.id.ressourcen_Button);
+        ressourcesw = (ImageButton) view.findViewById(R.id.ressourcen1_Button);
+        ressourceb = (ImageButton) view.findViewById(R.id.ressourcen2_Button);
+        ressource = (ImageButton) view.findViewById(R.id.ressourcen3_Button);
 
         //Sun Button
         sunGrey = (ImageButton) view.findViewById(R.id.sonneGrau_Button);
@@ -75,7 +85,9 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         sun = (ImageButton) view.findViewById(R.id.sonneLeuchtend_Button);
 
         //Loesung Button
-        loesung = (Button) view.findViewById(R.id.loesung_Button);
+        loesungsw = (ImageButton) view.findViewById(R.id.loesung1_Button);
+        loesungb = (ImageButton) view.findViewById(R.id.loesung2_Button);
+        loesung = (ImageButton) view.findViewById(R.id.loesung3_Button);
 
         //Tabs
         eins = (TextView) view.findViewById(R.id.footer1_TextView);
@@ -110,14 +122,25 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch(zielStatus){
             //noch nicht da
             case 0:
+                //Visibility and action
+                zielsw.setVisibility(View.VISIBLE);
+                zielb.setVisibility(View.GONE);
+                ziel.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
                 //Visibility and action
-                ziel.setOnClickListener(this);
+                zielsw.setVisibility(View.GONE);
+                zielb.setVisibility(View.VISIBLE);
+                ziel.setVisibility(View.GONE);
+                zielb.setOnClickListener(this);
                 break;
             //beendet
             case 2:
+                //Visibility and action
+                zielsw.setVisibility(View.GONE);
+                zielb.setVisibility(View.GONE);
+                ziel.setVisibility(View.VISIBLE);
                 ziel.setOnClickListener(this);
                 break;
 
@@ -129,25 +152,25 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
             //noch nicht da
             case 0:
                 //Visibility and action
-                glowGrey.setVisibility(View.VISIBLE);
-                glowColor.setVisibility(View.GONE);
-                glow.setVisibility(View.GONE);
+                wegweisersw.setVisibility(View.VISIBLE);
+                wegweiserb.setVisibility(View.GONE);
+                wegweiser.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
                 //Visibility and action
-                glowGrey.setVisibility(View.GONE);
-                glowColor.setVisibility(View.VISIBLE);
-                glow.setVisibility(View.GONE);
-                glowColor.setOnClickListener(this);
+                wegweisersw.setVisibility(View.GONE);
+                wegweiserb.setVisibility(View.VISIBLE);
+                wegweiser.setVisibility(View.GONE);
+                wegweiserb.setOnClickListener(this);
                 break;
             //beendet
             case 2:
                 //Visibility and action
-                glowGrey.setVisibility(View.GONE);
-                glowColor.setVisibility(View.GONE);
-                glow.setVisibility(View.VISIBLE);
-                glow.setOnClickListener(this);
+                wegweisersw.setVisibility(View.GONE);
+                wegweiserb.setVisibility(View.GONE);
+                wegweiser.setVisibility(View.VISIBLE);
+                wegweiser.setOnClickListener(this);
                 break;
 
             default:
@@ -157,14 +180,25 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (ressourceStatus){
             //noch nicht da
             case 0:
+                //Visibility and action
+                ressourcesw.setVisibility(View.VISIBLE);
+                ressourceb.setVisibility(View.GONE);
+                ressource.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
                 //Visibility and action
-                ressource.setOnClickListener(this);
+                ressourcesw.setVisibility(View.GONE);
+                ressourceb.setVisibility(View.VISIBLE);
+                ressource.setVisibility(View.GONE);
+                ressourceb.setOnClickListener(this);
                 break;
             //beendet
             case 2:
+                //Visibility and action
+                ressourcesw.setVisibility(View.GONE);
+                ressourceb.setVisibility(View.GONE);
+                ressource.setVisibility(View.VISIBLE);
                 ressource.setOnClickListener(this);
                 break;
 
@@ -203,14 +237,25 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (loesungStatus){
             //noch nicht da
             case 0:
+                //Visibility and action
+                loesungsw.setVisibility(View.VISIBLE);
+                loesungb.setVisibility(View.GONE);
+                loesung.setVisibility(View.GONE);
                 break;
             //in progress
             case 1:
                 //Visibility and action
-                loesung.setOnClickListener(this);
+                loesungsw.setVisibility(View.GONE);
+                loesungb.setVisibility(View.VISIBLE);
+                loesung.setVisibility(View.GONE);
+                loesungb.setOnClickListener(this);
                 break;
             //beendet
             case 2:
+                //Visibility and action
+                loesungsw.setVisibility(View.GONE);
+                loesungb.setVisibility(View.GONE);
+                loesung.setVisibility(View.VISIBLE);
                 loesung.setOnClickListener(this);
                 break;
 
@@ -279,36 +324,49 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
 
-            case R.id.ziel_Button:
+            case R.id.ziel2_Button:
                 startActivity(new Intent(view.getContext(), Level1Problemdefinition.class));
                 break;
 
-            case R.id.gluehbirneLeuchtend_Button:
+            case R.id.ziel3_Button:
+                startActivity(new Intent(view.getContext(), Level1Problemdefinition.class));
+                break;
+
+            case R.id.wegweiser2_Button:
                 startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
                 break;
 
-            case R.id.ressourcen_Button:
+            case R.id.wegweiser3_Button:
+                startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
+                break;
+
+            case R.id.ressourcen2_Button:
                 Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
                 intent.putExtra("LoesungsCounter", 0);
                 startActivity(intent);
                 break;
 
-            case R.id.sonneLeuchtend_Button:
-                startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
-                break;
-
-            case R.id.loesung_Button:
-                startActivity(new Intent(view.getContext(), Rueckblick.class));
-                break;
-
-            case R.id.gluehbirneDunkel_Button:
-                startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
+            case R.id.ressourcen3_Button:
+                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                intent2.putExtra("LoesungsCounter", 0);
+                startActivity(intent2);
                 break;
 
             case R.id.sonneLeer_Button:
                 startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
                 break;
 
+            case R.id.sonneLeuchtend_Button:
+                startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
+                break;
+
+            case R.id.loesung2_Button:
+                startActivity(new Intent(view.getContext(), Rueckblick.class));
+                break;
+
+            case R.id.loesung3_Button:
+                startActivity(new Intent(view.getContext(), Rueckblick.class));
+                break;
 
             default:
                 break;
