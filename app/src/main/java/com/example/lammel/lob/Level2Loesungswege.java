@@ -63,6 +63,17 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         transaction.add(R.id.level2_loesungswege, fragment);
         transaction.commit();
 
+        if(saved.getInt("zielStatus", 0) < 2){
+            editor.putInt("zielStatus", 2);
+        }
+
+        else if(saved.getInt("ideeStatus",0) < 1){
+            editor.putInt("ideeStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 2);
+        editor.apply();
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);

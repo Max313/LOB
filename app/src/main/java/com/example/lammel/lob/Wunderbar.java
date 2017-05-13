@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -45,6 +46,20 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
         transaction.add(R.id.wunderbar, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
+        }
+        else if(saved.getInt("ressourceStatus", 0) < 1){
+            editor.putInt("ressourceStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 3);
+        editor.apply();
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);
@@ -57,6 +72,7 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
