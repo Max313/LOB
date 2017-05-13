@@ -68,19 +68,7 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
         weiter = (Button) findViewById(R.id.button);
         weiter.setOnClickListener(this);
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
 
-        if(saved.getInt("ideeStatus",0) < 2){
-            editor.putInt("ideeStatus", 2);
-        }
-        else if(saved.getInt("ressourceStatus", 0) < 1){
-            editor.putInt("ressourceStatus", 1);
-        }
-
-        editor.putInt("tabStatus", 0);
-        editor.apply();
 
     }
 

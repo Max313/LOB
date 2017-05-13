@@ -74,18 +74,7 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         zielVerwahren_Button = (Button) findViewById(R.id.zielVerwahren_Button);
         zielVerwahren_Button.setOnClickListener(this);
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
 
-        if(saved.getInt("zielStatus", 0) < 2){
-            editor.putInt("zielStatus", 2);
-        }
-
-        else if(saved.getInt("ideeStatus",0) < 1){
-            editor.putInt("ideeStatus", 1);
-        }
-        editor.apply();
 
     }
 

@@ -46,16 +46,7 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
         setContentView(R.layout.level1_problemdefinition);
         this.setTitle("Dein Problem");
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
 
-        if(saved.getInt("zielStatus", 0) == 0){
-            editor.putInt("zielStatus", 1);
-        }
-
-        editor.putInt("tabStatus", 1);
-        editor.apply();
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

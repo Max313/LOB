@@ -44,6 +44,20 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
         transaction.add(R.id.level3_start, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
+        }
+        else if(saved.getInt("ressourceStatus", 0) < 1){
+            editor.putInt("ressourceStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 3);
+        editor.apply();
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);

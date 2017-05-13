@@ -44,6 +44,20 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
         transaction.add(R.id.level5_start, fragment);
         transaction.commit();
 
+            //Set Status - Footer
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+
+            if(saved.getInt("sonneStatus", 0) < 2){
+                editor.putInt("sonneStatus", 2);
+            }
+            else if(saved.getInt("loesungStatus", 0) < 1){
+                editor.putInt("loesungStatus", 1);
+            }
+        editor.putInt("tabStatus", 5);
+            editor.apply();
+
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);

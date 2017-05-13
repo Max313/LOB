@@ -106,18 +106,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         aendern4.setOnClickListener(this);
         this.setTableContent();
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-
-        if(saved.getInt("ressourceStatus", 0) < 2){
-            editor.putInt("ressourceStatus", 2);
-        }
-
-        else if(saved.getInt("sonneStatus", 0) == 0){
-            editor.putInt("sonneStatus", 1);
-        }
-        editor.apply();
 
     }
 

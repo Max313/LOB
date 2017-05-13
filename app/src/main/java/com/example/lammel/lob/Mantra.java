@@ -68,20 +68,6 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
-        if(source == 1){
-            //Set Status - Footer
-            saved = getSharedPreferences(PREFS_NAME, 0);
-            editor = saved.edit();
-
-            if(saved.getInt("sonneStatus", 0) < 2){
-                editor.putInt("sonneStatus", 2);
-            }
-            else if(saved.getInt("loesungStatus", 0) < 1){
-                editor.putInt("loesungStatus", 1);
-            }
-            editor.apply();
-        }
-
         //Button on action
         weiter = (Button) findViewById(R.id.mantraWeiter_Button);
         weiter.setOnClickListener(this);
