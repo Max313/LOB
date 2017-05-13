@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -59,7 +60,9 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
+
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
 
         button1 = (Button) findViewById(R.id.weiterGehts_Button1);

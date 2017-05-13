@@ -2,10 +2,12 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.ColorDrawable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -63,8 +65,10 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         //Use the delegate to inflate the layout
         delegate.setContentView(R.layout.activity_problem_beschreibung);
 
+
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level1));
         delegate.setSupportActionBar(toolbar);
 
 
