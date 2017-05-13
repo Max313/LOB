@@ -8,7 +8,7 @@
     android:layout_height="match_parent" >
 
     <RelativeLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentBottom="true"
         android:background="@color/toolbarBackground">
@@ -20,10 +20,10 @@
 
             <TextView
                 android:id="@+id/footer1_TextView"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="0dp"
-                android:background="@color/level1"
+                android:background="@color/level1Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -32,7 +32,7 @@
                 android:id="@+id/ziel1_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/berggrau"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -42,7 +42,7 @@
                 android:id="@+id/ziel2_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/bergbunt"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -52,7 +52,7 @@
                 android:id="@+id/ziel3_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/berg"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -60,10 +60,10 @@
 
             <TextView
                 android:id="@+id/footer2_TextView"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="65dp"
-                android:background="@color/level2"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="70dp"
+                android:background="@color/level2Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -102,9 +102,9 @@
 
             <TextView
                 android:id="@+id/footer3_TextView"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:background="@color/level3"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:background="@color/level3Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -143,10 +143,10 @@
 
             <TextView
                 android:id="@+id/footer4_TextView"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
-                android:layout_marginRight="65dp"
-                android:background="@color/level4"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="70dp"
+                android:background="@color/level4Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -160,7 +160,7 @@
         android:background="@drawable/sonnegrau"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
-        android:layout_marginRight="95dp"
+        android:layout_marginRight="85dp"
         />
 
     <ImageButton
@@ -170,7 +170,7 @@
         android:layout_marginTop="6dp"
         android:background="@drawable/sonneleer"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginRight="95dp"
+        android:layout_marginRight="85dp"
         app:layout_constraintRight_toRightOf="parent"
         />
 
@@ -182,15 +182,15 @@
         android:layout_marginTop="6dp"
         android:id="@+id/sonneLeuchtend_Button"
         app:layout_constraintRight_toLeftOf="parent"
-        android:layout_marginRight="95dp"
+        android:layout_marginRight="85dp"
          />
 
             <TextView
                 android:id="@+id/footer5_TextView"
-                android:layout_width="90dp"
-                android:layout_height="40dp"
+                android:layout_width="70dp"
+                android:layout_height="match_parent"
                 android:layout_marginRight="0dp"
-                android:background="@color/level5"
+                android:background="@color/level5Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -199,7 +199,7 @@
                 android:id="@+id/loesung1_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="0dp"
                 android:background="@drawable/untergangsw"
                 app:layout_constraintRight_toRightOf="parent"
@@ -209,7 +209,7 @@
                 android:id="@+id/loesung2_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="0dp"
                 android:background="@drawable/untergangbunt"
                 app:layout_constraintRight_toRightOf="parent"
@@ -219,7 +219,7 @@
                 android:id="@+id/loesung3_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="15dp"
+                android:layout_marginRight="8dp"
                 android:layout_marginTop="0dp"
                 android:background="@drawable/untergang"
                 app:layout_constraintRight_toRightOf="parent"
