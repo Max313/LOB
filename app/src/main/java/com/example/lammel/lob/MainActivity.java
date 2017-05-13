@@ -44,7 +44,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         //Toolbar_Fragment
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
        // setSupportActionBar(myToolbar);
-        this.setTitle("LOB - Willkommen");
+        this.setTitle("Willkommen");
 
         //let's create the delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);

@@ -71,7 +71,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_sonne_der_erkenntnis);
-        this.setTitle("LOB - Sonne der Erkenntnis");
+        this.setTitle("Sonne der Erkenntnis");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

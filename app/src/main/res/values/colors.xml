@@ -16,9 +16,9 @@
     <color name="level3">#EDFCE2</color>
     <color name="level3Background">#F7FDF3</color>
     <color name="level4">#FCFBE2</color>
-    <color name="level4Background">#FDFDF6</color>
+    <color name="level4Background">#FDFDEC</color>
     <color name="level5">#F6E3CE</color>
-    <color name="level5Background">#F6F0EA</color>
+    <color name="level5Background">#F7ECE2</color>
 
 </resources>
 

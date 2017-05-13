@@ -44,7 +44,7 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_problemdefinition);
-        this.setTitle("LOB - Das Problem");
+        this.setTitle("Dein Problem");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

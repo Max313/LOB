@@ -40,7 +40,7 @@ public class MenuZiel extends FragmentActivity implements View.OnClickListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_ziel);
-        this.setTitle("LOB - Dein Ziel");
+        this.setTitle("Dein Ziel");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -40,7 +40,7 @@ public class Level2Exitstrategie extends FragmentActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_exitstrategie);
-        this.setTitle("LOB - Lösungswege");
+        this.setTitle("Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

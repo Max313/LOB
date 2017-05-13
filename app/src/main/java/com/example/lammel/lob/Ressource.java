@@ -50,7 +50,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ressource);
 
-        this.setTitle("LOB - Stärkeinsel - Ressourcen");
+        this.setTitle("Stärkeinsel - Ressourcen");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

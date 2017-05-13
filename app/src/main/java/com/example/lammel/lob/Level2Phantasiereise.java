@@ -42,7 +42,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_phantasiereise);
-        this.setTitle("LOB - Lösungswege");
+        this.setTitle("Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

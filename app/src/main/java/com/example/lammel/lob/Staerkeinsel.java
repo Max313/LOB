@@ -45,7 +45,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staerkeinsel);
-        this.setTitle("LOB - Stärkeinsel - Intro");
+        this.setTitle("Stärkeinsel - Intro");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

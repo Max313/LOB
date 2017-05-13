@@ -39,7 +39,7 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_insel_des_sehenden);
-        this.setTitle("LOB - Insel des Sehenden");
+        this.setTitle("Insel des Sehenden");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

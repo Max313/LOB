@@ -47,7 +47,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.level1_onboarding);
-        this.setTitle("LOB - Family Treasure");
+        this.setTitle("Einführung");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

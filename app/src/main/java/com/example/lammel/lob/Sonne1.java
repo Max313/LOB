@@ -92,7 +92,7 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sonne1);
-        this.setTitle("LOB - Sonne der Erkenntnis 1/8");
+        this.setTitle("Sonne der Erkenntnis 1/8");
 
 
         //Add Footer

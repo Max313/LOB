@@ -52,7 +52,7 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zieldefinition);
-        this.setTitle("LOB - Dein Ziel");
+        this.setTitle("Dein Ziel");
 
 
 

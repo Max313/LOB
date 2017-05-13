@@ -43,7 +43,7 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_neuer_weg);
-        this.setTitle("LOB - Lösungswege");
+        this.setTitle("Lösungswege");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

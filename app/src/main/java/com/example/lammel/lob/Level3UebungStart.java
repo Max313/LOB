@@ -38,7 +38,7 @@ public class Level3UebungStart extends FragmentActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level3_uebung_start);
-        this.setTitle("LOB - Stärkeninseln");
+        this.setTitle("Stärkeninseln");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

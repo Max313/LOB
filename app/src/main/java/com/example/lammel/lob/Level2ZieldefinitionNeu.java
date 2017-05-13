@@ -47,7 +47,7 @@ public class Level2ZieldefinitionNeu extends FragmentActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_zieldefinition_neu);
-        this.setTitle("LOB - Dein Ziel");
+        this.setTitle("Dein Ziel");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

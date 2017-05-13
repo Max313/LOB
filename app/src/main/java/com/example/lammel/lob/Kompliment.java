@@ -49,7 +49,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kompliment);
-        this.setTitle("LOB - Stärkeinsel - Kompliment");
+        this.setTitle("Stärkeinsel - Kompliment");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

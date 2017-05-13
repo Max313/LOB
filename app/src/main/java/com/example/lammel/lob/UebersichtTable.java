@@ -51,7 +51,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebersicht_table);
-        this.setTitle("LOB - Stärkeinsel - Übersicht");
+        this.setTitle("Stärkeinsel - Übersicht");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -41,7 +41,7 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level4_insel_fragen);
-        this.setTitle("LOB - Insel des Sehenden");
+        this.setTitle("Insel des Sehenden");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

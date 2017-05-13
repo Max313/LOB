@@ -41,7 +41,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_hausaufgabe);
-        this.setTitle("LOB - Hausaufgaben");
+        this.setTitle("Hausaufgaben");
 
 
         //Add Footer

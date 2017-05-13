@@ -17,8 +17,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Level1Onboarding"/>
+        <activity android:name=".Level1Onboarding" />
         <activity android:name=".Level1Problemdefinition" />
         <activity
             android:name=".Level1_ProblemBeschreibung"
@@ -75,7 +74,8 @@
 
         <fragment android:name=".Footer_Fragment" />
 
-        <activity android:name=".Level2Start"></activity>
+        <activity android:name=".Level2Start" />
+        <activity android:name=".Pause"></activity>
     </application>
 
 </manifest>

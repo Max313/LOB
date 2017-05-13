@@ -39,7 +39,7 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mantra);
         source = getIntent().getExtras().getInt("Source");
-        this.setTitle("LOB - Kompliment");
+        this.setTitle("Kompliment");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -39,7 +39,7 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level1_zielverwahren);
-        this.setTitle("LOB - Dein Ziel");
+        this.setTitle("Dein Ziel");
 
 
         //Add Footer

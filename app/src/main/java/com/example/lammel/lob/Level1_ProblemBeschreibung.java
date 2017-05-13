@@ -47,7 +47,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_problem_beschreibung);
-        this.setTitle("LOB - Das Problem");
+        this.setTitle("Dein Problem");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

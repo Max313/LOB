@@ -38,7 +38,7 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sonne_der_erkenntnis_start);
 
-        this.setTitle("LOB - Sonne der Erkenntnis");
+        this.setTitle("Sonne der Erkenntnis");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

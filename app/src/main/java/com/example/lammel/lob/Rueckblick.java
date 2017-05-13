@@ -43,7 +43,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_rueckblick);
 
-        this.setTitle("LOB - Rückblick");
+        this.setTitle("Rückblick");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

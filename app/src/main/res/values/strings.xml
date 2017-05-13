@@ -165,6 +165,13 @@
     in die Welt hinaustragen. Darum lass uns die Liste um ein paar Experimente erweitern.</string>
     <string name="uebungStart_Button">Übung starten</string>
 
+    <!-- Pause -->
+    <string name="pause1_TextView">Bitte gib dir und deinem Körper an dieser spannenden Stelle der Entwicklung mindestens eine Woche Zeit um deine wichtigen Erkenntnisse sacken zu lassen.
+    Dein Gehirn agiert wie ein Muskel beim Training, nach der Übung braucht er Ruhe und Zeit um die neuen Impulse in Wachstum zu verändern. Um dann wieder zu traininern. Damit sich dein Lösungsverhalten
+    mental verankern kann ist es am besten wenn du auch hier deine Experimente übst und übst und deinem Gehirnmuskel Zeit gibst.</string>
+
+    <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht. Doch Veränderungen brauchen auch Zeit.</string>
+
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
@@ -261,5 +268,6 @@
     anfängliche Herausforderung hast du die Chance bekommen und ergriffen, dich zu entwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
     Es ist sogar wichtig, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, nur so führen sie zu automatischen Verhaltensmustern.</string>
     <string name="Ende_Button">Weiter</string>
+
 
 </resources>

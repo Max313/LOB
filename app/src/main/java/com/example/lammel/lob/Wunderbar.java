@@ -37,7 +37,7 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wunderbar);
-        this.setTitle("LOB - Wunderbar");
+        this.setTitle("Wunderbar");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -38,7 +38,7 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_veraenderung);
-        this.setTitle("LOB - Level 2");
+        this.setTitle("Veränderung");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

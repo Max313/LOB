@@ -44,7 +44,8 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ende);
 
-        this.setTitle("LOB - ...und am Ende...");
+        this.setTitle("...und am Ende...");
+
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
