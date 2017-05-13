@@ -501,7 +501,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
             case R.id.weiterStaerkeButton:
                 //startActivity(new Intent(this, Level3UebungStart.class));
-                startActivity(new Intent(this, Level4InselDesSehenden.class));
+                startActivity(new Intent(this, Level4Start.class));
 
                 break;
 

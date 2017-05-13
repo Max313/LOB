@@ -325,47 +325,47 @@ public class Footer_Fragment extends Fragment implements View.OnClickListener{
         switch (view.getId()) {
 
             case R.id.ziel2_Button:
-                startActivity(new Intent(view.getContext(), Level1Problemdefinition.class));
+                startActivity(new Intent(view.getContext(), Level1Start.class));
                 break;
 
             case R.id.ziel3_Button:
-                startActivity(new Intent(view.getContext(), Level1Problemdefinition.class));
+                startActivity(new Intent(view.getContext(), Level1Start.class));
                 break;
 
             case R.id.wegweiser2_Button:
-                startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
+                startActivity(new Intent(view.getContext(), Level2Start.class));
                 break;
 
             case R.id.wegweiser3_Button:
-                startActivity(new Intent(view.getContext(), Level2Veraenderung.class));
+                startActivity(new Intent(view.getContext(), Level2Start.class));
                 break;
 
             case R.id.ressourcen2_Button:
-                Intent intent = new Intent(view.getContext(), Staerkeinsel.class);
+                Intent intent = new Intent(view.getContext(), Level3Start.class);
                 intent.putExtra("LoesungsCounter", 0);
                 startActivity(intent);
                 break;
 
             case R.id.ressourcen3_Button:
-                Intent intent2 = new Intent(view.getContext(), Staerkeinsel.class);
+                Intent intent2 = new Intent(view.getContext(), Level3Start.class);
                 intent2.putExtra("LoesungsCounter", 0);
                 startActivity(intent2);
                 break;
 
             case R.id.sonneLeer_Button:
-                startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
+                startActivity(new Intent(view.getContext(), Level4Start.class));
                 break;
 
             case R.id.sonneLeuchtend_Button:
-                startActivity(new Intent(view.getContext(), Level4InselDesSehenden.class));
+                startActivity(new Intent(view.getContext(), Level4Start.class));
                 break;
 
             case R.id.loesung2_Button:
-                startActivity(new Intent(view.getContext(), Rueckblick.class));
+                startActivity(new Intent(view.getContext(), Level5Start.class));
                 break;
 
             case R.id.loesung3_Button:
-                startActivity(new Intent(view.getContext(), Rueckblick.class));
+                startActivity(new Intent(view.getContext(), Level5Start.class));
                 break;
 
             default:

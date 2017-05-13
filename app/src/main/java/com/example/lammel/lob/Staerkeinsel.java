@@ -33,7 +33,6 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     private TextView ressourcen;
     private Button speichern;
     private TableLayout table;
-    private int backCounter;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -103,7 +102,6 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
         table = (TableLayout) findViewById(R.id.tableSmall);
         table.setOnClickListener(this);
 
-        backCounter = getIntent().getExtras().getInt("LoesungsCounter");
 
     }
 

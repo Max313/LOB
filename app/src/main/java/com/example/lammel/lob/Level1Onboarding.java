@@ -29,7 +29,7 @@ import java.io.File;
 public class Level1Onboarding extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    private int counter = 0;
+    private int counter = 3;
 
     // Button and more
     private Button weiter_button;
@@ -214,7 +214,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 counter++;
                 break;
             } else if (counter == 3) {
-                startActivity(new Intent(this, Level1Problemdefinition.class));
+                startActivity(new Intent(this, Level1Start.class));
 
                 //startActivity(new Intent(this, Staerkeinsel.class));
 

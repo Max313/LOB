@@ -191,9 +191,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.weiterGehts_Button1:
-                Intent intent1 = new Intent(v.getContext(), Wunderbar.class);
-                intent1.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent1);
+                startActivity(new Intent(this, Level3Start.class));
                 break;
 
             case R.id.weiterGehts_Button2:

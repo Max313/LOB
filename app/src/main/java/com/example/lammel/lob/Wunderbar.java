@@ -25,7 +25,6 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
 
     //Buttons
     private Button weiter;
-    private int loesungsCounter;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -64,10 +63,6 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
         delegate.getSupportActionBar().setLogo(R.drawable.baum);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
-
-
-        loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
-
 
         //Buttons
         weiter = (Button) findViewById(R.id.button);
@@ -194,10 +189,7 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View view) {
-
-                Intent intent1 = new Intent(this, Staerkeinsel.class);
-                intent1.putExtra("LoesungsCounter", loesungsCounter);
-                startActivity(intent1);
+        startActivity(new Intent(this, Staerkeinsel.class));
 
     }
 

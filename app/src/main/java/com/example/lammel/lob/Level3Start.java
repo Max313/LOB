@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -16,20 +17,16 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Level3Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    //Buttons and more
-    private Button weiter;
-    private int source;
+    //Button and more
+    private Button level3Weiter;
     private AppCompatDelegate delegate;
 
-    //Speicher
+    //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
@@ -37,15 +34,14 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mantra);
-        source = getIntent().getExtras().getInt("Source");
-        this.setTitle("Kompliment");
+        setContentView(R.layout.activity_level3_start);
+        this.setTitle("Level 3");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.mantra, fragment);
+        transaction.add(R.id.level3_start, fragment);
         transaction.commit();
 
         //Toolbar
@@ -56,35 +52,21 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_mantra);
+        delegate.setContentView(R.layout.activity_level3_start);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.drawable.baum);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
-        if(source == 1){
-            //Set Status - Footer
-            saved = getSharedPreferences(PREFS_NAME, 0);
-            editor = saved.edit();
-
-            if(saved.getInt("sonneStatus", 0) < 2){
-                editor.putInt("sonneStatus", 2);
-            }
-            else if(saved.getInt("loesungStatus", 0) < 1){
-                editor.putInt("loesungStatus", 1);
-            }
-            editor.apply();
-        }
-
-        //Button on action
-        weiter = (Button) findViewById(R.id.mantraWeiter_Button);
-        weiter.setOnClickListener(this);
+        level3Weiter = (Button) findViewById(R.id.level3Start_Button);
+        level3Weiter.setOnClickListener(this);
     }
 
     //Welche Menüoptionen sind enabled
@@ -124,10 +106,6 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
 
             case R.id.Sonne:
                 startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
-                return true;
-
-            case R.id.Hausaufgabe:
-                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             case R.id.action_delete:
@@ -190,22 +168,9 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         startActivity(new Intent(this, MainActivity.class));
     }
 
-
     @Override
-    public void onClick(View view) {
-        switch (source){
-            case 0:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                break;
-
-            case 1:
-                startActivity(new Intent(this, Level5Start.class));
-                break;
-
-            default:
-                break;
-
-        }
+    public void onClick(View v) {
+        startActivity(new Intent(this, Wunderbar.class));
     }
 
     @Override

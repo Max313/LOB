@@ -75,6 +75,10 @@
         <fragment android:name=".Footer_Fragment" />
 
         <activity android:name=".Level2Start" />
+        <activity android:name=".Level1Start" />
+        <activity android:name=".Level3Start" />
+        <activity android:name=".Level4Start" />
+        <activity android:name=".Level5Start"></activity>
         <activity android:name=".Pause"></activity>
     </application>
 

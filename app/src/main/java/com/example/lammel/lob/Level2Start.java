@@ -35,7 +35,7 @@ public class Level2Start extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_start);
-        this.setTitle("Lösungswege");
+        this.setTitle("Level 2");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

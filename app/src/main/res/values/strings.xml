@@ -22,13 +22,16 @@
     <string name="hausaufgabe_Button3">Münzwurf</string>
 
     <!-- Onboarding -->
-    <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!</string>
+    <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!\nDu bist der Meinung dein Umfeld ist wichtig und gibt Energie? Finden wir auch! Lerne hier deine Konflikte zu lösen.\nDie Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Situation in der Zukunft siehst.\nDeswegen spielt das Problem hier eine untergeordnete Rolle.
+                            Es geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.\n\n</string>
+
+    <!-- Level 1 Start -->
+    <string name="level1Start_Textview">Los geht’s in Level 1. Nachdem du dich kurz mit deinem Problem beschäftigt hast legst du hier dein Ziel fest. </string>
 
     <!-- Problem Definition -->
     <string name="keinProblem_button">Weiter, ich möchte das Problem nicht aufschreiben</string>
     <string name="problem_button">Ich möchte das Problem aufschreiben</string>
     <string name="problem1">Manchmal tut es gut das Problem aufzuschreiben und dann bei Seite zu legen um sich danach frei auf den Weg nach vorne konzentrieren zu können.\nHier bekommst du die Möglichkeit dein Problem einmalig in zwei Sätzen zusammenzufassen.</string>
-
 
     <!-- Problem Beschreibung -->
     <string name="problem_beschreibung">Schreibe hier in 2 Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
@@ -47,7 +50,7 @@
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
     <!-- Level2 Start -->
-    <string name="level2Start_Textview">Gratulation! Ab jetzt bist du im zweiten Level und hier geht es darum Wege herauszufinden und auszuprobieren, die dir beim Erreichen deines Ziels helfen sollen. Wenn dir zu Beginn noch keine Lösung einfällt kannst du hier Übungen kennenlernen, die dich dabei unterstützen. </string>
+    <string name="level2Start_Textview">Ab jetzt bist du in Level 2. Hier geht es darum Lösungswege zu definieren, die dir beim Erreichen deines Ziels helfen werden. Solltest du noch keine Ideen haben, helfen dir verschiedene Übungen dabei. </string>
 
     <!-- Loesungswege -->
     <string name="loesungswege_Textview">Denke an Situationen die zu einer Verbesserung geführt haben und schreibe diese auf. Aller guten Dinge sind drei:</string>
@@ -118,6 +121,9 @@
     <string name="weiterGehts_Button1">Ja, weiter geht\'s</string>
     <string name="weiterGehts_Button2">Nein, leider noch nicht</string>
 
+    <!-- Level 3 Start -->
+    <string name="level3Start_Textview">Nachdem du in Level 2 Lösungswege für dich definiert hast bist du nun in Level 3. Hier beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
+
     <!-- Wunderbar -->
     <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
     <string name="wunderbar_Button">Weiter</string>
@@ -165,13 +171,15 @@
     in die Welt hinaustragen. Darum lass uns die Liste um ein paar Experimente erweitern.</string>
     <string name="uebungStart_Button">Übung starten</string>
 
+    <!-- Level 4 Start -->
+    <string name="level4Start_Textview">Schön, dass du wieder da bist! Heute beginnt Level 4, in dem du für dich erkennst, welche positiven Veränderungen bereits eingetreten sind. Verschiedene Fragen werden dir dabei helfen.</string>
+
     <!-- Pause -->
     <string name="pause1_TextView">Bitte gib dir und deinem Körper an dieser spannenden Stelle der Entwicklung mindestens eine Woche Zeit um deine wichtigen Erkenntnisse sacken zu lassen.
     Dein Gehirn agiert wie ein Muskel beim Training, nach der Übung braucht er Ruhe und Zeit um die neuen Impulse in Wachstum zu verändern. Um dann wieder zu traininern. Damit sich dein Lösungsverhalten
     mental verankern kann ist es am besten wenn du auch hier deine Experimente übst und übst und deinem Gehirnmuskel Zeit gibst.</string>
 
     <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht. Doch Veränderungen brauchen auch Zeit.</string>
-
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
@@ -247,6 +255,9 @@
     <!-- Mantra -->
     <string name="Mantra_TextView">Mach mit dem weiter, was funktioniert! \nDu bist der Experte deines Lebens.</string>
     <string name="mantraWeiter_Button">Weiter</string>
+
+    <!-- Level 5 Start -->
+    <string name="level5Start_Textview">Willkommen zurück. Jetzt startet Level 5. Hier kannst du noch einmal auf deinen bisherigen Weg zurückblicken und entscheiden wie es weiter gehen soll.</string>
 
     <!-- Rückblick -->
     <string name="rueckblick_TextView">Häufig ist es hilfreich noch mal auf das Erreichte zurückzublicken, um sich den Fortschritt bewusst zu machen.
