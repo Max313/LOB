@@ -36,11 +36,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/wegweiserbuntshortgross"
-        android:layout_marginLeft="0dp"
-        app:layout_constraintLeft_toLeftOf="parent"
         android:id="@+id/imageView"
         android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        app:layout_constraintRight_toLeftOf="@+id/textView6"
+        android:layout_marginRight="0dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -51,8 +51,9 @@
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         android:layout_marginBottom="8dp"
         app:layout_constraintBottom_toTopOf="@+id/level2Start_text"
-        app:layout_constraintLeft_toRightOf="@+id/imageView"
-        android:layout_marginLeft="0dp" />
+        android:layout_marginRight="130dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:id="@+id/textView6" />
 
     <Button
         android:text="@string/start_button"
