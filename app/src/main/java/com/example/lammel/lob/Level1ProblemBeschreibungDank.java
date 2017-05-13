@@ -65,7 +65,7 @@ public class Level1ProblemBeschreibungDank extends FragmentActivity implements V
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.bergbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.berg);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

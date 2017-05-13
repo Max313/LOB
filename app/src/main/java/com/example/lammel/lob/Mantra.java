@@ -62,6 +62,11 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
 
         if(source == 1){
             //Set Status - Footer

@@ -84,7 +84,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.baumbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.baum);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more

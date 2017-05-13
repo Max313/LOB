@@ -62,6 +62,11 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level4));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Button on action
         weiter = (Button) findViewById(R.id.zurSonne_Button);
         weiter.setOnClickListener(this);

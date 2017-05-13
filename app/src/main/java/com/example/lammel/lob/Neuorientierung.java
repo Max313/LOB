@@ -63,6 +63,10 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level5));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons in action
         zuLevel2 = (Button) findViewById(R.id.level2_Button);

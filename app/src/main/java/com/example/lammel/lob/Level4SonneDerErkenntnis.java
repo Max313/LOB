@@ -95,6 +95,11 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level4));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
         //Buttons and more on action
         txt1 = (TextView) findViewById(R.id.sonne1);
         txt1.setOnClickListener(this);

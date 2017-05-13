@@ -79,7 +79,7 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.bergbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.berg);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

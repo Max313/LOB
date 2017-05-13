@@ -80,6 +80,10 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level5));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action
         txt = (TextView) findViewById(R.id.Seek1_TextView);

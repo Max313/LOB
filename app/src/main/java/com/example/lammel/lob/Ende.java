@@ -78,6 +78,10 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
         toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level5));
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button and more (in action)
         weiter = (Button) findViewById(R.id.EndeWeiter_Button);
