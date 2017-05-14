@@ -14,4 +14,5 @@
     <dimen name="activity_suncontent">12dp</dimen>
     <dimen name="activity_questions">40dp</dimen>
     <dimen name="timer">24dp</dimen>
+    <dimen name="timer2">45dp</dimen>
 </resources>

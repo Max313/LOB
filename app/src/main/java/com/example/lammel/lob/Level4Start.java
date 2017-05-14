@@ -52,7 +52,7 @@ public class Level4Start extends FragmentActivity implements View.OnClickListene
             editor.putInt("ressourceStatus", 2);
         }
 
-        else if(saved.getInt("sonneStatus", 0) == 0){
+        else if(saved.getInt("sonneStatus", 0) < 1){
             editor.putInt("sonneStatus", 1);
         }
         editor.putInt("tabStatus", 4);

@@ -78,8 +78,9 @@
         <activity android:name=".Level1Start" />
         <activity android:name=".Level3Start" />
         <activity android:name=".Level4Start" />
-        <activity android:name=".Level5Start"></activity>
-        <activity android:name=".Pause"></activity>
+        <activity android:name=".Level5Start" />
+        <activity android:name=".Pause" />
+        <activity android:name=".Timer"></activity>
     </application>
 
 </manifest>

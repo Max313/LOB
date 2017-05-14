@@ -181,6 +181,12 @@
 
     <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht. Doch Veränderungen brauchen auch Zeit.</string>
 
+    <!-- Timer -->
+    <string name="d_TextView"><b>Tage</b></string>
+    <string name="h_TextView"><b>Stunden</b></string>
+    <string name="m_TextView"><b>Minuten</b></string>
+    <string name="s_TextView"><b>Sekunden</b></string>
+
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
     verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen. Dabei möchte ich dass du dir die Zeit nimmst über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
