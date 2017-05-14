@@ -80,7 +80,9 @@
         <activity android:name=".Level4Start" />
         <activity android:name=".Level5Start" />
         <activity android:name=".Pause" />
-        <activity android:name=".Timer"></activity>
+        <activity android:name=".Timer" />
+        <activity android:name=".PauseZwischen4und5" />
+        <activity android:name=".Timer2"></activity>
     </application>
 
 </manifest>

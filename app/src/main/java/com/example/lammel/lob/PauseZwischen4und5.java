@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -16,17 +17,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class PauseZwischen4und5 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    //Buttons and more
-    private Button weiter;
-    private int source;
+    private Button timerStart;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -37,15 +34,14 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mantra);
-        source = getIntent().getExtras().getInt("Source");
-        this.setTitle("Kompliment");
+        setContentView(R.layout.activity_pause_zwischen4und5);
+        this.setTitle("Pause");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.mantra, fragment);
+        transaction.add(R.id.pause2, fragment);
         transaction.commit();
 
         //Toolbar
@@ -56,21 +52,33 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_mantra);
+        delegate.setContentView(R.layout.activity_pause_zwischen4und5);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTableHeaderText));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        timerStart = (Button) findViewById(R.id.startTimer2_Button);
+        timerStart.setOnClickListener(this);
 
-        //Button on action
-        weiter = (Button) findViewById(R.id.mantraWeiter_Button);
-        weiter.setOnClickListener(this);
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("sonneStatus", 0) < 2){
+            editor.putInt("sonneStatus", 2);
+        }
+
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -179,20 +187,10 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
-        switch (source){
-            case 0:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                break;
 
-            case 1:
-                startActivity(new Intent(this, PauseZwischen4und5.class));
-                break;
-
-            default:
-                break;
-
-        }
+        startActivity(new Intent(this, Timer2.class));
     }
+
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
@@ -209,4 +207,6 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
+
+
 }

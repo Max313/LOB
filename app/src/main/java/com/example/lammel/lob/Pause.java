@@ -63,7 +63,7 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        timerStart = (Button) findViewById(R.id.startTimer1_Button);
+        timerStart = (Button) findViewById(R.id.startTimer2_Button);
         timerStart.setOnClickListener(this);
 
         //Set Status - Footer

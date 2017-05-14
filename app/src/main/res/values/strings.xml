@@ -129,8 +129,9 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt möchten wir uns gemeinsam anschauen welches besonders positive Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen die dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, tragen wir sie in eine Tabelle ein. \nDamit du eine bessere Vorstellung bekommst, haben wir das erste Feld bereits beispielhaft ausgefüllt.
-    Hierzu stelle dir einen Vater vor der sich von seiner Partnerin, die Mutter seiner Kinder, trennt. Eine ebenfalls wirklich schwierige Herausforderung.</string>
+    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches besonders postitive Verhalten und welche Ressourcen dich in schweirigen Situationen unterstützen können, oder dir vielleicht
+    in ähnlichen Situationen schon mal geholfen haben. Damit du dir deine Ressourcen immer wieder anschauen kannst, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
+    ist das erste Feld bereits beispielhaft ausgefüllt, dabei geht es um einen Beziehungskonflikt zum Thema Eifersucht.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>
@@ -155,13 +156,13 @@
     <string name="ok">OK</string>
 
     <!-- Verhalten -->
-    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Arbeitet ruhig und gefasst an einer möglichst guten Lösung für seine Kinder, seine Exfrau und sich um die Trennung zu handhaben.</string>
+    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Bleibt ruhig und versucht sich in Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
     <string name="platzhalterVerhalten_EditText">Eingabe</string>
     <!-- Kompliment -->
-    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Wie überlegt und umsichtig du an die Situation herangehst ist sehr beeindruckend.</string>
+    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Es ist beeindruckend wie einfühlsam und aufmerksam du auf deinen Partner eingehst.</string>
 
     <!-- Ressource -->
-    <string name="beispielRessource_TextView"><b>Beispiel:</b> Gelassenheit</string>
+    <string name="beispielRessource_TextView"><b>Beispiel:</b> Einfühlsam</string>
 
     <!-- Übersicht Stärkeninsel -->
     <string name="speichern_Button">Speichern</string>
@@ -188,8 +189,8 @@
     <string name="s_TextView"><b>Sekunden</b></string>
 
     <!-- Insel des Sehenden -->
-    <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Denn auf diese Insel gehörst du bereits. Hier widmen wir uns dem, was du Wundervolles
-    verändert hast. Ich würde gerne eine Fragerunde mit 4 Fragen mit dir durchführen. Dabei möchte ich dass du dir die Zeit nimmst über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
+    <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Du hast viele großartige Veränderungen verwirklicht. Um dich mit diesen positiven Veränderungen zu befassen werden dir nun vier Fragen gestellt.
+        Nimm dir dazu Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
     <string name="f1_TextView">Frage 1/4</string>
 
@@ -211,8 +212,8 @@
     <string name="Mitte_TextView">Veränderung</string>
 
     <!-- Sonne der Erkenntnis - Intro -->
-    <string name="SonneIntro_TextView">Wie man sieht hat sich bereits sehr viel verändert. Stellt sich die Frage was genau zu den Veränderungen geführt hat und ob und wie die Veränderungen bereits sichtbar sind. Um dies besser zu verstehen gibt es die Sonne der Erkenntnis. Hier werden 8 W-Fragen gestellt.
-        Bitte nimm dir wieder für jede Frage genügend Zeit und formuliere die Antwort schon mal im Kopf. Damit du die Antwort auch in Zukunft immer parat hast, möchte ich dich bitten diese als Sprachmemo in der App aufzunehmen. So kannst du auch jeder Zeit zu deiner Antwort zurückkehren und sie dir nochmal anhören oder eine neue Antwort aufnehmen.</string>
+    <string name="SonneIntro_TextView">Wie man sieht hat sich bereits sehr viel positiv verändert. Nun stellt sich die Frage was genau zu den Veränderungen geführt hat und ob und wie die Veränderungen bereits sichtbar sind. Um dies besser zu verstehen kann die Sonne der Erkenntnis unterstützen. Hier werden 8 W-Fragen gestellt.
+    Bitte nimm dir wieder für jede Frage genügend Zeit und formuliere die Antwort schon mal im Kopf. Damit du die Antwort auch in Zukunft immer parat hast, kannst du diese als Sprachmemo in der App aufnehmen. So kannst du jeder Zeit zu deiner Antwort zurückkehren, sie dir nochmal anhören oder auch eine neue Antwort aufnehmen.</string>
     <string name="zurSonne_Button">Weiter</string>
 
     <string name="SonneTour_Button">Start</string>

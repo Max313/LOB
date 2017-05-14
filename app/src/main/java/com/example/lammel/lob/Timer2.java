@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
@@ -16,7 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class Timer extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Timer2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     private AppCompatDelegate delegate;
 
@@ -35,14 +36,14 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer);
+        setContentView(R.layout.activity_timer2);
         this.setTitle("Pause");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.timer, fragment);
+        transaction.add(R.id.timer2, fragment);
         transaction.commit();
 
         //Toolbar
@@ -53,7 +54,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_timer);
+        delegate.setContentView(R.layout.activity_timer2);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -65,17 +66,17 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        weiter = (Button) findViewById(R.id.Timer1Weiter_Button);
+        weiter = (Button) findViewById(R.id.Timer2Weiter_Button);
         weiter.setOnClickListener(this);
         weiter.setVisibility(View.GONE);
 
         //Timer der 10 Tage runterläuft 864000000 ms
         //Timer der 1 Min runterläuft 60000 ms
 
-        days = (TextView) findViewById(R.id.dAnzeige_TextView);
-        hours = (TextView) findViewById(R.id.hAnzeige_TextView);
-        minutes = (TextView) findViewById(R.id.mAnzeige_TextView);
-        seconds = (TextView) findViewById(R.id.sAnzeige_TextView);
+        days = (TextView) findViewById(R.id.d2Anzeige_TextView);
+        hours = (TextView) findViewById(R.id.h2Anzeige_TextView);
+        minutes = (TextView) findViewById(R.id.m2Anzeige_TextView);
+        seconds = (TextView) findViewById(R.id.s2Anzeige_TextView);
 
 
         countdown = new CountDownTimer(60000, 1000) {
@@ -103,7 +104,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, Level4Start.class));
+        startActivity(new Intent(this, Level5Start.class));
     }
 
     public void startNew(){
