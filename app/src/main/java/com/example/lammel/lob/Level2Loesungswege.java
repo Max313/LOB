@@ -104,55 +104,26 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
         switch(loesungsCounter){
             case 1:
-                builder.setTitle("Hausaufgabe");
-                builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir helfen das Konzept besser zu verstehen und erlerntes zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogX = builder.create();
-                //dialogX.show();
-                editor.putBoolean("TagebuchSave", true);
-                editor.apply();
-                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
+                anfangsText.setText("Trotz deines Problems hast du so lange durchgehalten. Was hat dir geholfen diese Energie immer wieder aufs Neue aufzubringen?");
                 break;
 
             case 2:
-                builder.setTitle("Hausaufgabe");
-                builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogY = builder.create();
-                //dialogY.show();
-                editor.putBoolean("MünzeSave", true);
-                editor.apply();
-                anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
+                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
                 break;
 
             case 3:
-                builder.setTitle("Hausaufgabe");
-                builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogZ = builder.create();
-                //dialogZ.show();
-                editor.putBoolean("WürfelSave", true);
-                editor.apply();
-                anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
+                anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
                 break;
 
             case 4:
-                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und Freude?");
+                anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
                 break;
 
             case 5:
+                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und Freude?");
+                break;
+
+            case 6:
                 anfangsText.setText("Klicke einfach auf den Weiter-Button wenn du die App weiter erforschen willst und vielleicht tun sich zu einem späteren Zeitpunkt noch Lösungswege auf.");
                 break;
 
@@ -166,7 +137,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         mirFaelltNichtsEin.setEnabled(false);
         fertig = (Button) findViewById(R.id.loesungswege_ButtonFertig);
 
-        if(loesungsCounter != 5){
+        if(loesungsCounter != 6){
             fertig.setEnabled(false);
             mirFaelltNichtsEin.setEnabled(true);
         }
@@ -407,9 +378,23 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     startActivity(intent);
                     break;
                 }
+                else if(loesungsCounter == 6) {
+                    Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
+                    intent.putExtra("LoesungsCounter", 6);
+                    startActivity(intent);
+                    break;
+                }
 
             case R.id.loesungswege_ButtonNichts:
                 if(loesungsCounter == 0){
+                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
+                    //intent.putExtra("WegCounter", 0);
+                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2Veraenderung.class));
+
+                    break;
+                }
+                if(loesungsCounter == 1){
                     //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                     //intent.putExtra("WegCounter", 0);
                     //startActivity(intent);
@@ -417,28 +402,28 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
                     break;
                 }
-                else if(loesungsCounter == 1){
+                else if(loesungsCounter == 2){
                     //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                     //intent.putExtra("WegCounter", 1);
                     //startActivity(intent);
                     startActivity(new Intent(this, Level2HypoLoesung.class));
                     break;
                 }
-                else if(loesungsCounter == 2){
+                else if(loesungsCounter == 3){
                     //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                     //intent.putExtra("WegCounter", 2);
                     //startActivity(intent);
                     startActivity(new Intent(this, Level2Universalloesung.class));
                     break;
                 }
-               else if(loesungsCounter == 3) {
+               else if(loesungsCounter == 4) {
                     //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                     //intent.putExtra("WegCounter", 3);
                     //startActivity(intent);
                     startActivity(new Intent(this, Level2Exitstrategie.class));
                     break;
                 }
-                else if(loesungsCounter == 4) {
+                else if(loesungsCounter == 5) {
                     //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
                     //intent.putExtra("WegCounter", 4);
                     //startActivity(intent);

@@ -252,7 +252,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         editor.apply();
 
         Intent intent = new Intent(view.getContext(), Level2Loesungswege.class);
-        intent.putExtra("LoesungsCounter", 4);
+        intent.putExtra("LoesungsCounter", 5);
         startActivity(intent);
     }
 

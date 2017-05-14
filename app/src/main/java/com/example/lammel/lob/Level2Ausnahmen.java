@@ -189,7 +189,8 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Ausnahmen.this);
         switch (v.getId()){
             case R.id.ausnahmen_ButtonWeiter:
@@ -199,6 +200,8 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
                     break;
                 }
                 else if (counter == 1){
+                    editor.putBoolean("TagebuchSave", true);
+                    editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir helfen das Konzept besser zu verstehen und erlerntes zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -206,14 +209,21 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
                             dialog.cancel();
                         }
                     });
+                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            startHausaufgaben();
+                        }
+                    });
                     AlertDialog dialogX = builder.create();
                     dialogX.show();
+
                     counter++;
                     break;
                 }
                 else if (counter == 2){
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 1);
+                    intent.putExtra("LoesungsCounter", 2);
                     startActivity(intent);
                     counter = 0;
                     break;
@@ -222,6 +232,10 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
             default:
                 break;
         }
+    }
+
+    private void startHausaufgaben() {
+        startActivity(new Intent(this, MenuHausaufgabe.class));
     }
 
     @Override

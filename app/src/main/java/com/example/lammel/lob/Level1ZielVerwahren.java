@@ -197,7 +197,7 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
 
             //startActivity level 2
             case R.id.zielVerwahren_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
+                startActivity(new Intent(this, Level2Start.class));
                 break;
 
                 default:

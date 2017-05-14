@@ -215,16 +215,26 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
 
     @Override
     public void onClick(View v) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2UniversalloesungWeiter.this);
         switch (v.getId()) {
             //Text abspeichern und weiter
             case R.id.universalWeiter_ButtonWeiter:
                 if(counter == 0){
+                    editor.putBoolean("WürfelSave", true);
+                    editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                        }
+                    });
+                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            startHausaufgaben();
                         }
                     });
                     AlertDialog dialogZ = builder.create();
@@ -237,7 +247,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     editor.putString("UniversalSave", universal);
                     editor.apply();
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 3);
+                    intent.putExtra("LoesungsCounter", 4);
                     startActivity(intent);
                 }
                 break;
@@ -254,6 +264,10 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             default:
                 break;
         }
+    }
+
+    private void startHausaufgaben() {
+        startActivity(new Intent(this, MenuHausaufgabe.class));
     }
 
     @Override

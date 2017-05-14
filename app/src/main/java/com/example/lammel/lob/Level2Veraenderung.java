@@ -201,8 +201,9 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
                 break;
 
             case R.id.veraenderung_ButtonNein:
-                //startActivity(new Intent(this, Level2VeraenderungNein.class));
-                startActivity(new Intent(this, Level2Start.class));
+                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent.putExtra("LoesungsCounter", 1);
+                startActivity(intent);
                 break;
 
             default:

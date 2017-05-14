@@ -103,6 +103,8 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         switch(item.getItemId()){
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
@@ -182,6 +184,8 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
     @Override
     public void onClick(View v) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
         switch (v.getId()){
             case R.id.phantasie_ButtonWeiter:
@@ -196,11 +200,19 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     break;
                 }
                 else if(counter == 2){
+                    editor.putBoolean("MünzeSave", true);
+                    editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                        }
+                    });
+                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            startHausaufgaben();
                         }
                     });
                     AlertDialog dialogY = builder.create();
@@ -210,7 +222,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 }
                 else if(counter == 3){
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 2);
+                    intent.putExtra("LoesungsCounter", 3);
                     startActivity(intent);
                     break;
                 }
@@ -219,6 +231,10 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     break;
         }
 
+    }
+
+    private void startHausaufgaben() {
+        startActivity(new Intent(this, MenuHausaufgabe.class));
     }
 
     @Override

@@ -184,7 +184,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
         switch (v.getId()){
             case R.id.keineLoesung_ButtonWeiter:
                 Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", 5);
+                intent.putExtra("LoesungsCounter", 6);
                 startActivity(intent);
                 break;
 
