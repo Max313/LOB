@@ -63,6 +63,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         transaction.add(R.id.level2_loesungswege, fragment);
         transaction.commit();
 
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
         if(saved.getInt("zielStatus", 0) < 2){
             editor.putInt("zielStatus", 2);
         }
@@ -98,8 +101,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
         anfangsText = (TextView) findViewById(R.id.textView4);
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
         switch(loesungsCounter){
             case 1:
