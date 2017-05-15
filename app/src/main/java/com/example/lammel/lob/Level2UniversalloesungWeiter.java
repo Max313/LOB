@@ -217,6 +217,9 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+        editor.putString("UniversalSave", universal);
+        editor.apply();
+        final View view = v;
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2UniversalloesungWeiter.this);
         switch (v.getId()) {
             //Text abspeichern und weiter
@@ -229,6 +232,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                            startNext(view);
                         }
                     });
                     builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
@@ -242,10 +246,6 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     counter++;
                 }
                 else{
-                    saved = getSharedPreferences(PREFS_NAME, 0);
-                    editor = saved.edit();
-                    editor.putString("UniversalSave", universal);
-                    editor.apply();
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                     intent.putExtra("LoesungsCounter", 4);
                     startActivity(intent);
@@ -264,6 +264,12 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             default:
                 break;
         }
+    }
+
+    private void startNext(View v) {
+        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+        intent.putExtra("LoesungsCounter", 4);
+        startActivity(intent);
     }
 
     private void startHausaufgaben() {

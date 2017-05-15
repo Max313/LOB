@@ -186,6 +186,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+        final View view = v;
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
         switch (v.getId()){
             case R.id.phantasie_ButtonWeiter:
@@ -207,6 +208,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
+                            startNext(view);
                         }
                     });
                     builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
@@ -231,6 +233,12 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     break;
         }
 
+    }
+
+    private void startNext(View v) {
+        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+        intent.putExtra("LoesungsCounter", 3);
+        startActivity(intent);
     }
 
     private void startHausaufgaben() {

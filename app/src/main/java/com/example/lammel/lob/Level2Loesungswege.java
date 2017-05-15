@@ -108,19 +108,19 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 break;
 
             case 2:
-                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen auf einen Lösungsweg zu kommen.");
+                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen einen neuen Blickwinkel einzunehmen und dadurch auf einen möglichen Lösungsweg zu kommen.");
                 break;
 
             case 3:
-                anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft verbessern kannst?");
+                anfangsText.setText("Das Leben kann anders sein als es momentan scheint. Hast du eine Idee bekommen, auf welchem Weg du deine Zukunft positiv beeinflussen kannst?");
                 break;
 
             case 4:
-                anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Hast du eine Möglichkeit gefunden um eine positive Veränderung zu erzielen?");
+                anfangsText.setText("Oft kann eine kleine Veränderung des Verhaltens große Wirkung zeigen. Ist dir eine Möglichkeit eingefallen um eine positive Veränderung zu erzielen?");
                 break;
 
             case 5:
-                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und Freude?");
+                anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und was macht dir Freude?");
                 break;
 
             case 6:

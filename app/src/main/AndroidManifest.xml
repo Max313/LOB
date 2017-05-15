@@ -30,7 +30,6 @@
         <activity
             android:name=".Level2Loesungswege"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Level2NeuerWeg" />
         <activity android:name=".Level2Veraenderung" />
         <activity android:name=".Level2Ausnahmen" />
         <activity android:name=".Level2VeraenderungJa" />

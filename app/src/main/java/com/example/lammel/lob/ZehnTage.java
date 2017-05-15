@@ -73,6 +73,20 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         fertig = (Button) findViewById(R.id.zehnTage_Button);
         fertig.setEnabled(false);
         fertig.setOnClickListener(this);
+        //Timer der 10 Tage runterläuft 864000000 ms
+        //Timer der 1 Min runterläuft 60000 ms
+        countdown = new CountDownTimer(60000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
+                timer.setText("Tage verbleibend: " + (millisUntilFinished / 86400000+1));
+            }
+
+            public void onFinish() {
+                timer.setText("Geschafft!");
+                fertig.setEnabled(true);
+            }
+        }.start();
 
         //Speicherung Text
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -110,25 +124,9 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             fertig.setEnabled(true);
         }
 
-        //Timer der 10 Tage runterläuft 864000000 ms
-        //Timer der 1 Min runterläuft 60000 ms
-                countdown = new CountDownTimer(60000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
-                timer.setText("Tage verbleibend: " + (millisUntilFinished));// / 86400000+1));
-                long rest = millisUntilFinished; /// 86400000+1;
-                editor = saved.edit();
-                editor.putLong("TimeZehntage", rest);
-                editor.apply();
 
-            }
-
-            public void onFinish() {
-                timer.setText("Geschafft!");
-                fertig.setEnabled(true);
-            }
-        }.start();
+;
 
 
 
@@ -169,7 +167,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -273,5 +271,4 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
-
 }

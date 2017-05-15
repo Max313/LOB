@@ -62,7 +62,7 @@
         android:layout_width="170dp"
         android:layout_height="60dp"
         android:layout_weight="0.5"
-        android:text="@string/zielFesthalten_zurueckButton"
+        android:text="@string/hausaufgabe_zurueck"
         android:id="@+id/menuZiel_zurueckButton"
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"

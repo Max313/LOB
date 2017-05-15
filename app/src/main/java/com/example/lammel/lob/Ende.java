@@ -29,7 +29,7 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
     //Buttons and more
     private Button weiter;
     private TextView txt;
-    private int counter;
+    private int counter=1;
     private int source;
     private AppCompatDelegate delegate;
 
@@ -201,6 +201,7 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.EndeWeiter_Button:
+                //Text ändern
                 if(counter == 0){
                     this.setTitle("LOB - Geschenke");
                     txt.setText("Wenn du gleich die Schatzruhe erreichst habe ich darin ein persönliches Geschenk für dich. Denn ich möchte mich für die gute Zusammenarbeit, dein Durchhaltevermögen " +

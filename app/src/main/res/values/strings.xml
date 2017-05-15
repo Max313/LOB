@@ -19,18 +19,18 @@
     <string name="hausaufgabe_Menu">Hausaufgaben</string>
 
     <!-- Menü Ziel -->
-    <string name="menuZiel_Textview">Hier kannst du immer dein Ziel betrachten. Du kannst es zu jeder Zeit ändern wenn du das Gefühl hast, dass sich dein Ziel inzwischen verändert hat.</string>
+    <string name="menuZiel_Textview">Hier hast du immer die Möglichkeit dein Ziel zu betrachten. Du kannst es zu jedem Zeitpunkt ändern wenn du das Gefühl hast, dass sich dein Ziel in der Zwischenzeit verändert hat.</string>
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
 
     <!-- Menü Hausaufgabe -->
-    <string name="hausaufgabe_Textview">Hausaufgaben sind keine Pflicht! Aber die Übungen können dir dabei helfen, das Erlernte anzuwenden und der Lösung ein Stückchen näher zu kommen. Du schaltest die einzelnen Aufgaben nach und nach frei.</string>
+    <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir dabei helfen, das Erlernte anzuwenden und der Lösung einen Schritt näher zu kommen. Du schaltest die einzelnen Aufgaben nach und nach frei.</string>
     <string name="hausaufgabe_Button1">Tagebuch</string>
     <string name="hausaufgabe_Button2">Würfelübung</string>
     <string name="hausaufgabe_Button3">Münzwurf</string>
+    <string name="hausaufgabe_zurueck">Zurück</string>
 
     <!-- Onboarding -->
-    <string name="onboard1">Herzlichen Glückwunsch!\nWas auch immer wir lösen werden, mit dem Download dieser App hast du den ersten Schritt gemacht!\nKompliment und Willkommen!\nDu bist der Meinung dein Umfeld ist wichtig und gibt Energie? Finden wir auch! Lerne hier deine Konflikte zu lösen.\nDie Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Situation in der Zukunft siehst.\nDeswegen spielt das Problem hier eine untergeordnete Rolle.
-                            Es geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.\n\n</string>
+    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDein Umfeld ist dir wichtig und gibt dir Energie? Dann bist du hier richtig!\nLerne hier erste Schritte kennen um deine Konflikte zu lösen. Die genaue Ursache des Problems ist nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\n\n</string>
 
     <!-- Level 1 Start -->
     <string name="level1Start_Textview">Los geht’s in Level 1. Nachdem du dich kurz mit deinem Problem beschäftigt hast legst du hier dein Ziel fest. </string>
@@ -38,22 +38,22 @@
     <!-- Problem Definition -->
     <string name="keinProblem_button">Weiter, ich möchte das Problem nicht aufschreiben</string>
     <string name="problem_button">Ich möchte das Problem aufschreiben</string>
-    <string name="problem1">Manchmal tut es gut das Problem aufzuschreiben und dann bei Seite zu legen um sich danach frei auf den Weg nach vorne konzentrieren zu können.\nHier bekommst du die Möglichkeit dein Problem einmalig in zwei Sätzen zusammenzufassen.</string>
+    <string name="problem1">Manchmal tut es gut das Problem aufzuschreiben und dann zur Seite zu legen. Danach sind deine Gedanken und der Weg frei um dich auf die Zukunft konzentrieren zu können.\nDu hast hier nun die Möglichkeit dein Problem in ein bis zwei Sätzen zusammenzufassen.</string>
 
     <!-- Problem Beschreibung -->
-    <string name="problem_beschreibung">Schreibe hier in 2 Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
+    <string name="problem_beschreibung">Schreibe hier in ein bis zwei Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
     <string name="beschreibung">Beschreibung des Problems</string>
 
     <!-- Problem Beschreibung Dank -->
-    <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem ist häufig sehr belastend und nimmt gedanklich viel Platz ein, raubt Energie und trübt den Blick auf das Positive. Lass uns einen ersten kleinen Versuch starten. Wir nehmen das Problem nun an uns und verwahren es für dich gut auf. Du kannst natürlich jederzeit darauf zugreifen, aber nun bist du erstmal frei. Die belastenden Gedanken liegen an einem anderen Ort und du hast Platz für Neues.</string>
+    <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem kann sehr belastend sein und gedanklich viel Platz einnehmen, es raubt Energie und trübt den Blick auf das Positive. Starte einen kleinen Versuch. Das Problem ist nun abgelegt und gut für dich aufbewahrt. Du kannst natürlich jederzeit darauf zugreifen, aber nun liegt es erstmal an einem anderen Ort und du hast Platz für neue Gedanken und Sichtweisen.</string>
 
     <!-- Ziel Definition -->
-    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und deinem Verhalten anders als vorher?</string>
-    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen und Änderungen anpassen</string>
+    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und an deinem Verhalten anders als vorher?</string>
+    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen, die Beschreibung anpassen oder Änderungen durchführen.</string>
     <string name="zielFesthalten_Button">Ziel festhalten</string>
 
     <!-- Ziel verwahren -->
-    <string name="zielVerwahren_TextView">Wahnsinn!\nDas ist keine leichte Aufgabe.\nDu kannst stolz auf dich sein, dass du dich mit dem Ziel auseinander gesetzt hast.\nDas klare Ziel ist die halbe Miete.</string>
+    <string name="zielVerwahren_TextView">Super!\nDas ist keine leichte Aufgabe.\nDu kannst stolz auf dich sein, dass du dich mit deinem Ziel auseinander gesetzt hast.\nEin klares Ziel ist bereits die halbe Miete.</string>
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
     <!-- Level2 Start -->
@@ -67,50 +67,39 @@
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
-    <!-- Neue Wege -->
-    <string name="neuerWeg_TextView">So individuell jeder von uns ist, so individuell sind auch die Lösungswege. Manchmal hat man bei dem ersten Versuch gemerkt, dass das ursprüngliche Ziel sich geändert hat. Ist das vielleicht bei dir der Fall?</string>
-    <string name="neuerWeg_ButtonLoesung">Neuer Lösungsweg</string>
-    <string name="neuerWeg_ButtonZiel">Ziel neu definieren</string>
-
-    <!-- Ziel Definition Neu -->
-    <string name="zieldefinitionNeu_TextView">Hat sich an deinem Ziel inzwischen etwas verändert?\n Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in eurer Beziehung und deinem Verhalten anders als vorher?</string>
-    <string name="zielFesthalten_zurueckButton">Zurück</string>
-
     <!-- Veraenderung vorab -->
-    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App runterzuladen, ging dem der Entschluss voraus etwas zu unternehmen.\nEin konkreter Schritt in Richtung Veränderung.\nHäufig beginnt damit ein Prozess.\nHat sich vielleich auch bei dir das eine oder andere verändert?\nOder ist es gerade dabei sich positiv zu verändern?</string>
+    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App herunterzuladen, ging dem der Entschluss voraus etwas zu unternehmen um deine Situation zu verbessern.\nDas war ein konkreter Schritt in Richtung Veränderung.\nHat sich vielleicht auch bei dir schon das eine oder andere verändert?\nOder ist es gerade dabei sich positiv zu verändern?</string>
     <string name="veraenderung_ButtonJa">Ja</string>
     <string name="veraenderung_ButtonNein">Nein</string>
     <string name="title_activity_level2_veraenderung_ja">Level2VeraenderungJa</string>
 
     <!-- Veraenderung JA -->
-    <string name="veraenderungJa_Textview">Das klingt phantastisch, erzähl mir mehr.Wenn die begonnenen Veränderungen in diese Richtung weitergehen, wäre das Ergebnis dessen auch dein Ziel?\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
+    <string name="veraenderungJa_Textview">Das klingt phantastisch.\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
 
     <!-- Ausnahmen -->
-    <string name="ausnahmen_Textview">Obwohl deine Situation schwierig zu sein scheint, bleibst du dran und raffst dich auf. Das spricht für sehr viel Energie.\n\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und die schauen wir uns genauer an.</string>
+    <string name="ausnahmen_Textview">Obwohl deine Situation schwierig ist, bleibst du dran und raffst dich immer wieder auf. Das spricht für sehr viel Kraft bei dir.\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und manchmal macht es Sinn diese genauer in Augenschein zu nehmen</string>
 
     <!-- Hypothetische Lösung -->
-    <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten.\nViele Wege führen bekanntlich nach Rom.\nUnd heute gehst auch du einen anderen.\nVon der Ausnahme zur Regel.\nLass uns deine Vorstellungskraft nutzen, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, etwas Zeit (und Kopfhörer).</string>
+    <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten und ist eine große Herausforderung.\nViele Wege führen bekanntlich nach Rom.\nHeute soll versucht werden, dass auch du einen neuen Weg entdeckst.\nNutze deine Vorstellungskraft, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, etwas Zeit und Kopfhörer.</string>
     <string name="hypoLoesung_Button">Übung starten</string>
 
     <!-- Phantasiereise -->
-    <string name="phantasie_Textview"> Stell dir  vor, wir haben unser Gespräch hier beendet...Du gehst wieder  deinem üblichen Tagesablauf nach...und langsam wird es Abend...<!--Nach dem Abendessen sitzt du vielleicht noch etwas vor dem Fernseher...Dann spürst du immer mehr die Müdigkeit...und freust dich ins Bett gehen zu können...Du schläfst ein...(lange Pause) ...Während du nun schläfst, geschieht ein Wunder...Das Problem, weswegen du zur Beratung gekommen bist und über das wir gesprochen haben, verschwindet einfach, löst sich in Luft auf – ganz einfach so...(Schnippen mit den Fingern)...Aber weil das passiert, während du schläfst, bekommst du bewusst gar nicht mit, dass dieses Wunder stattgefunden hat und das Problem gelöst ist. Wenn du nun morgens aufwachst und deinen Tag beginnst, wird dich aber manches stutzig machen, weil es anders ist als sonst...weil du sich irgendwie anders verhältst...Was wird dann anders sein? Was wirst du dann tun, was du bislang nicht so machst? ...Wer von deinen Bekannten und Freunden wird es zuerst bemerken? Woran werden diese es bemerken?...Und wie werden die darauf reagieren?...Und wie wirst du wiederum deren Reaktion aufnehmen? ...--></string>
-
+    <string name="phantasie_Textview">Aufnahme</string>
     <!-- Universal Lösungsschlüssel -->
-    <string name="universal_Textview">Nachdem du schon alles getan hast, was man vernünftigerweise in deiner Situation tun kann, aber nicht die optimale Lösungsidee dabei war, bleibt jetzt noch die Möglichkeit, etwas Unvernünftiges oder Unlogisches auszuprobieren.\n Ich wäre gespannt, was bei einem solchen Experiment herauskäme.</string>
+    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es jetzt mal ein bisschen "verrückter".\nEs soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden.\nSei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->
-    <string name="universalAnekdote_Textview">Eine kleine Geschichte über den Schatzmeister, der immer die gleiche Strecke von einer zur anderen Insel mit dem Boot gefahren ist. Bis ihm ein weiser Mann dann empfahl die Strecke, da sie nicht so lang ist, zu schwimmen und zu tauchen. Kleiner Film was er auf einmal alles wahrnimmt, Fische, Korallen, etc. Und nur weil er einmal was anders als sonst gemacht hat.</string>
-
+    <string name="universalAnekdote_Textview"></string>
     <!-- Universal Weiter -->
-    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in einer solchen schwierigen Situation geben könnte.</string>
+    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in deiner herausfordernden Situation geben könnte.</string>
     <string name="universalWeiter_Button2">Mir fällt nichts ein</string>
 
     <!-- Exitstrategie -->
-    <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum sollten wir uns doch erstmal genau anschauen, was trotz aller Schwierigkeiten - in der Kommunikation mit anderen gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Ich bitte dich in den kommenden 10 Tagen eine Liste zusammenzustellen, in der du beschreibst, worauf du besonders stolz im Umgang mit anderen bist.</string>
+    <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum sollten man sich doch erstmal genau anschauen, was trotz aller Herausforderungen und Schwierigkeiten - im Umgang mit anderen gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Stelle doch in den kommenden 10 Tagen eine Liste zusammenzustellen, in der du beschreibst, worauf du besonders stolz im Umgang mit anderen bist.</string>
 
     <!-- Zehn Tage Timer -->
-    <string name="zehnTage_Textview1">Hier kannst du aufschreiben worauf du besonders stolz bist. Lass dir ruhig etwas Zeit zum überlegen bevor du weitermachst.</string>
+    <string name="zehnTage_Textview1">Hier kannst du aufschreiben worauf du besonders stolz bist. Lass dir ruhig etwas Zeit zum Überlegen bevor du weitermachst.</string>
     <string name="zehnTage_Textview2">timer</string>
     <string name="zehnTage_EditView1">1. </string>
     <string name="zehnTage_EditView2">2. </string>
@@ -120,24 +109,23 @@
 
 
     <!-- keine Lösung -->
-    <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
+    <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Hilfe auf dem Weg zur Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
 
     <!-- Weiter Gehts -->
-    <string name="weiterGehts_Textview">Wie auch immer die Übung gelaufen ist du hast dich und deine Situation besser kennengelernt, das kann dir keiner mehr nehmen. Hat dir diese Übung schon weiter geholfen?</string>
-    <string name="weiterGehts_Button1">Ja, weiter geht\'s</string>
-    <string name="weiterGehts_Button2">Nein, leider noch nicht</string>
+    <string name="weiterGehts_Textview">So individuell jeder von uns ist, so individuell sind auch unsere Lösungswege. Manchmal hat man schon beim ersten Versuch gemerkt, dass man auf dem richtigen Weg ist. Hat dir diese Übung schon weiter geholfen oder willst du noch mehr ausprobieren?</string>
+    <string name="weiterGehts_Button1">Zu Level 3</string>
+    <string name="weiterGehts_Button2">Neue Wege</string>
 
     <!-- Level 3 Start -->
     <string name="level3Start_Textview">Nachdem du in Level 2 Lösungswege für dich definiert hast bist du nun in Level 3. Hier beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
 
     <!-- Wunderbar -->
-    <string name="wunderbar_TextView">Ich freue mich, dass wir unsere Sitzung heute fortsetzen können. Dein Engagement beeindruckt mich sehr und gibt mir ein gutes Gefühl für alles Weitere!</string>
+    <string name="wunderbar_TextView">Schön, dass du die Sitzung heute fortsetzen können. Dein Engagement ist sehr beeindruckend und wird dir auch bei den nächsten Schritten weiterhelfen.</string>
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches besonders postitive Verhalten und welche Ressourcen dich in schweirigen Situationen unterstützen können, oder dir vielleicht
-    in ähnlichen Situationen schon mal geholfen haben. Damit du dir deine Ressourcen immer wieder anschauen kannst, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
-    ist das erste Feld bereits beispielhaft ausgefüllt, dabei geht es um einen Beziehungskonflikt zum Thema Eifersucht.</string>
+    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen die dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
+    ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>
@@ -273,7 +261,7 @@
     <string name="level5Start_Textview">Willkommen zurück. Jetzt startet Level 5. Hier kannst du noch einmal auf deinen bisherigen Weg zurückblicken und entscheiden wie es weiter gehen soll.</string>
 
     <!-- Rückblick -->
-    <string name="rueckblick_TextView">Häufig ist es hilfreich noch mal auf das Erreichte zurückzublicken, um sich den Fortschritt bewusst zu machen.
+    <string name="rueckblick_TextView">Häufig ist es hilfreich noch mal auf das Erreichte zurückzublicken, um sich den eigenen Fortschritt bewusst zu machen.
     Angenommen, die Ziffer 1 steht dafür, wie dein Leben ausgesehen hat, als du die App installiert hast, und die Ziffer 10 dafür, wie es aussehen sollte wenn dein Ziel
      Final erreicht ist. \nWo stehst du deiner Einschätzung nach heute?</string>
     <string name="Seek1_TextView">1</string>
@@ -282,15 +270,15 @@
 
     <!-- Neuorientierung -->
     <string name="neu_TextView">Du bist noch nicht ganz da, wo du eigentlich sein wolltest? Aber du hast erste Schritte dahin unternommen, und das ist meist das schweirigste
-    Stück des Weges. Wenn man Neues ausprobiert, dann kommt man schon mal ins Stolpern. Das kennt jeder. Du hast sicher schon viele Probleme im Leben gemeistert. Welches Vorgehen
-    hat dir dabei immer geholfen? \nÜberdenke die Situation vielleicht noch mal mit einem neuen Ansatz.</string>
+    Stück des Weges. Wenn man Neues ausprobiert, dann kommt man schon mal ins Stolpern. Das kennt jeder und das ist vollkommen okay. Welches Vorgehen
+    hat dir bisher dabei geholfen Probleme in deinem Leben zu meistern? <!--\nÜberdenke die Situation vielleicht noch mal mit einem neuen Ansatz.--></string>
     <string name="level2_Button">In Level 2 weitermachen.</string>
     <string name="wEnde_Button">Ich bin zufrieden mit dem Fortschritt. \nWeiter</string>
 
     <!-- Ende -->
-    <string name="Ende1_TextView">Es ist fantastisch! Du hast einen Unterschied realisiert in deiner Situation, der auch einen Unterschied macht. Sei dir dessen bewusst. Durch die
-    anfängliche Herausforderung hast du die Chance bekommen und ergriffen, dich zu entwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
-    Es ist sogar wichtig, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, nur so führen sie zu automatischen Verhaltensmustern.</string>
+    <string name="Ende1_TextView">Es ist fantastisch! Du hast eine Veränderung in deiner Situation bemerkt. Sei dir dessen bewusst, dass schon die kleinsten Veränderungen einen großen Unterschied bewirken können.
+    Dh hast dich der Herausforderung gestellt und die Chance wahrgenommen, dich weiterzuentwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
+    Es ist hilfreich und sinnvoll, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, so kann du sie trainieren und sie zu automatischen Verhaltensmustern entwickeln.</string>
     <string name="Ende_Button">Weiter</string>
 
 
