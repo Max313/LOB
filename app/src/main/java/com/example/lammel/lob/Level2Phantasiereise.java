@@ -68,7 +68,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action

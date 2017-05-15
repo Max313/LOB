@@ -66,7 +66,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button Action

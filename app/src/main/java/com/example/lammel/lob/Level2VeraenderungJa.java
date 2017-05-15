@@ -65,7 +65,7 @@ public class Level2VeraenderungJa extends FragmentActivity implements View.OnCli
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button

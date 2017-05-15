@@ -71,7 +71,7 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

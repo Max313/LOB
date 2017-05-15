@@ -65,7 +65,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");

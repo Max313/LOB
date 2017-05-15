@@ -67,7 +67,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbunt);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         fertig = (Button) findViewById(R.id.zehnTage_Button);

@@ -28,9 +28,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
     //Buttons and more
     private Button weiter;
-    private Button qV;
-    private Button qK;
-    private Button qR;
     private Button aendern1;
     private Button aendern2;
     private Button aendern3;
@@ -84,14 +81,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         weiter = (Button) findViewById(R.id.weiterStaerkeButton);
         weiter.setOnClickListener(this);
 
-        qV = (Button) findViewById(R.id.uebersichtV_Button);
-        qV.setOnClickListener(this);
-
-        qK = (Button) findViewById(R.id.uebersichtK_Button);
-        qK.setOnClickListener(this);
-
-        qR = (Button) findViewById(R.id.uebersichtR_Button);
-        qR.setOnClickListener(this);
 
         aendern1 = (Button) findViewById(R.id.aendern1_Button);
         aendern1.setOnClickListener(this);
@@ -333,42 +322,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         editor = saved.edit();
         switch (view.getId()) {
 
-            case R.id.uebersichtV_Button:
-                builder.setTitle("Verhalten");
-                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
-                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV = builder.create();
-                dialogV.show();
-                break;
-
-            case R.id.uebersichtK_Button:
-                builder.setTitle("Kompliment");
-                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogK = builder.create();
-                dialogK.show();
-                break;
-
-            case R.id.uebersichtR_Button:
-                builder.setTitle("Ressource");
-                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogR = builder.create();
-                dialogR.show();
-                break;
 
             case R.id.Uebersicht1_1:
 
