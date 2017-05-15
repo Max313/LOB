@@ -122,7 +122,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
                 return true;
 
             case R.id.Hausaufgabe:

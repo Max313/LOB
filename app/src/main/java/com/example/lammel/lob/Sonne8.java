@@ -239,7 +239,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
                 return true;
 
             case R.id.Hausaufgabe:

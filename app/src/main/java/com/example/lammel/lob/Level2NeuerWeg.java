@@ -132,7 +132,7 @@ public class Level2NeuerWeg extends FragmentActivity implements View.OnClickList
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
                 return true;
 
             case R.id.Hausaufgabe:

@@ -118,7 +118,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
+                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
                 return true;
 
             case R.id.Hausaufgabe:
