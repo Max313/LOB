@@ -82,7 +82,8 @@
         <activity android:name=".Pause" />
         <activity android:name=".Timer" />
         <activity android:name=".PauseZwischen4und5" />
-        <activity android:name=".Timer2"></activity>
+        <activity android:name=".Timer2" />
+        <activity android:name=".LevelIntro"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/levelIntro"
+    tools:context="com.example.lammel.lob.LevelIntro">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"></include>
+
+    <ImageView android:id="@+id/zielImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bergeinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        android:layout_marginTop="8dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/zielEinfuehrung_TextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/zielEinfuehrung_TextView"
+        android:textSize="@dimen/einfuehrung"
+        app:layout_constraintLeft_toRightOf="@+id/zielImageView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <ImageView android:id="@+id/ideeImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wegweisereinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/zielImageView"
+        android:layout_marginTop="12dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/ideeEinfuehrung_TextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/zielEinfuehrung_TextView"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/ideeEinfuehrung_TextView"
+        android:textSize="@dimen/einfuehrung"
+
+        app:layout_constraintLeft_toRightOf="@+id/ideeImageView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView android:id="@+id/ressourceImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/baumeinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/ideeImageView"
+        android:layout_marginTop="8dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/ressourceEinfuehrung_TextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ideeEinfuehrung_TextView"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/ressourceEinfuehrung_TextView"
+        android:textSize="@dimen/einfuehrung"
+        app:layout_constraintLeft_toRightOf="@+id/ressourceImageView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView android:id="@+id/festigungImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/sonnevolleinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/ressourceImageView"
+        android:layout_marginTop="16dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/festigungEinfuehrung_TextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/ressourceEinfuehrung_TextView"
+        android:layout_marginTop="18dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/festhaltenEinfuehrung_TextView"
+        android:textSize="@dimen/einfuehrung"
+        app:layout_constraintLeft_toRightOf="@+id/festigungImageView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <ImageView android:id="@+id/loesungImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/untergangeinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/festigungImageView"
+        android:layout_marginTop="12dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/loesungEinfuehrung_TextView"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/festigungEinfuehrung_TextView"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/festhaltenEinfuehrung_TextView"
+        android:textSize="@dimen/einfuehrung"
+        app:layout_constraintLeft_toRightOf="@+id/loesungImageView"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/einfuehrung_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start"
+        app:layout_constraintBottom_toBottomOf="@id/footer"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+
+</android.support.constraint.ConstraintLayout>

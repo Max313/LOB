@@ -2,13 +2,12 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
@@ -17,23 +16,17 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.File;
 
-/**
- * Created by lammel on 11.04.17.
- */
-
-public class Level1Onboarding extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class LevelIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     private int counter = 3;
 
     // Button and more
-    private Button weiter_button;
-    private TextView onboard;
+    private Button weiter;
     private AppCompatDelegate delegate;
 
     //shared Preferences zum Speichern
@@ -46,8 +39,8 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.level1_onboarding);
-        this.setTitle("Einführung");
+        setContentView(R.layout.activity_level_intro);
+        this.setTitle("Übersicht");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -59,7 +52,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.level1_onboarding, fragment);
+        transaction.add(R.id.levelIntro, fragment);
         transaction.commit();
 
         //Toolbar
@@ -70,7 +63,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.level1_onboarding);
+        delegate.setContentView(R.layout.activity_level_intro);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -81,7 +74,10 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         delegate.getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        onboardingProzessStarten();
+        weiter = (Button) findViewById(R.id.einfuehrung_Button);
+        weiter.setOnClickListener(this);
+
+
 
     }
 
@@ -185,11 +181,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         }
     }
 
-    private void onboardingProzessStarten() {
-        weiter_button = (Button) findViewById(R.id.weiter_button);
-        onboard = (TextView) findViewById(R.id.onboard_1);
-        weiter_button.setOnClickListener(this);
-    }
+
 
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
@@ -198,35 +190,15 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
 
-            case R.id.weiter_button:
-            if (counter == 0) {
-                onboard.setText("Du bist der Meinung dein Umfeld ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
-                counter++;
-                break;
-            } else if (counter == 1) {
-                onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Situation in der Zukunft siehst.");
-                counter++;
-                break;
-            } else if (counter == 2) {
-                onboard.setText("Deswegen spielt das Problem hier eine untergeordnete Rolle.\nEs geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.");
-                counter++;
-                break;
-            } else if (counter == 3) {
-                startActivity(new Intent(this, LevelIntro.class));
+                    startActivity(new Intent(this, Level1Start.class));
 
-                //startActivity(new Intent(this, Staerkeinsel.class));
+                    //startActivity(new Intent(this, Staerkeinsel.class));
 
-                //startActivity(new Intent(this, Rueckblick.class));
+                    //startActivity(new Intent(this, Rueckblick.class));
 
-                //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-            }
+                    //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
 
-            default:
-                break;
-
-        }
     }
 
 

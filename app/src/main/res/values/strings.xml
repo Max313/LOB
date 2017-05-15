@@ -5,6 +5,13 @@
     <string name="start_button">Los gehts!</string>
     <string name="weiter_button">Weiter</string>
 
+    <!-- Einführung -->
+    <string name="zielEinfuehrung_TextView">In Level 1 legst du dein Ziel fest, welches du im Laufe dieser App erreichen willst.</string>
+    <string name="ideeEinfuehrung_TextView">In Level 2 definierst du Lösungswege, die dich deinem Ziel näher bringen.</string>
+    <string name="ressourceEinfuehrung_TextView">In Level 3 beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
+    <string name="festhaltenEinfuehrung_TextView">In Level 4 betrachtest du die seit Level 1 eingetretenen positiven Veränderungen.</string>
+    <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
+
     <!-- Menü -->
     <string name="ziel_Menu">Ziel</string>
     <string name="tabelle_Menu">Ressourcen Tabelle</string>
