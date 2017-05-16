@@ -45,7 +45,7 @@ public class Level4InselDesSehenden extends FragmentActivity implements View.OnC
             editor.putInt("ressourceStatus", 2);
         }
 
-        else if(saved.getInt("sonneStatus", 0) == 0){
+        else if(saved.getInt("sonneStatus", 0) < 1){
             editor.putInt("sonneStatus", 1);
         }
         editor.putInt("tabStatus", 4);

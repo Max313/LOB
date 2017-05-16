@@ -119,7 +119,6 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
     private BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "receive a message");
             updateGui(intent);
         }
     };
@@ -143,6 +142,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         try {
             unregisterReceiver(br);
         } catch (Exception e) {
+            Log.i(TAG, "problem Unregistered broadcast receiver");
             // Receiver was probably already stopped in onPause()
         }
         super.onStop();
@@ -158,7 +158,6 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
 
-                Log.i(TAG, "remaining seconds: " + millisUntilFinished / 1000);
             if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);

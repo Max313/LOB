@@ -190,7 +190,7 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
                 }
 
                 else{
-                    startActivity(new Intent(this, Rueckblick.class));
+                    startActivity(new Intent(this, Level5Start.class));
                 }
 
 

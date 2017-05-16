@@ -58,7 +58,6 @@ public class BroadcastService extends Service {
         cdt = new CountDownTimer(startValue, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
-                Log.i(TAG, "Remaining seconds: " + millisUntilFinished / 1000);
                 bi.putExtra("countdown", millisUntilFinished);
                 sendBroadcast(bi);
 

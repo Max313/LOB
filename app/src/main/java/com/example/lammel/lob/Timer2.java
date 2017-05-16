@@ -87,7 +87,6 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         weiter = (Button) findViewById(R.id.Timer2Weiter_Button);
-        weiter.setOnClickListener(this);
         weiter.setVisibility(View.GONE);
 
 
@@ -117,7 +116,6 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     private BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "receive a message");
             updateGui(intent);
         }
     };
@@ -156,7 +154,6 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
 
-            Log.i(TAG, "remaining seconds: " + millisUntilFinished / 1000);
             if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
@@ -173,6 +170,7 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
             else{
                 seconds.setText("00");
                 weiter.setVisibility(View.VISIBLE);
+                weiter.setOnClickListener(this);
 
                 //damit man die Pause nur einmal machen muss
                 saved = getSharedPreferences(PREFS_NAME, 0);
@@ -183,6 +181,7 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
                 editor.apply();
 
                 onStop();
+
 
             }
 
