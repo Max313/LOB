@@ -618,12 +618,14 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
         switch (view.getId()){
             case R.id.Weiter8_Button:
+                stopRecording();
                 intent = new Intent(view.getContext(), Mantra.class);
                 intent.putExtra("Source", 1);
                 startActivity(intent);
                 break;
 
             case R.id.zurUebersicht8_Button:
+                stopRecording();
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
                 intent.putExtra("Source", 8);
                 startActivity(intent);

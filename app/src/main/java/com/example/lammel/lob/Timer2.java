@@ -1,6 +1,9 @@
 package com.example.lammel.lob;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -14,6 +17,7 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -33,6 +37,9 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     private SharedPreferences.Editor editor;
 
     //Timer
+    private final static String TAG = "BroadcastReceiver";
+
+    //Timer
     private CountDownTimer countdown;
     private TextView days;
     private int d;
@@ -43,6 +50,8 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     private TextView seconds;
     private int s;
     private Button weiter;
+
+    private long currentTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,31 +90,87 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         weiter.setOnClickListener(this);
         weiter.setVisibility(View.GONE);
 
+
         //Timer der 10 Tage runterläuft 864000000 ms
         //Timer der 1 Min runterläuft 60000 ms
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
+            currentTime = System.currentTimeMillis();
+            editor.putLong("pauseTime", currentTime);
+
+            editor.apply();
+        }
 
         days = (TextView) findViewById(R.id.d2Anzeige_TextView);
         hours = (TextView) findViewById(R.id.h2Anzeige_TextView);
         minutes = (TextView) findViewById(R.id.m2Anzeige_TextView);
         seconds = (TextView) findViewById(R.id.s2Anzeige_TextView);
 
+        //Timer using a Service
+        Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
+        startService(intent_service);
+        Log.i(TAG, "Started service");
+    }
 
-        countdown = new CountDownTimer(60000, 1000) {
+    //Timer
+    private BroadcastReceiver br = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Log.i(TAG, "receive a message");
+            updateGui(intent);
+        }
+    };
 
-            public void onTick(long millisUntilFinished) {
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(br, new IntentFilter(BroadcastService.COUNTDOWN_BR));
+        Log.i(TAG, "Registered broadcast receiver");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(br);
+        Log.i(TAG, "Unregistered broadcast receiver");
+    }
+
+    @Override
+    public void onStop() {
+        try {
+            unregisterReceiver(br);
+        } catch (Exception e) {
+            // Receiver was probably already stopped in onPause()
+        }
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        stopService(new Intent(this, BroadcastService.class));
+        Log.i(TAG, "Stopped service");
+        super.onDestroy();
+    }
+
+    private void updateGui(Intent intent){
+        if(intent.getExtras() != null) {
+            long millisUntilFinished = intent.getLongExtra("countdown", 0);
+
+            Log.i(TAG, "remaining seconds: " + millisUntilFinished / 1000);
+            if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;
-                h = (int) ((millisUntilFinished - (d * 86400000))/3600000);
-                m = (int) ((millisUntilFinished - ((d * 86400000)+ (h*3600000)))/60000);
-                s = (int) ((millisUntilFinished - ((d * 86400000)+ (h*3600000)+ (m*60000)))/1000);
+                h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
+                m = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000))) / 60000);
+                s = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000) + (m * 60000))) / 1000);
 
-                days.setText(String.format("%02d",d));
-                hours.setText(String.format("%02d",h));
-                minutes.setText(String.format("%02d",m));
-                seconds.setText(String.format("%02d",s));
-
+                days.setText(String.format("%02d", d));
+                hours.setText(String.format("%02d", h));
+                minutes.setText(String.format("%02d", m));
+                seconds.setText(String.format("%02d", s));
             }
 
-            public void onFinish() {
+
+            else{
                 seconds.setText("00");
                 weiter.setVisibility(View.VISIBLE);
 
@@ -116,8 +181,14 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
                 editor.putBoolean("pause2", true);
                 editor.apply();
 
+                editor.remove("pauseTime");
+                editor.commit();
+                onStop();
+
             }
-        }.start();
+
+        }
+
     }
 
     //Welche Menüoptionen sind enabled

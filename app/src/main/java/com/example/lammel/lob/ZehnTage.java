@@ -1,6 +1,9 @@
 package com.example.lammel.lob;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
@@ -13,6 +16,7 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -30,6 +34,10 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     private CountDownTimer countdown;
     private EditText edit1, edit2, edit3, edit4, edit5;
     private String inhalt1, inhalt2, inhalt3, inhalt4, inhalt5;
+
+    //Timer
+    private long currentTime;
+    private int d,h,m;
 
     //Toolbar
     private AppCompatDelegate delegate;
@@ -73,27 +81,26 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         fertig = (Button) findViewById(R.id.zehnTage_Button);
         fertig.setEnabled(false);
         fertig.setOnClickListener(this);
-        //Timer der 10 Tage runterläuft 864000000 ms
-        //Timer der 1 Min runterläuft 60000 ms
-        countdown = new CountDownTimer(60000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
-                timer.setText("Tage verbleibend: " + (millisUntilFinished / 86400000+1));
-            }
+      //  if (!saved.getBoolean("zehnTage", false)){
+            //Timer der 10 Tage runterläuft 864000000 ms
+            //Timer der 1 Min runterläuft 60000 ms
 
-            public void onFinish() {
-                timer.setText("Geschafft!");
-                fertig.setEnabled(true);
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
+                currentTime = System.currentTimeMillis();
+                editor.putLong("pauseTime", currentTime);
 
-                //damit man die Pause nur einmal machen muss
-                saved = getSharedPreferences(PREFS_NAME, 0);
-                editor = saved.edit();
-
-                editor.putBoolean("zehnTage", true);
                 editor.apply();
             }
-        }.start();
+
+            //Timer using a Service
+            Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
+            startService(intent_service);
+
+        //}
+
 
         //Speicherung Text
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -136,6 +143,78 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 ;
 
 
+
+    }
+
+    //Timer
+    private BroadcastReceiver br = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateGui(intent);
+        }
+    };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(br, new IntentFilter(BroadcastService.COUNTDOWN_BR));
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(br);
+    }
+
+    @Override
+    public void onStop() {
+        try {
+            unregisterReceiver(br);
+        } catch (Exception e) {
+            // Receiver was probably already stopped in onPause()
+        }
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        stopService(new Intent(this, BroadcastService.class));
+        super.onDestroy();
+    }
+
+    private void updateGui(Intent intent){
+        if(intent.getExtras() != null) {
+            long millisUntilFinished = intent.getLongExtra("countdown", 0);
+
+            if (millisUntilFinished > 0) {
+                d = (int) millisUntilFinished / 86400000;
+                h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
+                m = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000))) / 60000);
+
+                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
+                timer.setText(String.format("%02d", d)+ " Tage " + String.format("%02d", h) + " Stunden " + String.format("%02d", m) + " Minuten");
+
+            }
+
+
+            else{
+
+                timer.setText("Geschafft!");
+                //damit man die Pause nur einmal machen muss
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+
+                editor.putBoolean("pause2", true);
+                editor.apply();
+
+                editor.remove("pauseTime");
+                editor.commit();
+
+                fertig.setEnabled(true);
+                onStop();
+
+            }
+
+        }
 
     }
 

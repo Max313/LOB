@@ -4,7 +4,7 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
-    <service android:name=".BroadcastService" />
+
 
     <application
         android:allowBackup="true"
@@ -89,6 +89,7 @@
         <activity android:name=".Level4InselFrage2" />
         <activity android:name=".Level4InselFrage3" />
         <activity android:name=".Level4InselFrage4" />
+        <service android:name=".BroadcastService" />
         <activity android:name=".MenuIntro"></activity>
     </application>
 
