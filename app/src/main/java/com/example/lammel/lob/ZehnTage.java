@@ -216,7 +216,6 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 editor.apply();
 
                 fertig.setEnabled(true);
-                onStop();
 
             }
 
