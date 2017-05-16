@@ -193,6 +193,20 @@
     <string name="frage1_TextView">Was ist seit der letzten App Nutzung besser geworden?</string>
     <string name="frage1Weiter_Button">Weiter</string>
 
+    <!-- Insel Frage2 -->
+    <string name="frage2_TextView">Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?</string>
+    <string name="frage2Weiter_Button">Weiter</string>
+    <string name="f2_TextView">Frage 2/4</string>
+
+    <!-- Insel Frage3 -->
+    <string name="frage3_TextView">Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?</string>
+    <string name="frage3Weiter_Button">Weiter</string>
+    <string name="f3_TextView">Frage 3/4</string>
+
+    <!-- Insel Frage4 -->
+    <string name="frage4_TextView">Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?</string>
+    <string name="frage4Weiter_Button">Weiter</string>
+    <string name="f4_TextView">Frage 4/4</string>
 
     <!-- Sonne der Erkenntnis - Wörter -->
     <string name="WWort1_TextView"><b>WAS</b></string>

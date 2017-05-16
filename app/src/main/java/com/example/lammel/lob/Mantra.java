@@ -185,7 +185,15 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
                 break;
 
             case 1:
-                startActivity(new Intent(this, PauseZwischen4und5.class));
+                if (!saved.getBoolean("pause2", false)){
+                    startActivity(new Intent(this, PauseZwischen4und5.class));
+                }
+
+                else{
+                    startActivity(new Intent(this, Rueckblick.class));
+                }
+
+
                 break;
 
             default:

@@ -2,13 +2,11 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
@@ -22,39 +20,28 @@ import android.widget.TextView;
 
 import java.io.File;
 
-public class Timer2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Level4InselFrage1 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
+
+    //Buttons and more
+    private Button weiter;
     private AppCompatDelegate delegate;
-
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
-    private SharedPreferences.Editor editor;
-
-    //Timer
-    private CountDownTimer countdown;
-    private TextView days;
-    private int d;
-    private TextView hours;
-    private int h;
-    private TextView minutes;
-    private int m;
-    private TextView seconds;
-    private int s;
-    private Button weiter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_timer2);
-        this.setTitle("Pause");
+        setContentView(R.layout.activity_level4_insel_frage1);
+        this.setTitle("Insel des Sehenden");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.timer2, fragment);
+        transaction.add(R.id.level4_insel_fragen, fragment);
         transaction.commit();
 
         //Toolbar
@@ -65,59 +52,21 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_timer2);
+        delegate.setContentView(R.layout.activity_level4_insel_frage1);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTableHeaderText));
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level4));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
+        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        weiter = (Button) findViewById(R.id.Timer2Weiter_Button);
+        //Button on action
+        weiter = (Button) findViewById(R.id.frage1_Button);
         weiter.setOnClickListener(this);
-        weiter.setVisibility(View.GONE);
-
-        //Timer der 10 Tage runterläuft 864000000 ms
-        //Timer der 1 Min runterläuft 60000 ms
-
-        days = (TextView) findViewById(R.id.d2Anzeige_TextView);
-        hours = (TextView) findViewById(R.id.h2Anzeige_TextView);
-        minutes = (TextView) findViewById(R.id.m2Anzeige_TextView);
-        seconds = (TextView) findViewById(R.id.s2Anzeige_TextView);
-
-
-        countdown = new CountDownTimer(60000, 1000) {
-
-            public void onTick(long millisUntilFinished) {
-                d = (int) millisUntilFinished / 86400000;
-                h = (int) ((millisUntilFinished - (d * 86400000))/3600000);
-                m = (int) ((millisUntilFinished - ((d * 86400000)+ (h*3600000)))/60000);
-                s = (int) ((millisUntilFinished - ((d * 86400000)+ (h*3600000)+ (m*60000)))/1000);
-
-                days.setText(String.format("%02d",d));
-                hours.setText(String.format("%02d",h));
-                minutes.setText(String.format("%02d",m));
-                seconds.setText(String.format("%02d",s));
-
-            }
-
-            public void onFinish() {
-                seconds.setText("00");
-                weiter.setVisibility(View.VISIBLE);
-
-                //damit man die Pause nur einmal machen muss
-                saved = getSharedPreferences(PREFS_NAME, 0);
-                editor = saved.edit();
-
-                editor.putBoolean("pause2", true);
-                editor.apply();
-
-            }
-        }.start();
     }
 
     //Welche Menüoptionen sind enabled
@@ -137,11 +86,13 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         return true;
     }
 
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
+
     //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -224,9 +175,12 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
-        startActivity(new Intent(this, Level5Start.class));
-    }
 
+                startActivity(new Intent(this, Level4InselFrage2.class));
+
+
+
+    }
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
@@ -243,5 +197,4 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
-
 }

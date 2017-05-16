@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
+    <service android:name=".BroadcastService" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -46,7 +48,7 @@
         <activity android:name=".Staerkeinsel" />
         <activity android:name=".Level3UebungStart" />
         <activity android:name=".Level4InselDesSehenden" />
-        <activity android:name=".Level4InselFragen" />
+        <activity android:name=".Level4InselFrage1" />
         <activity android:name=".Verhalten" />
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
@@ -82,7 +84,10 @@
         <activity android:name=".Timer" />
         <activity android:name=".PauseZwischen4und5" />
         <activity android:name=".Timer2" />
-        <activity android:name=".LevelIntro"></activity>
+        <activity android:name=".LevelIntro" />
+        <activity android:name=".Level4InselFrage2" />
+        <activity android:name=".Level4InselFrage3" />
+        <activity android:name=".Level4InselFrage4"></activity>
     </application>
 
 </manifest>

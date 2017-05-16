@@ -108,6 +108,16 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
                 seconds.setText("00");
                 weiter.setVisibility(View.VISIBLE);
 
+                //damit man die Pause nur einmal machen muss
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+
+                editor.putBoolean("pause1", true);
+                editor.apply();
+
+
+
+
             }
         }.start();
     }

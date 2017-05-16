@@ -85,6 +85,13 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             public void onFinish() {
                 timer.setText("Geschafft!");
                 fertig.setEnabled(true);
+
+                //damit man die Pause nur einmal machen muss
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+
+                editor.putBoolean("zehnTage", true);
+                editor.apply();
             }
         }.start();
 

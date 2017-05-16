@@ -441,8 +441,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 break;
 
             case R.id.weiterStaerkeButton:
-                //startActivity(new Intent(this, Level3UebungStart.class));
+
+                if (!saved.getBoolean("pause1", false)){
                 startActivity(new Intent(this, Pause.class));
+                }
+
+                else{
+                    startActivity(new Intent(this, Level3UebungStart.class));
+                }
 
                 break;
 

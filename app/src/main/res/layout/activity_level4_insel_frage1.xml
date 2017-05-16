@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/level4_insel_fragen"
     android:background="@color/level4Background"
-    tools:context="com.example.lammel.lob.Level4InselFragen">
+    tools:context="com.example.lammel.lob.Level4InselFrage1">
 
     <include
         android:id="@+id/tool_bar"

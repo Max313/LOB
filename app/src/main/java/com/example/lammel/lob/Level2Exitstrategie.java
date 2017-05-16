@@ -181,7 +181,14 @@ public class Level2Exitstrategie extends FragmentActivity implements View.OnClic
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.exitstrategie_Button:
-                startActivity(new Intent(this, ZehnTage.class));
+                if (!saved.getBoolean("zehnTage", false)){
+                    startActivity(new Intent(this, ZehnTage.class));
+                }
+
+                else{
+                    startActivity(new Intent(this, Level2Loesungswege.class));
+                }
+
                 break;
 
             default:

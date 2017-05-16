@@ -17,37 +17,31 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Level4InselFragen extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Level4InselFrage4 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     //Buttons and more
-    private int counter = 0;
     private Button weiter;
-    private TextView txt;
-    private TextView header;
     private AppCompatDelegate delegate;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
-    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level4_insel_fragen);
+        setContentView(R.layout.activity_level4_insel_frage4);
         this.setTitle("Insel des Sehenden");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.level4_insel_fragen, fragment);
+        transaction.add(R.id.level4_insel_frage4, fragment);
         transaction.commit();
 
         //Toolbar
@@ -58,7 +52,7 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_level4_insel_fragen);
+        delegate.setContentView(R.layout.activity_level4_insel_frage4);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -71,7 +65,7 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button on action
-        weiter = (Button) findViewById(R.id.frage1_Button);
+        weiter = (Button) findViewById(R.id.frage4_Button);
         weiter.setOnClickListener(this);
     }
 
@@ -181,37 +175,11 @@ public class Level4InselFragen extends FragmentActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-        txt = (TextView) findViewById(R.id.frage1_TextView);
-        header = (TextView) findViewById(R.id.header_Fragen);
-        switch (counter) {
 
-            case 0:
-                header.setText("Frage 2/4");
-                txt.setText("Was ist inzwischen geschehen, von dem du möchtest, dass es weiterhin in dieser Weise geschieht?");
-                counter++;
-                break;
+        Intent intent = new Intent(view.getContext(), Mantra.class);
+        intent.putExtra("Source", 0);
+        startActivity(intent);
 
-            case 1:
-                header.setText("Frage 3/4");
-                txt.setText("Was hat sich seither schon an Positiven entwickelt, so dass du jetzt das Gefühl hast, einen Schritt weiter zu sein?");
-                counter++;
-                break;
-
-            case 2:
-                header.setText("Frage 4/4");
-                txt.setText("Was von dem, was sich seit der letzten Nutzung der App verändert hat, hältst du für am wichtigsten?");
-                counter++;
-                break;
-            case 3:
-                counter = 0;
-                Intent intent = new Intent(view.getContext(), Mantra.class);
-                intent.putExtra("Source", 0);
-                startActivity(intent);
-                break;
-
-            default:
-                break;
-        }
 
 
     }
