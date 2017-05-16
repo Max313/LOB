@@ -43,27 +43,12 @@
             android:layout_weight="0.5"
             android:text="@string/weiter_button"
             app:layout_constraintBottom_toBottomOf="@+id/footer"
-            android:layout_marginBottom="46dp"
-            android:layout_marginLeft="8dp"
-            app:layout_constraintLeft_toLeftOf="parent"
-
-            android:id="@+id/universal_ButtonWeiter"
-            android:layout_marginStart="8dp" />
-
-        <Button
-            android:layout_width="170dp"
-            android:layout_height="60dp"
-            android:layout_weight="0.5"
-            android:text="@string/universal_Button2"
-            app:layout_constraintBottom_toBottomOf="@+id/footer"
-            android:layout_marginBottom="46dp"
-
             app:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginRight="8dp"
+            android:layout_marginBottom="46dp"
+            android:layout_marginLeft="8dp"
             app:layout_constraintRight_toRightOf="parent"
-            android:id="@+id/universal_Anekdote"
-            app:layout_constraintHorizontal_bias="1.0"
-            android:layout_marginEnd="8dp" />
+            android:id="@+id/universal_ButtonWeiter"/>
 
     </android.support.constraint.ConstraintLayout>
 

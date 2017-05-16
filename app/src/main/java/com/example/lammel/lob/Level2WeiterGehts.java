@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -28,6 +30,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     private Button button1, button2;
     private int loesungsCounter;
     private AppCompatDelegate delegate;
+    private Boolean tagebuch, muenze, wuerfel;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -189,9 +192,39 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
     @Override
     public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(Level2WeiterGehts.this);
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        tagebuch = saved.getBoolean("TagebuchSave", false);
+        wuerfel = saved.getBoolean("WürfelSave", false);
+        muenze = saved.getBoolean("MünzeSave", false);
+        editor = saved.edit();
         switch (v.getId()){
             case R.id.weiterGehts_Button1:
-                startActivity(new Intent(this, Level3Start.class));
+                if((tagebuch && wuerfel && muenze) != true){
+                    editor.putBoolean("TagebuchSave", true);
+                    editor.putBoolean("WürfelSave", true);
+                    editor.putBoolean("MünzeSave", true);
+                    editor.apply();
+                    builder.setTitle("Hausaufgabe");
+                    builder.setMessage("Es wurden alle Hausaufgaben für dich freigeschaltet. Du kannst zu jeder Zeit darauf zugreifen und eine davon ausprobieren, wenn du willst.");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            startNext();
+                        }
+                    });
+                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                            startHausaufgaben();
+                        }
+                    });
+                    AlertDialog dialogY = builder.create();
+                    dialogY.show();
+                }
+                else {
+                    startActivity(new Intent(this, Level3Start.class));
+                }
                 break;
 
             case R.id.weiterGehts_Button2:
@@ -235,6 +268,14 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                 break;
 
         }
+    }
+
+    private void startHausaufgaben() {
+        startActivity(new Intent(this, MenuHausaufgabe.class));
+    }
+
+    private void startNext() {
+        startActivity(new Intent(this, Level3Start.class));
     }
 
     @Override

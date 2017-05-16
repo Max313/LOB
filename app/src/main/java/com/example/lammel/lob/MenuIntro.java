@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -17,36 +16,39 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Level2Universalloesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class MenuIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Buttons and more
-    private Button universalWeiter;
-    private Button universalAnekdote;
+    // Button and more
+    private Button weiter;
     private AppCompatDelegate delegate;
 
-    //Speicher
+    //shared Preferences zum Speichern
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
-    //dritter Lösungsweg
-    //bei der Universallösung soll man etwas ganz anderes ausprobieren
+
+    //Heranführen an das Thema Lösungsorientierte Beratung
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level2_universalloesung);
-        this.setTitle("Lösungswege");
+        setContentView(R.layout.activity_menu_intro);
+        this.setTitle("Übersicht");
 
-        //Add Footer
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
+        //Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.level2_universalloesung, fragment);
+        transaction.add(R.id.menuIntro, fragment);
         transaction.commit();
 
         //Toolbar
@@ -57,25 +59,26 @@ public class Level2Universalloesung extends FragmentActivity implements View.OnC
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_level2_universalloesung);
+        delegate.setContentView(R.layout.activity_menu_intro);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
+        delegate.getSupportActionBar().setLogo(R.mipmap.ic_launcher);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //Buttons
-        universalWeiter = (Button) findViewById(R.id.universal_ButtonWeiter);
-        universalWeiter.setOnClickListener(this);
+        weiter = (Button) findViewById(R.id.menuIntro_Button);
+        weiter.setOnClickListener(this);
+
+
 
     }
 
-    //Welche Menüoptionen sind enabled
+
+
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -174,14 +177,27 @@ public class Level2Universalloesung extends FragmentActivity implements View.OnC
         }
     }
 
+
+
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
     }
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(this, Level2UniversalloesungWeiter.class));
+
+
+        startActivity(new Intent(this, Level1Start.class));
+
+        //startActivity(new Intent(this, Staerkeinsel.class));
+
+        //startActivity(new Intent(this, Rueckblick.class));
+
+        //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+
     }
+
+
 
 
     @Override
@@ -200,3 +216,4 @@ public class Level2Universalloesung extends FragmentActivity implements View.OnC
         return null;
     }
 }
+

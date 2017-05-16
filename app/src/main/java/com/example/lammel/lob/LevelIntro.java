@@ -189,7 +189,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
     public void onClick(View v) {
 
 
-                    startActivity(new Intent(this, Level1Start.class));
+                    startActivity(new Intent(this, MenuIntro.class));
 
                     //startActivity(new Intent(this, Staerkeinsel.class));
 

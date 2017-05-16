@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/menuIntro"
+    tools:context="com.example.lammel.lob.MenuIntro">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"></include>
+
+
+    <ImageView android:id="@+id/menuImageView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bergeinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        android:layout_marginTop="8dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/menuIntro_text1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/menuIntro_Text1"
+        android:textSize="@dimen/einfuehrung"
+        app:layout_constraintLeft_toRightOf="@+id/menuImageView2"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+
+    <ImageView android:id="@+id/menuImageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/wegweisereinfuehrung"
+        app:layout_constraintTop_toBottomOf="@id/menuIntro_text1"
+        android:layout_marginTop="12dp"
+        ></ImageView>
+
+    <TextView
+        android:id="@+id/menuIntro_text2"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/menuIntro_text1"
+        android:layout_marginTop="28dp"
+        android:layout_marginLeft="15dp"
+        android:text="@string/menuIntro_Text2"
+        android:textSize="@dimen/einfuehrung"
+
+        app:layout_constraintLeft_toRightOf="@+id/menuImageView2"
+        android:layout_marginRight="16dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/menuIntro_Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Weiter"
+        app:layout_constraintBottom_toBottomOf="@id/footer"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

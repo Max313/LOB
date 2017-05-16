@@ -34,6 +34,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     private AppCompatDelegate delegate;
     private String universal;
     private int counter = 0;
+    private int storyCounter;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -76,16 +77,22 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        //Speicher
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
         //Buttons
         universalloesungWeiter_Weiter = (Button) findViewById(R.id.universalWeiter_ButtonWeiter);
         universalloesungWeiter_Weiter.setOnClickListener(this);
         universalloesungWeiter_Weiter.setEnabled(false);
+
         universalloesungWeiter_Nichts = (Button) findViewById(R.id.universal_Nichts);
         universalloesungWeiter_Nichts.setOnClickListener(this);
-
+        storyCounter = saved.getInt("StoryCounter", 0);
+        if(storyCounter>1){
+            universalloesungWeiter_Nichts.setEnabled(false);
+        }
 
         //Edit Text und gespeicherter Text
-        saved = getSharedPreferences(PREFS_NAME, 0);
         universal = saved.getString("UniversalSave", "");
         final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
         if(universal!=""){
@@ -108,6 +115,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -217,6 +225,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+        storyCounter = saved.getInt("StoryCounter", 0);
         editor.putString("UniversalSave", universal);
         editor.apply();
         final View view = v;
@@ -224,6 +233,8 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         switch (v.getId()) {
             //Text abspeichern und weiter
             case R.id.universalWeiter_ButtonWeiter:
+                editor.putInt("StoryCounter", 0);
+                editor.apply();
                 if(counter == 0){
                     editor.putBoolean("WürfelSave", true);
                     editor.apply();
@@ -253,12 +264,22 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 break;
 
             case R.id.universal_Nichts:
-                Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
-                intent2.putExtra("Anekdote2", true);
-                intent2.putExtra("Source", 1);
-                startActivity(intent2);
-                //Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
-                //startActivity(intent2);
+                if(storyCounter==0){
+                    editor.putInt("StoryCounter", 1);
+                    editor.apply();
+                    Intent intent = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                    intent.putExtra("Anekdote2", false);
+                    intent.putExtra("Source", 0);
+                    startActivity(intent);
+                }
+                else {
+                    editor.putInt("StoryCounter", 2);
+                    editor.apply();
+                    Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                    intent2.putExtra("Anekdote2", true);
+                    intent2.putExtra("Source", 1);
+                    startActivity(intent2);
+                }
                 break;
 
             default:

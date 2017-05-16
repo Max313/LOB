@@ -49,7 +49,9 @@
         <activity android:name=".Level3UebungStart" />
         <activity android:name=".Level4InselDesSehenden" />
         <activity android:name=".Level4InselFrage1" />
-        <activity android:name=".Verhalten" />
+        <activity
+            android:name=".Verhalten"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".Kompliment" />
         <activity android:name=".Ressource" />
         <activity android:name=".UebersichtTable" />
@@ -63,7 +65,6 @@
         <activity android:name=".Sonne7" />
         <activity android:name=".Sonne8" />
         <activity android:name=".SonneDerErkenntnisStart" />
-        <activity android:name=".Level2ZieldefinitionNeu" />
         <activity android:name=".Mantra" />
         <activity android:name=".Ende" />
         <activity android:name=".Rueckblick" />
@@ -87,7 +88,8 @@
         <activity android:name=".LevelIntro" />
         <activity android:name=".Level4InselFrage2" />
         <activity android:name=".Level4InselFrage3" />
-        <activity android:name=".Level4InselFrage4"></activity>
+        <activity android:name=".Level4InselFrage4" />
+        <activity android:name=".MenuIntro"></activity>
     </application>
 
 </manifest>
