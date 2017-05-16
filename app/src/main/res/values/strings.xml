@@ -90,9 +90,10 @@
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->
-    <string name="universalAnekdote_Textview"></string>
+    <string name="universalAnekdote_Textview">Kennst du das Gefühl einmal ganz anders leben zu wollen und dem Alltag zu entfliehen? Meistens kehrt man dann aber doch wieder in die Realität zurück und die gewohnte Routine des Alltags holt einen ein. Wie wäre es wenn du diese Routine einmal durchbrichst, auch wenn es nur für einen Tag ist? Probiere doch einmal aus wie es sich anfühlt, wenn du drei oder mehr Dinge anders machst als an jedem anderen Tag. Zum Beispiel könntest du den Kaffee am morgen in einem Café statt zuhause trinken oder du sprichst mit einer Person, mit der du sonst nicht so oft redest. Mach mal etwas anderes!</string>
+
     <!-- Universal Weiter -->
-    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in deiner herausfordernden Situation geben könnte.</string>
+    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in deiner herausfordernden Situation geben könnte. Das Motto lautet: "Ich weiß nicht, ob es besser wird, wenn es anders wird; aber es muss anders werden, damit es besser wird." </string>
     <string name="universalWeiter_Button2">Mir fällt nichts ein</string>
 
     <!-- Exitstrategie -->
