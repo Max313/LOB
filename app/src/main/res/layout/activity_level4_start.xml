@@ -36,7 +36,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/sonnegross"
+        android:background="@drawable/sonnelevel"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         android:id="@+id/level4image"
         android:layout_marginTop="32dp"

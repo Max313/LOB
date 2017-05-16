@@ -514,6 +514,7 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
     }
 
     private void stopRecording() {
+
         fertig.setEnabled(false);
         fertig.setTextColor(Color.rgb(189,189,189));
         startTimer = false;
@@ -622,14 +623,18 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
         switch(view.getId()) {
 
             case R.id.Weiter1_Button:
-                stopRecording();
+                if(fertig.isEnabled()){
+                    stopRecording();
+                }
                intent = new Intent(view.getContext(), Sonne2.class);
                 intent.putExtra("Tour", true);
                 startActivity(intent);
                 break;
 
             case R.id.zurUebersicht1_Button:
-                stopRecording();
+                if(fertig.isEnabled()){
+                    stopRecording();
+                }
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
                 intent.putExtra("Source", 1);
                 startActivity(intent);

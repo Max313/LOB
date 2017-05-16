@@ -179,10 +179,9 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
                 editor = saved.edit();
 
                 editor.putBoolean("pause2", true);
+                editor.putLong("pauseTime", (long) 0);
                 editor.apply();
 
-                editor.remove("pauseTime");
-                editor.commit();
                 onStop();
 
             }

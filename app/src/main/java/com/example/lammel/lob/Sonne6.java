@@ -618,14 +618,18 @@ public class Sonne6 extends FragmentActivity implements View.OnClickListener, Ap
         switch (view.getId()){
 
             case R.id.Weiter6_Button:
-                stopRecording();
+                if(fertig.isEnabled()){
+                    stopRecording();
+                }
                 intent = new Intent(view.getContext(), Sonne7.class);
                 intent.putExtra("Tour", true);
                 startActivity(intent);
                 break;
 
             case R.id.zurUebersicht6_Button:
-                stopRecording();
+                if(fertig.isEnabled()){
+                    stopRecording();
+                }
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
                 intent.putExtra("Source", 6);
                 startActivity(intent);

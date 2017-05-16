@@ -10,19 +10,16 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.File;
@@ -37,7 +34,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
     //Timer
     private long currentTime;
-    private int d,h,m;
+    private int d,h,m,s;
 
     //Toolbar
     private AppCompatDelegate delegate;
@@ -75,7 +72,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserbuntshort);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         fertig = (Button) findViewById(R.id.zehnTage_Button);
@@ -186,14 +183,24 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
 
             if (millisUntilFinished > 0) {
+
+                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
                 m = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000))) / 60000);
 
-                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
-                timer.setText(String.format("%02d", d)+ " Tage " + String.format("%02d", h) + " Stunden " + String.format("%02d", m) + " Minuten");
+                if(millisUntilFinished > 60000) {
 
+
+                    timer.setText(String.format("%02d", d) + " Tage " + String.format("%02d", h) + " Stunden " + String.format("%02d", m) + " Minuten");
+                }
+
+                else{
+                    s = (int) millisUntilFinished /1000;
+                    timer.setText(String.format("%02d", s) + " Sekunden");
+                }
             }
+
 
 
             else{
@@ -204,10 +211,9 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 editor = saved.edit();
 
                 editor.putBoolean("pause2", true);
-                editor.apply();
+                editor.putLong("pauseTime", (long) 0);
 
-                editor.remove("pauseTime");
-                editor.commit();
+                editor.apply();
 
                 fertig.setEnabled(true);
                 onStop();

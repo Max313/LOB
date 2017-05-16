@@ -74,7 +74,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/wegweiserswshort"
+                android:background="@drawable/wegweisersw"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -85,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/wegweisershort"
+                android:background="@drawable/wegweiser"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="75dp"
                 android:layout_marginTop="2dp"
-                android:background="@drawable/wegweiserbuntshort"
+                android:background="@drawable/wegweiserb"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
