@@ -36,7 +36,7 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_hypo_loesung);
-        this.setTitle("Lösungswege");
+        this.setTitle("Lösungsweg 3");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

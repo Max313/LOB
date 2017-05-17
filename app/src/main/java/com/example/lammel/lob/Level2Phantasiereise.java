@@ -3,6 +3,9 @@ package com.example.lammel.lob;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -14,10 +17,14 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.io.File;
@@ -26,9 +33,11 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
     //Buttons and more
     private Button phantasieWeiter;
-    private TextView phantasieText;
+    private ImageButton phantasiePlay, phantasiePause;
     private int counter = 0;
     private AppCompatDelegate delegate;
+    private MediaPlayer player;
+    private Boolean run = false;
 
     //shared Preferences Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -40,7 +49,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_phantasiereise);
-        this.setTitle("Lösungswege");
+        this.setTitle("Lösungsweg 3");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -70,9 +79,29 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action
-        phantasieText = (TextView) findViewById(R.id.phantasie_Textview);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
+        phantasieWeiter.setEnabled(false);
         phantasieWeiter.setOnClickListener(this);
+
+        phantasiePlay = (ImageButton) findViewById(R.id.phantasie_play);
+        phantasiePause = (ImageButton) findViewById(R.id.phantasie_pause);
+        phantasiePlay.setVisibility(View.GONE);
+        phantasiePlay.setOnClickListener(this);
+        phantasiePause.setOnClickListener(this);
+
+
+        player = MediaPlayer.create(Level2Phantasiereise.this,R.raw.phantasiereise);
+        player.start();
+        player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mp) {
+                phantasieWeiter.setEnabled(true);
+                phantasiePlay.setVisibility(View.VISIBLE);
+                phantasiePause.setVisibility(View.GONE);
+                run = false;
+            }
+        });
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -188,17 +217,8 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
         switch (v.getId()){
             case R.id.phantasie_ButtonWeiter:
+                player.pause();
                 if(counter == 0){
-                    phantasieText.setText("Was wird dann anders sein?\nWas wirst du oder ihr tun, was du oder ihr lange nicht getan habt?\nWer von deinen Freunden oder Bekannten wird es zuerst bemerken?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 1){
-                    phantasieText.setText("Woran werden sie es bemerken?\nUnd wie werden sie darauf reagieren?\nUnd wie wirst du wiederum deren Reaktion aufnehmen?");
-                    counter++;
-                    break;
-                }
-                else if(counter == 2){
                     editor.putBoolean("MünzeSave", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
@@ -220,17 +240,48 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     counter++;
                     break;
                 }
-                else if(counter == 3){
+                else if(counter == 1){
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                     intent.putExtra("LoesungsCounter", 3);
                     startActivity(intent);
                     break;
                 }
+                break;
+            case R.id.phantasie_play:
+                    onPlay(run);
+                break;
 
-                default:
-                    break;
+            case R.id.phantasie_pause:
+                    onPlay(run);
+                break;
+            default:
+                break;
         }
 
+    }
+
+    private void onPlay(boolean start) {
+        if (start) {
+            pausePlaying();
+        }
+
+        else{
+            startPlaying();
+        }
+    }
+
+    private void startPlaying() {
+        player.start();
+        run = true;
+        phantasiePlay.setVisibility(View.GONE);
+        phantasiePause.setVisibility(View.VISIBLE);
+    }
+
+    private void pausePlaying() {
+        player.pause();
+        run = false;
+        phantasiePlay.setVisibility(View.VISIBLE);
+        phantasiePause.setVisibility(View.GONE);
     }
 
     private void startNext(View v) {

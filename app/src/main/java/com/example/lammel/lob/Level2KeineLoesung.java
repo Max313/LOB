@@ -36,7 +36,7 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_keine_loesung);
-        this.setTitle("Lösungswege");
+        this.setTitle("Lösungsweg 6");
 
 
         //Add Footer

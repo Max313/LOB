@@ -19,9 +19,11 @@
     <ImageView android:id="@+id/menuImageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/bergeinfuehrung"
+        android:background="@drawable/arrowtop"
         app:layout_constraintTop_toBottomOf="@id/tool_bar"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintLeft_toRightOf="@+id/menuIntro_text1"
+        app:layout_constraintRight_toRightOf="parent"
         ></ImageView>
 
     <TextView
@@ -33,17 +35,18 @@
         android:layout_marginLeft="15dp"
         android:text="@string/menuIntro_Text1"
         android:textSize="@dimen/einfuehrung"
-        app:layout_constraintLeft_toRightOf="@+id/menuImageView2"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
 
     <ImageView android:id="@+id/menuImageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/wegweisereinfuehrung"
+        android:background="@drawable/arrowdown"
         app:layout_constraintTop_toBottomOf="@id/menuIntro_text1"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="64dp"
+        app:layout_constraintLeft_toRightOf="@+id/menuIntro_text2"
+        app:layout_constraintRight_toRightOf="parent"
         ></ImageView>
 
     <TextView
@@ -55,10 +58,8 @@
         android:layout_marginLeft="15dp"
         android:text="@string/menuIntro_Text2"
         android:textSize="@dimen/einfuehrung"
-
-        app:layout_constraintLeft_toRightOf="@+id/menuImageView2"
         android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent" />
 
     <Button
         android:id="@+id/menuIntro_Button"

@@ -13,8 +13,8 @@
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Auf die einzelnen Level, die du gerade kennengelernt hast, kannst du auch in der Leiste am Boden deines Bildschirms zugreifen. Diese werden nach und nach freigeschaltet, sodass du direkt in ein Level zurückkehren kannst, welches du bereits begonnen hast.</string>
-    <string name="menuIntro_Text2">Rechts oben im Bildschirm befindet sich zusätzlich ein Menü, in welchem du schnellen Zugriff auf wichtige Übungen freischalten kannst.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich zusätzlich ein Menü, in welchem du schnellen Zugriff auf verschiedene Übungen freischalten kannst.</string>
+    <string name="menuIntro_Text2">Auf die einzelnen Level, die du gerade kennengelernt hast, kannst du auch in der Leiste am Boden deines Bildschirms zugreifen. Diese werden nach und nach freigeschaltet, sodass du direkt in ein Level zurückkehren kannst, welches du bereits begonnen hast.</string>
 
     <!-- Menü -->
     <string name="ziel_Menu">Ziel</string>
@@ -68,6 +68,7 @@
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
+    <string name="loesungswege_Textview2">Beispiel : Ich habe angerufen obwohl ich das schon lange nicht mehr gemacht habe.</string>
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
@@ -84,14 +85,14 @@
     <string name="ausnahmen_Textview">Obwohl deine Situation schwierig ist, bleibst du dran und raffst dich immer wieder auf. Das spricht für sehr viel Kraft bei dir.\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und manchmal macht es Sinn diese genauer in Augenschein zu nehmen</string>
 
     <!-- Hypothetische Lösung -->
-    <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten und ist eine große Herausforderung.\nViele Wege führen bekanntlich nach Rom.\nHeute soll versucht werden, dass auch du einen neuen Weg entdeckst.\nNutze deine Vorstellungskraft, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, etwas Zeit und Kopfhörer.</string>
+    <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten und ist eine große Herausforderung.\nViele Wege führen bekanntlich nach Rom.\nHeute soll versucht werden, dass auch du einen neuen Weg entdeckst.\nNutze deine Vorstellungskraft, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, circa zwei Minuten Zeit und Kopfhörer oder Lautsprecher.</string>
     <string name="hypoLoesung_Button">Übung starten</string>
 
     <!-- Phantasiereise -->
-    <string name="phantasie_Textview">Aufnahme</string>
+    <string name="phantasie_Textview">Höre dir die Geschichte gut an und denke über das Erzählte nach. Wie fühlt sich das an? Du kannst dir die Geschichte erneut anhören wenn du willst, ansonsten klicke auf weiter.</string>
 
     <!-- Universal Lösungsschlüssel -->
-    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es jetzt mal ein bisschen "verrückter".\nEs soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden.\nSei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
+    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es jetzt mal ein bisschen "verrückter". Es soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden. Sei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote -->

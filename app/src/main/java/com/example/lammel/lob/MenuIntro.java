@@ -67,7 +67,7 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         weiter = (Button) findViewById(R.id.menuIntro_Button);

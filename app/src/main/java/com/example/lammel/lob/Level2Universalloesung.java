@@ -37,7 +37,7 @@ public class Level2Universalloesung extends FragmentActivity implements View.OnC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level2_universalloesung);
-        this.setTitle("Lösungswege");
+        this.setTitle("Lösungsweg 4");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
