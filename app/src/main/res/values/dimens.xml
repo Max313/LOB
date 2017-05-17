@@ -15,5 +15,5 @@
     <dimen name="activity_questions">40dp</dimen>
     <dimen name="timer">24dp</dimen>
     <dimen name="timer2">45dp</dimen>
-    <dimen name="einfuehrung">16dp</dimen>
+    <dimen name="einfuehrung">14dp</dimen>
 </resources>

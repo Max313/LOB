@@ -156,7 +156,7 @@
     <string name="ok">OK</string>
 
     <!-- Verhalten -->
-    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Bleibt ruhig und versucht sich in Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
+    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Du bleibst ruhig und versuchst dich in deinen Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
     <string name="platzhalterVerhalten_EditText">Eingabe</string>
     <!-- Kompliment -->
     <string name="beispielKompliment_TextView"><b>Beispiel:</b> Es ist beeindruckend wie einfühlsam und aufmerksam du auf deinen Partner eingehst.</string>

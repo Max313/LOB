@@ -412,7 +412,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
 
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
-            
+
         }
         else if(file8.length() == 0){
             img8.setVisibility(View.GONE);
