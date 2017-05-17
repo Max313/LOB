@@ -31,6 +31,7 @@ public class BroadcastService extends Service {
     public void onCreate() {
         super.onCreate();
        cdt = null;
+       Log.i(TAG, "on create");
     }
 
     @Override
@@ -43,7 +44,8 @@ public class BroadcastService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
         Log.i(TAG, "Starting timer...");
-        if(cdt == null){
+
+
             saved = getSharedPreferences(PREFS_NAME, 0);
             if(saved.getLong("pauseTime", (long) 0) != (long) 0){
                 long savedTime = saved.getLong("pauseTime", (long) 0);
@@ -71,7 +73,10 @@ public class BroadcastService extends Service {
 
             }
         };
-        cdt.start();}
+        cdt.start();
+        if(!saved.getBoolean("alarmStart", false)) {
+            new AlarmTask(this).run();
+        }
         return super.onStartCommand(intent, flags, startId);
     }
 

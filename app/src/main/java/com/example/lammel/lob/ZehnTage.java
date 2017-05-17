@@ -15,6 +15,7 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,9 +27,10 @@ import java.io.File;
 
 public class ZehnTage extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
+    private final static String TAG = "ZehnTage";
+
     private TextView timer;
     private Button fertig;
-    private CountDownTimer countdown;
     private EditText edit1, edit2, edit3, edit4, edit5;
     private String inhalt1, inhalt2, inhalt3, inhalt4, inhalt5;
 
@@ -75,16 +77,19 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        timer = (TextView) findViewById(R.id.zehnTage_Textview2);
+
         fertig = (Button) findViewById(R.id.zehnTage_Button);
         fertig.setEnabled(false);
         fertig.setOnClickListener(this);
 
-      //  if (!saved.getBoolean("zehnTage", false)){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+         if (!saved.getBoolean("zehnTage", false)){
             //Timer der 10 Tage runterläuft 864000000 ms
             //Timer der 1 Min runterläuft 60000 ms
-
-            saved = getSharedPreferences(PREFS_NAME, 0);
             editor = saved.edit();
+
             if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
                 currentTime = System.currentTimeMillis();
                 editor.putLong("pauseTime", currentTime);
@@ -92,11 +97,12 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 editor.apply();
             }
 
+            Log.i(TAG, "before starting service");
             //Timer using a Service
             Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
             startService(intent_service);
 
-        //}
+        }
 
 
         //Speicherung Text
@@ -147,6 +153,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     private BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.i(TAG, "receive Message");
             updateGui(intent);
         }
     };
@@ -179,12 +186,22 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     }
 
     private void updateGui(Intent intent){
+        Log.i(TAG, "update Gui");
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putBoolean("alarmStart", true);
+        editor.apply();
+
+
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
 
+            Log.i(TAG, "zeit: " + millisUntilFinished);
+
             if (millisUntilFinished > 0) {
 
-                timer = (TextView) findViewById(R.id.zehnTage_Textview2);
+
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
                 m = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000))) / 60000);
@@ -210,7 +227,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 saved = getSharedPreferences(PREFS_NAME, 0);
                 editor = saved.edit();
 
-                editor.putBoolean("pause2", true);
+                editor.putBoolean("zehnTage", true);
                 editor.putLong("pauseTime", (long) 0);
 
                 editor.apply();

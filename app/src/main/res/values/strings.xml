@@ -301,5 +301,9 @@
     Es ist hilfreich und sinnvoll, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, so kann du sie trainieren und sie zu automatischen Verhaltensmustern entwickeln.</string>
     <string name="Ende_Button">Weiter</string>
 
+    <!-- Notification -->
+    <string name="notification_title">LOB - Timer</string>
+    <string name="notification_text">Geschafft! Die Zehn Tage sind um.</string>
+
 
 </resources>
