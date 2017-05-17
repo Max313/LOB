@@ -127,7 +127,7 @@
     <string name="level3Start_Textview">Nachdem du in Level 2 Lösungswege für dich definiert hast bist du nun in Level 3. Hier beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
 
     <!-- Wunderbar -->
-    <string name="wunderbar_TextView">Schön, dass du die Sitzung heute fortsetzen können. Dein Engagement ist sehr beeindruckend und wird dir auch bei den nächsten Schritten weiterhelfen.</string>
+    <string name="wunderbar_TextView">Schön, dass du die Sitzung heute fortsetzen kannst. Dein Engagement ist sehr beeindruckend und wird dir auch bei den nächsten Schritten weiterhelfen.</string>
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->

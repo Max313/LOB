@@ -39,6 +39,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
     //Tabelleninhalt
     private String r1, r2, r3;
+    private EditText txt1, txt2, txt3;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -96,28 +97,68 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         r2 = saved.getString("Ressource2", "");
         r3 = saved.getString("Ressource3", "");
 
-        if(r1 != "" || r2 != "" || r3 != ""){
-            EditText zeile1 = (EditText) findViewById(R.id.ressource1EditText);
-            EditText zeile2 = (EditText) findViewById(R.id.ressource2EditText);
-            EditText zeile3 = (EditText) findViewById(R.id.ressource3EditText);
+        txt1 = (EditText) findViewById(R.id.ressource1EditText);
+        txt2 = (EditText) findViewById(R.id.ressource2EditText);
+        txt3 = (EditText) findViewById(R.id.ressource3EditText);
 
-            zeile1.setText(r1);
-            zeile2.setText(r2);
-            zeile3.setText(r3);
+        if(r1 != "" || r2 != "" || r3 != ""){
+
+            txt1.setText(r1);
+            txt2.setText(r2);
+            txt3.setText(r3);
 
             weiter.setEnabled(true);  //enable
         }
 
-        final EditText txt2 = (EditText) findViewById(R.id.ressource1EditText);
+        enableButton();
+    }
+
+    public void enableButton(){
+
+        txt1.addTextChangedListener(new TextWatcher()
+        {
+            public void afterTextChanged(Editable s)
+            {
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                    weiter.setEnabled(false); //disable button if no text entered
+                else
+                    weiter.setEnabled(true);  //otherwise enable
+                r1 = txt1.getText().toString();
+
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+            }
+        });
+
+
         txt2.addTextChangedListener(new TextWatcher()
         {
-            public void afterTextChanged(Editable s) {
-                if(txt2.length() == 0) {
-                    weiter.setEnabled(false); //disable send button if no text entered
-                }
-                else {
+            public void afterTextChanged(Editable s)
+            {
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                    weiter.setEnabled(false); //disable button if no text entered
+                else
                     weiter.setEnabled(true);  //otherwise enable
-                }
+                r2 = txt2.getText().toString();
+
+            }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after){
+            }
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+            }
+        });
+
+        txt3.addTextChangedListener(new TextWatcher()
+        {
+            public void afterTextChanged(Editable s)
+            {
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                    weiter.setEnabled(false); //disable button if no text entered
+                else
+                    weiter.setEnabled(true);  //otherwise enable
+                r3 = txt3.getText().toString();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -265,16 +306,9 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
             case R.id.weiterzuUebersicht_Button:
 
-                EditText edit1Text = (EditText) findViewById(R.id.ressource1EditText);
-                editor.putString("Ressource1", edit1Text.getText().toString());
-
-
-                EditText edit2Text = (EditText) findViewById(R.id.ressource2EditText);
-                editor.putString("Ressource2", edit2Text.getText().toString());
-
-
-                EditText edit3Text = (EditText) findViewById(R.id.ressource3EditText);
-                editor.putString("Ressource3", edit3Text.getText().toString());
+                editor.putString("Ressource1", r1);
+                editor.putString("Ressource2", r2);
+                editor.putString("Ressource3", r3);
 
                 startActivity(new Intent(this, UebersichtTable.class));
                 break;

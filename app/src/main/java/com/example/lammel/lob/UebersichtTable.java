@@ -203,10 +203,6 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
     private void setTableContent() {
 
-
-        TextView text1View = (TextView) findViewById(R.id.Uebersicht1_1);
-        text1View.setOnClickListener(this);
-
         saved = getSharedPreferences(PREFS_NAME, 0);
         v1 = saved.getString("Verhalten1", "");
         v2 = saved.getString("Verhalten2", "");
@@ -218,6 +214,9 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         r2 = saved.getString("Ressource2", "");
         r3 = saved.getString("Ressource3", "");
 
+        //Verhalten aus Zeile 1 in Tabelle eintragen
+        TextView text1View = (TextView) findViewById(R.id.Uebersicht1_1);
+        text1View.setOnClickListener(this);
 
         if (v1.length() <= 12) {
             text1View.setText(v1);
@@ -226,29 +225,56 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             text1View.setText(shortString);
         }
 
-
+        //Verhalten aus Zeile 2 in Tabelle eintragen
         TextView text2View = (TextView) findViewById(R.id.Uebersicht2_1);
         text2View.setOnClickListener(this);
+        if(text1View.getText() == ""){
+            if (v2.length() <= 12) {
+                text1View.setText(v2);
+            } else {
+                String shortString = v2.substring(0, 9) + "...";
+                text1View.setText(shortString);
+            }
+        }
+        else{
+            if (v2.length() <= 12) {
+                text2View.setText(v2);
+            } else {
+                String shortString = v2.substring(0, 9) + "...";
+                text2View.setText(shortString);
+            }
 
-        if (v2.length() <= 12) {
-            text2View.setText(v2);
-        } else {
-            String shortString = v2.substring(0, 9) + "...";
-            text2View.setText(shortString);
         }
 
-
+        //Verhalten aus Zeile 3 in Tabelle eintragen
         TextView text3View = (TextView) findViewById(R.id.Uebersicht3_1);
         text3View.setOnClickListener(this);
-
-        if (v3.length() <= 12) {
-            text3View.setText(v3);
-        } else {
-            String shortString = v3.substring(0, 9) + "...";
-            text3View.setText(shortString);
+        if(text1View.getText() == ""){
+            if (v3.length() <= 12) {
+                text1View.setText(v3);
+            } else {
+                String shortString = v3.substring(0, 9) + "...";
+                text1View.setText(shortString);
+            }
+        }
+        else if(text2View.getText() == ""){
+            if (v3.length() <= 12) {
+                text2View.setText(v3);
+            } else {
+                String shortString = v3.substring(0, 9) + "...";
+                text2View.setText(shortString);
+            }
+        }
+        else{
+            if (v3.length() <= 12) {
+                text3View.setText(v3);
+            } else {
+                String shortString = v3.substring(0, 9) + "...";
+                text3View.setText(shortString);
+            }
         }
 
-
+        //Kompliment aus Zeile 1 in Tabelle eintragen
         TextView text4View = (TextView) findViewById(R.id.Uebersicht1_2);
         text4View.setOnClickListener(this);
 
@@ -260,28 +286,58 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         }
 
 
+        //Kompliment aus Zeile 2 in Tabelle eintragen
         TextView text5View = (TextView) findViewById(R.id.Uebersicht2_2);
         text5View.setOnClickListener(this);
 
-        if (k2.length() <= 12) {
-            text5View.setText(k2);
-        } else {
-            String shortString = k2.substring(0, 9) + "...";
-            text5View.setText(shortString);
+        if(text4View.getText() == ""){
+            if (k2.length() <= 12) {
+                text4View.setText(k2);
+            } else {
+                String shortString = k2.substring(0, 9) + "...";
+                text4View.setText(shortString);
+            }
+        }
+        else{
+            if (k2.length() <= 12) {
+                text5View.setText(k2);
+            } else {
+                String shortString = k2.substring(0, 9) + "...";
+                text5View.setText(shortString);
+            }
+
         }
 
-
+        //Kompliment aus Zeile 3 in Tabelle eintragen
         TextView text6View = (TextView) findViewById(R.id.Uebersicht3_2);
         text6View.setOnClickListener(this);
-
-        if (k3.length() <= 12) {
-            text6View.setText(k3);
-        } else {
-            String shortString = k3.substring(0, 9) + "...";
-            text6View.setText(shortString);
+        if(text4View.getText() == ""){
+            if (k3.length() <= 12) {
+                text4View.setText(k3);
+            } else {
+                String shortString = k3.substring(0, 9) + "...";
+                text4View.setText(shortString);
+            }
+        }
+        else if(text5View.getText() == ""){
+            if (k3.length() <= 12) {
+                text5View.setText(k3);
+            } else {
+                String shortString = k3.substring(0, 9) + "...";
+                text5View.setText(shortString);
+            }
         }
 
+        else{
+            if (k3.length() <= 12) {
+                text6View.setText(k3);
+            } else {
+                String shortString = k3.substring(0, 9) + "...";
+                text6View.setText(shortString);
+            }
+        }
 
+        //Ressource aus Zeile 1 in Tabelle eintragen
         TextView text7View = (TextView) findViewById(R.id.Uebersicht1_3);
         text7View.setOnClickListener(this);
 
@@ -292,25 +348,54 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             text7View.setText(shortString);
         }
 
+        //Ressource aus Zeile 2 in Tabelle eintragen
         TextView text8View = (TextView) findViewById(R.id.Uebersicht2_3);
         text8View.setOnClickListener(this);
 
-        if (r2.length() <= 12) {
-            text8View.setText(r2);
-        } else {
-            String shortString = r2.substring(0, 9) + "...";
-            text8View.setText(shortString);
+        if(text7View.getText() == ""){
+            if (r2.length() <= 12) {
+                text7View.setText(r2);
+            } else {
+                String shortString = r2.substring(0, 9) + "...";
+                text7View.setText(shortString);
+            }
+        }
+        else{
+            if (r2.length() <= 12) {
+                text8View.setText(r2);
+            } else {
+                String shortString = r2.substring(0, 9) + "...";
+                text8View.setText(shortString);
+            }
         }
 
-
+        //Ressource aus Zeile 3 in Tabelle eintragen
         TextView text9View = (TextView) findViewById(R.id.Uebersicht3_3);
         text9View.setOnClickListener(this);
 
-        if (r3.length() <= 12) {
-            text9View.setText(r3);
-        } else {
-            String shortString = r3.substring(0, 9) + "...";
-            text8View.setText(shortString);
+        if(text7View.getText() == ""){
+            if (r3.length() <= 12) {
+                text7View.setText(r3);
+            } else {
+                String shortString = r3.substring(0, 9) + "...";
+                text7View.setText(shortString);
+            }
+        }
+        else if(text8View.getText() == ""){
+            if (r3.length() <= 12) {
+                text8View.setText(r3);
+            } else {
+                String shortString = r3.substring(0, 9) + "...";
+                text8View.setText(shortString);
+            }
+        }
+        else{
+            if (r3.length() <= 12) {
+                text9View.setText(r3);
+            } else {
+                String shortString = r3.substring(0, 9) + "...";
+                text9View.setText(shortString);
+            }
         }
 
     }
