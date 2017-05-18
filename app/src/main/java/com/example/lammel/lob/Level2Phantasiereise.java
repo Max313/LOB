@@ -79,9 +79,12 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action
+        saved = getSharedPreferences(PREFS_NAME, 0);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
-        phantasieWeiter.setEnabled(false);
         phantasieWeiter.setOnClickListener(this);
+        if(saved.getBoolean("GeschichteSaved", false) == false){
+            phantasieWeiter.setEnabled(false);
+        }
 
         phantasiePlay = (ImageButton) findViewById(R.id.phantasie_play);
         phantasiePlay.setVisibility(View.GONE);
@@ -226,6 +229,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 player.reset();
                 if(counter == 0){
                     editor.putBoolean("MünzeSave", true);
+                    editor.putBoolean("GeschichteSaved", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
