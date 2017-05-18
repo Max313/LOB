@@ -33,11 +33,11 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
     //Buttons and more
     private Button phantasieWeiter;
-    private ImageButton phantasiePlay, phantasiePause;
+    private ImageButton phantasiePlay, phantasiePause, phantasieRepeat;
     private int counter = 0;
     private AppCompatDelegate delegate;
     private MediaPlayer player;
-    private Boolean run = false;
+    private Boolean run = true;
 
     //shared Preferences Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -84,10 +84,15 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         phantasieWeiter.setOnClickListener(this);
 
         phantasiePlay = (ImageButton) findViewById(R.id.phantasie_play);
-        phantasiePause = (ImageButton) findViewById(R.id.phantasie_pause);
         phantasiePlay.setVisibility(View.GONE);
         phantasiePlay.setOnClickListener(this);
+
+        phantasiePause = (ImageButton) findViewById(R.id.phantasie_pause);
         phantasiePause.setOnClickListener(this);
+
+        phantasieRepeat = (ImageButton) findViewById(R.id.phantasie_repeat);
+        phantasieRepeat.setVisibility(View.GONE);
+        phantasieRepeat.setOnClickListener(this);
 
 
         player = MediaPlayer.create(Level2Phantasiereise.this,R.raw.phantasiereise);
@@ -96,7 +101,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
             @Override
             public void onCompletion(MediaPlayer mp) {
                 phantasieWeiter.setEnabled(true);
-                phantasiePlay.setVisibility(View.VISIBLE);
+                phantasieRepeat.setVisibility(View.VISIBLE);
                 phantasiePause.setVisibility(View.GONE);
                 run = false;
             }
@@ -218,6 +223,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         switch (v.getId()){
             case R.id.phantasie_ButtonWeiter:
                 player.pause();
+                player.reset();
                 if(counter == 0){
                     editor.putBoolean("MünzeSave", true);
                     editor.apply();
@@ -254,6 +260,11 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
             case R.id.phantasie_pause:
                     onPlay(run);
                 break;
+
+            case R.id.phantasie_repeat:
+                    onPlay(run);
+                break;
+
             default:
                 break;
         }
@@ -274,6 +285,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         player.start();
         run = true;
         phantasiePlay.setVisibility(View.GONE);
+        phantasieRepeat.setVisibility(View.GONE);
         phantasiePause.setVisibility(View.VISIBLE);
     }
 
@@ -308,5 +320,12 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     @Override
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        player.pause();
+        player.reset();
     }
 }

@@ -51,7 +51,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ressource);
 
-        this.setTitle("Stärkeinsel - Ressourcen");
+        this.setTitle("Stärkeinsel");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -85,8 +85,8 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
 
-        q = (Button) findViewById(R.id.erklaerungR_Button);
-        q.setOnClickListener(this);
+        //q = (Button) findViewById(R.id.erklaerungR_Button);
+        //q.setOnClickListener(this);
 
         ressource = (TextView) findViewById(R.id.ressourcenTextView);
         ressource.setOnClickListener(this);
@@ -173,6 +173,8 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     public boolean onPrepareOptionsMenu(Menu menu){
         saved = getSharedPreferences(PREFS_NAME, 0);
 
+        menu.findItem(R.id.action_help).setVisible(true);
+
         if (!saved.getBoolean("MenuZiel", false)){
             menu.findItem(R.id.ziel).setEnabled(false);
         }
@@ -188,6 +190,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -217,6 +220,18 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Ressource.this);
+                builder.setTitle("Ressource");
+                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogR = builder.create();
+                dialogR.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -278,18 +293,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         aenderung = saved.getBoolean("TabelleÄndern", false);
         editor = saved.edit();
         switch (view.getId()) {
-
-            case R.id.erklaerungR_Button:
-                builder.setTitle("Ressource");
-                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogR = builder.create();
-                dialogR.show();
-                break;
 
             case R.id.ressourcenTextView:
 

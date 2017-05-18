@@ -203,7 +203,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     editor.putBoolean("MünzeSave", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
-                    builder.setMessage("Es wurden alle Hausaufgaben für dich freigeschaltet. Du kannst zu jeder Zeit darauf zugreifen und eine davon ausprobieren, wenn du willst.");
+                    builder.setMessage("Es wurden alle Hausaufgaben für dich freigeschaltet. Du kannst zu jeder Zeit darauf zugreifen und eine davon ausprobieren, wenn du willst. ");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();

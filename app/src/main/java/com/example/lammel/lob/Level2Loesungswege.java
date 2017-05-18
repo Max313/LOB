@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -93,6 +94,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
+
         //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
         anfangsText = (TextView) findViewById(R.id.textView4);
@@ -180,12 +182,14 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -215,6 +219,18 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
+                builder.setTitle("Lösungsweg");
+                builder.setMessage("Beispiel : Ich habe angerufen obwohl ich das schon lange nicht mehr gemacht habe.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);

@@ -26,4 +26,12 @@
         android:icon="@drawable/ic_delete_forever_black_24dp"
         app:showAsAction="ifRoom"
         ></item>
+
+    <item
+        android:id="@+id/action_help"
+        android:title="Hilfe"
+        android:icon="@drawable/help"
+        app:showAsAction="always"
+        android:visible="false"
+        ></item>
 </menu>

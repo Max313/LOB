@@ -50,7 +50,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kompliment);
-        this.setTitle("Stärkeinsel - Kompliment");
+        this.setTitle("Stärkeinsel");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -84,8 +84,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
 
-        q = (Button) findViewById(R.id.erklaerungK_Button);
-        q.setOnClickListener(this);
+        //q = (Button) findViewById(R.id.erklaerungK_Button);
+        //q.setOnClickListener(this);
 
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
@@ -110,23 +110,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         }
 
         enableButton();
-    }
-
-    //Welche Menüoptionen sind enabled
-    @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
-        saved = getSharedPreferences(PREFS_NAME, 0);
-
-        if (!saved.getBoolean("MenuZiel", false)){
-            menu.findItem(R.id.ziel).setEnabled(false);
-        }
-        if (!saved.getBoolean("MenuTabelle", false)){
-            menu.findItem(R.id.tabelle).setEnabled(false);
-        }
-        if (!saved.getBoolean("MenuSonne", false)) {
-            menu.findItem(R.id.Sonne).setEnabled(false);
-        }
-        return true;
     }
 
     public void enableButton(){
@@ -184,9 +167,28 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         });
     }
 
+    //Welche Menüoptionen sind enabled
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        menu.findItem(R.id.action_help).setVisible(true);
+        if (!saved.getBoolean("MenuZiel", false)){
+            menu.findItem(R.id.ziel).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuTabelle", false)){
+            menu.findItem(R.id.tabelle).setEnabled(false);
+        }
+        if (!saved.getBoolean("MenuSonne", false)) {
+            menu.findItem(R.id.Sonne).setEnabled(false);
+        }
+        return true;
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -216,6 +218,18 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
+                builder.setTitle("Kompliment");
+                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogK = builder.create();
+                dialogK.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -277,18 +291,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         aenderung = saved.getBoolean("TabelleÄndern", false);
         editor = saved.edit();
         switch (view.getId()) {
-
-            case R.id.erklaerungK_Button:
-                builder.setTitle("Kompliment");
-                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogK = builder.create();
-                dialogK.show();
-                break;
 
             case R.id.komplimentTextView:
 

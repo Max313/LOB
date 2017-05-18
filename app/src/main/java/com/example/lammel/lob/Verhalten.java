@@ -50,7 +50,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_verhalten);
-        this.setTitle("Stärkeinsel - Verhalten");
+        this.setTitle("Stärkeinsel");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -84,8 +84,8 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         weiter.setEnabled(false);
         weiter.setOnClickListener(this);
 
-        q = (Button) findViewById(R.id.erklaerungV_Button);
-        q.setOnClickListener(this);
+        //q = (Button) findViewById(R.id.erklaerungV_Button);
+        //q.setOnClickListener(this);
 
         verhalten = (TextView) findViewById(R.id.verhaltenTextView);
         verhalten.setOnClickListener(this);
@@ -174,6 +174,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     public boolean onPrepareOptionsMenu(Menu menu){
         saved = getSharedPreferences(PREFS_NAME, 0);
 
+        menu.findItem(R.id.action_help).setVisible(true);
         if (!saved.getBoolean("MenuZiel", false)){
             menu.findItem(R.id.ziel).setEnabled(false);
         }
@@ -189,6 +190,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -218,6 +220,19 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Verhalten.this);
+                builder.setTitle("Verhalten");
+                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
+                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogV1 = builder.create();
+                dialogV1.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -278,19 +293,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         switch (view.getId()) {
-
-            case R.id.erklaerungV_Button:
-                builder.setTitle("Verhalten");
-                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
-                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV1 = builder.create();
-                dialogV1.show();
-                break;
 
             case R.id.verhaltenTextView:
 

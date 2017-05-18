@@ -120,7 +120,7 @@
         android:layout_marginBottom="46dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent" />
-
+    <!--
     <Button
         android:id="@+id/erklaerungV_Button"
         android:layout_width="20dp"
@@ -131,5 +131,5 @@
         android:text="@string/erklaerung_Button"
         android:textColor="@color/colorTableHeaderText"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/scrollView3" />
+        app:layout_constraintTop_toTopOf="@+id/scrollView3" />-->
 </android.support.constraint.ConstraintLayout>
