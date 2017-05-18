@@ -123,7 +123,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                r1 = txt1.getText().toString();
+                r1 = txt1.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -141,7 +141,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                r2 = txt2.getText().toString();
+                r2 = txt2.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -158,7 +158,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                r3 = txt3.getText().toString();
+                r3 = txt3.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -305,6 +305,30 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                 break;
 
             case R.id.weiterzuUebersicht_Button:
+
+                if(r1.length() == 0){
+                    if (r2.length() == 0) {
+                        r1 = r3;
+                        r3 = "";
+                    }
+                    else{
+                        if(r3.length() != 0){
+                            r1 = r2;
+                            r2 = r3;
+                            r3 = "";
+                        }
+                        else{
+                            r1 = r2;
+                            r2 = "";
+                        }
+                    }
+                }
+                else if(r2.length() == 0){
+                    if (r3 != ""){
+                        r2  = r3;
+                        r3 = "";
+                    }
+                }
 
                 editor.putString("Ressource1", r1);
                 editor.putString("Ressource2", r2);

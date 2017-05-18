@@ -123,7 +123,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                v1 = txt1.getText().toString();
+                v1 = txt1.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -141,7 +141,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                v2 = txt2.getText().toString();
+                v2 = txt2.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -159,7 +159,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                v3 = txt3.getText().toString();
+                v3 = txt3.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -308,6 +308,30 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
 
             case R.id.weiterzuKompliment_Button:
+                if(v1.length() == 0){
+                    if (v2.length() == 0) {
+                        v1 = v3;
+                        v3 = "";
+                    }
+                    else{
+                        if(v3.length() != 0){
+                            v1 = v2;
+                            v2 = v3;
+                            v3 = "";
+                        }
+                        else{
+                            v1 = v2;
+                            v2 = "";
+                        }
+                    }
+                }
+                else if(v2.length() == 0){
+                    if (v3 != ""){
+                        v2  = v3;
+                        v3 = "";
+                    }
+                }
+
                 editor.putString("Verhalten1", v1);
                 editor.putString("Verhalten2", v2);
                 editor.putString("Verhalten3", v3);

@@ -139,7 +139,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                k1 = txt1.getText().toString();
+                k1 = txt1.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -157,7 +157,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                k2 = txt2.getText().toString();
+                k2 = txt2.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -174,7 +174,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     weiter.setEnabled(false); //disable button if no text entered
                 else
                     weiter.setEnabled(true);  //otherwise enable
-                k3 = txt3.getText().toString();
+                k3 = txt3.getText().toString().trim();
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -304,6 +304,30 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 break;
 
             case R.id.weiterzuRessource_Button:
+                if(k1.length() == 0){
+                    if (k2.length() == 0) {
+                        k1 = k3;
+                        k3 = "";
+                    }
+                    else{
+                        if(k3.length() != 0){
+                            k1 = k2;
+                            k2 = k3;
+                            k3 = "";
+                        }
+                        else{
+                            k1 = k2;
+                            k2 = "";
+                        }
+                    }
+                }
+                else if(k2.length() == 0){
+                    if (k3 != ""){
+                        k2  = k3;
+                        k3 = "";
+                    }
+                }
+
                 editor.putString("Kompliment1", k1);
                 editor.putString("Kompliment2", k2);
                 editor.putString("Kompliment3", k3);
