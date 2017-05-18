@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/endScreen"
+    android:background="@color/level5Background"
+    tools:context="com.example.lammel.lob.EndScreen">
+
+    <include
+        android:id="@+id/tool_bar"
+        layout="@layout/tool_bar"></include>
+
+    <include
+        android:id="@+id/footer"
+        layout="@layout/footer"></include>
+
+    <TextView
+        android:id="@+id/headerZurueck"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/header_TextView"
+        android:textSize="@dimen/activity_questions"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/headerZurueck"
+        android:layout_marginTop="8dp"
+        android:layout_marginRight="8dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="@string/zurueck_TextView"
+        android:textSize="@dimen/activity_normalcontent"
+
+        />
+
+    <Button
+        android:id="@+id/restart_Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/ruecksetzen_Button"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        android:layout_marginBottom="46dp"
+        android:layout_marginRight="80dp"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginLeft="80dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+</android.support.constraint.ConstraintLayout>

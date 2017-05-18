@@ -298,13 +298,21 @@
 
     <!-- Ende -->
     <string name="Ende1_TextView">Es ist fantastisch! Du hast eine Veränderung in deiner Situation bemerkt. Sei dir dessen bewusst, dass schon die kleinsten Veränderungen einen großen Unterschied bewirken können.
-    Dh hast dich der Herausforderung gestellt und die Chance wahrgenommen, dich weiterzuentwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
-    Es ist hilfreich und sinnvoll, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, so kann du sie trainieren und sie zu automatischen Verhaltensmustern entwickeln.</string>
+    Du hast dich der Herausforderung gestellt und die Chance wahrgenommen, dich weiterzuentwickeln. Deine guten Lösungsfähigkeiten werden dir auch in anderen Bereichen eine große Hilfe sein.
+    Es ist hilfreich und sinnvoll, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, so kannst du sie trainieren und sie zu automatischen Verhaltensmustern entwickeln.</string>
     <string name="Ende_Button">Weiter</string>
+    <string name="Ende2_TextView">Zum Schluss gibt es noch etwas Wichtiges zu sagen: Alles, wirklich alles, was du an Veränderungen erreicht hast, ist ganz allein aus deiner Idee und aus deinen
+                            Kräften erwachsen. LOB hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!</string>
 
     <!-- Notification -->
     <string name="notification_title">LOB - Timer</string>
     <string name="notification_text">Geschafft! Die Zehn Tage sind um.</string>
+
+    <!-- EndScreen -->
+    <string name="header_TextView">Du bist am Ende!</string>
+    <string name="zurueck_TextView">Du hast in den letzten Wochen gezeigt, dass du alle Kompetenzen besitzt um deine Probeleme selbst zu lösen. Doch manchmal kommt man einfach nicht weiter. 
+    Dann hast du hier die Möglichkeit die App zurückzusetzen und mit einem neuen Problem zu starten. Bedenke dass dann deine bisherigen Eingaben verloren gehen.</string>
+    <string name="ruecksetzen_Button">App mit einem neuen Problem starten!</string>
 
 
 </resources>

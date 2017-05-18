@@ -71,7 +71,9 @@
         <activity android:name=".ZehnTage" />
         <activity android:name=".MenuHausaufgabe" />
         <activity android:name=".Level2WeiterGehts" />
+
         <fragment android:name=".Footer_Fragment" />
+
         <activity android:name=".Level2Start" />
         <activity android:name=".Level1Start" />
         <activity android:name=".Level3Start" />
@@ -85,9 +87,13 @@
         <activity android:name=".Level4InselFrage2" />
         <activity android:name=".Level4InselFrage3" />
         <activity android:name=".Level4InselFrage4" />
+
         <service android:name=".BroadcastService" />
         <service android:name=".AlarmService" />
+
         <activity android:name=".MenuIntro" />
+        <activity android:name=".EndScreen" />
+        <activity android:name=".Ende2"></activity>
     </application>
 
 </manifest>

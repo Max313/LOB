@@ -17,19 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.SeekBar;
 import android.widget.TextView;
 
 import java.io.File;
 
-public class Rueckblick extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Ende2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    private SeekBar seekBar;
     private Button weiter;
-    private TextView txt;
-    private int fortschritt;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -41,28 +36,26 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rueckblick);
+        setContentView(R.layout.activity_ende2);
 
-        this.setTitle("Rückblick");
+        this.setTitle("...und am Ende...");
+
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
 
-        if(saved.getInt("sonneStatus", 0) < 2){
-            editor.putInt("sonneStatus", 2);
+        if(saved.getInt("loesungStatus", 0) < 2){
+            editor = saved.edit();
+            editor.putInt("loesungStatus", 2);
+            editor.apply();
         }
-        else if(saved.getInt("loesungStatus", 0) < 1){
-            editor.putInt("loesungStatus", 1);
-        }
-        editor.putInt("tabStatus", 5);
-        editor.apply();
+
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.rueckblick, fragment);
+        transaction.add(R.id.ende2, fragment);
         transaction.commit();
 
         //Toolbar
@@ -73,7 +66,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_rueckblick);
+        delegate.setContentView(R.layout.activity_ende2);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -85,35 +78,12 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         delegate.getSupportActionBar().setLogo(R.drawable.untergang);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //Buttons and more in action
-        txt = (TextView) findViewById(R.id.Seek1_TextView);
-
-        seekBar = (SeekBar) findViewById(R.id.rueckblick_seekBar);
-        if(saved.getInt("fortschritt", 0) != 0){
-            seekBar.setProgress(saved.getInt("fortschritt", 0));
-        }
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                fortschritt = i;
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                txt.setText("" + fortschritt);
-
-            }
-        });
-
-        weiter = (Button) findViewById(R.id.rWeiter_Button);
+        //Button and more (in action)
+        weiter = (Button) findViewById(R.id.Ende2Weiter_Button);
         weiter.setOnClickListener(this);
+
+
+
 
     }
 
@@ -140,7 +110,6 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         return true;
     }
 
-    //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
@@ -222,27 +191,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
     @Override
     public void onClick(View view) {
-
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-
-        editor.putInt("fortschritt", fortschritt);
-        editor.apply();
-
-
-                if(fortschritt >= 8){
-                    Intent intent = new Intent(view.getContext(), Ende.class);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
-
-                }
-
-                else {
-                    startActivity(new Intent(this, Neuorientierung.class));
-                }
-
-
-
+        startActivity(new Intent(this, EndScreen.class));
     }
 
     @Override

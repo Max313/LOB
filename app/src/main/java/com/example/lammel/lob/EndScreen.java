@@ -17,53 +17,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.SeekBar;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Rueckblick extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class EndScreen extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Buttons and more
-    private SeekBar seekBar;
-    private Button weiter;
-    private TextView txt;
-    private int fortschritt;
+    //Button and more
+    private Button zuruecksetzen;
     private AppCompatDelegate delegate;
 
-    //Speicher
+    //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_rueckblick);
-
-        this.setTitle("Rückblick");
-
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-
-        if(saved.getInt("sonneStatus", 0) < 2){
-            editor.putInt("sonneStatus", 2);
-        }
-        else if(saved.getInt("loesungStatus", 0) < 1){
-            editor.putInt("loesungStatus", 1);
-        }
-        editor.putInt("tabStatus", 5);
-        editor.apply();
+        setContentView(R.layout.activity_end_screen);
+        this.setTitle("Level 1");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.rueckblick, fragment);
+        transaction.add(R.id.endScreen, fragment);
         transaction.commit();
+
+
 
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
@@ -73,7 +54,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_rueckblick);
+        delegate.setContentView(R.layout.activity_end_screen);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -85,36 +66,9 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         delegate.getSupportActionBar().setLogo(R.drawable.untergang);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //Buttons and more in action
-        txt = (TextView) findViewById(R.id.Seek1_TextView);
 
-        seekBar = (SeekBar) findViewById(R.id.rueckblick_seekBar);
-        if(saved.getInt("fortschritt", 0) != 0){
-            seekBar.setProgress(saved.getInt("fortschritt", 0));
-        }
-        seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                fortschritt = i;
-
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-                txt.setText("" + fortschritt);
-
-            }
-        });
-
-        weiter = (Button) findViewById(R.id.rWeiter_Button);
-        weiter.setOnClickListener(this);
-
+        zuruecksetzen = (Button) findViewById(R.id.restart_Button);
+        zuruecksetzen.setOnClickListener(this);
     }
 
     //Welche Menüoptionen sind enabled
@@ -154,10 +108,6 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
             case R.id.Sonne:
                 startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-                return true;
-
-            case R.id.Hausaufgabe:
-                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             case R.id.action_delete:
@@ -221,27 +171,12 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
     }
 
     @Override
-    public void onClick(View view) {
+    public void onClick(View v) {
 
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-
-        editor.putInt("fortschritt", fortschritt);
-        editor.apply();
-
-
-                if(fortschritt >= 8){
-                    Intent intent = new Intent(view.getContext(), Ende.class);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
-
-                }
-
-                else {
-                    startActivity(new Intent(this, Neuorientierung.class));
-                }
-
-
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        settings.edit().clear().commit();
+        deleteFiles();
+        startNew();
 
     }
 

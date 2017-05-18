@@ -28,9 +28,6 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
 
     //Buttons and more
     private Button weiter;
-    private TextView txt;
-    private int counter=1;
-    private int source;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -87,10 +84,6 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
         //Button and more (in action)
         weiter = (Button) findViewById(R.id.EndeWeiter_Button);
         weiter.setOnClickListener(this);
-
-        txt = (TextView) findViewById(R.id.Ende_TextView);
-
-        source = getIntent().getExtras().getInt("Source");
 
 
     }
@@ -199,33 +192,7 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.EndeWeiter_Button:
-                //Text ändern
-                if(counter == 0){
-                    this.setTitle("LOB - Geschenke");
-                    txt.setText("Wenn du gleich die Schatzruhe erreichst habe ich darin ein persönliches Geschenk für dich. Denn ich möchte mich für die gute Zusammenarbeit, dein Durchhaltevermögen " +
-                            "und deine Kreativität bedanken. Zudem möchte ich dir vorschlagen, dass du dich auch selbst beschenkst. Vielleicht findest du eine Kleinigkeit die für dich deine Kompetenzen " +
-                            "symbolisiert. Nimm dir ruhig Zeit bei der Wahl, zelebriere es. Vielleicht ist es ein Bild oder eine Figur, du wirst es sicher erkennen wenn du es siehst.");
-                    counter++;
-                    break;
-                }
-
-                else if(counter == 1) {
-                    this.setTitle("LOB - Verabschiedung");
-                    txt.setText("Ganz zum Schluss gibt es noch etwas Wichtiges zu sagen: Alles, wirklich alles, was du an Veränderungen erreicht hast, ist ganz allein aus deiner Idee und aus deinen " +
-                            "Kräften erwachsen. LOB hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!");
-                    weiter.setVisibility(View.GONE);
-                    counter = 0;
-                    break;
-
-                }
-
-           default:
-               break;
-}
-
-
+        startActivity(new Intent(this, Ende2.class));
     }
 
     @Override
