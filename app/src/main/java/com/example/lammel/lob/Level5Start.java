@@ -57,7 +57,7 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
         editor.putInt("tabStatus", 5);
 
         //wenn man vom Timer kommt, damit dieser nicht nochmal aufgerufen wird
-        editor.putBoolean("pause1", true);
+        editor.putBoolean("pause2", true);
         editor.putLong("pauseTime", (long) 0);
 
             editor.apply();

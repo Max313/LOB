@@ -325,7 +325,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file2.exists()){
             img2.setVisibility(View.VISIBLE);
             img2hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
@@ -339,11 +340,11 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file3.exists()){
             img3.setVisibility(View.VISIBLE);
             img3hell.setVisibility(View.GONE);
-            count++;
-            if(count == 8){
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
-            }
+
         }
         else if(file2.length() == 0){
             img3.setVisibility(View.GONE);
@@ -353,7 +354,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file4.exists()){
             img4.setVisibility(View.VISIBLE);
             img4hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
@@ -367,7 +369,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file5.exists()){
             img5.setVisibility(View.VISIBLE);
             img5hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
@@ -381,7 +384,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file6.exists()){
             img6.setVisibility(View.VISIBLE);
             img6hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
@@ -395,7 +399,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file7.exists()){
             img7.setVisibility(View.VISIBLE);
             img7hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
@@ -409,7 +414,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if(file8.exists()){
             img8.setVisibility(View.VISIBLE);
             img8hell.setVisibility(View.GONE);
-
+            fertig.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
