@@ -84,11 +84,18 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         fertig.setOnClickListener(this);
 
         saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        //Set the sourceId for the right AlarmTask
+        editor.putInt("id", 0);
+        editor.putBoolean("alarmStart", false);
+        editor.apply();
+
 
          if (!saved.getBoolean("zehnTage", false)){
             //Timer der 10 Tage runterläuft 864000000 ms
             //Timer der 1 Min runterläuft 60000 ms
-            editor = saved.edit();
+
 
             if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
                 currentTime = System.currentTimeMillis();
@@ -97,12 +104,15 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 editor.apply();
             }
 
-            Log.i(TAG, "before starting service");
             //Timer using a Service
             Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
             startService(intent_service);
 
         }
+        else{
+             timer.setText("Geschafft");
+             fertig.setEnabled(true);
+         }
 
 
         //Speicherung Text
@@ -153,7 +163,6 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     private BroadcastReceiver br = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.i(TAG, "receive Message");
             updateGui(intent);
         }
     };
@@ -186,7 +195,6 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     }
 
     private void updateGui(Intent intent){
-        Log.i(TAG, "update Gui");
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
@@ -196,8 +204,6 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
-
-            Log.i(TAG, "zeit: " + millisUntilFinished);
 
             if (millisUntilFinished > 0) {
 
@@ -358,6 +364,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         editor.putString("ZehntageEdit5", inhalt5);
 
         editor.apply();
+
 
         Intent intent = new Intent(view.getContext(), Level2Loesungswege.class);
         intent.putExtra("LoesungsCounter", 5);

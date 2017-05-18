@@ -23,7 +23,6 @@ public class BroadcastService extends Service {
     private SharedPreferences saved;
     private long startValue;
     private static final long countdown = 60000;
-
     CountDownTimer cdt;
 
 
@@ -37,16 +36,14 @@ public class BroadcastService extends Service {
     @Override
     public void onDestroy(){
         cdt.cancel();
-        Log.i(TAG, "Timer cancelled");
         super.onDestroy();
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId){
-        Log.i(TAG, "Starting timer...");
 
+        saved = getSharedPreferences(PREFS_NAME, 0);
 
-            saved = getSharedPreferences(PREFS_NAME, 0);
             if(saved.getLong("pauseTime", (long) 0) != (long) 0){
                 long savedTime = saved.getLong("pauseTime", (long) 0);
                 long currentTime = System.currentTimeMillis();
@@ -75,7 +72,7 @@ public class BroadcastService extends Service {
         };
         cdt.start();
         if(!saved.getBoolean("alarmStart", false)) {
-            new AlarmTask(this).run();
+                    new AlarmTask(this).run();
         }
         return super.onStartCommand(intent, flags, startId);
     }

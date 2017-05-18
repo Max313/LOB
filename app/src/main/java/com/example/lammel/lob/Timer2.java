@@ -94,6 +94,12 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         //Timer der 1 Min runterläuft 60000 ms
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+
+        //Set the sourceId for the right AlarmTask
+        editor.putInt("id", 2);
+        editor.putBoolean("alarmStart", false);
+        editor.apply();
+
         if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
             currentTime = System.currentTimeMillis();
             editor.putLong("pauseTime", currentTime);
@@ -151,9 +157,13 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     }
 
     private void updateGui(Intent intent){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", 0);
 
+            editor.putBoolean("alarmStart", true);
+            editor.apply();
             if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
@@ -168,7 +178,12 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
 
 
             else{
+                Log.i(TAG, "Timer abgelaufen");
+                days.setText("00");
+                hours.setText("00");
+                minutes.setText("00");
                 seconds.setText("00");
+
                 weiter.setVisibility(View.VISIBLE);
                 weiter.setOnClickListener(this);
 

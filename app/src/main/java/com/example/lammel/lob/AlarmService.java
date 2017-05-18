@@ -17,6 +17,7 @@ import android.util.Log;
 public class AlarmService extends Service {
 
     private final static String TAG = "AlarmService";
+    private int source;
 
 
 
@@ -40,11 +41,26 @@ public class AlarmService extends Service {
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i("LocalService", "Received start id " + startId + ": " + intent);
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        source = saved.getInt("id",0);
 
         // If this service was started by out AlarmTask intent then we want to show our notification
-        if(intent.getBooleanExtra(INTENT_NOTIFY, false))
+        if(source == 0){
+            Log.i(TAG, "Version 1");
             showNotification();
+        }
+
+        else if(source == 1){
+            Log.i(TAG, "Version 2");
+            showNotificationP();
+
+        }
+        else{
+            showNotificationP2();
+            Log.i(TAG, "Version 3");
+        }
+
 
         return super.onStartCommand(intent, flags, startId);
     }
@@ -52,7 +68,7 @@ public class AlarmService extends Service {
 
 
     /**
-     * Creates a notification and shows it in the OS drag-down status bar
+     * Creates a notification and shows it in the OS drag-down status bar (timer zwischen 2 und 3)
      */
     private void showNotification() {
         PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ZehnTage.class), 0);
@@ -74,6 +90,56 @@ public class AlarmService extends Service {
         // Stop the service when we are finished
         stopSelf();
     }
+
+    /**
+     * Creates a notification and shows it in the OS drag-down status bar (Timer zwischen 3 und 4)
+     */
+    private void showNotificationP() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level4Start.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_title))
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle(r.getString(R.string.notification_title))
+                .setContentText(r.getString(R.string.notification_text))
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+
+
+        // Send the notification to the system.
+        mNM.notify(NOTIFICATION, notification);
+
+        // Stop the service when we are finished
+        stopSelf();
+    }
+
+    /**
+     * Creates a notification and shows it in the OS drag-down status bar (Timer zwischen 4 und 5)
+     */
+    private void showNotificationP2() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level5Start.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_title))
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle(r.getString(R.string.notification_title))
+                .setContentText(r.getString(R.string.notification_text))
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+
+
+        // Send the notification to the system.
+        mNM.notify(NOTIFICATION, notification);
+
+        // Stop the service when we are finished
+        stopSelf();
+    }
+
+
 
 
 
