@@ -93,7 +93,9 @@
 
         <activity android:name=".MenuIntro" />
         <activity android:name=".EndScreen" />
-        <activity android:name=".Ende2"></activity>
+        <activity android:name=".Ende2" />
+        <activity android:name=".Lob" />
+        <activity android:name=".GeringeEntwicklung"></activity>
     </application>
 
 </manifest>

@@ -130,7 +130,7 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen die dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
+    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
     ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
@@ -156,10 +156,10 @@
     <string name="ok">OK</string>
 
     <!-- Verhalten -->
-    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Du bleibst ruhig und versuchst dich in deinen Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
+    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Ich bleibe ruhig und versuche mich in meinen Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
     <string name="platzhalterVerhalten_EditText">Eingabe</string>
     <!-- Kompliment -->
-    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Es ist beeindruckend wie einfühlsam und aufmerksam du auf deinen Partner eingehst.</string>
+    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Es ist beeindruckend wie einfühlsam und aufmerksam ich auf meinen Partner eingehe.</string>
 
     <!-- Ressource -->
     <string name="beispielRessource_TextView"><b>Beispiel:</b> Einfühlsam</string>
@@ -289,11 +289,16 @@
     <string name="rWeiter_Button">Weiter</string>
 
     <!-- Neuorientierung -->
-    <string name="neu_TextView">Du bist noch nicht ganz da, wo du eigentlich sein wolltest? Aber du hast erste Schritte dahin unternommen, und das ist meist das schweirigste
+    <string name="neu_TextView">Du bist noch nicht ganz da, wo du eigentlich sein wolltest? Aber du hast erste Schritte dahin unternommen, und das ist meist das schwierigste
     Stück des Weges. Wenn man Neues ausprobiert, dann kommt man schon mal ins Stolpern. Das kennt jeder und das ist vollkommen okay. Welches Vorgehen
     hat dir bisher dabei geholfen Probleme in deinem Leben zu meistern? <!--\nÜberdenke die Situation vielleicht noch mal mit einem neuen Ansatz.--></string>
     <string name="level2_Button">In Level 2 weitermachen.</string>
     <string name="wEnde_Button">Ich bin zufrieden mit dem Fortschritt. \nWeiter</string>
+
+    <!-- Geringe Entwicklung -->
+    <string name="geringeEntwicklung_TextView">Du bist noch nicht ganz da, wo du eigentlich sein wolltest? Aber du hast erste Schritte dahin unternommen, und das ist meist das schwierigste
+    Stück des Weges. Wenn man Neues ausprobiert, dann kommt man schon mal ins Stolpern. Das kennt jeder und das ist vollkommen okay. Auch ist nicht für jeden eine App die richtige Hilfe auf dem Weg zur Lösung.
+        \nDoch es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst wähle einen der unteren Wege!</string>
 
     <!-- Ende -->
     <string name="Ende1_TextView">Es ist fantastisch! Du hast eine Veränderung in deiner Situation bemerkt. Sei dir dessen bewusst, dass schon die kleinsten Veränderungen einen großen Unterschied bewirken können.

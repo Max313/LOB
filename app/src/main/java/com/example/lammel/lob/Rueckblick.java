@@ -237,6 +237,10 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
                 }
 
+                else if(fortschritt <= 3){
+                    startActivity(new Intent(this, GeringeEntwicklung.class));
+                }
+
                 else {
                     startActivity(new Intent(this, Neuorientierung.class));
                 }

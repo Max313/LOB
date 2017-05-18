@@ -26,11 +26,9 @@ import java.io.File;
 public class Level1Onboarding extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    private int counter = 3;
 
     // Button and more
     private Button weiter_button;
-    private TextView onboard;
     private AppCompatDelegate delegate;
 
     //shared Preferences zum Speichern
@@ -184,7 +182,6 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
 
     private void onboardingProzessStarten() {
         weiter_button = (Button) findViewById(R.id.weiter_button);
-        onboard = (TextView) findViewById(R.id.onboard_1);
         weiter_button.setOnClickListener(this);
     }
 
@@ -195,22 +192,8 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
 
-        switch (v.getId()) {
 
-            case R.id.weiter_button:
-            if (counter == 0) {
-                onboard.setText("Du bist der Meinung dein Umfeld ist wichtig und gibt Energie?\nFinden wir auch!\nLerne hier deine Konflikte zu lösen.");
-                counter++;
-                break;
-            } else if (counter == 1) {
-                onboard.setText("Die Ursache des Konflikts ist nicht entscheidend, wichtig ist, wie du die Situation in der Zukunft siehst.");
-                counter++;
-                break;
-            } else if (counter == 2) {
-                onboard.setText("Deswegen spielt das Problem hier eine untergeordnete Rolle.\nEs geht darum, dass du dich gut fühlst und das erreicht man nicht durch die Problem- sondern Lösungsfokussierung.");
-                counter++;
-                break;
-            } else if (counter == 3) {
+
                 startActivity(new Intent(this, LevelIntro.class));
 
                 //startActivity(new Intent(this, Staerkeinsel.class));
@@ -218,12 +201,9 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
                 //startActivity(new Intent(this, Rueckblick.class));
 
                 //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-            }
 
-            default:
-                break;
 
-        }
+
     }
 
 

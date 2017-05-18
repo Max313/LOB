@@ -177,7 +177,6 @@ public class Level4InselFrage4 extends FragmentActivity implements View.OnClickL
     public void onClick(View view) {
 
         Intent intent = new Intent(view.getContext(), Mantra.class);
-        intent.putExtra("Source", 0);
         startActivity(intent);
 
 

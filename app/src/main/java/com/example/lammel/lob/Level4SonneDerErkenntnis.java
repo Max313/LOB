@@ -589,7 +589,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
 
 
             case R.id.fertig_Button:
-                Intent intent = new Intent(view.getContext(), Mantra.class);
+                Intent intent = new Intent(view.getContext(), Lob.class);
                 intent.putExtra("Source", 1);
                 startActivity(intent);
 

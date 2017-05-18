@@ -4,9 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/mantra"
+    android:id="@+id/lob"
     android:background="@color/level4Background"
-    tools:context="com.example.lammel.lob.Mantra">
+    tools:context="com.example.lammel.lob.Lob">
 
     <include
         android:id="@+id/tool_bar"
@@ -17,7 +17,7 @@
         layout="@layout/footer"></include>
 
     <TextView
-        android:id="@+id/Mantra_TextView"
+        android:id="@+id/lob_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Mantra_TextView"
@@ -32,7 +32,7 @@
 
 
     <Button
-        android:id="@+id/mantraWeiter_Button"
+        android:id="@+id/lobWeiter_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/mantraWeiter_Button"
@@ -44,4 +44,5 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp" />
+
 </android.support.constraint.ConstraintLayout>

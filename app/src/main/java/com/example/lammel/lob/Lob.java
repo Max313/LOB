@@ -17,12 +17,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Lob extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     //Buttons and more
@@ -37,14 +35,14 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mantra);
+        setContentView(R.layout.activity_lob);
         this.setTitle("Kompliment");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.mantra, fragment);
+        transaction.add(R.id.lob, fragment);
         transaction.commit();
 
         //Toolbar
@@ -55,7 +53,7 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_mantra);
+        delegate.setContentView(R.layout.activity_lob);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -70,7 +68,7 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
 
 
         //Button on action
-        weiter = (Button) findViewById(R.id.mantraWeiter_Button);
+        weiter = (Button) findViewById(R.id.lobWeiter_Button);
         weiter.setOnClickListener(this);
     }
 
@@ -180,9 +178,15 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
-        
+        saved = getSharedPreferences(PREFS_NAME,0);
 
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+        if (!saved.getBoolean("pause2", false)){
+            startActivity(new Intent(this, PauseZwischen4und5.class));
+        }
+
+        else{
+            startActivity(new Intent(this, Level5Start.class));
+        }
 
     }
 

@@ -305,6 +305,18 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("sonneStatus", 0) < 2){
+            editor.putInt("sonneStatus", 2);
+        }
+        else if(saved.getInt("loesungStatus", 0) < 1){
+            editor.putInt("loesungStatus", 1);
+        }
+        editor.putInt("tabStatus", 5);
+
         startActivity(new Intent(this, Level5Start.class));
     }
 

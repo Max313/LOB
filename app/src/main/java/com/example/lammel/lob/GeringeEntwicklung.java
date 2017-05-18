@@ -17,16 +17,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import java.io.File;
 
-public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
-
+public class GeringeEntwicklung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    private Button weiter;
+    private Button zuLevel2;
+    private Button zumEnde;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -37,14 +35,15 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mantra);
-        this.setTitle("Kompliment");
+        setContentView(R.layout.activity_geringe_entwicklung);
+
+        this.setTitle("Neuorientierung");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.mantra, fragment);
+        transaction.add(R.id.geringeEntwicklung, fragment);
         transaction.commit();
 
         //Toolbar
@@ -55,23 +54,24 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_mantra);
+        delegate.setContentView(R.layout.activity_geringe_entwicklung);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level4));
-
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level5));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        //Buttons in action
+        zuLevel2 = (Button) findViewById(R.id.zulevel2_Button);
+        zuLevel2.setOnClickListener(this);
 
-        //Button on action
-        weiter = (Button) findViewById(R.id.mantraWeiter_Button);
-        weiter.setOnClickListener(this);
+        zumEnde = (Button) findViewById(R.id.weiterEnde_Button);
+        zumEnde.setOnClickListener(this);
     }
 
     //Welche Menüoptionen sind enabled
@@ -177,12 +177,22 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
         startActivity(new Intent(this, MainActivity.class));
     }
 
-
     @Override
     public void onClick(View view) {
-        
 
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+        switch (view.getId()){
+
+            case R.id.zulevel2_Button:
+                startActivity(new Intent(this, Level2Veraenderung.class));
+                break;
+
+            case R.id.weiterEnde_Button:
+                startActivity(new Intent(this, Ende.class));
+                break;
+
+            default:
+                break;
+        }
 
     }
 

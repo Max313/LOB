@@ -186,6 +186,12 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
     @Override
     public void onClick(View v) {
 
+        if(saved.getInt("zielStatus", 0) == 0){
+            editor.putInt("zielStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 1);
+        editor.apply();
 
         startActivity(new Intent(this, Level1Start.class));
 

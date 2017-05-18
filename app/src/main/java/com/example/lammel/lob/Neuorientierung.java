@@ -189,9 +189,7 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
                 break;
 
             case R.id.wEnde_Button:
-                Intent intent = new Intent(view.getContext(), Ende.class);
-                intent.putExtra("Source", 1);
-                startActivity(intent);
+                startActivity(new Intent(this, Ende.class));
                 break;
 
             default:
