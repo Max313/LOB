@@ -76,7 +76,8 @@
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-                android:inputType="textMultiLine" />
+                android:inputType="text"
+                android:imeOptions="actionDone" />
 
         </TableRow>
 
@@ -90,7 +91,8 @@
                 android:background="@drawable/table_value_border_even"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-                android:inputType="textMultiLine" />
+                android:inputType="text"
+                android:imeOptions="actionDone" />
 
         </TableRow>
 
@@ -103,8 +105,8 @@
                 android:background="@drawable/table_value_border_odd"
                 android:gravity="top|left"
                 android:hint="@string/platzhalterVerhalten_EditText"
-
-                android:inputType="textMultiLine" />
+                android:inputType="text"
+                android:imeOptions="actionDone" />
 
         </TableRow>
     </TableLayout>

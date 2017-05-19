@@ -106,7 +106,6 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                 return false;
             }
         });
-        Log.i(LOG_TAG, "Ja hallo hier bin ich!");
 
         problem = saved.getString("ProblemSave", "");
         if(problem != ""){

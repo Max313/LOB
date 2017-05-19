@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -15,9 +16,12 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -95,6 +99,20 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         saved = getSharedPreferences(PREFS_NAME, 0);
         ziel = saved.getString("ZielSave", defaultZiel);
         zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
+        zieltxt.setHorizontallyScrolling(false);
+        zieltxt.setLines(Integer.MAX_VALUE);
+        zieltxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
         if (ziel != defaultZiel) {
             zieltxt.setText(ziel);
             zielFesthalten_Button.setEnabled(true);
