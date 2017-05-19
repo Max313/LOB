@@ -95,6 +95,9 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 

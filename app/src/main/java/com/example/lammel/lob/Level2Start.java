@@ -99,6 +99,9 @@ public class Level2Start extends FragmentActivity implements View.OnClickListene
             if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
             }
+            if (!saved.getBoolean("MenuHausaufgabe", false)){
+                menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+            }
             return true;
             }
 

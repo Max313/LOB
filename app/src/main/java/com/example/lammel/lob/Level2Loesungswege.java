@@ -223,6 +223,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
@@ -267,8 +270,8 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
-                builder.setTitle("Lösungsweg");
-                builder.setMessage("Beispiel : Ich habe angerufen obwohl ich das schon lange nicht mehr gemacht habe.");
+                builder.setTitle("Lösungsweg - Beispiel");
+                builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Mir fällt nichts ein\" um dorthin zu gelangen.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

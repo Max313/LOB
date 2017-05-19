@@ -84,6 +84,9 @@ public class Level2HypoLoesung extends FragmentActivity implements View.OnClickL
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 

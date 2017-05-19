@@ -91,6 +91,9 @@ public class Level2AusnahmenWeiter extends FragmentActivity implements View.OnCl
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 

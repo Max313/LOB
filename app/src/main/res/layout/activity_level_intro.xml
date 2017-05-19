@@ -132,7 +132,7 @@
         android:id="@+id/einfuehrung_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start"
+        android:text="@string/weiter_Button"
         app:layout_constraintBottom_toBottomOf="@id/footer"
         android:layout_marginBottom="46dp"
         android:layout_marginLeft="8dp"
