@@ -108,6 +108,10 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -194,15 +198,7 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
 
 
 
-                startActivity(new Intent(this, LevelIntro.class));
-
-                //startActivity(new Intent(this, Staerkeinsel.class));
-
-                //startActivity(new Intent(this, Rueckblick.class));
-
-                //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-
-
+                startActivity(new Intent(this, Onboarding2.class));
 
     }
 

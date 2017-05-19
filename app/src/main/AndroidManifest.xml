@@ -10,92 +10,215 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Level1Onboarding" />
-        <activity android:name=".Level1Problemdefinition" />
+        <activity
+            android:name=".Level1Onboarding"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level1Problemdefinition"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Level1_ProblemBeschreibung"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Level1ProblemBeschreibungDank" />
+        <activity
+            android:name=".Level1ProblemBeschreibungDank"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Level1Zieldefinition"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Level1ZielVerwahren" />
+        <activity
+            android:name=".Level1ZielVerwahren"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Level2Loesungswege"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Level2Veraenderung" />
-        <activity android:name=".Level2Ausnahmen" />
-        <activity android:name=".Level2VeraenderungJa" />
-        <activity android:name=".Level2HypoLoesung" />
-        <activity android:name=".Level2Phantasiereise" />
-        <activity android:name=".Level2Universalloesung" />
-        <activity android:name=".Level2UniversalloesungAnekdote" />
+        <activity
+            android:name=".Level2Veraenderung"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2Ausnahmen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2VeraenderungJa"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2HypoLoesung"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2Phantasiereise"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2Universalloesung"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2UniversalloesungAnekdote"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Level2UniversalloesungWeiter"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Level2Exitstrategie" />
-        <activity android:name=".Level2KeineLoesung" />
-        <activity android:name=".Wunderbar" />
-        <activity android:name=".Staerkeinsel" />
-        <activity android:name=".Level3UebungStart" />
-        <activity android:name=".Level4InselDesSehenden" />
-        <activity android:name=".Level4InselFrage1" />
+        <activity
+            android:name=".Level2Exitstrategie"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2KeineLoesung"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Wunderbar"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Staerkeinsel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level3UebungStart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4InselDesSehenden"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4InselFrage1"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Verhalten"
+            android:screenOrientation="portrait"
             android:windowSoftInputMode="stateHidden" />
-        <activity android:name=".Kompliment" />
-        <activity android:name=".Ressource" />
-        <activity android:name=".UebersichtTable" />
-        <activity android:name=".Level4SonneDerErkenntnis" />
-        <activity android:name=".Sonne1" />
-        <activity android:name=".Sonne2" />
-        <activity android:name=".Sonne3" />
-        <activity android:name=".Sonne4" />
-        <activity android:name=".Sonne5" />
-        <activity android:name=".Sonne6" />
-        <activity android:name=".Sonne7" />
-        <activity android:name=".Sonne8" />
-        <activity android:name=".SonneDerErkenntnisStart" />
-        <activity android:name=".Mantra" />
-        <activity android:name=".Ende" />
-        <activity android:name=".Rueckblick" />
-        <activity android:name=".Neuorientierung" />
-        <activity android:name=".MenuZiel" />
-        <activity android:name=".ZehnTage" />
-        <activity android:name=".MenuHausaufgabe" />
-        <activity android:name=".Level2WeiterGehts" />
+        <activity
+            android:name=".Kompliment"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ressource"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".UebersichtTable"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4SonneDerErkenntnis"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne1"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne4"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne6"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne7"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Sonne8"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".SonneDerErkenntnisStart"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Mantra"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ende"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Rueckblick"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Neuorientierung"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuZiel"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ZehnTage"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MenuHausaufgabe"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level2WeiterGehts"
+            android:screenOrientation="portrait" />
 
         <fragment android:name=".Footer_Fragment" />
 
-        <activity android:name=".Level2Start" />
-        <activity android:name=".Level1Start" />
-        <activity android:name=".Level3Start" />
-        <activity android:name=".Level4Start" />
-        <activity android:name=".Level5Start" />
-        <activity android:name=".Pause" />
-        <activity android:name=".Timer" />
-        <activity android:name=".PauseZwischen4und5" />
-        <activity android:name=".Timer2" />
-        <activity android:name=".LevelIntro" />
-        <activity android:name=".Level4InselFrage2" />
-        <activity android:name=".Level4InselFrage3" />
-        <activity android:name=".Level4InselFrage4" />
+        <activity
+            android:name=".Level2Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level1Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level3Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level5Start"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Pause"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Timer"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".PauseZwischen4und5"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Timer2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".LevelIntro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4InselFrage2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4InselFrage3"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Level4InselFrage4"
+            android:screenOrientation="portrait" />
 
         <service android:name=".BroadcastService" />
         <service android:name=".AlarmService" />
 
-        <activity android:name=".MenuIntro" />
-        <activity android:name=".EndScreen" />
-        <activity android:name=".Ende2" />
-        <activity android:name=".Lob" />
-        <activity android:name=".GeringeEntwicklung"></activity>
+        <activity
+            android:name=".MenuIntro"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".EndScreen"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Ende2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Lob"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".GeringeEntwicklung"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Level2AusnahmenWeiter" />
+        <activity android:name=".Onboarding2"></activity>
     </application>
 
 </manifest>

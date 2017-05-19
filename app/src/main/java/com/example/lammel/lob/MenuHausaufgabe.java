@@ -121,6 +121,10 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -219,7 +223,7 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
             case R.id.hausaufgabe_ButtonCube:
                 builder.setTitle("Würfelspiel");
                 builder.setMessage("Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu: " +
-                        "\nWürfle einen Würfel. Kommt eine gerade Zahl raus, dann wende das neue Verhalten in einer Problemsituation an. Kommt eine ungerade heraus so bleibt alles bisher. " +
+                        "\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Würfle nun einen Würfel. Wenn du eine ungerade Augenzahl gewürfelt hast, wendest du dieses Verhalten das nächste mal in einer Problemsituation an. Kommt eine ungerade Zahl heraus so bleibt alles bisher. " +
                         "\nBeobachte ganz genau was passiert.\n");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -233,9 +237,9 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
 
             case R.id.hausaufgabe_ButtonCoin:
                 builder.setTitle("Münzwurf");
-                builder.setMessage("Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Also gibt es jetzt ein keines Experiment dazu:  " +
-                        "\nBevor du mit einer anderen Person in Berührung kommst werfe eine Münze und wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. " +
-                        "\nAchte genau darauf wie andere Personen darauf reagieren\n");
+                builder.setMessage("Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein keines Experiment:  " +
+                        "\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, wirf eine Münze. Wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. " +
+                        "\nAchte genau darauf wie dich dabei fühlst.\n");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

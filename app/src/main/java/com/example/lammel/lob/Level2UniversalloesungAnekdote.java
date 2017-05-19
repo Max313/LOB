@@ -80,7 +80,7 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
         textViewAnekdote = (TextView) findViewById(R.id.universalAnekdote_Textview);
         neu = getIntent().getExtras().getBoolean("Anekdote2");
         if(neu == true){
-            textViewAnekdote.setText("Wenn man zu einem Ort geht, den man kennt, nimmt man meistens den gleichen Weg. Dieser ist schon bekannt, vermutlich der schnellste, also warum etwas ändern? Wenn du immer das gleiche machst kannst du in eine Trance geraten, in der du gar nicht mehr wahrnimmst was um dich herum alles passiert. Versuche doch einmal, einen neuen Weg zu gehen wenn du unterwegs bist auf deiner üblichen Strecke, auch wenn es ein kleiner Umweg ist. Du wirst feststellen, dass es viel zu entdecken ist und möglicherweise verändert sich die Art und Weise, wie du gehst wenn du bewusst durch eine neue Umgebung gehst. Wenn du etwas willst, was du noch nicht hast, dann tu, was du noch nicht tust!");
+            textViewAnekdote.setText("Wenn man zu einem Ort geht, den man kennt, nimmt man meistens den gleichen Weg. Dieser ist schon bekannt, vermutlich der schnellste, also warum etwas ändern? Wenn du immer das gleiche machst kannst du in eine Trance geraten, in der du gar nicht mehr wahrnimmst was um dich herum alles passiert. Versuche doch einmal, einen neuen Weg zu gehen wenn du unterwegs auf deiner üblichen Strecke bist, auch wenn es ein kleiner Umweg ist. Du wirst feststellen, dass es viel zu entdecken gibt wenn du bewusst durch eine neue Umgebung gehst. Möglicherweise verändert sich sogar die Art und Weise wie du gehst.\nWenn du etwas willst, was du noch nicht hast, dann tu, was du noch nicht tust!");
         }
 
         source = getIntent().getExtras().getInt("Source");
@@ -115,6 +115,10 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;

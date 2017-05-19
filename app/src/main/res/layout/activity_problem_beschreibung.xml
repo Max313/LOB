@@ -36,6 +36,7 @@
     <EditText
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:imeOptions="actionDone"
         android:hint="@string/beschreibung"
         android:textSize="@dimen/activity_normalcontent"
         android:id="@+id/problem_editText"
@@ -46,7 +47,8 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/weiter_buttonProblem" />
+        app:layout_constraintBottom_toTopOf="@+id/weiter_buttonProblem"
+        />
 
     <Button
         android:layout_width="wrap_content"

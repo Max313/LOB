@@ -18,6 +18,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 import java.io.File;
 
@@ -25,9 +28,10 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
     //Buttons
     private Button button1, button2;
+    private TextView txt;
     private int loesungsCounter;
     private AppCompatDelegate delegate;
-    private Boolean tagebuch, muenze, wuerfel;
+    private int counter = 0;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -72,8 +76,11 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
         button1 = (Button) findViewById(R.id.weiterGehts_Button1);
         button2 = (Button) findViewById(R.id.weiterGehts_Button2);
+        txt = (TextView) findViewById(R.id.weiterGehts_Textview);
 
-
+        if(loesungsCounter == 0){
+            txt.setText("So individuell jeder von uns ist, so individuell sind auch unsere Lösungswege. Neue Wege sind Übungen, die dir dabei helfen sollen den richtigen Lösungsansatz für dein Problem zu finden. Bist du sicher, dass du keine davon ausprobieren willst? ");
+        }
         if(loesungsCounter == 5){
             button2.setEnabled(false);
         }
@@ -111,6 +118,10 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -191,87 +202,72 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     public void onClick(View v) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2WeiterGehts.this);
         saved = getSharedPreferences(PREFS_NAME, 0);
-        tagebuch = saved.getBoolean("TagebuchSave", false);
-        wuerfel = saved.getBoolean("WürfelSave", false);
-        muenze = saved.getBoolean("MünzeSave", false);
         editor = saved.edit();
         switch (v.getId()){
             case R.id.weiterGehts_Button1:
-                if((tagebuch && wuerfel && muenze) != true){
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+
+                if (saved.getInt("ideeStatus", 0) < 2) {
+                    editor.putInt("ideeStatus", 2);
+                } else if (saved.getInt("ressourceStatus", 0) < 1) {
+                    editor.putInt("ressourceStatus", 1);
+                }
+                editor.putInt("tabStatus", 3);
+                editor.apply();
+
+                if(counter == 0 && !saved.getBoolean("HausaufgabeSave", false)) {
                     editor.putBoolean("TagebuchSave", true);
-                    editor.putBoolean("WürfelSave", true);
                     editor.putBoolean("MünzeSave", true);
+                    editor.putBoolean("WürfelSave", true);
+                    editor.putBoolean("HausaufgabeSave", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
-                    builder.setMessage("Es wurden alle Hausaufgaben für dich freigeschaltet. Du kannst zu jeder Zeit darauf zugreifen und eine davon ausprobieren, wenn du willst. ");
+                    builder.setMessage("Am besten ist es, wenn du die Lösungswege, die du gefunden hast, auch ausprobierst. Eine kleine Hausaufgabe wird dich dabei unterstützen. Du hast jetzt den Zugriff auf alle drei Übungen freigeschaltet.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             startNext();
                         }
                     });
-                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
+                    builder.setNeutralButton("Ansehen", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             startHausaufgaben();
                         }
                     });
-                    AlertDialog dialogY = builder.create();
-                    dialogY.show();
+                    AlertDialog dialogX = builder.create();
+                    dialogX.show();
                 }
-                else {
-
-                    //Set Status - Footer
-                    saved = getSharedPreferences(PREFS_NAME, 0);
-                    editor = saved.edit();
-
-                    if(saved.getInt("ideeStatus",0) < 2){
-                        editor.putInt("ideeStatus", 2);
-                    }
-                    else if(saved.getInt("ressourceStatus", 0) < 1){
-                        editor.putInt("ressourceStatus", 1);
-                    }
-
-                    editor.putInt("tabStatus", 3);
-                    editor.apply();
-
+                else{
                     startActivity(new Intent(this, Level3Start.class));
+                    counter = 0;
                 }
+
                 break;
 
             case R.id.weiterGehts_Button2:
                 if(loesungsCounter == 0){
-                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    //intent.putExtra("WegCounter", 0);
-                    //startActivity(intent);
-                    startActivity(new Intent(this, Level2Ausnahmen.class));
+                    startActivity(new Intent(this, Level2Veraenderung.class));
                     break;
                 }
                 else if(loesungsCounter == 1){
-                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    //intent.putExtra("WegCounter", 1);
-                    //startActivity(intent);
-                    startActivity(new Intent(this, Level2HypoLoesung.class));
+                    startActivity(new Intent(this, Level2Ausnahmen.class));
                     break;
                 }
                 else if(loesungsCounter == 2){
-                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    //intent.putExtra("WegCounter", 2);
-                    //startActivity(intent);
+                    startActivity(new Intent(this, Level2HypoLoesung.class));
+                    break;
+                }
+                else if(loesungsCounter == 3){
                     startActivity(new Intent(this, Level2Universalloesung.class));
                     break;
                 }
-                else if(loesungsCounter == 3) {
-                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    //intent.putExtra("WegCounter", 3);
-                    //startActivity(intent);
+                else if(loesungsCounter == 4) {
                     startActivity(new Intent(this, Level2Exitstrategie.class));
                     break;
                 }
-                else if(loesungsCounter == 4) {
-                    //Intent intent = new Intent(v.getContext(), Level2NeuerWeg.class);
-                    //intent.putExtra("WegCounter", 4);
-                    //startActivity(intent);
+                else if(loesungsCounter == 5) {
                     startActivity(new Intent(this, Level2KeineLoesung.class));
                     break;
                 }

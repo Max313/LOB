@@ -28,7 +28,6 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
     private Button ausnahmenWeiter;
     private TextView ausnahmenText;
     private AppCompatDelegate delegate;
-    private int counter = 0;
 
     //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -106,6 +105,10 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -185,62 +188,9 @@ public class Level2Ausnahmen extends FragmentActivity implements View.OnClickLis
 
     @Override
     public void onClick(View v) {
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-        final View view = v;
-        AlertDialog.Builder builder = new AlertDialog.Builder(Level2Ausnahmen.this);
-        switch (v.getId()){
-            case R.id.ausnahmen_ButtonWeiter:
-                if (counter == 0){
-                    ausnahmenText.setText("Gab es in den letzten Wochen irgendwann Zeiten, in denen du den Konflikt weniger schlimm erlebt hast?\nWas genau war da anders als sonst?\nManchmal muss man ganz genau hinschauen.\nNimm dir daher Zeit dich mit den unterschiedlichen Facetten einer Ausnahme auseinanderzusetzen.");
-                    counter++;
-                    break;
-                }
-                else if (counter == 1){
-                    editor.putBoolean("TagebuchSave", true);
-                    editor.apply();
-                    builder.setTitle("Hausaufgabe");
-                    builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir helfen das Konzept besser zu verstehen und erlerntes zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.");
-                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                            startNext(view);
-                        }
-                    });
-                    builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int id) {
-                            dialog.cancel();
-                            startHausaufgaben();
-                        }
-                    });
-                    AlertDialog dialogX = builder.create();
-                    dialogX.show();
-
-                    counter++;
-                    break;
-                }
-                else if (counter == 2){
-                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 2);
-                    startActivity(intent);
-                    counter = 0;
-                    break;
-                }
-
-            default:
-                break;
-        }
+        startActivity(new Intent(this, Level2AusnahmenWeiter.class));
     }
 
-    private void startNext(View v) {
-        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-        intent.putExtra("LoesungsCounter", 2);
-        startActivity(intent);
-    }
-
-    private void startHausaufgaben() {
-        startActivity(new Intent(this, MenuHausaufgabe.class));
-    }
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

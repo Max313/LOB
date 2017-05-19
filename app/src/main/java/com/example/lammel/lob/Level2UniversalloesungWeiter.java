@@ -92,7 +92,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         //Edit Text und gespeicherter Text
         universal = saved.getString("UniversalSave", "");
         final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
-        if(universal!=""){
+        if(universal.length() == 0){
             txt1.setText(universal);
             universalloesungWeiter_Weiter.setEnabled(true);
         }
@@ -142,6 +142,10 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;

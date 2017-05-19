@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -16,9 +17,14 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -31,6 +37,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     //Button
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
+    private static final String LOG_TAG = "testtesttest";
 
     //EditText
     private EditText txt;
@@ -88,15 +95,31 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
 
         //Edit Text Action -> enables Button and saves Problem
         txt = (EditText) findViewById(R.id.problem_editText);
+        txt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+        Log.i(LOG_TAG, "Ja hallo hier bin ich!");
+
         problem = saved.getString("ProblemSave", "");
         if(problem != ""){
             txt.setText(problem);
             weiterButtonProblem.setEnabled(true);
         }
+
         txt.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
+
             {
+
                 if(txt.length() == 0) {
                     weiterButtonProblem.setEnabled(false); //disable button if no text entered
 
@@ -142,6 +165,10 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;

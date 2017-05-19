@@ -35,7 +35,7 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
-        this.setTitle("Level 1");
+        this.setTitle("...und am Ende...");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -98,6 +98,10 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -108,6 +112,10 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
 
             case R.id.Sonne:
                 startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             case R.id.action_delete:

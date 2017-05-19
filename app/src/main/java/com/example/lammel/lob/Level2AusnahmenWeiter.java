@@ -1,11 +1,15 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
@@ -15,42 +19,34 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
 
-public class LevelIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Level2AusnahmenWeiter extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    private int counter = 3;
-
-    // Button and more
-    private Button weiter;
+    //Buttons and more
+    private Button ausnahmenWeiterButton;
     private AppCompatDelegate delegate;
 
-    //shared Preferences zum Speichern
+    //Shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
-
-    //Heranführen an das Thema Lösungsorientierte Beratung
+    //erster Lösungsweg
+    //Hier wird gefragt ob das Problem in manchen Situationen nicht vorkommt
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_intro);
-        this.setTitle("Übersicht");
+        setContentView(R.layout.activity_level2_ausnahmen_weiter);
+        this.setTitle("Lösungsweg 2");
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-        editor.putInt("tabStatus", 0);
-        editor.apply();
-
-        //Footer
+        //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.levelIntro, fragment);
+        transaction.add(R.id.level2_ausnahmen_weiter, fragment);
         transaction.commit();
 
         //Toolbar
@@ -61,26 +57,27 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_level_intro);
+        delegate.setContentView(R.layout.activity_level2_ausnahmen_weiter);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level2));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
+        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        weiter = (Button) findViewById(R.id.einfuehrung_Button);
-        weiter.setOnClickListener(this);
 
 
+        //Buttons and more
+        ausnahmenWeiterButton = (Button) findViewById(R.id.ausnahmenWeiter_ButtonWeiter);
+        ausnahmenWeiterButton.setOnClickListener(this);
 
     }
 
-
-
+    //Welche Menüoptionen sind enabled
     @Override
     public boolean onPrepareOptionsMenu(Menu menu){
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -183,28 +180,17 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         }
     }
 
-
-
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
     }
 
+
     @Override
     public void onClick(View v) {
-
-
-                    startActivity(new Intent(this, MenuIntro.class));
-
-                    //startActivity(new Intent(this, Staerkeinsel.class));
-
-                    //startActivity(new Intent(this, Rueckblick.class));
-
-                    //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-
+        Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+        intent.putExtra("LoesungsCounter", 2);
+        startActivity(intent);
     }
-
-
-
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

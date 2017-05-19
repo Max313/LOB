@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
@@ -18,13 +19,12 @@ import android.widget.Button;
 
 import java.io.File;
 
-public class LevelIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Onboarding2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
-    private int counter = 3;
 
     // Button and more
-    private Button weiter;
+    private Button weiter_button;
     private AppCompatDelegate delegate;
 
     //shared Preferences zum Speichern
@@ -37,8 +37,8 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_level_intro);
-        this.setTitle("Übersicht");
+        setContentView(R.layout.activity_onboarding2);
+        this.setTitle("Einführung");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -50,7 +50,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.levelIntro, fragment);
+        transaction.add(R.id.onboarding2, fragment);
         transaction.commit();
 
         //Toolbar
@@ -61,7 +61,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_level_intro);
+        delegate.setContentView(R.layout.activity_onboarding2);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -72,10 +72,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        weiter = (Button) findViewById(R.id.einfuehrung_Button);
-        weiter.setOnClickListener(this);
-
-
+        onboardingProzessStarten();
 
     }
 
@@ -183,7 +180,10 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
         }
     }
 
-
+    private void onboardingProzessStarten() {
+        weiter_button = (Button) findViewById(R.id.onboard2_weiter);
+        weiter_button.setOnClickListener(this);
+    }
 
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
@@ -193,13 +193,9 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
     public void onClick(View v) {
 
 
-                    startActivity(new Intent(this, MenuIntro.class));
 
-                    //startActivity(new Intent(this, Staerkeinsel.class));
+        startActivity(new Intent(this, LevelIntro.class));
 
-                    //startActivity(new Intent(this, Rueckblick.class));
-
-                    //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
 
     }
 

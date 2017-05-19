@@ -105,7 +105,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 break;
 
             case 2:
-                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Vielleicht hat dir diese Übung dabei geholfen einen neuen Blickwinkel einzunehmen und dadurch auf einen möglichen Lösungsweg zu kommen.");
+                anfangsText.setText("Es ist nicht einfach solch eine Ausnahme zu finden. Hoffentlich hat dir diese Übung dabei geholfen einen neuen Blickwinkel einzunehmen und dadurch auf neue Lösungswege zu kommen.");
                 break;
 
             case 3:
@@ -197,6 +197,10 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;

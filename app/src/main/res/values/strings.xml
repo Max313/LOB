@@ -2,21 +2,22 @@
     <string name="app_name">LOB</string>
     <string name="welcome_text">Willkommen bei LOB!</string>
 
-    <string name="start_button">Los gehts!</string>
+    <string name="start_button">Los gehts</string>
     <string name="weiter_button">Weiter</string>
 
     <!-- Einführung -->
     <string name="zielEinfuehrung_TextView">In Level 1 legst du dein Ziel fest, welches du im Laufe dieser App erreichen willst.</string>
     <string name="ideeEinfuehrung_TextView">In Level 2 definierst du Lösungswege, die dich deinem Ziel näher bringen.</string>
-    <string name="ressourceEinfuehrung_TextView">In Level 3 beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
+    <string name="ressourceEinfuehrung_TextView">In Level 3 beschäftigst du dich mit deinen Stärken und allem Positiven in deinem Leben.</string>
     <string name="festhaltenEinfuehrung_TextView">In Level 4 betrachtest du die seit Level 1 eingetretenen positiven Veränderungen.</string>
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich zusätzlich ein Menü, in welchem du schnellen Zugriff auf verschiedene Übungen freischalten kannst.</string>
-    <string name="menuIntro_Text2">Auf die einzelnen Level, die du gerade kennengelernt hast, kannst du auch in der Leiste am Boden deines Bildschirms zugreifen. Diese werden nach und nach freigeschaltet, sodass du direkt in ein Level zurückkehren kannst, welches du bereits begonnen hast.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich zusätzlich ein Menü, in welchem du schnellen Zugriff auf verschiedene Übungen hast, die nach und nach freischalten werden.</string>
+    <string name="menuIntro_Text2">Auf die einzelnen Level, die du gerade kennengelernt hast, kannst du auch in der Leiste am Boden deines Bildschirms zugreifen. Diese werden nach und nach freigeschaltet, so dass du direkt in ein Level zurückkehren kannst, welches du bereits begonnen hast.</string>
 
     <!-- Menü -->
+    <string name="start_Menu">Startmenü</string>
     <string name="ziel_Menu">Ziel</string>
     <string name="tabelle_Menu">Ressourcen Tabelle</string>
     <string name="sonne_Menu">Sonne der Erkenntnis</string>
@@ -27,14 +28,17 @@
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
 
     <!-- Menü Hausaufgabe -->
-    <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und der Lösung einen Schritt näher zu kommen. Du schaltest die einzelnen Aufgaben nach und nach frei.</string>
+    <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und so deiner Lösung einen Schritt näher zu kommen. Im Verlauf der App werden neue Aufgaben freigeschaltet.</string>
     <string name="hausaufgabe_Button1">Tagebuch</string>
     <string name="hausaufgabe_Button2">Würfelübung</string>
     <string name="hausaufgabe_Button3">Münzwurf</string>
     <string name="hausaufgabe_zurueck">Zurück</string>
 
     <!-- Onboarding -->
-    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDein Umfeld ist dir wichtig und gibt dir Energie? Dann bist du hier richtig!\nLerne hier erste Schritte kennen um deine Konflikte zu lösen. Die genaue Ursache des Problems ist nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\n\n</string>
+    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier richtig!\n</string>
+
+    <!-- Onboarding -->
+    <string name="onboard2">Lerne hier erste Schritte kennen um deine Probleme zu lösen. Die genaue Ursache des Problems ist nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\n\n</string>
 
     <!-- Level 1 Start -->
     <string name="level1Start_Textview">Los geht’s in Level 1. Nachdem du dich kurz mit deinem Problem beschäftigt hast legst du hier dein Ziel fest. </string>
@@ -45,15 +49,15 @@
     <string name="problem1">Manchmal tut es gut das Problem aufzuschreiben und dann zur Seite zu legen. Danach sind deine Gedanken und der Weg frei um dich auf die Zukunft konzentrieren zu können.\nDu hast hier nun die Möglichkeit dein Problem in ein bis zwei Sätzen zusammenzufassen.</string>
 
     <!-- Problem Beschreibung -->
-    <string name="problem_beschreibung">Schreibe hier in ein bis zwei Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet</string>
+    <string name="problem_beschreibung">Schreibe hier in ein bis zwei Sätzen auf, was genau das Problem ist und was dich daran am meisten belastet.</string>
     <string name="beschreibung">Beschreibung des Problems</string>
 
     <!-- Problem Beschreibung Dank -->
-    <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem kann sehr belastend sein und gedanklich viel Platz einnehmen, es raubt Energie und trübt den Blick auf das Positive. Starte einen kleinen Versuch. Das Problem ist nun abgelegt und gut für dich aufbewahrt. Du kannst natürlich jederzeit darauf zugreifen, aber nun liegt es erstmal an einem anderen Ort und du hast Platz für neue Gedanken und Sichtweisen.</string>
+    <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem kann sehr belastend sein und gedanklich viel Platz einnehmen, es raubt Energie und trübt den Blick auf das Positive. Starte einen kleinen Versuch. Das Problem ist nun abgelegt und gut für dich aufbewahrt. Nun liegt es an einem anderen Ort und du hast Platz für neue Gedanken und Sichtweisen.</string>
 
     <!-- Ziel Definition -->
     <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und an deinem Verhalten anders als vorher?</string>
-    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurückgreifen, die Beschreibung anpassen oder Änderungen durchführen.</string>
+    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurgreifen, die Beschreibung anpassen oder Änderungen durchführen.</string>
     <string name="zielFesthalten_Button">Ziel festhalten</string>
 
     <!-- Ziel verwahren -->
@@ -61,7 +65,7 @@
     <string name="zielVerwahren_Button">Ziel verwahren</string>
 
     <!-- Level2 Start -->
-    <string name="level2Start_Textview">Ab jetzt bist du in Level 2. Hier geht es darum Lösungswege zu definieren, die dir beim Erreichen deines Ziels helfen werden. Solltest du noch keine Ideen haben, helfen dir verschiedene Übungen dabei. </string>
+    <string name="level2Start_Textview">Ab jetzt bist du in Level 2. Hier geht es darum Lösungswege zu definieren, die dich beim Erreichen deines Ziels unterstützen werden. Solltest du noch keine Ideen haben, helfen dir verschiedene Übungen dabei. </string>
 
     <!-- Loesungswege -->
     <string name="loesungswege_Textview">Wenn du Ideen hast die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
@@ -71,40 +75,43 @@
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
-    <!-- Veraenderung vorab -->
-    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App herunterzuladen, ging dem der Entschluss voraus etwas zu unternehmen um deine Situation zu verbessern.\nDas war ein konkreter Schritt in Richtung Veränderung.\nHat sich vielleicht auch bei dir schon das eine oder andere verändert?\nOder ist es gerade dabei sich positiv zu verändern?</string>
+    <!-- Veraenderung vorab, Lösungsweg 1 -->
+    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App herunterzuladen, ging dem der Entschluss voraus etwas zu unternehmen um deine Situation zu verbessern. Das war ein konkreter Schritt in Richtung Veränderung. Hat sich vielleicht auch bei dir schon das eine oder andere verändert? Oder ist es gerade dabei sich positiv zu verändern?</string>
     <string name="veraenderung_ButtonJa">Ja</string>
     <string name="veraenderung_ButtonNein">Nein</string>
     <string name="title_activity_level2_veraenderung_ja">Level2VeraenderungJa</string>
 
     <!-- Veraenderung JA -->
-    <string name="veraenderungJa_Textview">Das klingt phantastisch.\nBitte nimm dir etwas Zeit und überlege dir, was du anders gemacht hast in deinem Verhalten oder was anders als sonst gelaufen ist in dieser Beziehung, damit es dir damit besser ging?</string>
+    <string name="veraenderungJa_Textview">Das klingt phantastisch.\nBitte nimm dir etwas Zeit und überlege dir, wie du dich anders verhalten hast oder was in der Situation anders gelaufen ist damit es dir damit besser ging?</string>
 
-    <!-- Ausnahmen -->
-    <string name="ausnahmen_Textview">Obwohl deine Situation schwierig ist, bleibst du dran und raffst dich immer wieder auf. Das spricht für sehr viel Kraft bei dir.\nNichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und manchmal macht es Sinn diese genauer in Augenschein zu nehmen</string>
+    <!-- Ausnahmen, Lösungsweg 2-->
+    <string name="ausnahmen_Textview">Obwohl deine Situation schwierig ist, bleibst du dran und raffst dich immer wieder auf. Das spricht für sehr viel Kraft. Nichts ist immer gleich: Zu jeder Situation gibt es auch eine Ausnahme und manchmal macht es Sinn diese genauer in Augenschein zu nehmen.</string>
 
-    <!-- Hypothetische Lösung -->
-    <string name="hypoLoesung_Textview"> Auf Anhieb eine Ausnahme zu finden gelingt den wenigsten und ist eine große Herausforderung.\nViele Wege führen bekanntlich nach Rom.\nHeute soll versucht werden, dass auch du einen neuen Weg entdeckst.\nNutze deine Vorstellungskraft, um Realitäten zu schaffen und zu festigen.\nFür diese Übung brauchst du ein ruhiges Plätzchen, circa zwei Minuten Zeit und Kopfhörer oder Lautsprecher.</string>
+    <!-- Ausnahmen, Lösungsweg 2-->
+    <string name="ausnahmenWeiter_Textview">Gab es in den letzten Wochen irgendwann Zeiten, in denen du das Problem als weniger schlimm empfunden hast?\nWas genau war da anders als sonst?\nManchmal muss man ganz genau hinschauen. Nimm dir deshalb Zeit dich mit den unterschiedlichen Facetten so einer Ausnahme auseinanderzusetzen.</string>
+
+    <!-- Hypothetische Lösung, Lösungsweg 3 -->
+    <string name="hypoLoesung_Textview"> Viele Wege führen bekanntlich nach Rom und nun soll versucht werden den richtigen Weg für dich zu finden.\nNutze deine Vorstellungskraft, um neue Realitäten zu schaffen und zu festigen.\nFür die nächste Übung brauchst du einen ruhigen Platz, circa zwei Minuten Zeit und Kopfhörer.</string>
     <string name="hypoLoesung_Button">Übung starten</string>
 
-    <!-- Phantasiereise -->
-    <string name="phantasie_Textview">Höre dir die Geschichte gut an und denke über das Erzählte nach. Wie fühlt sich das an? Du kannst dir die Geschichte erneut anhören wenn du willst, ansonsten klicke auf weiter.</string>
+    <!-- Phantasiereise, Lösungsweg 3 -->
+    <string name="phantasie_Textview">Höre dir die Geschichte genau an und denke über das Erzählte nach. Wie fühlt sich das an? Wenn du willst kannst du dir die Geschichte auch erneut anhören, ansonsten klicke auf weiter.</string>
 
-    <!-- Universal Lösungsschlüssel -->
-    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es jetzt mal ein bisschen "verrückter". Es soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden. Sei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
+    <!-- Universal Lösungsschlüssel, Lösungsweg 4 -->
+    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es nun ein bisschen "verrückter". Es soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden. Sei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
-    <!-- Universal Anekdote -->
-    <string name="universalAnekdote_Textview">Kennst du das Gefühl einmal ganz anders leben zu wollen und dem Alltag zu entfliehen? Meistens kehrt man dann aber doch wieder in die Realität zurück und die gewohnte Routine des Alltags holt einen ein. Wie wäre es wenn du diese Routine einmal durchbrichst, auch wenn es nur für einen Tag ist? Probiere doch einmal aus wie es sich anfühlt, wenn du drei oder mehr Dinge anders machst als an jedem anderen Tag. Zum Beispiel könntest du den Kaffee am morgen in einem Café statt zuhause trinken oder du sprichst mit einer Person, mit der du sonst nicht so oft redest. Mach mal etwas anderes!</string>
+    <!-- Universal Anekdote, Lösungsweg 4 -->
+    <string name="universalAnekdote_Textview">Kennst du das Gefühl einmal ganz anders leben zu wollen und dem Alltag zu entfliehen? Meistens kehrt man dann aber doch wieder in die Realität zurück und die gewohnte Routine des Alltags holt einen ein. Wie wäre es wenn du diese Routine einmal durchbrichst, auch wenn es nur für einen Tag ist? Probiere doch einmal aus wie es sich anfühlt, wenn du drei oder mehr Dinge anders machst als an jedem anderen Tag.\nZum Beispiel könntest du den Kaffee am morgen in einem Café statt zuhause trinken oder du probierst einmal etwas ganz neues zu Essen aus. Du könntest auch etwas, das du jeden Tag machst, einen Tag mal auslassen und sehen wie sich das anfühlt. \nMach mal etwas anderes!</string>
 
-    <!-- Universal Weiter -->
-    <string name="universalWeiter_Textview">Überleg doch mal, was es an unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen in deiner herausfordernden Situation geben könnte. Das Motto lautet: "Ich weiß nicht, ob es besser wird, wenn es anders wird; aber es muss anders werden, damit es besser wird." </string>
+    <!-- Universal Weiter, Lösungsweg 4 -->
+    <string name="universalWeiter_Textview">Überlege, welche unvernünftigen, vielleicht sogar etwas verrückten Verhaltensweisen es in deiner herausfordernden Situation geben könnte.\nDas Motto lautet: Ich weiß nicht, ob es besser wird, wenn es anders wird; aber es muss anders werden, damit es besser wird. </string>
     <string name="universalWeiter_Button2">Mir fällt nichts ein</string>
 
-    <!-- Exitstrategie -->
-    <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum sollten man sich doch erstmal genau anschauen, was trotz aller Herausforderungen und Schwierigkeiten - im Umgang mit anderen gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Stelle doch in den kommenden 10 Tagen eine Liste zusammenzustellen, in der du beschreibst, worauf du besonders stolz im Umgang mit anderen bist.</string>
+    <!-- Exitstrategie, Lösungsweg 5 -->
+    <string name="exitstrategie_Textview">Manchmal sieht man den Wald vor lauter Bäumen nicht, kennt doch jeder. Darum solltest du dir doch erstmal genau anschauen, was trotz aller Herausforderungen und Schwierigkeiten gut bei dir läuft. Auf so einer Basis kann man gut Neues für eine verbesserte Zukunft aufbauen. Stelle doch in den kommenden 10 Tagen eine Liste zusammen, in der du beschreibst, worauf du besonders stolz bist.</string>
 
-    <!-- Zehn Tage Timer -->
+    <!-- Zehn Tage Timer, Lösungsweg 5 -->
     <string name="zehnTage_Textview1">Hier kannst du aufschreiben worauf du besonders stolz bist. Lass dir ruhig etwas Zeit zum Überlegen bevor du weitermachst.</string>
     <string name="zehnTage_Textview2">timer</string>
     <string name="zehnTage_EditView1">1. </string>
@@ -114,7 +121,7 @@
     <string name="zehnTage_EditView5">5. </string>
 
 
-    <!-- keine Lösung -->
+    <!-- keine Lösung, Lösungsweg 6 -->
     <string name="keineLoesung_Textview">Nicht für jeden ist eine App die richtige Hilfe auf dem Weg zur Lösung. Aber es gibt viele Wege dein Ziel zu erreichen, zum Beispiel ausgebildete Berater. Wenn du die App dennoch weiter ausprobieren magst dann klick nun auf Weiter!</string>
 
     <!-- Weiter Gehts -->
@@ -123,10 +130,10 @@
     <string name="weiterGehts_Button2">Neue Wege</string>
 
     <!-- Level 3 Start -->
-    <string name="level3Start_Textview">Nachdem du in Level 2 Lösungswege für dich definiert hast bist du nun in Level 3. Hier beschäftigst du dich mit deinen Stärken und allem positiven in deinem Leben.</string>
+    <string name="level3Start_Textview">Nachdem du in Level 2 Lösungswege für dich definiert hast bist du nun in Level 3. Hier beschäftigst du dich mit deinen Stärken und allem Positiven in deinem Leben.</string>
 
     <!-- Wunderbar -->
-    <string name="wunderbar_TextView">Schön, dass du die Sitzung heute fortsetzen kannst. Dein Engagement ist sehr beeindruckend und wird dir auch bei den nächsten Schritten weiterhelfen.</string>
+    <string name="wunderbar_TextView">Schön, dass du weiter machst. Dein Engagement ist sehr beeindruckend und wird dir auch bei den nächsten Schritten weiterhelfen.</string>
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
@@ -189,7 +196,7 @@
     <string name="s_TextView"><b>Sekunden</b></string>
 
     <!-- Insel des Sehenden -->
-    <string name="inselDsehenden_TextView">Willkommen auf der Insel der Sehenden. Du hast viele großartige Veränderungen verwirklicht. Um dich mit diesen positiven Veränderungen zu befassen werden dir nun vier Fragen gestellt.
+    <string name="inselDsehenden_TextView">Willkommen auf der Insel des Sehenden. Du hast viele großartige Veränderungen verwirklicht. Um dich mit diesen positiven Veränderungen zu befassen werden dir nun vier Fragen gestellt.
         Nimm dir dazu Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
     <string name="f1_TextView">Frage 1/4</string>
@@ -314,7 +321,7 @@
 
     <!-- EndScreen -->
     <string name="header_TextView">Du bist am Ende!</string>
-    <string name="zurueck_TextView">Du hast in den letzten Wochen gezeigt, dass du alle Kompetenzen besitzt um deine Probeleme selbst zu lösen. Doch manchmal kommt man einfach nicht weiter. 
+    <string name="zurueck_TextView">Du hast in den letzten Wochen gezeigt, dass du alle Kompetenzen besitzt um deine Probleme selbst zu lösen. Doch manchmal kommt man einfach nicht weiter.
     Dann hast du hier die Möglichkeit die App zurückzusetzen und mit einem neuen Problem zu starten. Bedenke dass dann deine bisherigen Eingaben verloren gehen.</string>
     <string name="ruecksetzen_Button">App mit einem neuen Problem starten!</string>
 

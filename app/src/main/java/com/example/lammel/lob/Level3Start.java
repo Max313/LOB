@@ -110,6 +110,10 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -120,6 +124,10 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
 
             case R.id.Sonne:
                 startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                return true;
+
+            case R.id.Hausaufgabe:
+                startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
             case R.id.action_delete:

@@ -141,6 +141,10 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         switch(item.getItemId()){
+            case R.id.start_menu:
+                startActivity(new Intent(this, LevelIntro.class));
+                return true;
+
             case R.id.ziel:
                 startActivity(new Intent(this, MenuZiel.class));
                 return true;
@@ -232,7 +236,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     editor.putBoolean("GeschichteSaved", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
-                    builder.setMessage("Auch zu dieser Übung gibt es eine kleine Aufgabe, die du machen kannst um zu sehen, welche Auswirkungen diese neue Ansichtsweise haben kann.");
+                    builder.setMessage("                    Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.\n");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
