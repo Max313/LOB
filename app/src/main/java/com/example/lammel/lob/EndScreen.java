@@ -35,7 +35,7 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
-        this.setTitle("...und am Ende...");
+        this.setTitle("Gratulation");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

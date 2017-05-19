@@ -38,7 +38,7 @@ public class Mantra extends FragmentActivity implements View.OnClickListener, Ap
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mantra);
-        this.setTitle("Kompliment");
+        this.setTitle("Wunderbar");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

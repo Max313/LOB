@@ -36,7 +36,7 @@ public class Lob extends FragmentActivity implements View.OnClickListener, AppCo
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lob);
-        this.setTitle("Kompliment");
+        this.setTitle("Wunderbar");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
