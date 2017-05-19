@@ -100,6 +100,9 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 

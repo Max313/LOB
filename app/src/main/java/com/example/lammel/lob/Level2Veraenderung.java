@@ -101,6 +101,9 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 

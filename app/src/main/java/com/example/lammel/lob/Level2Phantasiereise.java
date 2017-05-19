@@ -126,6 +126,9 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 
@@ -234,6 +237,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 if(counter == 0){
                     editor.putBoolean("MünzeSave", true);
                     editor.putBoolean("GeschichteSaved", true);
+                    editor.putBoolean("MenuHausaufgabe", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.\n");

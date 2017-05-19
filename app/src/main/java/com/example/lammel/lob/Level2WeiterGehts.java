@@ -105,6 +105,9 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
         return true;
     }
 
@@ -221,6 +224,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     editor.putBoolean("MünzeSave", true);
                     editor.putBoolean("WürfelSave", true);
                     editor.putBoolean("HausaufgabeSave", true);
+                    editor.putBoolean("MenuHausaufgabe", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Am besten ist es, wenn du die Lösungswege, die du gefunden hast, auch ausprobierst. Eine kleine Hausaufgabe wird dich dabei unterstützen. Du hast jetzt den Zugriff auf alle drei Übungen freigeschaltet.");
