@@ -34,6 +34,12 @@
     <string name="hausaufgabe_Button3">Münzwurf</string>
     <string name="hausaufgabe_zurueck">Zurück</string>
 
+    <!-- Hausaufgabe Tagebuch -->
+    <string name="tagebuch_Textview">Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen darüber machst, welche positiven Veränderungen du bemerkt hast. Viel Spaß dabei!</string>
+
+    <!-- Hausaufgabe Münzwurf -->
+    <string name="muenze_Textview">Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein keines Experiment:
+                        \nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, wirf eine Münze. Wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. Achte genau darauf wie dich dabei fühlst.</string>
     <!-- Onboarding -->
     <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier richtig!\n</string>
 
