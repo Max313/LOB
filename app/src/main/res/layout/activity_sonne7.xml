@@ -20,23 +20,13 @@
         android:id="@+id/Sonne7_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewie"
 
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:id="@+id/sonne7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/WWort6_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        android:layout_marginTop="65dp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-        android:layout_marginLeft="80dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/Sonne7_TextView"

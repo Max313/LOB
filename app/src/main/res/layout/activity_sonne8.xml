@@ -10,37 +10,30 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"></include>
+        layout="@layout/tool_bar"
+        ></include>
 
     <include
         android:id="@+id/footer"
-        layout="@layout/footer"></include>
+        layout="@layout/footer"
+       ></include>
 
     <ImageView
         android:id="@+id/Sonne8_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewelche"
 
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-        android:layout_marginLeft="16dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
-
-    <TextView
-        android:id="@+id/sonne8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="68dp"
-        android:layout_marginTop="65dp"
-        android:text="@string/WWort5_TextView"
-        android:textSize="@dimen/activity_suncontent"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
+        android:layout_marginStart="8dp" />
+
 
     <TextView
         android:id="@+id/Sonne8_TextView"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="@string/SonneF8_TextView"
         android:textSize="@dimen/activity_normalcontent"
@@ -49,7 +42,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/Sonne8_imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/Sonne8_imageView"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/Weiter8_Button"
@@ -61,7 +56,9 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <Button
         android:id="@+id/zurUebersicht8_Button"
@@ -73,11 +70,13 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginBottom="46dp" />
+        android:layout_marginBottom="46dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp" />
 
     <View
         android:id="@+id/hintergrund8_View"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="80dp"
         android:background="@color/colorPrimaryDark"
         android:text=""
@@ -98,7 +97,8 @@
         android:textSize="@dimen/timer"
         app:layout_constraintBottom_toBottomOf="@+id/hintergrund8_View"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hintergrund8_View" />
+        app:layout_constraintTop_toTopOf="@+id/hintergrund8_View"
+        android:layout_marginStart="75dp" />
 
 
     <ImageView
@@ -137,22 +137,21 @@
         android:id="@+id/fertig8_Button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="0dp"
         android:layout_marginRight="70dp"
-        android:layout_marginTop="0dp"
         android:background="?android:attr/selectableItemBackground"
         android:text="Fertig"
         android:textColor="@color/colorTableHeaderText"
         app:layout_constraintBottom_toBottomOf="@+id/hintergrund8_View"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/hintergrund8_View" />
+        app:layout_constraintTop_toTopOf="@+id/hintergrund8_View"
+        android:layout_marginEnd="70dp" />
 
     <View
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="70dp"
         android:background="@color/colorTableHeaderText"
         app:layout_constraintBottom_toBottomOf="@+id/view8_view2"
-        android:layout_marginBottom="0dp"/>
+        tools:layout_editor_absoluteX="8dp" />
 
     <View
         android:layout_width="0dp"

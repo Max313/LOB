@@ -22,22 +22,12 @@
         android:id="@+id/Sonne3_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonneworan"
         android:layout_marginTop="16dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent" />
 
-    <TextView
-        android:id="@+id/sonne3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
-        android:text="@string/WWort3_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar"
-        android:layout_marginLeft="70dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
 
     <TextView
         android:id="@+id/Sonne3_TextView"

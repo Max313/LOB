@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="165dp"
         android:layout_marginRight="230dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewas"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
@@ -35,21 +35,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="165dp"
         android:layout_marginRight="230dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewas"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/sonne1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="43dp"
-        android:layout_marginTop="215dp"
-        android:text="@string/WWort1_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+
 
     <ImageView
         android:id="@+id/Sonne2_imageView"
@@ -57,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="85dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewann"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
@@ -68,22 +58,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="85dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewann"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <TextView
-        android:id="@+id/sonne2"
-        android:layout_width="88dp"
-        android:layout_height="60dp"
-        android:layout_marginLeft="108dp"
-        android:layout_marginTop="136dp"
-        android:text="@string/WWort2_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+
 
 
     <ImageView
@@ -92,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
         android:layout_marginTop="85dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonneworan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -104,23 +84,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
         android:layout_marginTop="85dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneworan"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
 
-    <TextView
-        android:id="@+id/sonne3"
-        android:layout_width="88dp"
-        android:layout_height="65dp"
-        android:layout_marginLeft="225dp"
-        android:layout_marginTop="136dp"
-        android:text="@string/WWort3_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+
 
     <ImageView
         android:id="@+id/Sonne4_imageView"
@@ -128,7 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="158dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewann"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -140,23 +110,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="158dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewann"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
 
-    <TextView
-        android:id="@+id/sonne4"
-        android:layout_width="88dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="298dp"
-        android:layout_marginTop="208dp"
-        android:text="@string/WWort4_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+
 
     <ImageView
         android:id="@+id/Sonne5_imageView"
@@ -164,7 +124,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="265dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -176,23 +136,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="240dp"
         android:layout_marginTop="265dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewer"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
 
-    <TextView
-        android:id="@+id/sonne5"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="304dp"
-        android:layout_marginTop="315dp"
-        android:text="@string/WWort8_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+
 
 
     <ImageView
@@ -201,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
         android:layout_marginTop="335dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewas"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -213,23 +163,13 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="170dp"
         android:layout_marginTop="335dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewas"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
 
-    <TextView
-        android:id="@+id/sonne6"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="232dp"
-        android:layout_marginTop="385dp"
-        android:text="@string/WWort7_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+
 
 
     <ImageView
@@ -238,7 +178,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="335dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewie"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
@@ -250,23 +190,12 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="335dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewie"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
 
         />
 
-    <TextView
-        android:id="@+id/sonne7"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="114dp"
-        android:layout_marginTop="385dp"
-        android:text="@string/WWort6_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
 
 
     <ImageView
@@ -274,7 +203,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="265dp"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewelche"
         app:layout_constraintTop_toTopOf="parent"
 
         android:layout_marginRight="230dp"
@@ -285,23 +214,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="265dp"
-        android:background="@drawable/sonnevollohne"
+        android:background="@drawable/sonneohnewelche"
         app:layout_constraintTop_toTopOf="parent"
 
         android:layout_marginRight="230dp"
         app:layout_constraintRight_toRightOf="parent" />
 
-    <TextView
-        android:id="@+id/sonne8"
-        android:layout_width="88dp"
-        android:layout_height="48dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="315dp"
-        android:text="@string/WWort5_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-         />
+
 
 
     <TextView

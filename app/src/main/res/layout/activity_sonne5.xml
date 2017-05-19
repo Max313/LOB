@@ -22,22 +22,11 @@
         android:id="@+id/Sonne5_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/sonnevollgross"
+        android:background="@drawable/sonnewer"
 
-        android:layout_marginLeft="16dp"
+        android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
-
-    <TextView
-        android:id="@+id/sonne5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/WWort8_TextView"
-        android:textSize="@dimen/activity_suncontent"
-        android:layout_marginLeft="77dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginTop="65dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar" />
 
 
