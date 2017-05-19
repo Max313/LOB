@@ -60,7 +60,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
+        delegate.getSupportActionBar().setLogo(R.drawable.logofarbverlaufsonneohne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
