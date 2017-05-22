@@ -110,7 +110,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             }
         });
 
-        if(universal.length() == 0){
+        if(universal.length() != 0){
             txt1.setText(universal);
             universalloesungWeiter_Weiter.setEnabled(true);
         }
@@ -244,9 +244,9 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
-        storyCounter = saved.getInt("StoryCounter", 0);
         editor.putString("UniversalSave", universal);
         editor.apply();
+        storyCounter = saved.getInt("StoryCounter", 0);
         final View view = v;
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2UniversalloesungWeiter.this);
         switch (v.getId()) {
@@ -259,7 +259,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
-                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             startNext(view);
@@ -268,7 +268,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
-                            startHausaufgaben();
+                            startHausaufgaben(view);
                         }
                     });
                     AlertDialog dialogZ = builder.create();
@@ -312,8 +312,10 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         startActivity(intent);
     }
 
-    private void startHausaufgaben() {
-        startActivity(new Intent(this, MenuHausaufgabe.class));
+    private void startHausaufgaben(View v) {
+        Intent intent = new Intent(v.getContext(), MenuHausaufgabe.class);
+        intent.putExtra("Hausaufgabe", 2);
+        startActivity(intent);
     }
 
     @Override

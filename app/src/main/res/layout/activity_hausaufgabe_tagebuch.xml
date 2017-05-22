@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/Hausaufgabe_Tagbuch"
+    android:id="@+id/Hausaufgabe_Tagebuch"
     tools:context="com.example.lammel.lob.HausaufgabeTagebuch">
 
     <include
@@ -25,7 +25,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="8dp"
 
-        app:layout_constraintBottom_toTopOf="@+id/tagebuch_Button"
+        app:layout_constraintBottom_toTopOf="@+id/tagebuchAufgabe_Button"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -66,13 +66,26 @@
         android:text="@string/hausaufgabe_zurueck"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/tagebuch_Button"
+        android:id="@+id/tagebuchZurueck_Button"
         android:layout_marginBottom="46dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintBottom_toBottomOf="@+id/footer"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"
+        android:layout_weight="0.5"
+        />
+
+    <Button
+        android:text="@string/zuHausaufgabe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/tagebuchAufgabe_Button"
+        android:layout_marginBottom="46dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/footer"
+        android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
+        android:layout_weight="0.5"
         />
 
 

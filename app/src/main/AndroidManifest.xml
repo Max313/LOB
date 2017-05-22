@@ -217,10 +217,16 @@
         <activity
             android:name=".GeringeEntwicklung"
             android:screenOrientation="portrait" />
-        <activity android:name=".Level2AusnahmenWeiter" />
-        <activity android:name=".Onboarding2" />
-        <activity android:name=".HausaufgabeTagebuch" />
-        <activity android:name=".HausaufgabeMuenzwurf"></activity>
+        <activity android:name=".Level2AusnahmenWeiter"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Onboarding2"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HausaufgabeTagebuch"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HausaufgabeMuenzwurf"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".HausaufgabeWuerfel"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>
