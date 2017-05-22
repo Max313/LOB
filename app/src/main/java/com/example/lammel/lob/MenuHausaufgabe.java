@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,6 +32,8 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
     //Buttons
     private Button hausaufgabe1, hausaufgabe2, hausaufgabe3, zurueck;
     private AppCompatDelegate delegate;
+    private int hausaufgabenCounter;
+
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -43,6 +46,11 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         setContentView(R.layout.activity_menu_hausaufgabe);
         this.setTitle("Hausaufgaben");
 
+        try {
+            hausaufgabenCounter = getIntent().getExtras().getInt("Hausaufgabe");
+        } catch (NullPointerException e ) {
+            hausaufgabenCounter = 0;
+        }
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -72,17 +80,26 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         if(saved.getBoolean("TagebuchSave", false) != true){
             hausaufgabe1.setEnabled(false);
         }
+        if(hausaufgabenCounter==3){
+            hausaufgabe1.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOld));
+        }
         hausaufgabe1.setOnClickListener(this);
 
         hausaufgabe2 = (Button) findViewById(R.id.hausaufgabe_ButtonCube);
         if(saved.getBoolean("WürfelSave", false) != true){
             hausaufgabe2.setEnabled(false);
         }
+        if(hausaufgabenCounter==2){
+           hausaufgabe2.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOld));
+        }
         hausaufgabe2.setOnClickListener(this);
 
         hausaufgabe3 = (Button) findViewById(R.id.hausaufgabe_ButtonCoin);
         if(saved.getBoolean("MünzeSave", false) != true){
             hausaufgabe3.setEnabled(false);
+        }
+        if(hausaufgabenCounter==1){
+            hausaufgabe3.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccentOld));
         }
         hausaufgabe3.setOnClickListener(this);
 
@@ -204,49 +221,18 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
 
     @Override
     public void onClick(View view) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(MenuHausaufgabe.this);
         switch(view.getId()){
             case R.id.hausaufgabe_ButtonDiary:
-                builder.setTitle("Tagebuch");
-                builder.setMessage("Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. " +
-                        "Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen darüber machst, welche positiven Veränderungen du bemerkt hast. Viel Spaß dabei!" +
-                        "\n");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV = builder.create();
-                dialogV.show();
+                startActivity(new Intent(this, HausaufgabeTagebuch.class));
                 break;
 
             case R.id.hausaufgabe_ButtonCube:
-                builder.setTitle("Würfelspiel");
-                builder.setMessage("Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu: " +
-                        "\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Würfle nun einen Würfel. Wenn du eine ungerade Augenzahl gewürfelt hast, wendest du dieses Verhalten das nächste mal in einer Problemsituation an. Kommt eine ungerade Zahl heraus so bleibt alles bisher. " +
-                        "\nBeobachte ganz genau was passiert.\n");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogX = builder.create();
-                dialogX.show();
+                startActivity(new Intent(this, HausaufgabeWuerfel.class));
                 break;
 
 
             case R.id.hausaufgabe_ButtonCoin:
-                builder.setTitle("Münzwurf");
-                builder.setMessage("Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein keines Experiment:  " +
-                        "\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, wirf eine Münze. Wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. " +
-                        "\nAchte genau darauf wie dich dabei fühlst.\n");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogY = builder.create();
-                dialogY.show();
+                startActivity(new Intent(this, HausaufgabeMuenzwurf.class));
                 break;
 
             case R.id.hausaufgabe_ButtonBack:

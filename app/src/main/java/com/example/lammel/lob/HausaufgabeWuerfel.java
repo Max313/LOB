@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -19,7 +21,7 @@ import android.widget.Button;
 
 import java.io.File;
 
-public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
 
@@ -35,7 +37,7 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hausaufgabe_tagebuch);
+        setContentView(R.layout.activity_hausaufgabe_wuerfel);
         this.setTitle("Hausaufgaben");
 
 
@@ -43,7 +45,7 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.Hausaufgabe_Tagebuch, fragment);
+        transaction.add(R.id.hausaufgabe_wuerfel, fragment);
         transaction.commit();
 
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
@@ -53,7 +55,7 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_hausaufgabe_tagebuch);
+        delegate.setContentView(R.layout.activity_hausaufgabe_wuerfel);
 
         //Add the Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -63,10 +65,10 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         //Buttons und Funktion
         saved = getSharedPreferences(PREFS_NAME, 0);
 
-        zuAufgabe = (Button) findViewById(R.id.tagebuchAufgabe_Button);
+        zuAufgabe = (Button) findViewById(R.id.wuerfel_Button2);
         zuAufgabe.setOnClickListener(this);
 
-        zurueck = (Button) findViewById(R.id.tagebuchZurueck_Button);
+        zurueck = (Button) findViewById(R.id.wuerfel_Button1);
         zurueck.setOnClickListener(this);
     }
 
@@ -181,14 +183,12 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
     @Override
     public void onClick(View view) {
         switch(view.getId()){
-            case R.id.tagebuchAufgabe_Button:
-                Intent intent = new Intent(view.getContext(), Level2Loesungswege.class);
-                intent.putExtra("LoesungsCounter", 3);
-                startActivity(intent);
+            case R.id.wuerfel_Button1:
+                onBackPressed();
                 break;
 
-            case R.id.tagebuchZurueck_Button:
-                onBackPressed();
+            case R.id.wuerfel_Button2:
+                startActivity(new Intent(this, Level2Universalloesung.class));
                 break;
 
             default:
@@ -213,4 +213,3 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         return null;
     }
 }
-

@@ -206,6 +206,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2WeiterGehts.this);
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+        final View view = v;
         switch (v.getId()){
             case R.id.weiterGehts_Button1:
                 saved = getSharedPreferences(PREFS_NAME, 0);
@@ -228,7 +229,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Am besten ist es, wenn du die Lösungswege, die du gefunden hast, auch ausprobierst. Eine kleine Hausaufgabe wird dich dabei unterstützen. Du hast jetzt den Zugriff auf alle drei Übungen freigeschaltet.");
-                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             startNext();
@@ -237,7 +238,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     builder.setNeutralButton("Ansehen", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
-                            startHausaufgaben();
+                            startHausaufgaben(view);
                         }
                     });
                     AlertDialog dialogX = builder.create();
@@ -282,8 +283,10 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         }
     }
 
-    private void startHausaufgaben() {
-        startActivity(new Intent(this, MenuHausaufgabe.class));
+    private void startHausaufgaben(View v) {
+        Intent intent = new Intent(v.getContext(), MenuHausaufgabe.class);
+        intent.putExtra("Hausaufgabe", 3);
+        startActivity(intent);
     }
 
     private void startNext() {

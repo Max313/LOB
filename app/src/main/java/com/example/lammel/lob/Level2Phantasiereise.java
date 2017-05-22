@@ -241,7 +241,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.\n");
-                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
                             startNext(view);
@@ -250,7 +250,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     builder.setNeutralButton("Ansehen",new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
-                            startHausaufgaben();
+                            startHausaufgaben(view);
                         }
                     });
                     AlertDialog dialogY = builder.create();
@@ -314,8 +314,10 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         startActivity(intent);
     }
 
-    private void startHausaufgaben() {
-        startActivity(new Intent(this, MenuHausaufgabe.class));
+    private void startHausaufgaben(View v) {
+        Intent intent = new Intent(v.getContext(), MenuHausaufgabe.class);
+        intent.putExtra("Hausaufgabe", 1);
+        startActivity(intent);
     }
 
     @Override
