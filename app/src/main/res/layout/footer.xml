@@ -21,8 +21,7 @@
             <TextView
                 android:id="@+id/footer1_TextView"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="0dp"
+                android:layout_height="0dp"
                 android:background="@color/level1Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -36,7 +35,8 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/berggrau"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp" />
 
             <ImageButton
                 android:id="@+id/ziel2_Button"
@@ -46,7 +46,8 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/bergbunt"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp" />
 
             <ImageButton
                 android:id="@+id/ziel3_Button"
@@ -56,17 +57,19 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/berg"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp" />
 
             <TextView
                 android:id="@+id/footer2_TextView"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_marginLeft="70dp"
                 android:background="@color/level2Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="70dp" />
 
             <ImageButton
                 android:id="@+id/wegweiser1_Button"
@@ -76,7 +79,8 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/wegweisersw"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="75dp" />
 
 
             <ImageButton
@@ -87,7 +91,8 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/wegweiser"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="75dp" />
 
             <ImageButton
                 android:id="@+id/wegweiser3_Button"
@@ -97,12 +102,13 @@
                 android:layout_marginTop="2dp"
                 android:background="@drawable/wegweiserb"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="75dp" />
 
             <TextView
                 android:id="@+id/footer3_TextView"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:background="@color/level3Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -113,7 +119,6 @@
                 android:id="@+id/ressourcen1_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/baumsw"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -123,7 +128,6 @@
                 android:id="@+id/ressourcen2_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/baumbunt"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -133,7 +137,6 @@
                 android:id="@+id/ressourcen3_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/baum"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -143,12 +146,13 @@
             <TextView
                 android:id="@+id/footer4_TextView"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"
+                android:layout_height="0dp"
                 android:layout_marginRight="70dp"
                 android:background="@color/level4Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toLeftOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="70dp" />
 
 
     <ImageButton
@@ -160,7 +164,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintRight_toLeftOf="parent"
         android:layout_marginRight="85dp"
-        />
+        android:layout_marginEnd="85dp" />
 
     <ImageButton
         android:id="@+id/sonneLeer_Button"
@@ -171,7 +175,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginRight="85dp"
         app:layout_constraintRight_toRightOf="parent"
-        />
+        android:layout_marginEnd="85dp" />
 
     <ImageButton
         android:layout_width="wrap_content"
@@ -182,13 +186,12 @@
         android:id="@+id/sonneLeuchtend_Button"
         app:layout_constraintRight_toLeftOf="parent"
         android:layout_marginRight="85dp"
-         />
+        android:layout_marginEnd="85dp" />
 
             <TextView
                 android:id="@+id/footer5_TextView"
                 android:layout_width="70dp"
-                android:layout_height="match_parent"
-                android:layout_marginRight="0dp"
+                android:layout_height="0dp"
                 android:background="@color/level5Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
@@ -199,30 +202,30 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/untergangsw"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp" />
 
             <ImageButton
                 android:id="@+id/loesung2_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/untergangbunt"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp" />
 
             <ImageButton
                 android:id="@+id/loesung3_Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="0dp"
                 android:background="@drawable/untergang"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp" />
 
 
 
