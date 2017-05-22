@@ -36,7 +36,7 @@
 
     <!-- Hausaufgabe Tagebuch -->
     <string name="zuHausaufgabe">Aufgabe</string>
-    <string name="tagebuch_Textview">Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen in ein \"Tagebuch\" schreibst, welche positiven Veränderungen du bemerkt hast.\nViel Spaß dabei./nDu kannst deine Lösungswege auch noch einmal ansehen.</string>
+    <string name="tagebuch_Textview">Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen in ein \"Tagebuch\" schreibst, welche positiven Veränderungen du bemerkt hast.\nViel Spaß dabei.\nDu kannst deine Lösungswege auch noch einmal ansehen.</string>
 
     <!-- Hausaufgabe Münzwurf -->
     <string name="muenze_Textview">Bei der Phantasiereise hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein keines Experiment:
