@@ -39,7 +39,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="46dp" />
 
-    <ImageView
+    <!--ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/kopfb"
@@ -50,7 +50,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_marginLeft="8dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent" /-->
 
 
 

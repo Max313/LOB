@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">LOB</string>
-    <string name="welcome_text">Willkommen bei LOB!</string>
+    <string name="welcome_text">Willkommen!</string>
 
     <string name="start_button">Los gehts</string>
     <string name="weiter_button">Weiter</string>
@@ -80,14 +80,16 @@
 
     <!-- Loesungswege -->
     <string name="loesungswege_Textview">Wenn du Ideen hast die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
+    <!--Nachdem du dein Ziel jetzt so klar für dich definiert hast, ist dir vielleicht bereits eine Idee gekommen die zu einer Verbesserung deiner jetzigen Situation führen könnte und die dich deinem Ziel ein Stück näher bringt. -->
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
     <string name="loesungswege_Button1">Fertig</string>
     <string name="loesungswege_Button2">Mir fällt nichts ein</string>
 
+
     <!-- Veraenderung vorab, Lösungsweg 1 -->
-    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App herunterzuladen, ging dem der Entschluss voraus etwas zu unternehmen um deine Situation zu verbessern. Das war ein konkreter Schritt in Richtung Veränderung. Hat sich vielleicht auch bei dir schon das eine oder andere verändert? Oder ist es gerade dabei sich positiv zu verändern?</string>
+    <string name="veraenderung_Textview">Als du dich dafür entschieden hast diese App herunterzuladen, ging dem der Entschluss voraus etwas zu unternehmen um deine Situation zu verbessern. Das war ein konkreter Schritt in Richtung Veränderung. Hat sich vielleicht bei dir seit dem schon das eine oder andere verändert? Oder ist gerade dabei sich positiv zu verändern?</string>
     <string name="veraenderung_ButtonJa">Ja</string>
     <string name="veraenderung_ButtonNein">Nein</string>
     <string name="title_activity_level2_veraenderung_ja">Level2VeraenderungJa</string>

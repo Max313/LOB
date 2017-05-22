@@ -71,10 +71,10 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
-        //display Toolbar Icon
+        /**display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
         delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
-        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);*/
 
         onboardingProzessStarten();
 
