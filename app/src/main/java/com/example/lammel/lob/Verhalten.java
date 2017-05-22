@@ -271,9 +271,8 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Verhalten.this);
-                builder.setTitle("Verhalten");
-                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
-                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
+                builder.setTitle("Beispiel");
+                builder.setMessage("Ich bleibe ruhig und versuche mich in meinen Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

@@ -625,7 +625,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
-                intent = new Intent(view.getContext(), Lob.class);
+                intent = new Intent(view.getContext(), PauseZwischen4und5.class);
                 intent.putExtra("Source", 1);
                 startActivity(intent);
                 break;

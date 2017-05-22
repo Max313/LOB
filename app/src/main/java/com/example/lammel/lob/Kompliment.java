@@ -265,8 +265,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
-                builder.setTitle("Kompliment");
-                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
+                builder.setTitle("Beispiel");
+                builder.setMessage("Es ist beeindruckend wie einfühlsam und aufmerksam ich auf meinen Partner eingehe.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

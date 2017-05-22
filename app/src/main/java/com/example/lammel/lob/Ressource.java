@@ -269,8 +269,8 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Ressource.this);
-                builder.setTitle("Ressource");
-                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
+                builder.setTitle("Beispiel");
+                builder.setMessage("Einfühlsam");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

@@ -143,11 +143,12 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
-    ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht.</string>
+    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>
+    <string name="einleitungTabelle_TextView">Dein positives Verhalten, deine Komplimente und deine Ressourcen im Überblick. \nDu kannst deine Eingaben jederzeit wieder aufrufen und auch bearbeiten.
+        </string>
     <string name="value1_TextView">Value 1</string>
     <string name="value2_TextView">Value 1</string>
     <string name="value3_TextView">Value 1</string>
@@ -160,22 +161,25 @@
     <string name="value10_TextView">Value 4</string>
     <string name="value11_TextView">Value 4</string>
     <string name="value12_TextView">Value 4</string>
-    <string name="aendern1_Button">Spalte\nBearbeiten</string>
-    <string name="aendern_2Button">Spalte\nBearbeiten</string>
-    <string name="aendern3_Button">Spalte\nBearbeiten</string>
-    <string name="aendern4_Button">Tabelle\nBearbeiten</string>
+    <string name="aendern1_Button">Verhalten\nBearbeiten</string>
+    <string name="aendern_2Button">Kompliment\nBearbeiten</string>
+    <string name="aendern3_Button">Ressource\nBearbeiten</string>
+    <string name="aendern4_Button">Alles\nBearbeiten</string>
     <string name="weiter_Button">Weiter</string>
     <string name="erklaerung_Button">\?</string>
     <string name="ok">OK</string>
 
     <!-- Verhalten -->
-    <string name="beispielVerhalten_TextView"><b>Beispiel:</b> Ich bleibe ruhig und versuche mich in meinen Partner hineinzuversetzen, um die Ursache der Eifersucht besser zu verstehen.</string>
+    <string name="beispielVerhalten_TextView">Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren.</string>
     <string name="platzhalterVerhalten_EditText">Eingabe</string>
     <!-- Kompliment -->
-    <string name="beispielKompliment_TextView"><b>Beispiel:</b> Es ist beeindruckend wie einfühlsam und aufmerksam ich auf meinen Partner eingehe.</string>
+    <string name="beispielKompliment_TextView">Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest.</string>
 
     <!-- Ressource -->
-    <string name="beispielRessource_TextView"><b>Beispiel:</b> Einfühlsam</string>
+    <string name="beispielRessource_TextView">Ressourcen die du zur Lösung einer schwierigen Situation beitragen.</string>
+
+    <!--\nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
+    ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht. -->
 
     <!-- Übersicht Stärkeninsel -->
     <string name="speichern_Button">Speichern</string>
@@ -195,8 +199,8 @@
 
     <string name="pauseStart_Button">Pause starten</string>
 
-    <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht und viele Schritte in Richtung deines Ziels unternommen. \nDoch Veränderungen brauchen auch Zeit und vieles geschieht nicht sofort, sondern muss langsam wachsen. Deshalb gönn dir und deinem Körper eine Pause von mindestens zehn Tagen.
-        \nDamit sich dein Lösungsverhalten weiter mental verankern kann, ist es am besten wenn du das Erlernte weiterhin übst und mit dem weitermachst was funktioniert.</string>
+    <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht und viele Schritte in Richtung deines Ziels unternommen. \nDoch Veränderungen brauchen auch Zeit und vieles geschieht nicht sofort, sondern muss langsam wachsen. Deshalb gönne dir und deinem Körper eine Pause von mindestens zehn Tagen.
+        \nDamit sich dein Lösungsverhalten weiter mental verankern kann, ist es am besten wenn du das Erlernte weiterhin übst und mit dem weitermachst was funktioniert. Vielleicht magst du dich auch für deinen bisherigen Fortschritt selbst belohnen?</string>
 
     <!-- Timer -->
     <string name="d_TextView"><b>Tage</b></string>
@@ -282,12 +286,12 @@
     <string name="ZurUebersicht8_Button">Zur Übersicht</string>
 
     <!-- Mantra -->
-    <string name="Mantra_TextView"></string>
+    <string name="Mantra_TextView">Deine Ausdauer und dein Durchhaltevermögen sind großartig. Andere hätten das vielleicht nicht geschafft. Du aber hast all deine Kräfte zusammengenommen und die Hoffnung auf eine Lösung immer beibehalten.
+    Du siehst, dass du dich auch in schwierigen Situationen voll auf dich verlassen kannst.</string>
     <string name="mantraWeiter_Button">Weiter</string>
 
     <!-- Lob -->
-    <string name="lob_TextView">Deine Ausdauer und dein Durchhaltevermögen sind großartig. Andere hätten das vielleicht nicht geschafft. Du aber hast all deine Kräfte zusammengenommen und die Hoffnung auf eine Lösung immer beibehalten.
-    Du siehst, dass du dich auch in schwierigen Situationen voll auf dich verlassen kannst. Wie könntest du dich selbst dafür belohnen?</string>
+    <string name="lob_TextView"> </string>
 
     <!-- Level 5 Start -->
     <string name="level5Start_Textview">Willkommen zurück. Jetzt startet Level 5. Hier kannst du noch einmal auf deinen bisherigen Weg zurückblicken und entscheiden wie es weiter gehen soll.</string>
