@@ -81,7 +81,7 @@ public class MenuZiel extends FragmentActivity implements View.OnClickListener, 
         final EditText txt = (EditText) findViewById(R.id.menuZiel_EditText);
         txt.setHint(ziel);
         txt.setHorizontallyScrolling(false);
-        txt.setLines(Integer.MAX_VALUE);
+        txt.setLines(6);
         txt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

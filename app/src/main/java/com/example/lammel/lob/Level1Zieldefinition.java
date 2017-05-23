@@ -100,7 +100,7 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         ziel = saved.getString("ZielSave", defaultZiel);
         zieltxt = (EditText) findViewById(R.id.zieldefinition_EditText);
         zieltxt.setHorizontallyScrolling(false);
-        zieltxt.setLines(Integer.MAX_VALUE);
+        zieltxt.setLines(6);
         zieltxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

@@ -68,7 +68,7 @@
 
     <!-- Ziel Definition -->
     <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und an deinem Verhalten anders als vorher?</string>
-    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurgreifen, die Beschreibung anpassen oder Änderungen durchführen.</string>
+    <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurgreifen, die Beschreibung anpassen oder Änderungen durchführen.\n</string>
     <string name="zielFesthalten_Button">Ziel festhalten</string>
 
     <!-- Ziel verwahren -->
@@ -207,7 +207,7 @@
     <string name="pauseStart_Button">Pause starten</string>
 
     <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht und viele Schritte in Richtung deines Ziels unternommen. \nDoch Veränderungen brauchen auch Zeit und vieles geschieht nicht sofort, sondern muss langsam wachsen. Deshalb gönne dir und deinem Körper eine Pause von mindestens zehn Tagen.
-        \nDamit sich dein Lösungsverhalten weiter mental verankern kann, ist es am besten wenn du das Erlernte weiterhin übst und mit dem weitermachst was funktioniert. Vielleicht magst du dich auch für deinen bisherigen Fortschritt selbst belohnen?</string>
+        \nDamit sich dein Lösungsverhalten weiter mental verankern kann, ist es am besten wenn du das Erlernte weiterhin übst und mit dem weitermachst was funktioniert. Vielleicht magst du dich auch für deinen bisherigen Fortschritt selbst belohnen?\n</string>
 
     <!-- Timer -->
     <string name="d_TextView"><b>Tage</b></string>
