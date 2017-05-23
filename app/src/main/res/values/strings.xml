@@ -79,8 +79,7 @@
     <string name="level2Start_Textview">Ab jetzt bist du in Level 2. Hier geht es darum Lösungswege zu definieren, die dich beim Erreichen deines Ziels unterstützen werden. Solltest du noch keine Ideen haben, helfen dir verschiedene Übungen dabei. </string>
 
     <!-- Loesungswege -->
-    <string name="loesungswege_Textview">Wenn du Ideen hast die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
-    <!--Nachdem du dein Ziel jetzt so klar für dich definiert hast, ist dir vielleicht bereits eine Idee gekommen die zu einer Verbesserung deiner jetzigen Situation führen könnte und die dich deinem Ziel ein Stück näher bringt. -->
+    <string name="loesungswege_Textview">Wenn du bereits Ideen hast die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
@@ -150,7 +149,8 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen.</string>
+    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für
+        dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nFalls du ein konkretes Beispiel sehen willst, gehe auf das Fragezeichen neben dem Menü.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>
