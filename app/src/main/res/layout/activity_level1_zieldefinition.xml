@@ -20,7 +20,7 @@
 
 
     <TextView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/zielFesthalten_TextView"
         android:textSize="@dimen/activity_normalcontent"
@@ -33,7 +33,7 @@
         app:layout_constraintRight_toRightOf="parent" />
 
     <EditText
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="@string/zielFesthalten_EditView"
         android:textSize="@dimen/activity_normalcontent"

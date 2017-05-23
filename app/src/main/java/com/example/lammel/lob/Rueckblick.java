@@ -97,6 +97,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                 fortschritt = i;
+                txt.setText("" + fortschritt);
 
             }
 
