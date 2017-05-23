@@ -2,7 +2,7 @@
     <string name="app_name">LOB</string>
     <string name="welcome_text">Willkommen!</string>
 
-    <string name="start_button">Los gehts</string>
+    <string name="start_button">Los geht\'s</string>
     <string name="weiter_button">Weiter</string>
 
     <!-- Einführung -->
@@ -245,7 +245,7 @@
     <string name="Mitte_TextView">Veränderung</string>
 
     <!-- Sonne der Erkenntnis - Intro -->
-    <string name="SonneIntro_TextView">Wie du siehst hat sich bereits sehr viel positiv verändert. Doch was genau hat zu den Veränderungen geführt? Wie sind die Veränderungen bereits sichtbar gworden? \nUm dies besser zu verstehen soll dir die Sonne der Erkenntnis helfen. Hier werden dir acht Fragen gestellt.
+    <string name="SonneIntro_TextView">Wie du siehst hat sich bereits sehr viel positiv verändert. Doch was genau hat zu den Veränderungen geführt? Wie sind die Veränderungen bereits sichtbar geworden? \nUm dies besser zu verstehen soll dir die Sonne der Erkenntnis helfen. Hier werden dir acht Fragen gestellt.
     Bitte nimm dir wieder für jede Frage genügend Zeit und formuliere für dich schon mal eine Antwort. Damit du die Antwort auch in Zukunft immer parat hast, kannst du diese aufnehmen. So kannst du jeder Zeit zu deiner Antwort zurückkehren, sie dir nochmal anhören oder auch eine neue Antwort einsprechen.</string>
     <string name="zurSonne_Button">Weiter</string>
 
@@ -263,7 +263,7 @@
     <string name="ZurUebersicht2_Button">Zur Übersicht</string>
 
     <!-- Sonne W3 Frage -->
-    <string name="SonneF3_TextView">Woran würde ein Außenstehender positive Veränderunge in deinem Leben erkennen?</string>
+    <string name="SonneF3_TextView">Woran würde ein Außenstehender positive Veränderungen in deinem Leben erkennen?</string>
     <string name="Weiter3_Button">Weiter</string>
     <string name="ZurUebersicht3_Button">Zur Übersicht</string>
 
@@ -329,7 +329,7 @@
     Es ist hilfreich und sinnvoll, dass du deine Fähigkeiten immer wieder im Alltag ausprobierst, so kannst du sie trainieren und sie zu automatischen Verhaltensmustern entwickeln.</string>
     <string name="Ende_Button">Weiter</string>
     <string name="Ende2_TextView">Zum Schluss gibt es noch etwas Wichtiges zu sagen: Alles, wirklich alles, was du an Veränderungen erreicht hast, ist ganz allein aus deiner Idee und aus deinen
-                            Kräften erwachsen. LOB hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!</string>
+                            Kräften erwachsen. Die App hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!</string>
 
     <!-- Notification -->
     <string name="notification_title">LOB - Timer</string>
