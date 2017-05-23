@@ -22,7 +22,7 @@ public class BroadcastService extends Service {
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private long startValue;
-    private static final long countdown = 60000;
+    private static final long countdown = 30000;
     CountDownTimer cdt;
 
 

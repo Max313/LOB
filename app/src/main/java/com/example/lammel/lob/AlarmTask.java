@@ -23,7 +23,7 @@ public class AlarmTask implements Runnable {
         Log.i(TAG, "start timer..");
         this.context = context;
         this.am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        this.time = System.currentTimeMillis() + 60000;
+        this.time = System.currentTimeMillis() + 30000;
 
     }
 
