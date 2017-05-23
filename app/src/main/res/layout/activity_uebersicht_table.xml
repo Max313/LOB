@@ -209,12 +209,12 @@
             <Button
                 android:id="@+id/aendern2_Button"
                 android:layout_weight="0.33"
-                android:text="@string/aendern1_Button" />
+                android:text="@string/aendern2_Button" />
 
             <Button
                 android:id="@+id/aendern3_Button"
                 android:layout_weight="0.33"
-                android:text="@string/aendern1_Button" />
+                android:text="@string/aendern3_Button" />
 
         </TableRow>
     </TableLayout>

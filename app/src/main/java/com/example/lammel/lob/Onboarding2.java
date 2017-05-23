@@ -68,9 +68,9 @@ public class Onboarding2 extends FragmentActivity implements View.OnClickListene
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
-        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
-        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+        //delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+        //delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
+        //delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         onboardingProzessStarten();
 

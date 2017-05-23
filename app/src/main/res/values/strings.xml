@@ -169,8 +169,8 @@
     <string name="value11_TextView">Value 4</string>
     <string name="value12_TextView">Value 4</string>
     <string name="aendern1_Button">Verhalten\nBearbeiten</string>
-    <string name="aendern_2Button">Kompliment\nBearbeiten</string>
-    <string name="aendern3_Button">Ressource\nBearbeiten</string>
+    <string name="aendern2_Button">Kompliment\nBearbeiten</string>
+    <string name="aendern3_Button">Ressourcen\nBearbeiten</string>
     <string name="aendern4_Button">Alles\nBearbeiten</string>
     <string name="weiter_Button">Weiter</string>
     <string name="erklaerung_Button">\?</string>
