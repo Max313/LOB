@@ -332,7 +332,7 @@
                             Kräften erwachsen. Die App hat dir nur geholfen, dass du diese Ideen ausformulierst und du deine Fähigkeiten dann auch nutzt. Mach genau so weiter! Denk daran, die Lösung steckt immer schon in DIR!</string>
 
     <!-- Notification -->
-    <string name="notification_title">LOB - Timer</string>
+    <string name="notification_title">Timer</string>
     <string name="notification_text">Geschafft! Die Zehn Tage sind um.</string>
 
     <!-- EndScreen -->
