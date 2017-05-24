@@ -10,19 +10,11 @@
 
     <include
         android:id="@+id/tool_bar"
-        layout="@layout/tool_bar"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp"></include>
+        layout="@layout/tool_bar"></include>
 
     <include
         android:id="@+id/footer"
-        layout="@layout/footer"
-        android:layout_height="0dp"
-        android:layout_width="0dp"
-        tools:layout_editor_absoluteY="0dp"
-        tools:layout_editor_absoluteX="0dp"></include>
+        layout="@layout/footer"></include>
 
     <TextView
         android:id="@+id/einfuehrungTabelle_TextView"
