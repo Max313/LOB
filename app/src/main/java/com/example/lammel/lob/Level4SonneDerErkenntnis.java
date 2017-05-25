@@ -405,7 +405,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
 
     @Override
     public void onClick(View view) {
-
+        saved = getSharedPreferences(PREFS_NAME,0);
         switch (view.getId()){
 
             case R.id.startTour_Button:
@@ -513,9 +513,14 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
 
 
             case R.id.fertig_Button:
-                Intent intent = new Intent(view.getContext(), PauseZwischen4und5.class);
-                intent.putExtra("Source", 1);
-                startActivity(intent);
+                if (!saved.getBoolean("pause2", false)){
+                    startActivity(new Intent(this, PauseZwischen4und5.class));
+                }
+                else{
+                    startActivity(new Intent(this, Level5Start.class));
+                }
+
+
 
 
 

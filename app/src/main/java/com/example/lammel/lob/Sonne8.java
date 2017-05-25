@@ -619,16 +619,19 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
+        saved = getSharedPreferences(PREFS_NAME,0);
 
         switch (view.getId()){
             case R.id.Weiter8_Button:
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
-                intent = new Intent(view.getContext(), PauseZwischen4und5.class);
-                intent.putExtra("Source", 1);
-                startActivity(intent);
-                break;
+                if (!saved.getBoolean("pause2", false)){
+                    startActivity(new Intent(this, PauseZwischen4und5.class));
+                }
+                else{
+                    startActivity(new Intent(this, Level5Start.class));
+                }                break;
 
             case R.id.zurUebersicht8_Button:
                 if(fertig.isEnabled()){

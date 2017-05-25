@@ -55,12 +55,12 @@ public class Level4Start extends FragmentActivity implements View.OnClickListene
         else if(saved.getInt("sonneStatus", 0) < 1){
             editor.putInt("sonneStatus", 1);
         }
-        editor.putInt("tabStatus", 4);
 
         //wenn man vom Timer kommt, damit dieser nicht nochmal aufgerufen wird
         editor.putBoolean("pause1", true);
         editor.putLong("pauseTime", (long) 0);
 
+        editor.putInt("tabStatus", 4);
         editor.apply();
 
         //Toolbar

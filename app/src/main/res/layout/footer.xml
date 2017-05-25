@@ -21,7 +21,7 @@
             <TextView
                 android:id="@+id/footer1_TextView"
                 android:layout_width="70dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@color/level1Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -63,7 +63,7 @@
             <TextView
                 android:id="@+id/footer2_TextView"
                 android:layout_width="70dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginLeft="70dp"
                 android:background="@color/level2Background"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -108,7 +108,7 @@
             <TextView
                 android:id="@+id/footer3_TextView"
                 android:layout_width="70dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@color/level3Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -146,7 +146,7 @@
             <TextView
                 android:id="@+id/footer4_TextView"
                 android:layout_width="70dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:layout_marginRight="70dp"
                 android:background="@color/level4Background"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -191,7 +191,7 @@
             <TextView
                 android:id="@+id/footer5_TextView"
                 android:layout_width="70dp"
-                android:layout_height="0dp"
+                android:layout_height="match_parent"
                 android:background="@color/level5Background"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintRight_toRightOf="parent"

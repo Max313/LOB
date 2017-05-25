@@ -458,7 +458,21 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 }
 
                 else{
-                    startActivity(new Intent(this, Level3UebungStart.class));
+                    //Set Status - Footer
+                    saved = getSharedPreferences(PREFS_NAME, 0);
+                    editor = saved.edit();
+
+                    if(saved.getInt("ressourceStatus", 0) < 2){
+                        editor.putInt("ressourceStatus", 2);
+                    }
+
+                    else if(saved.getInt("sonneStatus", 0) < 1){
+                        editor.putInt("sonneStatus", 1);
+                    }
+                    editor.putInt("tabStatus", 4);
+                    editor.apply();
+
+                    startActivity(new Intent(this, Level4Start.class));
                 }
 
                 break;
