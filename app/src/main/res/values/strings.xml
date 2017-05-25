@@ -13,8 +13,8 @@
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich zusätzlich ein Menü, in welchem du schnellen Zugriff auf verschiedene Übungen hast, die nach und nach Freischalten werden.</string>
-    <string name="menuIntro_Text2">Auf die einzelnen Level, die du gerade kennengelernt hast, kannst du auch in der Leiste am Boden deines Bildschirms zugreifen. Diese werden nach und nach freigeschaltet, so dass du direkt in ein Level zurückkehren kannst, welches du bereits begonnen hast.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Hier hast du direkten Zugriff auf verschiedene Übungen. Das meiste wird allerdings erst nach und nach freigeschalten.</string>
+    <string name="menuIntro_Text2">Auf die einzelnen Level, kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet, so dass du direkt an den Anfang eines Levels springen kannst, sobald du es einmal begonnen hast.</string>
 
     <!-- Menü -->
     <string name="start_Menu">Startmenü</string>
@@ -46,10 +46,10 @@
     <string name="wuerfel_Textview">Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu:\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Nehme einen Würfel zur Hand. Die Augenzahl steht für einen Tag, 1 für Montag, 2 für Dienstag, 3 für Mittwoch, usw. Würfle und schaue, welcher Tag herauskommt.\nAn diesem Tag probierst du so ein \"verrücktes\" Verhalten aus. Beobachte ganz genau was an diesem Tag anders ist als am Rest der Woche.\nDu kannst die Übung auch noch durchgehen, falls du dir unsicher bist.</string>
 
     <!-- Onboarding -->
-    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier richtig!\n</string>
+    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier genau richtig!\n</string>
 
     <!-- Onboarding -->
-    <string name="onboard2">Lerne hier erste Schritte kennen um deine Probleme zu lösen. Die genaue Ursache des Problems ist nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\n\n</string>
+    <string name="onboard2">Lerne hier erste Schritte kennen um deine Probleme zu lösen. Die genaue Ursache des Problems ist dabei nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\n\n</string>
 
     <!-- Level 1 Start -->
     <string name="level1Start_Textview">Los geht’s in Level 1. Nachdem du dich kurz mit deinem Problem beschäftigt hast legst du hier dein Ziel fest. </string>
@@ -183,7 +183,7 @@
     <string name="beispielKompliment_TextView">Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest.</string>
 
     <!-- Ressource -->
-    <string name="beispielRessource_TextView">Ressourcen die du zur Lösung einer schwierigen Situation beitragen.</string>
+    <string name="beispielRessource_TextView">Ressourcen die zur Lösung einer schwierigen Situation beitragen.</string>
 
     <!--\nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
     ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht. -->
@@ -217,7 +217,7 @@
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel des Sehenden. \nDu hast viele großartige Veränderungen verwirklicht. Um dich mit diesen positiven Veränderungen zu befassen werden dir nun vier Fragen gestellt.
-        Nimm dir dazu Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
+        Nimm dir Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
     <string name="fragenStart_Button">Fragen starten</string>
     <string name="f1_TextView">Frage 1/4</string>
 
