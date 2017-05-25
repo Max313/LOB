@@ -65,7 +65,7 @@
 
     <Button
         android:text="@string/hausaufgabe_zurueck"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:id="@+id/muenzwurfZurueck_Button"
         android:layout_marginBottom="46dp"
@@ -78,7 +78,7 @@
 
     <Button
         android:text="@string/zuHausaufgabe"
-        android:layout_width="wrap_content"
+        android:layout_width="170dp"
         android:layout_height="wrap_content"
         android:id="@+id/muenzwurfAufgabe_Button"
         android:layout_marginBottom="46dp"
