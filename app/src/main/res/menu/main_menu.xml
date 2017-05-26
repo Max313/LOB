@@ -28,8 +28,9 @@
     <item
         android:id="@+id/action_delete"
         android:title="Delete"
-        android:icon="@drawable/ic_delete_forever_black_24dp"
-        android:visible="false"></item>
+        android:icon="@drawable/ic_delete_forever_black_24dp"></item>
+        <!--android:visible="false"-->
+
 
     <item
         android:id="@+id/action_help"
@@ -38,5 +39,10 @@
         app:showAsAction="always"
         android:visible="false"
         ></item>
+
+    <item
+        android:title="@string/impressum_Menu"
+        android:id="@+id/Impressum"
+        app:showAsAction="never"/>
 
 </menu>

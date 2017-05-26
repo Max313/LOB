@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.provider.ContactsContract;
@@ -8,6 +9,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -187,12 +189,14 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -220,12 +224,28 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
+                return true;
+
             case R.id.action_delete:
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 settings.edit().clear().commit();
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Level4SonneDerErkenntnis.this);
+                builder.setTitle("Sonne der Erkenntnis - Hilfe");
+                builder.setMessage("Klicke auf einen der Kreise um dir die dazugehörige Frage durchzulesen und deine Antwort aufzunehmen.\nWenn du schon eine Antwort aufgenommen hast, kannst du auf die erschienene Sonne klicken um deine Antwort erneut anzuhören oder zu verändern.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);

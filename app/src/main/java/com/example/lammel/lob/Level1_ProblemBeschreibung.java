@@ -1,6 +1,7 @@
 package com.example.lammel.lob;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
@@ -9,6 +10,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -87,7 +89,6 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
 
         //Button Action
         weiterButtonProblem = (Button) findViewById(R.id.weiter_buttonProblem);
-        weiterButtonProblem.setEnabled(false);
         weiterButtonProblem.setOnClickListener(this);
 
         //Problembeschreibung Speicher
@@ -108,12 +109,9 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         });
 
         problem = saved.getString("ProblemSave", "");
-        if(problem != ""){
-            txt.setText(problem);
-            weiterButtonProblem.setEnabled(true);
-        }
+        txt.setText(problem);
 
-        txt.addTextChangedListener(new TextWatcher()
+        /*  txt.addTextChangedListener(new TextWatcher()
         {
             public void afterTextChanged(Editable s)
 
@@ -133,7 +131,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
             }
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
-        });
+        });*/
     }
 
 
@@ -154,12 +152,14 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         if (!saved.getBoolean("MenuHausaufgabe", false)){
             menu.findItem(R.id.Hausaufgabe).setEnabled(false);
         }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -183,6 +183,10 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                 startActivity(new Intent(this, SonneDerErkenntnisStart.class));
                 return true;
 
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
+                return true;
+
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
@@ -193,6 +197,18 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Level1_ProblemBeschreibung.this);
+                builder.setTitle("Problem - Hilfe");
+                builder.setMessage("Ein Problem kann alles mögliche sein. Es kann sich um ein kleines Problem handeln, aber es kann auch sein, dass dir dein Problem unlösbar erscheint.\nEs könnte sich zum Beispiel um eine Stresssituation in deinem Leben handeln, sei es Arbeit, Beziehung oder Alltag. Oder es ist etwas, das dich belastet.\nWenn du es dir anders überlegt hast und es lieber doch nicht aufschreiben willst, klicke einfach auf weiter.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -249,18 +265,17 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.weiter_buttonProblem:
-                //Weiter und Problem abspeichern
-                saved = getSharedPreferences(PREFS_NAME, 0);
-                editor = saved.edit();
-                editor.putString("ProblemSave", problem);
-                editor.apply();
-                startActivity(new Intent(this, Level1ProblemBeschreibungDank.class));
-                break;
-
-            default:
-                break;
+        txt = (EditText) findViewById(R.id.problem_editText);
+        //Weiter und Problem abspeichern
+        if(txt.length() != 0) {
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            editor.putString("ProblemSave", problem);
+            editor.apply();
+            startActivity(new Intent(this, Level1ProblemBeschreibungDank.class));
+        }
+        else{
+            startActivity(new Intent(this, Level1Zieldefinition.class));
         }
     }
 

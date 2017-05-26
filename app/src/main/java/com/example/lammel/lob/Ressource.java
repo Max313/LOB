@@ -55,7 +55,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ressource);
 
-        this.setTitle("Stärkeinsel");
+        this.setTitle("Ressourcentabelle");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -258,6 +258,10 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
                 return true;
 
             case R.id.action_delete:

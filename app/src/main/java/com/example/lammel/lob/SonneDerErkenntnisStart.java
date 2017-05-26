@@ -120,6 +120,10 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
+                return true;
+
             case R.id.action_delete:
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 settings.edit().clear().commit();

@@ -13,8 +13,8 @@
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Hier hast du direkten Zugriff auf verschiedene Übungen. Das meiste wird allerdings erst nach und nach freigeschalten.</string>
-    <string name="menuIntro_Text2">Auf die einzelnen Level, kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet, so dass du direkt an den Anfang eines Levels springen kannst, sobald du es einmal begonnen hast.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Hier hast du direkten Zugriff auf verschiedene Übungen. Im Laufe der App schaltest du alle Übungen frei. Neben dem Menü findest du ein Fragezeichen, welches bei einzelnen Übungen erscheint um dir weiterzuhelfen.</string>
+    <string name="menuIntro_Text2">Auf die einzelnen Level kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet, so dass du direkt an den Anfang eines Levels springen kannst, sobald du es einmal begonnen hast.</string>
 
     <!-- Menü -->
     <string name="start_Menu">Startmenü</string>
@@ -22,10 +22,15 @@
     <string name="tabelle_Menu">Ressourcen Tabelle</string>
     <string name="sonne_Menu">Sonne der Erkenntnis</string>
     <string name="hausaufgabe_Menu">Hausaufgaben</string>
+    <string name="impressum_Menu">Impressum</string>
 
     <!-- Menü Ziel -->
     <string name="menuZiel_Textview">Hier hast du immer die Möglichkeit dein Ziel zu betrachten. Du kannst es zu jedem Zeitpunkt ändern wenn du das Gefühl hast, dass sich dein Ziel in der Zwischenzeit verändert hat.</string>
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
+
+    <!--Menü Impressum -->
+    <string name="impressum_Textview1">Diese App ist ein Projekt der Ludwig-Maximilians-Universität München, durchgeführt von Stina Schick und Maximilian Lammel.\nDie eingegebenen Daten werden weder verbreitet noch außerhalb des Handys gespeichert.\n</string>
+    <string name="impressum_Textview2">\nKontakt:\nStina.Schick@campus.lmu.de\nMaximilian.Lammel@campus.lmu.de\n\nAdresse:\nGeschwister-Scholl-Platz 1\n80539 München\n\n</string>
 
     <!-- Menü Hausaufgabe -->
     <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und so deiner Lösung einen Schritt näher zu kommen. Im Verlauf der App werden neue Aufgaben freigeschaltet.</string>
@@ -67,7 +72,7 @@
     <string name="problem_beschreibungDank_Textview">Vielen Dank für deine Offenheit! Ein Problem kann sehr belastend sein und gedanklich viel Platz einnehmen, es raubt Energie und trübt den Blick auf das Positive. Starte einen kleinen Versuch. Das Problem ist nun abgelegt und gut für dich aufbewahrt. Nun liegt es an einem anderen Ort und du hast Platz für neue Gedanken und Sichtweisen.</string>
 
     <!-- Ziel Definition -->
-    <string name="zielFesthalten_TextView">Woran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und an deinem Verhalten anders als vorher?</string>
+    <string name="zielFesthalten_TextView">Der Fokus liegt ab jetzt auf deinem Ziel!\nWoran wirst du merken dass dein Problem gelöst ist?\nWas wäre in der Situation und an deinem Verhalten anders als vorher?</string>
     <string name="zielFesthalten_EditView">Nimm dir etwas Zeit und Ruhe und halte hier dein Ziel so knapp und präzise fest wie möglich.\nDu kannst natürlich jederzeit darauf zurgreifen, die Beschreibung anpassen oder Änderungen durchführen.\n</string>
     <string name="zielFesthalten_Button">Ziel festhalten</string>
 
@@ -150,7 +155,7 @@
 
     <!-- Stärkeinsel -->
     <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für
-        dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen. \nFalls du ein konkretes Beispiel sehen willst, gehe auf das Fragezeichen neben dem Menü.</string>
+        dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen.\nFalls du ein konkretes Beispiel sehen willst, gehe auf das Fragezeichen neben dem Menü.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>

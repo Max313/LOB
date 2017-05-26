@@ -48,7 +48,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebersicht_table);
-        this.setTitle("Stärkeinsel - Übersicht");
+        this.setTitle("Ressourentabelle - Übersicht");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -112,12 +112,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -145,12 +147,28 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
+                return true;
+
             case R.id.action_delete:
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 settings.edit().clear().commit();
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
+                builder.setTitle("Ziel - Hilfe");
+                builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Mir fällt nichts ein\" um dorthin zu gelangen.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);

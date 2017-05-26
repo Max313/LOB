@@ -1,13 +1,11 @@
 package com.example.lammel.lob;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -21,10 +19,12 @@ import android.widget.Button;
 
 import java.io.File;
 
-public class MenuIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class MenuImpressum extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+
+
 
     // Button and more
-    private Button weiter;
+    private Button zurueck_button;
     private AppCompatDelegate delegate;
 
     //shared Preferences zum Speichern
@@ -37,8 +37,8 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_intro);
-        this.setTitle("Übersicht");
+        setContentView(R.layout.activity_menu_impressum);
+        this.setTitle("Impressum");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -50,7 +50,7 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.menuIntro, fragment);
+        transaction.add(R.id.menu_impressum, fragment);
         transaction.commit();
 
         //Toolbar
@@ -61,21 +61,18 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_menu_intro);
+        delegate.setContentView(R.layout.activity_menu_impressum);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
         /**display Toolbar Icon
-        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
-        delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);*/
+         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
+         delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
+         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);*/
 
-        weiter = (Button) findViewById(R.id.menuIntro_Button);
-        weiter.setOnClickListener(this);
-
-
+        onboardingProzessStarten();
 
     }
 
@@ -97,14 +94,12 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         if (!saved.getBoolean("MenuHausaufgabe", false)){
             menu.findItem(R.id.Hausaufgabe).setEnabled(false);
         }
-        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
-        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -142,18 +137,6 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
                 deleteFiles();
                 startNew();
                 return true;
-
-            case R.id.action_help:
-                AlertDialog.Builder builder = new AlertDialog.Builder(MenuIntro.this);
-                builder.setTitle("Menü - Hilfe");
-                builder.setMessage("Wenn dieses Fragezeichen erscheint kannst du hier Tipps und Beispiele finden, wie du weiterkommst.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogX = builder.create();
-                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -204,7 +187,10 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         }
     }
 
-
+    private void onboardingProzessStarten() {
+        zurueck_button = (Button) findViewById(R.id.impressum_ButtonBack);
+        zurueck_button.setOnClickListener(this);
+    }
 
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
@@ -212,22 +198,7 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
-
-        if(saved.getInt("zielStatus", 0) == 0){
-            editor.putInt("zielStatus", 1);
-        }
-
-        editor.putInt("tabStatus", 1);
-        editor.apply();
-
-        startActivity(new Intent(this, Level1Start.class));
-
-        //startActivity(new Intent(this, Staerkeinsel.class));
-
-        //startActivity(new Intent(this, Rueckblick.class));
-
-        //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
-
+        onBackPressed();
     }
 
 
@@ -249,4 +220,3 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         return null;
     }
 }
-

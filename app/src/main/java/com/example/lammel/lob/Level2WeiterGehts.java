@@ -81,7 +81,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
         if(loesungsCounter == 0){
             txt.setText("So individuell jeder von uns ist, so individuell sind auch unsere Lösungswege. Neue Wege sind Übungen, die dir dabei helfen sollen den richtigen Lösungsansatz für dein Problem zu finden. Bist du sicher, dass du keine davon ausprobieren willst? ");
         }
-        if(loesungsCounter == 5){
+        if(loesungsCounter >= 5){
             button2.setEnabled(false);
         }
 
@@ -139,6 +139,10 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
                 return true;
 
             case R.id.action_delete:

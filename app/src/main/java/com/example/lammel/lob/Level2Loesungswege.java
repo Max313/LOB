@@ -138,6 +138,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         mirFaelltNichtsEin.setEnabled(false);
         fertig = (Button) findViewById(R.id.loesungswege_ButtonFertig);
 
+        if(saved.getBoolean("FertigSaved", false)){
+            mirFaelltNichtsEin.setText("Neue Wege");
+        }
         if(loesungsCounter != 6){
             fertig.setEnabled(false);
             mirFaelltNichtsEin.setEnabled(true);
@@ -259,6 +262,10 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
                 return true;
 
             case R.id.action_delete:
@@ -401,6 +408,8 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.loesungswege_ButtonFertig:
+                editor.putBoolean("FertigSaved", true);
+                editor.apply();
                 if(loesungsCounter == 0){
                     Intent intent = new Intent(v.getContext(), Level2WeiterGehts.class);
                     intent.putExtra("LoesungsCounter", 0);

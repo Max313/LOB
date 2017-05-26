@@ -40,7 +40,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_staerkeinsel);
-        this.setTitle("Stärkeinsel");
+        this.setTitle("Ressourcentabelle");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -132,6 +132,10 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
 
             case R.id.Hausaufgabe:
                 startActivity(new Intent(this, MenuHausaufgabe.class));
+                return true;
+
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
                 return true;
 
             case R.id.action_delete:

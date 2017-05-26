@@ -147,12 +147,14 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
@@ -180,12 +182,28 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 startActivity(new Intent(this, MenuHausaufgabe.class));
                 return true;
 
+            case R.id.Impressum:
+                startActivity(new Intent(this, MenuImpressum.class));
+                return true;
+
             case R.id.action_delete:
                 SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
                 settings.edit().clear().commit();
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Level2UniversalloesungWeiter.this);
+                builder.setTitle("Lösungsweg 4 - Hilfe");
+                builder.setMessage("Wenn du dir nicht sicher bist, was für \"verrückte\" Verhaltensweisen es geben könnte, findest du einige Beispiele wenn du auf \"Mir fällt nichts ein\" klickst.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);
