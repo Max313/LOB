@@ -98,8 +98,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
 
-        //q = (Button) findViewById(R.id.erklaerungK_Button);
-        //q.setOnClickListener(this);
+        allEds = new ArrayList<EditText>();
+        texts = new ArrayList<String>();
 
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
