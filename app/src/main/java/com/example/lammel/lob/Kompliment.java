@@ -18,6 +18,7 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,9 +28,13 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Kompliment extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
@@ -44,6 +49,11 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     private AppCompatDelegate delegate;
     private Boolean aenderung = false;
     private EditText txt1, txt2, txt3;
+    private TableLayout table;
+    private int counter;
+    private Button add;
+    private List<EditText> allEds;
+    private List<String> texts;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -94,11 +104,24 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
 
+        table = (TableLayout) findViewById(R.id.Table_Kompliment);
+
+
         //Tabelle befüllen falls nötig
         saved = getSharedPreferences(PREFS_NAME, 0);
+
         k1 = saved.getString("Kompliment1", "");
+        texts.add(k1);
         k2 = saved.getString("Kompliment2", "");
+        texts.add(k2);
         k3 = saved.getString("Kompliment3", "");
+        texts.add(k3);
+
+
+        counter = saved.getInt("KomplimentCounter", 3);
+        if(counter > 3){
+            setUpView();
+        }
 
         txt1 = (EditText) findViewById(R.id.kompliment1EditText);
         txt2 = (EditText) findViewById(R.id.kompliment2EditText);
@@ -205,6 +228,118 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
+    }
+
+
+    public void setUpView(){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        for(int i = 4; i<= counter; i++){
+            String st = "Kompliment"+i;
+            TableRow tr = new TableRow(this);
+            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+            EditText eTxt = new EditText(this);
+            if(i % 2 == 0) {
+                eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+            }
+            else{
+                eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+            }
+
+            int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+            eTxt.setPadding(paddingDp, 0, paddingDp,0);
+            eTxt.setText(saved.getString(st, ""));
+            allEds.add(eTxt);
+            texts.add(i-1, saved.getString(st, ""));
+            tr.addView(eTxt);
+            table.addView(tr);
+            setKeyboardOptions();
+            addChangeListener();
+        }
+    }
+    //add a new Row after pressing the + Button
+    public void addRow(){
+        counter++;
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        final EditText eTxt = new EditText(this);
+        if(counter % 2 == 0) {
+            eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+        }
+        else{
+            eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+        }
+
+        eTxt.setHint("Eingabe");
+        int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+        eTxt.setPadding(paddingDp, 0, paddingDp,0);
+        eTxt.setId(counter);
+        allEds.add(eTxt);
+        tr.addView(eTxt);
+        table.addView(tr);
+        addChangeListener();
+
+        eTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+
+
+    }
+
+    public void addChangeListener(){
+        for(int i = 0; i<allEds.size(); i++){
+
+            final int is = i+3;
+
+            final EditText ed = allEds.get(i);
+            ed.addTextChangedListener(new TextWatcher()
+            {
+                public void afterTextChanged(Editable s){
+                    if(texts.size() > is){
+                        texts.set(is, ed.getText().toString().trim());
+                    }
+                    else{
+                        texts.add(is,ed.getText().toString().trim());
+                    }
+                }
+
+                public void beforeTextChanged(CharSequence s, int start, int count, int after){
+                }
+                public void onTextChanged(CharSequence s, int start, int before, int count){
+                }
+            });
+        }
+
+
+    }
+
+
+
+    public void setKeyboardOptions(){
+        for(int i = 0; i< allEds.size(); i++){
+            allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                    @Override
+                    public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                        if (actionId == EditorInfo.IME_ACTION_DONE) {
+                            InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                            imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                            return true;
+                        }
+                        return false;
+                    }
+                });
+
+            }
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -378,6 +513,17 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     }
                 }
 
+                if(texts.size() < allEds.size()+3){
+                    counter = counter - ((allEds.size()+3)-texts.size());
+                }
+
+                for(int i = 3; i < texts.size(); i++){
+                    String string = "Kompliment"+(i+1);
+                    editor.putString(string, texts.get(i));
+
+                }
+                editor.putInt("KomplimentCounter", counter);
+
                 editor.putString("Kompliment1", k1);
                 editor.putString("Kompliment2", k2);
                 editor.putString("Kompliment3", k3);
@@ -390,6 +536,10 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     startActivity(new Intent(this, UebersichtTable.class));
                 }
 
+                break;
+
+            case R.id.addRowK_Button:
+                addRow();
                 break;
 
             default:

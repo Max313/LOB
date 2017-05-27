@@ -27,19 +27,27 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Ressource extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     //Buttons and more
     private Button weiter;
-    private Button q;
-    private TextView ressource;
     private AppCompatDelegate delegate;
     private Boolean aenderung;
+    private int counter;
+    private TableLayout table;
+    private Button add;
+    private List<EditText> allEds;
+    private List<String> texts;
+
 
     //Tabelleninhalt
     private String r1, r2, r3;
@@ -89,17 +97,28 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         weiter.setOnClickListener(this);
         weiter.setEnabled(false);
 
-        //q = (Button) findViewById(R.id.erklaerungR_Button);
-        //q.setOnClickListener(this);
+        add = (Button) findViewById(R.id.addRowR_Button);
+        add.setOnClickListener(this);
 
-        ressource = (TextView) findViewById(R.id.ressourcenTextView);
-        ressource.setOnClickListener(this);
+        allEds = new ArrayList<EditText>();
+        texts = new ArrayList<String>();
+
+        table = (TableLayout) findViewById(R.id.Tabelle_Ressource);
 
         //Tabelle befüllen falls nötig
         saved = getSharedPreferences(PREFS_NAME, 0);
+
         r1 = saved.getString("Ressource1", "");
+        texts.add(r1);
         r2 = saved.getString("Ressource2", "");
+        texts.add(r2);
         r3 = saved.getString("Ressource3", "");
+        texts.add(r3);
+
+        counter = saved.getInt("RessourceCounter", 3);
+        if(counter > 3){
+            setUpView();
+        }
 
         txt1 = (EditText) findViewById(R.id.ressource1EditText);
 
@@ -208,6 +227,114 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
             public void onTextChanged(CharSequence s, int start, int before, int count){
             }
         });
+    }
+
+    //add rows
+    public void setUpView(){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        for(int i = 4; i<= counter; i++){
+            String st = "Ressource"+i;
+            TableRow tr = new TableRow(this);
+            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+            EditText eTxt = new EditText(this);
+            if(i % 2 == 0) {
+                eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+            }
+            else{
+                eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+            }
+
+            int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+            eTxt.setPadding(paddingDp, 0, paddingDp,0);
+            eTxt.setText(saved.getString(st, ""));
+            allEds.add(eTxt);
+            texts.add(i-1, saved.getString(st, ""));
+            tr.addView(eTxt);
+            table.addView(tr);
+            setKeyboardOptions();
+            addChangeListener();
+        }
+    }
+    //add a new Row after pressing the + Button
+    public void addRow(){
+        counter++;
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        final EditText eTxt = new EditText(this);
+        if(counter % 2 == 0) {
+            eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+        }
+        else{
+            eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+        }
+
+        eTxt.setHint("Eingabe");
+        int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+        eTxt.setPadding(paddingDp, 0, paddingDp,0);
+        eTxt.setId(counter);
+        allEds.add(eTxt);
+        tr.addView(eTxt);
+        table.addView(tr);
+        addChangeListener();
+
+        eTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+    }
+
+    public void addChangeListener(){
+        for(int i = 0; i<allEds.size(); i++){
+
+            final int is = i+3;
+
+            final EditText ed = allEds.get(i);
+            ed.addTextChangedListener(new TextWatcher()
+            {
+                public void afterTextChanged(Editable s){
+                    if(texts.size() > is){
+                        texts.set(is, ed.getText().toString().trim());
+                    }
+                    else{
+                        texts.add(is,ed.getText().toString().trim());
+                    }
+                }
+
+                public void beforeTextChanged(CharSequence s, int start, int count, int after){
+                }
+                public void onTextChanged(CharSequence s, int start, int before, int count){
+                }
+            });
+        }
+
+
+    }
+
+
+
+    public void setKeyboardOptions(){
+        for(int i = 0; i< allEds.size(); i++){
+            allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        return true;
+                    }
+                    return false;
+                }
+            });
+        }
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -344,19 +471,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         editor = saved.edit();
         switch (view.getId()) {
 
-            case R.id.ressourcenTextView:
-
-                builder.setTitle("Ressource");
-                builder.setMessage("Ressourcen die du zur Lösung einer schwierigen Situation beitragen. \nz.B. Umsicht");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV = builder.create();
-                dialogV.show();
-                break;
-
             case R.id.weiterzuUebersicht_Button:
 
                 if(r1.length() == 0){
@@ -383,11 +497,26 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                     }
                 }
 
+                if(texts.size() < allEds.size()+3){
+                    counter = counter - ((allEds.size()+3)-texts.size());
+                }
+
+                for(int i = 3; i < texts.size(); i++){
+                    String string = "Ressource"+(i+1);
+                    editor.putString(string, texts.get(i));
+
+                }
+                editor.putInt("RessourceCounter", counter);
+
                 editor.putString("Ressource1", r1);
                 editor.putString("Ressource2", r2);
                 editor.putString("Ressource3", r3);
 
                 startActivity(new Intent(this, UebersichtTable.class));
+                break;
+
+            case R.id.addRowR_Button:
+                addRow();
                 break;
 
             default:

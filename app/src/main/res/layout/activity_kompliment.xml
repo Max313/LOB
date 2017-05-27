@@ -17,8 +17,8 @@
         layout="@layout/footer"></include>
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
         android:scrollbars="horizontal"
         android:layout_weight="1"
         android:layout_marginTop="8dp"
@@ -29,7 +29,13 @@
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/scrollView4">
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
         <TableLayout
+            android:id="@+id/Table_Kompliment"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             app:layout_constraintRight_toRightOf="parent"
@@ -57,6 +63,8 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="100dp"
+                    android:paddingLeft="@dimen/normalSpace"
+                    android:paddingRight="@dimen/normalSpace"
                     android:background="@drawable/example_table_field"
                     android:clickable="true"
                     android:gravity="center_vertical"
@@ -71,6 +79,8 @@
                     android:id="@+id/kompliment1EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/smallSpace"
+                    android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"
                     android:hint="@string/platzhalterVerhalten_EditText"
@@ -84,8 +94,9 @@
                 <EditText
                     android:id="@+id/kompliment2EditText"
                     android:layout_width="wrap_content"
-
                     android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/smallSpace"
+                    android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_even"
                     android:gravity="top|left"
                     android:hint="@string/platzhalterVerhalten_EditText"
@@ -100,6 +111,8 @@
                     android:id="@+id/kompliment3EditText"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="@dimen/smallSpace"
+                    android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"
                     android:hint="@string/platzhalterVerhalten_EditText"
@@ -109,6 +122,20 @@
             </TableRow>
         </TableLayout>
 
+            <Button
+                android:id="@+id/addRowK_Button"
+                android:layout_marginLeft="@dimen/activity_tablecontentSmall"
+                android:layout_marginTop="@dimen/activity_tablecontentSmall"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:text="+"
+                android:textSize="@dimen/activity_normalcontent"
+                android:background="@drawable/button"
+
+                />
+
+
+        </LinearLayout>
 
     </ScrollView>
     <!--

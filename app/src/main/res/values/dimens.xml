@@ -16,4 +16,7 @@
     <dimen name="timer">24dp</dimen>
     <dimen name="timer2">45dp</dimen>
     <dimen name="einfuehrung">14dp</dimen>
+    <dimen name="smallSpace">4dp</dimen>
+    <dimen name="normalSpace">10dp</dimen>
+    <dimen name="ubersicht">6dp</dimen>
 </resources>

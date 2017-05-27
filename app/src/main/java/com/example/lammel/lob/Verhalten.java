@@ -10,36 +10,46 @@ import android.support.v4.app.FragmentTransaction;
 import android.content.SharedPreferences;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Verhalten extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
+    private final static String TAG = "Verhalten";
+
     //Buttons and more
     private Button weiter;
-    private Button q;
     private Boolean aenderung = false;
-    private TextView verhalten;
     private AppCompatDelegate delegate;
     private EditText txt1, txt2, txt3;
+    private TableLayout table;
+    private int counter;
+    private Button add;
+    List<EditText> allEds;
+    List<String> texts;
 
 
     //Tabelleninhalt
@@ -84,21 +94,35 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action
+
+
         weiter = (Button) findViewById(R.id.weiterzuKompliment_Button);
         weiter.setEnabled(false);
         weiter.setOnClickListener(this);
 
-        //q = (Button) findViewById(R.id.erklaerungV_Button);
-        //q.setOnClickListener(this);
+        add = (Button) findViewById(R.id.addRowV_Button);
+        add.setOnClickListener(this);
 
-        verhalten = (TextView) findViewById(R.id.verhaltenTextView);
-        verhalten.setOnClickListener(this);
+        table = (TableLayout) findViewById(R.id.Table_Verhalten);
+
+        allEds = new ArrayList();
+        texts = new ArrayList();
+
 
         //Tabelle befüllen falls nötig
         saved = getSharedPreferences(PREFS_NAME, 0);
+
         v1 = saved.getString("Verhalten1", "");
+        texts.add(v1);
         v2 = saved.getString("Verhalten2", "");
+        texts.add(v2);
         v3 = saved.getString("Verhalten3", "");
+        texts.add(v3);
+
+        counter = saved.getInt("VerhaltenCounter", 3);
+        if(counter > 3){
+            setUpView();
+        }
 
         txt1 = (EditText) findViewById(R.id.verhalten1EditText);
 
@@ -201,10 +225,11 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
             {
                 if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                else{
                     weiter.setEnabled(true);  //otherwise enable
-                v3 = txt3.getText().toString().trim();
+                    v3 = txt3.getText().toString().trim();
 
+                }
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
             }
@@ -212,6 +237,115 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
             }
         });
     }
+
+    public void setUpView(){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+       for(int i = 4; i<= counter; i++){
+           Log.i(TAG, String.valueOf(i));
+           String st = "Verhalten"+i;
+           TableRow tr = new TableRow(this);
+           tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+           EditText eTxt = new EditText(this);
+           if(i % 2 == 0) {
+               eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+           }
+           else{
+               eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+           }
+
+           int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+           eTxt.setPadding(paddingDp, 0, paddingDp,0);
+           eTxt.setText(saved.getString(st, ""));
+           allEds.add(eTxt);
+           texts.add(i-1, saved.getString(st, ""));
+           tr.addView(eTxt);
+           table.addView(tr);
+           setKeyboardOptions();
+           addChangeListener();
+        }
+    }
+    //add a new Row after pressing the + Button
+    public void addRow(){
+        counter++;
+        TableRow tr = new TableRow(this);
+        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
+        final EditText eTxt = new EditText(this);
+        if(counter % 2 == 0) {
+            eTxt.setBackgroundResource(R.drawable.table_value_border_even);
+        }
+        else{
+            eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
+        }
+
+        eTxt.setHint("Eingabe");
+        int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+        eTxt.setPadding(paddingDp, 0, paddingDp,0);
+        eTxt.setId(counter);
+        allEds.add(eTxt);
+        tr.addView(eTxt);
+        table.addView(tr);
+        addChangeListener();
+
+        eTxt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+
+
+    }
+
+    public void addChangeListener(){
+        for(int i = 0; i<allEds.size(); i++){
+
+            final int is = i+3;
+
+            final EditText ed = allEds.get(i);
+              ed.addTextChangedListener(new TextWatcher()
+            {
+                public void afterTextChanged(Editable s){
+                    if(texts.size() > is){
+                    texts.set(is, ed.getText().toString().trim());
+                }
+                    else{
+                            texts.add(is,ed.getText().toString().trim());
+                    }
+                }
+
+                public void beforeTextChanged(CharSequence s, int start, int count, int after){
+                }
+                public void onTextChanged(CharSequence s, int start, int before, int count){
+                }
+            });
+        }
+    }
+
+
+    public void setKeyboardOptions(){
+        for(int i = 0; i< allEds.size(); i++){
+            allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
+                @Override
+                public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                    if (actionId == EditorInfo.IME_ACTION_DONE) {
+                        InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                        return true;
+                    }
+                    return false;
+                }
+            });
+        }
+
+    }
+
 
     //Welche Menüoptionen sind enabled
     @Override
@@ -345,21 +479,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         editor = saved.edit();
         switch (view.getId()) {
 
-            case R.id.verhaltenTextView:
-
-                builder.setTitle("Verhalten");
-                builder.setMessage("Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren. " +
-                        "\nz.B. Selbst in einer schwierigen Situation versuche ich das beste für mich und die betroffenen Personen zu machen.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV = builder.create();
-                dialogV.show();
-                break;
-
-
             case R.id.weiterzuKompliment_Button:
                 if(v1.length() == 0){
                     if (v2.length() == 0) {
@@ -389,6 +508,16 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 editor.putString("Verhalten2", v2);
                 editor.putString("Verhalten3", v3);
 
+                if(texts.size() < allEds.size()+3){
+                    counter = counter - ((allEds.size()+3)-texts.size());
+                }
+                for(int i = 3; i < texts.size(); i++){
+                    String string = "Verhalten"+(i+1);
+                    editor.putString(string, texts.get(i));
+
+                }
+                editor.putInt("VerhaltenCounter", counter);
+
                 aenderung = saved.getBoolean("TabelleÄndern", false);
                 if(!aenderung){
                     startActivity(new Intent(this, Kompliment.class));
@@ -398,6 +527,10 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     editor.putBoolean("TabelleÄndern", false);
                     startActivity(new Intent(this, UebersichtTable.class));
                 }
+                break;
+
+            case R.id.addRowV_Button:
+                addRow();
                 break;
 
             default:

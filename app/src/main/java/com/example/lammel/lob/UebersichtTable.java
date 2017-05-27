@@ -15,11 +15,16 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.io.File;
@@ -32,6 +37,8 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
     private Button aendern2;
     private Button aendern3;
     private Button aendern4;
+    private TableLayout table;
+    private int counter;
     private AppCompatDelegate delegate;
 
 
@@ -82,18 +89,40 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         weiter.setOnClickListener(this);
 
 
-        aendern1 = (Button) findViewById(R.id.aendern1_Button);
+       /** aendern1 = (Button) findViewById(R.id.aendern1_Button);
         aendern1.setOnClickListener(this);
 
         aendern2 = (Button ) findViewById(R.id.aendern2_Button);
         aendern2.setOnClickListener(this);
 
         aendern3 = (Button) findViewById(R.id.aendern3_Button);
-        aendern3.setOnClickListener(this);
+        aendern3.setOnClickListener(this);*/
 
         aendern4 = (Button) findViewById(R.id.aendern4_Button);
         aendern4.setOnClickListener(this);
+
         this.setTableContent();
+
+        //Tabelle befüllen falls nötig
+        table = (TableLayout) findViewById(R.id.tableBig);
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        counter = saved.getInt("VerhaltenCounter", 3);
+
+        if(counter < saved.getInt("KomplimentCounter", 3)){
+            counter = saved.getInt("KomplimentCounter", 3);
+        }
+
+        else if (counter < saved.getInt("RessourceCounter", 3)){
+            counter = saved.getInt("RessourceCounter", 3);
+        }
+
+        else if(counter > 3){
+            setUpTable();
+        }
+
+
 
 
     }
@@ -240,106 +269,201 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text1View = (TextView) findViewById(R.id.Uebersicht1_1);
         text1View.setOnClickListener(this);
 
-        if (v1.length() <= 12) {
             text1View.setText(v1);
-        } else {
-            String shortString = v1.substring(0, 9) + "...";
-            text1View.setText(shortString);
-        }
 
         //Verhalten aus Zeile 2 in Tabelle eintragen
         TextView text2View = (TextView) findViewById(R.id.Uebersicht2_1);
         text2View.setOnClickListener(this);
 
-            if (v2.length() <= 12) {
                 text2View.setText(v2);
-            } else {
-                String shortString = v2.substring(0, 9) + "...";
-                text2View.setText(shortString);
-            }
-
 
         //Verhalten aus Zeile 3 in Tabelle eintragen
         TextView text3View = (TextView) findViewById(R.id.Uebersicht3_1);
         text3View.setOnClickListener(this);
 
-            if (v3.length() <= 12) {
                 text3View.setText(v3);
-            } else {
-                String shortString = v3.substring(0, 9) + "...";
-                text3View.setText(shortString);
-            }
-
 
         //Kompliment aus Zeile 1 in Tabelle eintragen
         TextView text4View = (TextView) findViewById(R.id.Uebersicht1_2);
         text4View.setOnClickListener(this);
 
-        if (k1.length() <= 12) {
             text4View.setText(k1);
-        } else {
-            String shortString = k1.substring(0, 9) + "...";
-            text4View.setText(shortString);
-        }
-
 
         //Kompliment aus Zeile 2 in Tabelle eintragen
         TextView text5View = (TextView) findViewById(R.id.Uebersicht2_2);
         text5View.setOnClickListener(this);
 
-            if (k2.length() <= 12) {
                 text5View.setText(k2);
-            } else {
-                String shortString = k2.substring(0, 9) + "...";
-                text5View.setText(shortString);
-            }
 
         //Kompliment aus Zeile 3 in Tabelle eintragen
         TextView text6View = (TextView) findViewById(R.id.Uebersicht3_2);
         text6View.setOnClickListener(this);
 
-            if (k3.length() <= 12) {
                 text6View.setText(k3);
-            } else {
-                String shortString = k3.substring(0, 9) + "...";
-                text6View.setText(shortString);
-            }
-
 
         //Ressource aus Zeile 1 in Tabelle eintragen
         TextView text7View = (TextView) findViewById(R.id.Uebersicht1_3);
         text7View.setOnClickListener(this);
 
-        if (r1.length() <= 12) {
             text7View.setText(r1);
-        } else {
-            String shortString = r1.substring(0, 9) + "...";
-            text7View.setText(shortString);
-        }
 
         //Ressource aus Zeile 2 in Tabelle eintragen
         TextView text8View = (TextView) findViewById(R.id.Uebersicht2_3);
         text8View.setOnClickListener(this);
 
-
-            if (r2.length() <= 12) {
-                text8View.setText(r2);
-            } else {
-                String shortString = r2.substring(0, 9) + "...";
-                text8View.setText(shortString);
-            }
-
+         text8View.setText(r2);
 
         //Ressource aus Zeile 3 in Tabelle eintragen
         TextView text9View = (TextView) findViewById(R.id.Uebersicht3_3);
         text9View.setOnClickListener(this);
 
+         text9View.setText(r3);
 
-            if (r3.length() <= 12) {
-                text9View.setText(r3);
-            } else {
-                String shortString = r3.substring(0, 9) + "...";
-                text9View.setText(shortString);
+        }
+
+        public void setUpTable(){
+
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            for(int i = 4; i<= counter; i++){
+
+                final String text1 = saved.getString("Verhalten"+i, "");
+                final String text2 = saved.getString("Kompliment"+i, "");
+                final String text3 = saved.getString("Ressource"+i, "");
+
+
+                TableRow tr = new TableRow(this);
+                tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, 40));
+                TextView vtxt1 = new TextView(this);
+                TextView vtxt2 = new TextView(this);
+                TextView vtxt3 = new TextView(this);
+                if(i % 2 == 0) {
+                    vtxt1.setBackgroundResource(R.drawable.table_value_border_even);
+                    vtxt2.setBackgroundResource(R.drawable.table_value_border_even);
+                    vtxt3.setBackgroundResource(R.drawable.table_value_border_even);
+
+                }
+                else{
+                    vtxt1.setBackgroundResource(R.drawable.table_value_border_odd);
+                    vtxt2.setBackgroundResource(R.drawable.table_value_border_odd);
+                    vtxt3.setBackgroundResource(R.drawable.table_value_border_odd);
+
+                }
+
+                TableRow.LayoutParams params = new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1f);
+
+                int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+                vtxt1.setPadding(paddingDp, 0, paddingDp,0);
+                vtxt2.setPadding(paddingDp, 0, paddingDp,0);
+                vtxt3.setPadding(paddingDp, 0, paddingDp,0);
+
+                vtxt1.setText(text1);
+                vtxt2.setText(text2);
+                vtxt3.setText(text3);
+
+                float textsize = getResources().getDimensionPixelOffset(R.dimen.ubersicht);
+                vtxt1.setTextSize(textsize);
+                vtxt2.setTextSize(textsize);
+                vtxt3.setTextSize(textsize);
+
+                vtxt1.setLayoutParams(params);
+                vtxt2.setLayoutParams(params);
+                vtxt3.setLayoutParams(params);
+
+                String vId = "1"+i;
+                String kId = "2"+i;
+                String rId = "3"+i;
+
+                vtxt1.setId( Integer.parseInt(vId));
+                vtxt2.setId( Integer.parseInt(kId));
+                vtxt3.setId( Integer.parseInt(rId));
+
+                vtxt1.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
+
+                        builder.setTitle("Verhalten");
+                        builder.setMessage(text1);
+
+                        builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                editor.putBoolean("TabelleÄndern", true);
+                                editor.apply();
+                                Intent intent = new Intent(getBaseContext(), Verhalten.class);
+                                startActivity(intent);
+                            }
+                        });
+
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog dialogV1 = builder.create();
+                        dialogV1.show();                    }
+                });
+
+                vtxt2.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
+
+                        builder.setTitle("Kompliment");
+                        builder.setMessage(text2);
+
+                        builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                editor.putBoolean("TabelleÄndern", true);
+                                editor.apply();
+                                Intent intent = new Intent(getBaseContext(), Kompliment.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog dialogV1 = builder.create();
+                        dialogV1.show();                    }
+                });
+
+                vtxt3.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View v) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
+
+                        builder.setTitle("Ressource");
+                        builder.setMessage(text3);
+
+                        builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                editor.putBoolean("TabelleÄndern", true);
+                                editor.apply();
+                                editor.putBoolean("TabelleÄndern", true);
+                                editor.apply();
+                                Intent intent = new Intent(getBaseContext(), Ressource.class);
+                                startActivity(intent);
+                            }
+                        });
+                        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                dialog.cancel();
+                            }
+                        });
+                        AlertDialog dialogV1 = builder.create();
+                        dialogV1.show();                    }
+                });
+
+
+                tr.addView(vtxt1);
+                tr.addView(vtxt2);
+                tr.addView(vtxt3);
+                table.addView(tr);
             }
         }
 
@@ -356,6 +480,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Verhalten");
                 builder.setMessage(v1);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Verhalten.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -369,6 +501,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Verhalten");
                 builder.setMessage(v2);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Verhalten.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -382,6 +522,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Verhalten");
                 builder.setMessage(v3);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Verhalten.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -395,6 +543,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Kompliment");
                 builder.setMessage(k1);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Kompliment.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -408,6 +564,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Kompliment");
                 builder.setMessage(k2);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Kompliment.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -421,6 +585,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Kompliment");
                 builder.setMessage(k3);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Kompliment.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -434,6 +606,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Ressourcen");
                 builder.setMessage(r1);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Ressource.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -447,6 +627,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Ressourcen");
                 builder.setMessage(r2);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Ressource.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -460,6 +648,14 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 builder.setTitle("Ressourcen");
                 builder.setMessage(r3);
+                builder.setNegativeButton("Bearbeiten", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        editor.putBoolean("TabelleÄndern", true);
+                        editor.apply();
+                        Intent intent = new Intent(getBaseContext(), Ressource.class);
+                        startActivity(intent);
+                    }
+                });
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
@@ -495,7 +691,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
                 break;
 
-            case R.id.aendern1_Button:
+          /**  case R.id.aendern1_Button:
                 editor.putBoolean("TabelleÄndern", true);
                 startActivity(new Intent(this, Verhalten.class));
                 break;
@@ -507,7 +703,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
             case R.id.aendern3_Button:
                 startActivity(new Intent(this, Ressource.class));
-                break;
+                break;*/
 
             case R.id.aendern4_Button:
                 startActivity(new Intent(this, Verhalten.class));
