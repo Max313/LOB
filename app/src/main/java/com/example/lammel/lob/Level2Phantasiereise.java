@@ -78,6 +78,11 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        //Hausaufgabe schon gesehen?
+        if(saved.getBoolean("MünzeSave", false)){
+            counter = 1;
+        }
+
         //Buttons and more in action
         saved = getSharedPreferences(PREFS_NAME, 0);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
@@ -232,6 +237,8 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+        editor.putBoolean("MünzeSave", true);
+        editor.apply();
         final View view = v;
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
         switch (v.getId()){
@@ -239,7 +246,6 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 player.pause();
                 player.reset();
                 if(counter == 0){
-                    editor.putBoolean("MünzeSave", true);
                     editor.putBoolean("GeschichteSaved", true);
                     editor.putBoolean("MenuHausaufgabe", true);
                     editor.apply();

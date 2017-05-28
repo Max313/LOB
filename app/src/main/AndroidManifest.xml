@@ -92,8 +92,7 @@
         <activity
             android:name=".Verhalten"
             android:screenOrientation="portrait"
-
-            android:windowSoftInputMode="adjustPan"/>
+            android:windowSoftInputMode="adjustPan" />
         <activity
             android:name=".Kompliment"
             android:screenOrientation="portrait" />
@@ -233,7 +232,10 @@
         <activity
             android:name=".HausaufgabeWuerfel"
             android:screenOrientation="portrait" />
-        <activity android:name=".MenuImpressum"></activity>
+        <activity android:name=".MenuImpressum"
+            android:screenOrientation="portrait" />
+        <activity android:name=".Tagebuch"
+            android:screenOrientation="portrait" ></activity>
     </application>
 
 </manifest>

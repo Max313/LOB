@@ -94,6 +94,11 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             universalloesungWeiter_Nichts.setEnabled(false);
         }
 
+        //Hausaufgabe schon gesehen?
+        if(saved.getBoolean("WürfelSave", false)){
+            counter = 1;
+        }
+
         //Edit Text und gespeicherter Text
         universal = saved.getString("UniversalSave", "");
         final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
@@ -263,6 +268,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         editor.putString("UniversalSave", universal);
+        editor.putBoolean("WürfelSave", true);
         editor.apply();
         storyCounter = saved.getInt("StoryCounter", 0);
         final View view = v;
@@ -273,8 +279,6 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 editor.putInt("StoryCounter", 0);
                 editor.apply();
                 if(counter == 0){
-                    editor.putBoolean("WürfelSave", true);
-                    editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
                     builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {

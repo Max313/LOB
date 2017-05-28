@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -14,41 +16,50 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
 
-public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Tagebuch extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-
-    //Buttons
-    private Button zuAufgabe, zurueck, tagebuch;
+    //Toolbar
     private AppCompatDelegate delegate;
-    private String weg1, weg2, weg3;
 
+    //EditText und Tagebucheintrag
+    private String tagebucheintrag;
+    private String defaultEintrag = "Hier ist Platz für deinen Notizen!";
+    private EditText txt;
+
+    //Button Zurück
+    private Button zurueck;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hausaufgabe_tagebuch);
-        this.setTitle("Hausaufgaben");
-
+        setContentView(R.layout.activity_tagebuch);
+        this.setTitle("Tagebuch");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.Hausaufgabe_Tagebuch, fragment);
+        transaction.add(R.id.tagebuch, fragment);
         transaction.commit();
 
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
@@ -58,51 +69,71 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_hausaufgabe_tagebuch);
+        delegate.setContentView(R.layout.activity_tagebuch);
 
         //Add the Toolbar
         Toolbar toolbar = (Toolbar) findViewById(R.id.tool_bar);
         delegate.setSupportActionBar(toolbar);
 
+        //display Toolbar Icon
+        delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        //Buttons und Funktion
-        tagebuch = (Button) findViewById(R.id.tagebuchEintrag_Button);
-        tagebuch.setOnClickListener(this);
-
-        zuAufgabe = (Button) findViewById(R.id.tagebuchAufgabe_Button);
-        zuAufgabe.setOnClickListener(this);
-
-        zurueck = (Button) findViewById(R.id.tagebuchZurueck_Button);
+        //Buttons
+        zurueck = (Button) findViewById(R.id.tagebuchEintragZurueck_Button);
         zurueck.setOnClickListener(this);
+
+        //Edit Text + sharedPreference
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        tagebucheintrag = saved.getString("TagebucheintragSave", defaultEintrag);
+        txt = (EditText) findViewById(R.id.tagebuchEintrag_EditText);
+        txt.setHorizontallyScrolling(false);
+        txt.setLines(6);
+        txt.setHint(tagebucheintrag);
+        txt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
     }
 
     //Welche Menüoptionen sind enabled
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu){
+    public boolean onPrepareOptionsMenu(Menu menu) {
         saved = getSharedPreferences(PREFS_NAME, 0);
 
-        if (!saved.getBoolean("MenuZiel", false)){
+        if (!saved.getBoolean("MenuZiel", false)) {
             menu.findItem(R.id.ziel).setEnabled(false);
         }
-        if (!saved.getBoolean("MenuTabelle", false)){
+        if (!saved.getBoolean("MenuTabelle", false)) {
             menu.findItem(R.id.tabelle).setEnabled(false);
         }
         if (!saved.getBoolean("MenuSonne", false)) {
             menu.findItem(R.id.Sonne).setEnabled(false);
         }
+        if (!saved.getBoolean("MenuHausaufgabe", false)){
+            menu.findItem(R.id.Hausaufgabe).setEnabled(false);
+        }
+        menu.findItem(R.id.action_help).setVisible(true);
         return true;
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu){
+    public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main_menu, menu);
+        menu.findItem(R.id.action_help).setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
         return true;
     }
 
     //Menüaktivität
     @Override
-    public boolean onOptionsItemSelected(MenuItem item){
-        switch(item.getItemId()){
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
             case R.id.start_menu:
                 startActivity(new Intent(this, LevelIntro.class));
                 return true;
@@ -133,6 +164,18 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
                 deleteFiles();
                 startNew();
                 return true;
+
+            case R.id.action_help:
+                AlertDialog.Builder builder = new AlertDialog.Builder(Tagebuch.this);
+                builder.setTitle("Tagebucheintrag");
+                builder.setMessage("Schreibe positive Sachen auf, die dir bei der Umsetzung deiner Lösungswege aufgefallen sind.\nDu kannst natürlich auch Stift und Papier oder ein echtes Tagebuch benutzen, wenn dir das lieber ist.");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
 
             default:
                 return super.onOptionsItemSelected(item);
@@ -187,38 +230,14 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         startActivity(new Intent(this, MainActivity.class));
     }
 
-
     @Override
-    public void onClick(View view) {
-        weg1 = saved.getString("loesungsweg1", "");
-        weg2 = saved.getString("loesungsweg2", "");
-        weg3 = saved.getString("loesungsweg3", "");
-        switch(view.getId()){
-            case R.id.tagebuchEintrag_Button:
-                startActivity(new Intent(this, Tagebuch.class));
-                break;
-
-            case R.id.tagebuchAufgabe_Button:
-                AlertDialog.Builder builder = new AlertDialog.Builder(HausaufgabeTagebuch.this);
-                builder.setTitle("Deine Lösungswege");
-                builder.setMessage("Hier kannst du noch einmal sehen, welche Wege du für dich festgelegt hast:\n\n1. " + weg1 + "\n2. " + weg2 + "\n3. " + weg3 +"\n\nProbiere aus, wie es sich anfühlt wenn du einen davon ausprobierst.\nWas ändert sich?");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogX = builder.create();
-                dialogX.show();
-                break;
-
-            case R.id.tagebuchZurueck_Button:
-                onBackPressed();
-                break;
-
-            default:
-                break;
-        }
-
+    public void onClick(View v) {
+        tagebucheintrag = txt.getText().toString();
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putString("TagebucheintragSave", tagebucheintrag);
+        editor.apply();
+        onBackPressed();
     }
 
     @Override
@@ -237,4 +256,3 @@ public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClic
         return null;
     }
 }
-

@@ -1,11 +1,13 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -16,16 +18,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
+import java.util.Random;
 
 public class HausaufgabeMuenzwurf extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
 
     //Buttons
-    private Button zuAufgabe, zurueck;
+    private Button zuAufgabe, zurueck, werfen;
+    private TextView txt;
     private AppCompatDelegate delegate;
+    private int wurf;
+
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -61,13 +68,23 @@ public class HausaufgabeMuenzwurf extends FragmentActivity implements View.OnCli
 
 
         //Buttons und Funktion
-        saved = getSharedPreferences(PREFS_NAME, 0);
+        werfen = (Button) findViewById(R.id.muenzwurf);
+        werfen.setOnClickListener(this);
 
         zuAufgabe = (Button) findViewById(R.id.muenzwurfAufgabe_Button);
         zuAufgabe.setOnClickListener(this);
 
         zurueck = (Button) findViewById(R.id.muenzwurfZurueck_Button);
         zurueck.setOnClickListener(this);
+
+        //Text -> Übung wurde schon gemacht oder noch nicht?
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        txt = (TextView) findViewById(R.id.muenzwurf_Text);
+        if(saved.getBoolean("MünzeSave", false)){
+            txt.setText("Bei Lösungsweg 3 hast du eine Welt ohne dein Problem kennengelernt!\nPassend dazu gibt es ein keines Experiment:\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, klicke auf \"Münze werfen\" oder werfe eine echte Münze.\nWenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen.\nBei Zahl lässt du alles wie bisher.\nAchte genau darauf wie dich dabei fühlst.\nFalls du dir unsicher bist, kannst du dir die Übung auch erneut ansehen, indem du auf \"Übung ansehen\" klickst.");
+        }
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -184,7 +201,42 @@ public class HausaufgabeMuenzwurf extends FragmentActivity implements View.OnCli
 
     @Override
     public void onClick(View view) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putBoolean("WürfelSave", true);
         switch(view.getId()){
+            case R.id.muenzwurf:
+                AlertDialog.Builder builder = new AlertDialog.Builder(HausaufgabeMuenzwurf.this);
+                Random rand = new Random();
+                wurf = rand.nextInt(2) + 1;
+                if(wurf ==1){
+                    builder.setTitle("Kopf");
+                    builder.setIcon(R.drawable.muenzekopf);
+                    builder.setMessage("Die Münze zeigt Kopf an.\nDas Wunder ist geschehen.\nBeobachte genau was sich in der Situation alles verändert, wenn du so tust als wäre dein Problem verschwunden.\nWie fühlst du dich dabei?");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialogX = builder.create();
+                    dialogX.show();
+                }
+                else{
+                    builder.setTitle("Zahl");
+                    builder.setIcon(R.drawable.muenzezahl);
+                    builder.setMessage("Die Münze zeigt Zahl an.\nNoch ist kein Wunder geschehen.\nAchte trotzdem ganz genau darauf, wie du dich fühlst, wenn du in dieser Situation bist.\nWas würdest du gerne ändern?");
+                    builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+                    AlertDialog dialogX = builder.create();
+                    dialogX.show();
+                }
+
+
+                break;
+
             case R.id.muenzwurfAufgabe_Button:
                 startActivity(new Intent(this, Level2HypoLoesung.class));
                 break;

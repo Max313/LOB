@@ -18,16 +18,21 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
+import java.util.Random;
 
 public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
 
-    //Buttons
-    private Button zuAufgabe, zurueck;
+    //Buttons & more
+    private Button zuAufgabe, zurueck, wuerfeln;
     private AppCompatDelegate delegate;
+    private TextView txt;
+    private int augenzahl;
+    private String wochentag, titelZahl;
 
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -65,11 +70,23 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
         //Buttons und Funktion
         saved = getSharedPreferences(PREFS_NAME, 0);
 
+        wuerfeln = (Button) findViewById(R.id.wuerfeln_button);
+        wuerfeln.setOnClickListener(this);
+
         zuAufgabe = (Button) findViewById(R.id.wuerfel_Button2);
         zuAufgabe.setOnClickListener(this);
 
         zurueck = (Button) findViewById(R.id.wuerfel_Button1);
         zurueck.setOnClickListener(this);
+
+        //Text -> Übung wurde schon gemacht oder noch nicht?
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        txt = (TextView) findViewById(R.id.wuerfel_text);
+        if(saved.getBoolean("WürfelSave", false)){
+            txt.setText("Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu:\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Klicke auf \"Würfeln\" um einen die Übung zu starten.\nDie Augenzahl, die du würfelst, steht für einen Tag. 1 für Montag, 2 für Dienstag, 3 für Mittwoch, usw. Würfle und schaue, welcher Tag herauskommt.\nAn diesem Tag probierst du so ein \"verrücktes\" Verhalten aus. Beobachte ganz genau was an diesem Tag anders ist als am Rest der Woche.\nWenn du dich nicht mehr genau erinnerst kannst du auf \"Übung ansehen\" klicken um die Übung erneut zu machen.");
+        }
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -186,7 +203,57 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putBoolean("WürfelSave", true);
         switch(view.getId()){
+            case R.id.wuerfeln_button:
+                //Würfeln
+                Random rand = new Random();
+                augenzahl = rand.nextInt(6) + 1;
+                titelZahl = String.valueOf(augenzahl);
+                switch(augenzahl){
+                    case 1:
+                        wochentag = "Montag";
+                        break;
+
+                    case 2:
+                        wochentag = "Dienstag";
+                        break;
+
+                    case 3:
+                        wochentag = "Mittwoch";
+                        break;
+
+                    case 4:
+                        wochentag = "Donnerstag";
+                        break;
+
+                    case 5:
+                        wochentag = "Freitag";
+                        break;
+
+                    case 6:
+                        wochentag = "Samstag";
+                        break;
+
+                    default:
+                        break;
+                }
+                AlertDialog.Builder builder = new AlertDialog.Builder(HausaufgabeWuerfel.this);
+                builder.setTitle(titelZahl);
+                builder.setMessage("Du hast eine " + augenzahl + " gewürfelt.\nProbiere am nächsten " + wochentag + " doch einmal ein verrücktes Verhalten aus.\nWie fühlt sich das an?\nBekommst du vielleicht Reaktionen auf dein neues Verhalten?");
+                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                        dialog.cancel();
+                    }
+                });
+                AlertDialog dialogX = builder.create();
+                dialogX.show();
+
+
+            break;
+
             case R.id.wuerfel_Button1:
                 onBackPressed();
                 break;

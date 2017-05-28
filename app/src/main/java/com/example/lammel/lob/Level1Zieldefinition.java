@@ -50,7 +50,7 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
-    SharedPreferences.Editor editor;
+    private SharedPreferences.Editor editor;
 
 
     //Hier wird das Ziel festgelegt
