@@ -13,8 +13,8 @@
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Hier hast du direkten Zugriff auf verschiedene Übungen. Im Laufe der App schaltest du alle Übungen frei. Neben dem Menü findest du ein Fragezeichen, welches bei einzelnen Übungen erscheint um dir weiterzuhelfen.</string>
-    <string name="menuIntro_Text2">Auf die einzelnen Level kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet, so dass du direkt an den Anfang eines Levels springen kannst, sobald du es einmal begonnen hast.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Dort hast du direkten Zugriff auf verschiedene Übungen. Im Laufe der App schaltest du alle Übungen frei. Neben dem Menü findest du ein Fragezeichen, welches bei einzelnen Übungen erscheint um dir weiterzuhelfen.</string>
+    <string name="menuIntro_Text2">Auf die einzelnen Level kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet. So kannst du direkt an den Anfang eines Levels springen, sobald du es einmal begonnen hast.</string>
 
     <!-- Menü -->
     <string name="start_Menu">Startmenü</string>
@@ -29,33 +29,33 @@
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
 
     <!--Menü Impressum -->
-    <string name="impressum_Textview1">Diese App ist ein Projekt der Ludwig-Maximilians-Universität München, durchgeführt von Stina Schick und Maximilian Lammel.\nDie eingegebenen Daten werden weder verbreitet noch außerhalb des Handys gespeichert.\n</string>
+    <string name="impressum_Textview1">Diese App ist ein Projekt der Ludwig-Maximilians-Universität München, durchgeführt von Stina Schick und Maximilian Lammel.\nDie eingegebenen Daten werden weder verbreitet, noch außerhalb des Handys gespeichert.\n</string>
     <string name="impressum_Textview2">\nKontakt:\nStina.Schick@campus.lmu.de\nMaximilian.Lammel@campus.lmu.de\n\nAdresse:\nGeschwister-Scholl-Platz 1\n80539 München\n\n</string>
 
     <!-- Menü Hausaufgabe -->
     <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und so deiner Lösung einen Schritt näher zu kommen. Im Verlauf der App werden neue Aufgaben freigeschaltet.</string>
     <string name="hausaufgabe_Button1">Tagebuch</string>
-    <string name="hausaufgabe_Button2">Würfelübung</string>
+    <string name="hausaufgabe_Button2">Würfeln</string>
     <string name="hausaufgabe_Button3">Münzwurf</string>
     <string name="hausaufgabe_zurueck">Zurück</string>
 
     <!-- Hausaufgabe Tagebuch -->
     <string name="tagebucheintrag">Tagebucheintrag schreiben</string>
     <string name="zuWege">Wege ansehen</string>
-    <string name="tagebuch_Textview">Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. Schau genau hin was, verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen in ein \"Tagebuch\" schreibst, welche positiven Veränderungen du bemerkt hast.\nViel Spaß dabei.\nDu kannst deine Lösungswege auch noch einmal ansehen.</string>
+    <string name="tagebuch_Textview">Du hast schon viel Arbeit in den Wandel gesteckt. Lass uns die nächsten Treffen dazu nutzen mehr von dem zu tun, was funktioniert. Schau genau hin: Was verbessert sich noch alles?\nBesonders effektiv ist es, wenn du dir am Abend, nachdem du einen Lösungsweg ausprobiert hast, ein paar Notizen in ein \"Tagebuch\" schreibst, welche positiven Veränderungen du bemerkt hast.\nViel Spaß dabei.\nDu kannst deine Lösungswege auch noch einmal ansehen.</string>
 
     <!-- Tagebuch Eintrag -->
-    <string name="tagebucheintrag_Textview">Schreibe auf, was dir aufgefallen ist.\nPositive Veränderungen.\nVerbesserungen.\nEventuell Komplimente, die du bekommen hast.</string>
+    <string name="tagebucheintrag_Textview">Schreibe auf, was dir aufgefallen ist.\nPositive Veränderungen.\nVerbesserungen.\nOder Komplimente, die du bekommen hast.</string>
     <string name="tagebucheintrag_Editview">Hier ist Platz für deinen Notizen!</string>
+
     <!-- Hausaufgabe Münzwurf -->
     <string name="zuHausaufgabe">Übung ansehen</string>
     <string name="muenze_werfen">Münze werfen</string>
-    <string name="muenze_Textview">Bei Lösungsweg 3 hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein keines Experiment:
-                        \nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, klicke auf \"Münze werfen\" oder werfe eine echte Münze. Wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. Achte genau darauf wie dich dabei fühlst.\nDa du die Aufgabe noch nicht gemacht hast, hast du hier die Chance dazu, indem du auf \"Übung ansehen\" klickst.</string>
+    <string name="muenze_Textview">Bei Lösungsweg 3 hast du eine Welt ohne dein Problem kennengelernt! Passend dazu gibt es ein kleines Experiment:\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, klicke auf \"Münze werfen\" oder werfe eine echte Münze. Wenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen. Bei Zahl lässt du alles wie bisher. Achte genau darauf wie dich dabei fühlst.\nDa du die Aufgabe noch nicht gemacht hast, hast du hier die Chance dazu, indem du auf \"Übung ansehen\" klickst.</string>
 
     <!-- Hausaufgabe Würfel -->
     <string name="wuerfeln">Würfeln</string>
-    <string name="wuerfel_Textview">Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu:\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Klicke auf \"Würfeln\" um einen die Übung zu starten.\nDie Augenzahl, die du würfelst, steht für einen Tag. 1 für Montag, 2 für Dienstag, 3 für Mittwoch, usw. Würfle und schaue, welcher Tag herauskommt.\nAn diesem Tag probierst du so ein \"verrücktes\" Verhalten aus. Beobachte ganz genau was an diesem Tag anders ist als am Rest der Woche.\nDa du die Aufgabe noch nicht kennengelernt, hast du hier die Chance dazu, indem du auf \"Übung ansehen\" klickst.</string>
+    <string name="wuerfel_Textview">Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu:\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Klicke auf \"Würfeln\" um die Übung zu starten oder benutze einen echten Würfel.\nDie Augenzahl, die du würfelst, steht für einen Tag. 1 für Montag, 2 für Dienstag, 3 für Mittwoch, usw. Würfle und schaue, welcher Tag herauskommt.\nAn diesem Tag probierst du so ein \"verrücktes\" Verhalten aus. Beobachte ganz genau was an diesem Tag anders ist als am Rest der Woche.\nDa du die Aufgabe noch nicht kennengelernt, hast du hier die Chance dazu, indem du auf \"Übung ansehen\" klickst.</string>
 
     <!-- Onboarding -->
     <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier genau richtig!\n</string>
@@ -91,7 +91,7 @@
     <string name="level2Start_Textview">Ab jetzt bist du in Level 2. Hier geht es darum Lösungswege zu definieren, die dich beim Erreichen deines Ziels unterstützen werden. Solltest du noch keine Ideen haben, helfen dir verschiedene Übungen dabei. </string>
 
     <!-- Loesungswege -->
-    <string name="loesungswege_Textview">Wenn du bereits Ideen hast die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
+    <string name="loesungswege_Textview">Wenn du bereits Ideen hast, die zu einer Verbesserung führen könnten, kannst du diese hier aufschreiben. Aller guten Dinge sind drei:</string>
     <string name="loesungswege_EditView1">1. </string>
     <string name="loesungswege_EditView2">2. </string>
     <string name="loesungswege_EditView3">3. </string>
@@ -122,7 +122,7 @@
     <string name="phantasie_Textview">Höre dir die Geschichte genau an und denke über das Erzählte nach.\nWie fühlt sich das an?\nWenn du willst kannst du dir die Geschichte auch erneut anhören, ansonsten klicke auf weiter.</string>
 
     <!-- Universal Lösungsschlüssel, Lösungsweg 4 -->
-    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es nun ein bisschen "verrückter". Es soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden. Sei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
+    <string name="universal_Textview">Nachdem du dich nun schon mit vielen verschiedenen Übungen auf dem Weg zu deiner persönlichen Lösungsidee auseinandergesetzt hast, wird es nun ein bisschen \"verrückter\". Es soll jetzt mal etwas Unvernünftiges, Unlogisches ausprobiert werden. Sei gespannt, was bei einem solchen Experiment herauskommen kann.</string>
     <string name="universal_Button2">Mir fällt nichts ein</string>
 
     <!-- Universal Anekdote, Lösungsweg 4 -->

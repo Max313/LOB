@@ -201,7 +201,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Level1_ProblemBeschreibung.this);
                 builder.setTitle("Problem - Hilfe");
-                builder.setMessage("Ein Problem kann alles mögliche sein. Es kann sich um ein kleines Problem handeln, aber es kann auch sein, dass dir dein Problem unlösbar erscheint.\nEs könnte sich zum Beispiel um eine Stresssituation in deinem Leben handeln, sei es Arbeit, Beziehung oder Alltag. Oder es ist etwas, das dich belastet.\nWenn du es dir anders überlegt hast und es lieber doch nicht aufschreiben willst, klicke einfach auf weiter.");
+                builder.setMessage("Ein Problem kann alles mögliche sein. Es kann sich um ein kleines Problem handeln, aber es kann auch sein, dass dir dein Problem unlösbar erscheint.\nEs könnte sich zum Beispiel um eine Stresssituation in deinem Leben handeln, sei es Arbeit, Beziehung oder Alltag. Oder es ist etwas, das dich belastet.\nWenn du es dir anders überlegt hast und dein Problem lieber doch nicht aufschreiben willst, klicke einfach auf weiter.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();
