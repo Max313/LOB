@@ -269,7 +269,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text1View = (TextView) findViewById(R.id.Uebersicht1_1);
         text1View.setOnClickListener(this);
 
-            text1View.setText(v1);
+                text1View.setText(v1);
 
         //Verhalten aus Zeile 2 in Tabelle eintragen
         TextView text2View = (TextView) findViewById(R.id.Uebersicht2_1);
@@ -287,7 +287,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text4View = (TextView) findViewById(R.id.Uebersicht1_2);
         text4View.setOnClickListener(this);
 
-            text4View.setText(k1);
+                text4View.setText(k1);
 
         //Kompliment aus Zeile 2 in Tabelle eintragen
         TextView text5View = (TextView) findViewById(R.id.Uebersicht2_2);
@@ -305,19 +305,19 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
         TextView text7View = (TextView) findViewById(R.id.Uebersicht1_3);
         text7View.setOnClickListener(this);
 
-            text7View.setText(r1);
+                text7View.setText(r1);
 
         //Ressource aus Zeile 2 in Tabelle eintragen
         TextView text8View = (TextView) findViewById(R.id.Uebersicht2_3);
         text8View.setOnClickListener(this);
 
-         text8View.setText(r2);
+                text8View.setText(r2);
 
         //Ressource aus Zeile 3 in Tabelle eintragen
         TextView text9View = (TextView) findViewById(R.id.Uebersicht3_3);
         text9View.setOnClickListener(this);
 
-         text9View.setText(r3);
+                text9View.setText(r3);
 
         }
 

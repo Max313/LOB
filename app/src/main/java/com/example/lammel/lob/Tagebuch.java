@@ -168,7 +168,7 @@ public class Tagebuch extends FragmentActivity implements View.OnClickListener, 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Tagebuch.this);
                 builder.setTitle("Tagebucheintrag");
-                builder.setMessage("Schreibe positive Sachen auf, die dir bei der Umsetzung deiner Lösungswege aufgefallen sind.\nDu kannst natürlich auch Stift und Papier oder ein echtes Tagebuch benutzen, wenn dir das lieber ist.");
+                builder.setMessage("Schreibe abends alle positiven Sachen auf, die dir tagsüber passiert sind.\nDu kannst natürlich auch Stift und Papier oder ein echtes Tagebuch benutzen, wenn dir das lieber ist.");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

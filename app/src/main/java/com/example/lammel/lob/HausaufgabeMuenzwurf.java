@@ -82,7 +82,7 @@ public class HausaufgabeMuenzwurf extends FragmentActivity implements View.OnCli
 
         txt = (TextView) findViewById(R.id.muenzwurf_Text);
         if(saved.getBoolean("MünzeSave", false)){
-            txt.setText("Bei Lösungsweg 3 hast du eine Welt ohne dein Problem kennengelernt!\nPassend dazu gibt es ein keines Experiment:\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, klicke auf \"Münze werfen\" oder werfe eine echte Münze.\nWenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen.\nBei Zahl lässt du alles wie bisher.\nAchte genau darauf wie dich dabei fühlst.\nFalls du dir unsicher bist, kannst du dir die Übung auch erneut ansehen, indem du auf \"Übung ansehen\" klickst.");
+            txt.setText("Bei Lösungsweg 3 hast du eine Welt ohne dein Problem kennengelernt!\nPassend dazu gibt es ein kleines Experiment:\nBevor du in die Situation kommst, in der dein Problem normalerweise auftritt, klicke auf \"Münze werfen\" oder werfe eine echte Münze.\nWenn sie Kopf zeigt, dann tust du ein klein wenig so als wäre das Wunder schon geschehen.\nBei Zahl lässt du alles wie bisher.\nAchte genau darauf wie dich dabei fühlst.\nFalls du dir unsicher bist, kannst du dir die Übung auch erneut ansehen, indem du auf \"Übung ansehen\" klickst.");
         }
 
     }

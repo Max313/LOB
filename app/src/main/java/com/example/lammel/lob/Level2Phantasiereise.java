@@ -79,15 +79,15 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Hausaufgabe schon gesehen?
+        saved = getSharedPreferences(PREFS_NAME, 0);
         if(saved.getBoolean("MünzeSave", false)){
             counter = 1;
         }
 
         //Buttons and more in action
-        saved = getSharedPreferences(PREFS_NAME, 0);
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
         phantasieWeiter.setOnClickListener(this);
-        if(saved.getBoolean("GeschichteSaved", false) == false){
+        if(!saved.getBoolean("GeschichteSaved", false)){
             phantasieWeiter.setEnabled(false);
         }
 
@@ -245,10 +245,10 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
             case R.id.phantasie_ButtonWeiter:
                 player.pause();
                 player.reset();
+                editor.putBoolean("GeschichteSaved", true);
+                editor.putBoolean("MenuHausaufgabe", true);
+                editor.apply();
                 if(counter == 0){
-                    editor.putBoolean("GeschichteSaved", true);
-                    editor.putBoolean("MenuHausaufgabe", true);
-                    editor.apply();
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.\n");
                     builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {

@@ -38,7 +38,6 @@ public class Onboarding2 extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onboarding2);
-        this.setTitle("Einführung");
 
         //Set Status - Footer
         saved = getSharedPreferences(PREFS_NAME, 0);

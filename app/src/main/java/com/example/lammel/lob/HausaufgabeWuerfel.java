@@ -242,7 +242,7 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(HausaufgabeWuerfel.this);
                 builder.setTitle(titelZahl);
-                builder.setMessage("Du hast eine " + augenzahl + " gewürfelt.\nProbiere am nächsten " + wochentag + " doch einmal ein verrücktes Verhalten aus.\nWie fühlt sich das an?\nBekommst du vielleicht Reaktionen auf dein neues Verhalten?");
+                builder.setMessage("Du hast eine " + augenzahl + " gewürfelt.\nProbiere am nächsten " + wochentag + " doch einmal ein verrücktes Verhalten aus.\nWie fühlt sich das an?\nBekommst du vielleicht positive Reaktionen auf dein neues Verhalten?");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

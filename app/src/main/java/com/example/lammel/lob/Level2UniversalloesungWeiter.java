@@ -268,7 +268,6 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         editor.putString("UniversalSave", universal);
-        editor.putBoolean("WürfelSave", true);
         editor.apply();
         storyCounter = saved.getInt("StoryCounter", 0);
         final View view = v;
@@ -277,6 +276,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
             //Text abspeichern und weiter
             case R.id.universalWeiter_ButtonWeiter:
                 editor.putInt("StoryCounter", 0);
+                editor.putBoolean("WürfelSave", true);
                 editor.apply();
                 if(counter == 0){
                     builder.setTitle("Hausaufgabe");

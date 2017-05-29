@@ -17,6 +17,7 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -103,6 +104,9 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
         kompliment = (TextView) findViewById(R.id.komplimentTextView);
         kompliment.setOnClickListener(this);
+
+        add = (Button) findViewById(R.id.addRowK_Button);
+        add.setOnClickListener(this);
 
         table = (TableLayout) findViewById(R.id.Table_Kompliment);
 
@@ -273,6 +277,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
         eTxt.setPadding(paddingDp, 0, paddingDp,0);
         eTxt.setId(counter);
+        eTxt.setImeOptions(EditorInfo.IME_ACTION_DONE);
+        eTxt.setInputType(InputType.TYPE_CLASS_TEXT);
         allEds.add(eTxt);
         tr.addView(eTxt);
         table.addView(tr);
@@ -304,6 +310,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             ed.addTextChangedListener(new TextWatcher()
             {
                 public void afterTextChanged(Editable s){
+                    add.setEnabled(true);
+                    weiter.setEnabled(true);
                     if(texts.size() > is){
                         texts.set(is, ed.getText().toString().trim());
                     }
@@ -540,6 +548,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
             case R.id.addRowK_Button:
                 addRow();
+                add.setEnabled(false);
                 break;
 
             default:
