@@ -3,6 +3,7 @@ package com.example.lammel.lob;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -32,6 +33,7 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
     private AppCompatDelegate delegate;
     private TextView txt;
     private int augenzahl;
+    private int titelBild;
     private String wochentag, titelZahl;
 
     //shared Preferences
@@ -215,26 +217,32 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
                 switch(augenzahl){
                     case 1:
                         wochentag = "Montag";
+                        titelBild = R.drawable.wuerfel1;
                         break;
 
                     case 2:
                         wochentag = "Dienstag";
+                        titelBild = R.drawable.wuerfel2;
                         break;
 
                     case 3:
                         wochentag = "Mittwoch";
+                        titelBild = R.drawable.wuerfel3;
                         break;
 
                     case 4:
                         wochentag = "Donnerstag";
+                        titelBild = R.drawable.wuerfel4;
                         break;
 
                     case 5:
                         wochentag = "Freitag";
+                        titelBild = R.drawable.wuerfel5;
                         break;
 
                     case 6:
                         wochentag = "Samstag";
+                        titelBild = R.drawable.wuerfel6;
                         break;
 
                     default:
@@ -242,6 +250,7 @@ public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClick
                 }
                 AlertDialog.Builder builder = new AlertDialog.Builder(HausaufgabeWuerfel.this);
                 builder.setTitle(titelZahl);
+                builder.setIcon(titelBild);
                 builder.setMessage("Du hast eine " + augenzahl + " gewürfelt.\nProbiere am nächsten " + wochentag + " doch einmal ein verrücktes Verhalten aus.\nWie fühlt sich das an?\nBekommst du vielleicht positive Reaktionen auf dein neues Verhalten?");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
