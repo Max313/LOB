@@ -14,10 +14,15 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
@@ -26,6 +31,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 
     private AppCompatDelegate delegate;
+    private Tracker mTracker;
+    private final static String TAG = "Startseite";
+    private final static String name = "Startseite";
+    private long start;
+    private long end;
 
 
     //Shred Preferences
@@ -39,6 +49,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        start = System.currentTimeMillis();
 
         //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -71,6 +82,12 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
                 requestForSpecificPermission();
             }
         }
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+
+        trackScreenView();
 
         //Action preparation
         Button start_button = (Button) findViewById(R.id.start_button);
@@ -192,9 +209,33 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
+        GoogleAnalytics.getInstance(this).dispatchLocalHits();
+    }
+
 
     @Override
     public void onClick(View v) {
+        end = System.currentTimeMillis();
+        // Build and send timing.
+        mTracker.send(new HitBuilders.TimingBuilder()
+                .setCategory(getTimingCategory())
+                .setValue(getTimingInterval())
+                .setVariable(getTimingName())
+                .build());
+
         startActivity(new Intent(this, Level1Onboarding.class));
     }
 
@@ -212,9 +253,25 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     }
 
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Startseite";
+    }
+
+
+
     //Ask for Permission
     private void requestForSpecificPermission(){
-        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 200);
+        ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO, Manifest.permission.INTERNET, Manifest.permission.ACCESS_NETWORK_STATE}, 200);
     }
 
     @Override

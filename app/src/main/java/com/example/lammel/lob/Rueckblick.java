@@ -90,7 +90,9 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
         seekBar = (SeekBar) findViewById(R.id.rueckblick_seekBar);
         if(saved.getInt("fortschritt", 0) != 0){
-            seekBar.setProgress(saved.getInt("fortschritt", 0));
+            fortschritt = saved.getInt("fortschritt",0);
+            seekBar.setProgress(fortschritt);
+            txt.setText(""+fortschritt);
         }
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 

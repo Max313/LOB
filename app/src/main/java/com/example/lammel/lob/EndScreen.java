@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -7,6 +8,7 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -184,12 +186,29 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
 
     @Override
     public void onClick(View v) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(EndScreen.this);
 
-        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
-        settings.edit().clear().commit();
-        deleteFiles();
-        startNew();
+        builder.setTitle("Mit neuem Problem starten");
+        builder.setMessage("Möchtest du die App wirklich zurücksetzen?");
 
+        builder.setNegativeButton("Nein", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.cancel();
+            }
+        });
+
+        builder.setPositiveButton("Ja", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+                settings.edit().clear().commit();
+                deleteFiles();
+                startNew();
+
+            }
+        });
+
+        AlertDialog dialogV1 = builder.create();
+        dialogV1.show();
     }
 
     @Override
