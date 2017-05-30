@@ -60,6 +60,9 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     private List<String> texts;
 
     private Tracker mTracker;
+    private final static String TAG = "Kompliment";
+    private long start;
+    private long end;
 
 
     //Speicher
@@ -108,9 +111,13 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         allEds = new ArrayList<EditText>();
         texts = new ArrayList<String>();
 
-        // Get tracker.
+        // Get tracker
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
 
         add = (Button) findViewById(R.id.addRowK_Button);
@@ -510,6 +517,9 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         switch (view.getId()) {
 
             case R.id.weiterzuRessource_Button:
+                //logging
+                end = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(end -start));
 
                 if(k1.length() == 0){
                     if (k2.length() == 0) {

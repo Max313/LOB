@@ -55,6 +55,9 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
     //Tracker
     private Tracker mTracker;
+    private final static String TAG = "Ressource";
+    private long start;
+    private long end;
 
     //Tabelleninhalt
     private String r1, r2, r3;
@@ -113,6 +116,10 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
         table = (TableLayout) findViewById(R.id.Tabelle_Ressource);
 
@@ -502,6 +509,9 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuUebersicht_Button:
+                //logging
+                end = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(end - start));
 
                 if(r1.length() == 0){
                     if (r2.length() == 0) {

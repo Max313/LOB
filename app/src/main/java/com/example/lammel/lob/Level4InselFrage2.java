@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -26,6 +27,10 @@ public class Level4InselFrage2 extends FragmentActivity implements View.OnClickL
     //Buttons and more
     private Button weiter;
     private AppCompatDelegate delegate;
+
+    private final static String TAG = "InselFrage2";
+    private long start;
+    private long end;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -63,6 +68,10 @@ public class Level4InselFrage2 extends FragmentActivity implements View.OnClickL
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
         delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
         //Button on action
         weiter = (Button) findViewById(R.id.frage2_Button);
@@ -183,6 +192,9 @@ public class Level4InselFrage2 extends FragmentActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
+        //logging
+        end = System.currentTimeMillis();
+        Log.i(TAG,"Duration: "+(end - start));
 
         startActivity(new Intent(this, Level4InselFrage3.class));
 

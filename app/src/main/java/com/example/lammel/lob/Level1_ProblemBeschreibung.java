@@ -42,7 +42,12 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     //Button
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
+
+    //Tracker Logging
     private Tracker mTracker;
+    private final static String TAG = "ProblemBeschreibung";
+    private long start;
+    private long end;
 
 
 
@@ -93,6 +98,10 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+
+        Log.i(TAG,"Start: "+start);
+
 
 
 
@@ -278,6 +287,8 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     @Override
     public void onClick(View v) {
         txt = (EditText) findViewById(R.id.problem_editText);
+        end = System.currentTimeMillis();
+        Log.i(TAG,"Duration: "+(end -start));
 
         //Weiter und Problem abspeichern
         if(txt.length() != 0) {

@@ -61,6 +61,9 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
 
     //Tracker
     private Tracker mTracker;
+    private static final String TAG = "Sonne4";
+    private long startLog;
+    private long endLog;
 
     //Speech Memo
     private static final String LOG_TAG = "AudioRecordTest";
@@ -134,6 +137,10 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        startLog = System.currentTimeMillis();
+        Log.i(TAG,"Duration: "+startLog);
 
 
         //Buttons and more on action
@@ -641,6 +648,9 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.Weiter4_Button:
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
 
                 if(fertig.isEnabled()){
                     stopRecording();
@@ -651,6 +661,9 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
                 break;
 
             case R.id.zurUebersicht4_Button:
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
 
                 if(fertig.isEnabled()){
                     stopRecording();

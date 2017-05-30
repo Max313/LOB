@@ -52,6 +52,11 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     //Button Weiter
     private Button zielFesthalten_Button;
 
+    //logging
+    private final static String TAG = "Zieldefinition";
+    private long start;
+    private long end;
+
     //shared Preferences
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
@@ -93,6 +98,10 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         delegate.getSupportActionBar().setLogo(R.drawable.berg);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
 
         //Buttons
@@ -279,6 +288,9 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zielFesthalten_Button:
+                //logging
+                end = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(end - start));
 
                 //Weiter und Ziel abspeichern
                 saved = getSharedPreferences(PREFS_NAME, 0);

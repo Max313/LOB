@@ -54,7 +54,9 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
 
     //Tracker
     private Tracker mTracker;
-
+private static final String TAG = "Sonne2";
+    private long startLog;
+    private long endLog;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -132,6 +134,10 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        startLog = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+startLog);
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -632,6 +638,9 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.Weiter2_Button:
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
 
                 if(fertig.isEnabled()){
                     stopRecording();
@@ -642,7 +651,10 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
                 break;
 
             case R.id.zurUebersicht2_Button:
-
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
+                
                 if(fertig.isEnabled()){
                     stopRecording();
                 }

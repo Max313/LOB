@@ -45,6 +45,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     private EditText txt1, txt2, txt3;
 
     private Tracker mTracker;
+    private final static String TAG = "Lösungswege";
+    private long start;
+    private long end;
 
     //shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -102,9 +105,13 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        // Get tracker.
+        // Get tracker und Logging
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
 
         //Action and Hausaufgaben freischalten
@@ -441,6 +448,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.loesungswege_ButtonFertig:
+                //logging
+                end = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(end - start));
                 editor.putBoolean("FertigSaved", true);
                 editor.apply();
                 if(loesungsCounter == 0){

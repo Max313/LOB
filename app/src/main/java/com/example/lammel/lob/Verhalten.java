@@ -55,6 +55,10 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
     //Tracker
     private Tracker mTracker;
+    private final static String TAG = "Verhalten";
+    private long start;
+    private long end;
+
 
     //Tabelleninhalt
     private String v1, v2, v3;
@@ -101,6 +105,10 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+
+        //logging
+        start = System.currentTimeMillis();
+        Log.i(TAG,"Start: "+start);
 
 
         //Buttons and more in action
@@ -505,6 +513,9 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuKompliment_Button:
+                //logging
+                end = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(end -start));
 
                 if(v1.length() == 0){
                     if (v2.length() == 0) {

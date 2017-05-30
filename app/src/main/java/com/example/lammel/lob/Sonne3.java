@@ -54,6 +54,10 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
     private AppCompatDelegate delegate;
     private static final String MEDIA_NAME = "sonne3";
 
+    private static final String TAG = "Sonne3";
+    private long startLog;
+    private long endLog;
+
     //Tracker
     private Tracker mTracker;
 
@@ -134,6 +138,9 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
+        //logging
+        startLog = System.currentTimeMillis();
+        Log.i(TAG,"Duration: "+startLog);
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -641,6 +648,9 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.Weiter3_Button:
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
 
                 if(fertig.isEnabled()){
                     stopRecording();
@@ -651,6 +661,9 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
                 break;
 
             case R.id.zurUebersicht3_Button:
+                //logging
+                endLog = System.currentTimeMillis();
+                Log.i(TAG,"Duration: "+(endLog - startLog));
 
                 if(fertig.isEnabled()){
                     stopRecording();
