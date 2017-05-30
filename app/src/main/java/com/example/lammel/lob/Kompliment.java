@@ -60,10 +60,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     private List<String> texts;
 
     private Tracker mTracker;
-    private final static String TAG = "Kompliment";
-    private final static String name = "Kompliment";
-    private long start;
-    private long end;
+
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -114,8 +111,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
+
 
         add = (Button) findViewById(R.id.addRowK_Button);
         add.setOnClickListener(this);
@@ -197,11 +193,16 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                k1 = txt1.getText().toString().trim();
+
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input1").build());
+
+                    k1 = txt1.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -215,11 +216,15 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                k2 = txt2.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input2").build());
+
+                    k2 = txt2.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -232,11 +237,15 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                k3 = txt3.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input3").build());
+
+                    k3 = txt3.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -328,6 +337,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                         texts.set(is, ed.getText().toString().trim());
                     }
                     else{
+                        mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input"+is).build());
+
                         texts.add(is,ed.getText().toString().trim());
                     }
                 }
@@ -487,25 +498,10 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
 
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
     @Override
     public void onClick(View view) {
-
-        end = System.currentTimeMillis();
-
 
         AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
         saved = getSharedPreferences(PREFS_NAME, 0);
@@ -514,12 +510,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         switch (view.getId()) {
 
             case R.id.weiterzuRessource_Button:
-                // Build and send timing.
-                mTracker.send(new HitBuilders.TimingBuilder()
-                        .setCategory(getTimingCategory())
-                        .setValue(getTimingInterval())
-                        .setVariable(getTimingName())
-                        .build());
 
                 if(k1.length() == 0){
                     if (k2.length() == 0) {
@@ -580,19 +570,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
         }
         editor.apply();
-    }
-
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Kompliment";
     }
 
 

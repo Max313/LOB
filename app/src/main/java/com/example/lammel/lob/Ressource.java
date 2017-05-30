@@ -55,11 +55,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
     //Tracker
     private Tracker mTracker;
-    private final static String TAG = "Ressource";
-    private final static String name = "Ressource";
-    private long start;
-    private long end;
-
 
     //Tabelleninhalt
     private String r1, r2, r3;
@@ -118,8 +113,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
 
         table = (TableLayout) findViewById(R.id.Tabelle_Ressource);
 
@@ -198,11 +191,15 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else{
                     weiter.setEnabled(true);  //otherwise enable
-                r1 = txt1.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Ressource", "Input1").build());
+
+                    r1 = txt1.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -216,11 +213,15 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                r2 = txt2.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Ressource", "Input2").build());
+
+                    r2 = txt2.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -233,11 +234,15 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                r3 = txt3.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Ressource", "Input3").build());
+
+                    r3 = txt3.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -326,6 +331,8 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                         texts.set(is, ed.getText().toString().trim());
                     }
                     else{
+                        mTracker.send(new HitBuilders.EventBuilder("Ressource", "Input"+is).build());
+
                         texts.add(is,ed.getText().toString().trim());
                     }
                 }
@@ -485,19 +492,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
-
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
     @Override
     public void onClick(View view) {
@@ -509,13 +503,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuUebersicht_Button:
-                end = System.currentTimeMillis();
-                // Build and send timing.
-                mTracker.send(new HitBuilders.TimingBuilder()
-                        .setCategory(getTimingCategory())
-                        .setValue(getTimingInterval())
-                        .setVariable(getTimingName())
-                        .build());
 
                 if(r1.length() == 0){
                     if (r2.length() == 0) {
@@ -571,18 +558,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         editor.apply();
     }
 
-    private String getTimingCategory() {
-        return "Duration";
-    }
 
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Ressource";
-    }
 
 
     @Override

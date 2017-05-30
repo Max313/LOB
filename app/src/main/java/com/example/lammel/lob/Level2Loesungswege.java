@@ -45,11 +45,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     private EditText txt1, txt2, txt3;
 
     private Tracker mTracker;
-    private final static String TAG = "Lösungswege";
-    private final static String name = "Lösungswege";
-    private long start;
-    private long end;
-
 
     //shared Preferences als Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -110,8 +105,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
+
 
         //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
@@ -373,12 +367,15 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0)
-                fertig.setEnabled(false); //disable button if no text entered
-                else
-                fertig.setEnabled(true);  //otherwise enable
-                weg1 = txt1.getText().toString();
+                if(txt1.length() == 0) {
+                    fertig.setEnabled(false); //disable button if no text entered
+                }
+                else {
+                    fertig.setEnabled(true);  //otherwise enable
+                    mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input1").build());
 
+                    weg1 = txt1.getText().toString();
+                }
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
             }
@@ -393,9 +390,12 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             {
                 if(txt2.length() == 0)
                     fertig.setEnabled(false); //disable button if no text entered
-                else
-                    fertig.setEnabled(true);  //otherwise enable
-                weg2 = txt2.getText().toString();
+                else{
+                    fertig.setEnabled(true);
+                    mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input2").build());
+
+                    //otherwise enable
+                weg2 = txt2.getText().toString();}
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -409,11 +409,15 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt3.length() == 0)
+                if(txt3.length() == 0) {
                     fertig.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     fertig.setEnabled(true);  //otherwise enable
+                    mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input3").build());
+
                     weg3 = txt3.getText().toString();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -423,30 +427,10 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         });
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
 
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
     @Override
     public void onClick(View v) {
-
-        end = System.currentTimeMillis();
-        // Build and send timing.
-        mTracker.send(new HitBuilders.TimingBuilder()
-                .setCategory(getTimingCategory())
-                .setValue(getTimingInterval())
-                .setVariable(getTimingName())
-                .build());
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
@@ -553,18 +537,6 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         }
     }
 
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Lösungswege";
-    }
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

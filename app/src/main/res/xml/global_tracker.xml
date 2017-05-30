@@ -2,15 +2,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.lammel.lob.ApplicationAnalytics">
 
-    <!-- End current session if app sleeps for a period of time -->
-    <integer name="ga_sessionTimeout">300</integer>
-
     <!-- Enable automatic Activity measurement -->
     <bool name="ga_autoActivityTracking">true</bool>
 
-    <string name="ga_trackingId">UA-100005123-1</string>
-
-    <string name="ga_sampleFrequency">100.0</string>
+    <string name="ga_trackingId" translatable="false">UA-100005123-1</string>
 
 
     <!-- Enable automatic activity tracking -->

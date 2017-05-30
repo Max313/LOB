@@ -5,6 +5,7 @@ import android.app.Application;
 import android.os.Bundle;
 
 import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
 import com.google.android.gms.analytics.Tracker;
 
 public class ApplicationAnalytics extends Application {

@@ -43,10 +43,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
     private Tracker mTracker;
-    private final static String TAG = "Problembeschreibung";
-    private final static String name = "Problembeschreibung";
-    private long start;
-    private long end;
+
 
 
     //EditText
@@ -96,8 +93,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
+
 
 
         //Button Action
@@ -276,19 +272,6 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
-
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
 
 
@@ -298,6 +281,8 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
 
         //Weiter und Problem abspeichern
         if(txt.length() != 0) {
+            mTracker.send(new HitBuilders.EventBuilder("Problembeschreibung", "Input1").build());
+
             saved = getSharedPreferences(PREFS_NAME, 0);
             editor = saved.edit();
             editor.putString("ProblemSave", problem);
@@ -308,27 +293,9 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
             startActivity(new Intent(this, Level1Zieldefinition.class));
         }
 
-        end = System.currentTimeMillis();
-        // Build and send timing.
-        mTracker.send(new HitBuilders.TimingBuilder()
-                .setCategory(getTimingCategory())
-                .setValue(getTimingInterval())
-                .setVariable(getTimingName())
-                .build());
+
     }
 
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Problembeschreibung";
-    }
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

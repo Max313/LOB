@@ -56,10 +56,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
     //Tracker
     private Tracker mTracker;
-    private final static String TAG = "Sonne8";
-    private final static String name = "Sonne8";
-    private long startTracking;
-    private long endTracking;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -137,8 +133,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        startTracking = System.currentTimeMillis();
-        trackScreenView();
+
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -637,19 +632,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
     ///////////////////////////////////////////////////////////////////
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
-
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
     @Override
     public void onClick(View view) {
@@ -657,13 +639,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
         switch (view.getId()){
             case R.id.Weiter8_Button:
-                end = System.currentTimeMillis();
-                // Build and send timing.
-                mTracker.send(new HitBuilders.TimingBuilder()
-                        .setCategory(getTimingCategory())
-                        .setValue(getTimingInterval())
-                        .setVariable(getTimingName())
-                        .build());
 
                 if(fertig.isEnabled()){
                     stopRecording();
@@ -676,13 +651,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
                 }                break;
 
             case R.id.zurUebersicht8_Button:
-                end = System.currentTimeMillis();
-                // Build and send timing.
-                mTracker.send(new HitBuilders.TimingBuilder()
-                        .setCategory(getTimingCategory())
-                        .setValue(getTimingInterval())
-                        .setVariable(getTimingName())
-                        .build());
 
                 if(fertig.isEnabled()){
                     stopRecording();
@@ -746,19 +714,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         }
 
     }
-
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (endTracking-startTracking);
-    }
-
-    private String getTimingName() {
-        return "Sonne8";
-    }
+    
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

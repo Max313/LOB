@@ -55,11 +55,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
     //Tracker
     private Tracker mTracker;
-    private final static String TAG = "Verhalten";
-    private final static String name = "Verhalten";
-    private long start;
-    private long end;
-
 
     //Tabelleninhalt
     private String v1, v2, v3;
@@ -106,8 +101,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
 
 
         //Buttons and more in action
@@ -202,11 +195,15 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                v1 = txt1.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Verhalten", "Input1").build());
+
+                    v1 = txt1.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -220,11 +217,15 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
-                else
+                }
+                else {
                     weiter.setEnabled(true);  //otherwise enable
-                v2 = txt2.getText().toString().trim();
+                    mTracker.send(new HitBuilders.EventBuilder("Verhalten", "Input2").build());
+
+                    v2 = txt2.getText().toString().trim();
+                }
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){
@@ -238,10 +239,13 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         {
             public void afterTextChanged(Editable s)
             {
-                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0)
+                if(txt1.length() == 0 && txt2.length() == 0 && txt3.length() == 0) {
                     weiter.setEnabled(false); //disable button if no text entered
+                }
                 else{
                     weiter.setEnabled(true);  //otherwise enable
+                    mTracker.send(new HitBuilders.EventBuilder("Verhalten", "Input3").build());
+
                     v3 = txt3.getText().toString().trim();
 
                 }
@@ -256,7 +260,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     public void setUpView(){
         saved = getSharedPreferences(PREFS_NAME, 0);
        for(int i = 4; i<= counter; i++){
-           Log.i(TAG, String.valueOf(i));
            String st = "Verhalten"+i;
            TableRow tr = new TableRow(this);
            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
@@ -335,7 +338,9 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                     texts.set(is, ed.getText().toString().trim());
                 }
                     else{
-                            texts.add(is,ed.getText().toString().trim());
+                        mTracker.send(new HitBuilders.EventBuilder("Verhalten", "Input"+is).build());
+
+                        texts.add(is,ed.getText().toString().trim());
                     }
                 }
 
@@ -491,19 +496,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
 
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
 
     @Override
     public void onClick(View view) {
@@ -513,13 +506,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuKompliment_Button:
-                end = System.currentTimeMillis();
-                // Build and send timing.
-                mTracker.send(new HitBuilders.TimingBuilder()
-                        .setCategory(getTimingCategory())
-                        .setValue(getTimingInterval())
-                        .setVariable(getTimingName())
-                        .build());
 
                 if(v1.length() == 0){
                     if (v2.length() == 0) {
@@ -582,18 +568,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         editor.apply();
     }
 
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Verhalten";
-    }
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

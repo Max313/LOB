@@ -34,10 +34,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     //Tracker
     private Tracker mTracker;
-    private final static String TAG = "Startseite";
-    private final static String name = "Startseite";
-    private long start;
-    private long end;
+
 
 
     //Shred Preferences
@@ -87,8 +84,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-        start = System.currentTimeMillis();
-        trackScreenView();
+
 
         //Action preparation
         Button start_button = (Button) findViewById(R.id.start_button);
@@ -210,30 +206,9 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    /***
-     * Tracking screen view
-     *
-     */
-    public void trackScreenView() {
-        Log.i(TAG, "Setting screen name: " + name);
-
-        // Set screen name.
-        mTracker.setScreenName(name);
-
-        // Send a screen view.
-        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-    }
-
 
     @Override
     public void onClick(View v) {
-        end = System.currentTimeMillis();
-        // Build and send timing.
-        mTracker.send(new HitBuilders.TimingBuilder()
-                .setCategory(getTimingCategory())
-                .setValue(getTimingInterval())
-                .setVariable(getTimingName())
-                .build());
 
         startActivity(new Intent(this, Level1Onboarding.class));
     }
@@ -251,21 +226,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         }
 
     }
-
-
-    private String getTimingCategory() {
-        return "Duration";
-    }
-
-    private long getTimingInterval() {
-
-        return (end-start);
-    }
-
-    private String getTimingName() {
-        return "Startseite";
-    }
-
 
 
     //Ask for Permission
