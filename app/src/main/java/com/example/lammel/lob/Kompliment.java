@@ -331,14 +331,14 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             ed.addTextChangedListener(new TextWatcher()
             {
                 public void afterTextChanged(Editable s){
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input"+is).build());
+
                     add.setEnabled(true);
                     weiter.setEnabled(true);
                     if(texts.size() > is){
                         texts.set(is, ed.getText().toString().trim());
                     }
                     else{
-                        mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input"+is).build());
-
                         texts.add(is,ed.getText().toString().trim());
                     }
                 }

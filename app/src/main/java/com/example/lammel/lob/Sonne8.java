@@ -714,7 +714,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         }
 
     }
-    
+
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {
