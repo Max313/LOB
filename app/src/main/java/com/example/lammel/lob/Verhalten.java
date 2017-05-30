@@ -33,13 +33,14 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Verhalten extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
-
-    private final static String TAG = "Verhalten";
 
     //Buttons and more
     private Button weiter;
@@ -51,6 +52,13 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
     private Button add;
     List<EditText> allEds;
     List<String> texts;
+
+    //Tracker
+    private Tracker mTracker;
+    private final static String TAG = "Verhalten";
+    private final static String name = "Verhalten";
+    private long start;
+    private long end;
 
 
     //Tabelleninhalt
@@ -94,9 +102,15 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         delegate.getSupportActionBar().setLogo(R.drawable.baum);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
+
+
         //Buttons and more in action
-
-
         weiter = (Button) findViewById(R.id.weiterzuKompliment_Button);
         weiter.setEnabled(false);
         weiter.setOnClickListener(this);
@@ -477,6 +491,20 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View view) {
         AlertDialog.Builder builder = new AlertDialog.Builder(Verhalten.this);
@@ -485,6 +513,14 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuKompliment_Button:
+                end = System.currentTimeMillis();
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
+
                 if(v1.length() == 0){
                     if (v2.length() == 0) {
                         v1 = v3;
@@ -544,6 +580,19 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
 
         }
         editor.apply();
+    }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Verhalten";
     }
 
     @Override

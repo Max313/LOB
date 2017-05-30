@@ -17,6 +17,7 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,6 +27,9 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
@@ -39,6 +43,12 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     private AppCompatDelegate delegate;
     private Boolean txt1leer, txt2leer, txt3leer;
     private EditText txt1, txt2, txt3;
+
+    private Tracker mTracker;
+    private final static String TAG = "Lösungswege";
+    private final static String name = "Lösungswege";
+    private long start;
+    private long end;
 
 
     //shared Preferences als Speicher
@@ -97,7 +107,11 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
         //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
@@ -409,8 +423,30 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         });
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View v) {
+
+        end = System.currentTimeMillis();
+        // Build and send timing.
+        mTracker.send(new HitBuilders.TimingBuilder()
+                .setCategory(getTimingCategory())
+                .setValue(getTimingInterval())
+                .setVariable(getTimingName())
+                .build());
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
@@ -515,6 +551,19 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             default:
                 break;
         }
+    }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Lösungswege";
     }
 
     @Override

@@ -30,6 +30,9 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -48,6 +51,13 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
     private File file;
     private AppCompatDelegate delegate;
     private static final String MEDIA_NAME = "sonne2";
+
+    //Tracker
+    private Tracker mTracker;
+    private final static String TAG = "Sonne2";
+    private final static String name = "Sonne2";
+    private long startTracking;
+    private long endTracking;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -121,6 +131,12 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
         delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        startTracking = System.currentTimeMillis();
+        trackScreenView();
 
         //Buttons and more on action
         tour = getIntent().getExtras().getBoolean("Tour");
@@ -616,12 +632,32 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
     }
 
     ///////////////////////////////////////////////////////////////////
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
 
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.Weiter2_Button:
+                end = System.currentTimeMillis();
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
+
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
@@ -631,6 +667,14 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
                 break;
 
             case R.id.zurUebersicht2_Button:
+                end = System.currentTimeMillis();
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
+
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
@@ -691,6 +735,19 @@ public class Sonne2 extends FragmentActivity implements View.OnClickListener, Ap
                 break;
         }
 
+    }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (endTracking-startTracking);
+    }
+
+    private String getTimingName() {
+        return "Sonne2";
     }
 
     @Override

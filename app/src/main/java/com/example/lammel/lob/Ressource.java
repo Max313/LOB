@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -31,6 +32,9 @@ import android.widget.ImageButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 import java.util.ArrayList;
@@ -48,6 +52,13 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     private Button add;
     private List<EditText> allEds;
     private List<String> texts;
+
+    //Tracker
+    private Tracker mTracker;
+    private final static String TAG = "Ressource";
+    private final static String name = "Ressource";
+    private long start;
+    private long end;
 
 
     //Tabelleninhalt
@@ -103,6 +114,12 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
         allEds = new ArrayList<EditText>();
         texts = new ArrayList<String>();
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
         table = (TableLayout) findViewById(R.id.Tabelle_Ressource);
 
@@ -468,8 +485,23 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View view) {
+
         AlertDialog.Builder builder = new AlertDialog.Builder(Ressource.this);
         saved = getSharedPreferences(PREFS_NAME, 0);
         aenderung = saved.getBoolean("TabelleÄndern", false);
@@ -477,6 +509,13 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         switch (view.getId()) {
 
             case R.id.weiterzuUebersicht_Button:
+                end = System.currentTimeMillis();
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
 
                 if(r1.length() == 0){
                     if (r2.length() == 0) {
@@ -531,6 +570,20 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         }
         editor.apply();
     }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Ressource";
+    }
+
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

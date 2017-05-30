@@ -31,6 +31,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 
     private AppCompatDelegate delegate;
+
+    //Tracker
     private Tracker mTracker;
     private final static String TAG = "Startseite";
     private final static String name = "Startseite";
@@ -49,7 +51,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        start = System.currentTimeMillis();
 
         //Toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.tool_bar);
@@ -86,7 +87,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         // Get tracker.
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
-
+        start = System.currentTimeMillis();
         trackScreenView();
 
         //Action preparation
@@ -221,8 +222,6 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         // Send a screen view.
         mTracker.send(new HitBuilders.ScreenViewBuilder().build());
-
-        GoogleAnalytics.getInstance(this).dispatchLocalHits();
     }
 
 

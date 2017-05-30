@@ -32,6 +32,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 
 public class Level1_ProblemBeschreibung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
@@ -39,7 +42,12 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
     //Button
     private Button weiterButtonProblem;
     private AppCompatDelegate delegate;
-    private static final String LOG_TAG = "testtesttest";
+    private Tracker mTracker;
+    private final static String TAG = "Problembeschreibung";
+    private final static String name = "Problembeschreibung";
+    private long start;
+    private long end;
+
 
     //EditText
     private EditText txt;
@@ -85,6 +93,11 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         delegate.getSupportActionBar().setLogo(R.drawable.berg);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
 
         //Button Action
@@ -263,9 +276,26 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
+
+
     @Override
     public void onClick(View v) {
         txt = (EditText) findViewById(R.id.problem_editText);
+
         //Weiter und Problem abspeichern
         if(txt.length() != 0) {
             saved = getSharedPreferences(PREFS_NAME, 0);
@@ -277,6 +307,27 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         else{
             startActivity(new Intent(this, Level1Zieldefinition.class));
         }
+
+        end = System.currentTimeMillis();
+        // Build and send timing.
+        mTracker.send(new HitBuilders.TimingBuilder()
+                .setCategory(getTimingCategory())
+                .setValue(getTimingInterval())
+                .setVariable(getTimingName())
+                .build());
+    }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Problembeschreibung";
     }
 
     @Override

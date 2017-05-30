@@ -33,6 +33,9 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,6 +58,12 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     private Button add;
     private List<EditText> allEds;
     private List<String> texts;
+
+    private Tracker mTracker;
+    private final static String TAG = "Kompliment";
+    private final static String name = "Kompliment";
+    private long start;
+    private long end;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -102,8 +111,11 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         allEds = new ArrayList<EditText>();
         texts = new ArrayList<String>();
 
-        kompliment = (TextView) findViewById(R.id.komplimentTextView);
-        kompliment.setOnClickListener(this);
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
         add = (Button) findViewById(R.id.addRowK_Button);
         add.setOnClickListener(this);
@@ -475,28 +487,40 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View view) {
+
+        end = System.currentTimeMillis();
+
+
         AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
         saved = getSharedPreferences(PREFS_NAME, 0);
         aenderung = saved.getBoolean("TabelleÄndern", false);
         editor = saved.edit();
         switch (view.getId()) {
 
-            case R.id.komplimentTextView:
-
-                builder.setTitle("Kompliment");
-                builder.setMessage("Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest. \nz.B. Ich gehe umsichtig und überlegt an die Situation heran.");
-                builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        dialog.cancel();
-                    }
-                });
-                AlertDialog dialogV = builder.create();
-                dialogV.show();
-                break;
-
             case R.id.weiterzuRessource_Button:
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
+
                 if(k1.length() == 0){
                     if (k2.length() == 0) {
                         k1 = k3;
@@ -557,6 +581,20 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         }
         editor.apply();
     }
+
+    private String getTimingCategory() {
+        return "Duration";
+    }
+
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Kompliment";
+    }
+
 
     @Override
     public void onSupportActionModeStarted(ActionMode mode) {

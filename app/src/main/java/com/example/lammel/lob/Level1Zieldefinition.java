@@ -18,6 +18,7 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -29,6 +30,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
+
 import java.io.File;
 
 //Hier wird in Level 1 das Ziel zum ersten Mal festgelegt und gespeichert.
@@ -38,6 +42,11 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
 
     //Toolbar
     private AppCompatDelegate delegate;
+    private Tracker mTracker;
+    private final static String TAG = "Zieldefinition";
+    private final static String name = "Zieldefinition";
+    private long start;
+    private long end;
 
     //EditText und Ziel
     private String ziel;
@@ -94,6 +103,12 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         zielFesthalten_Button = (Button) findViewById(R.id.zielFesthalten_Button);
         zielFesthalten_Button.setEnabled(false);
         zielFesthalten_Button.setOnClickListener(this);
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
 
 
@@ -271,10 +286,32 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.zielFesthalten_Button:
+                end = System.currentTimeMillis();
+                // Build and send timing.
+                mTracker.send(new HitBuilders.TimingBuilder()
+                        .setCategory(getTimingCategory())
+                        .setValue(getTimingInterval())
+                        .setVariable(getTimingName())
+                        .build());
+
                 //Weiter und Ziel abspeichern
                 saved = getSharedPreferences(PREFS_NAME, 0);
                 editor = saved.edit();
@@ -287,8 +324,19 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
             default:
                 break;
         }
+    }
 
+    private String getTimingCategory() {
+        return "Duration";
+    }
 
+    private long getTimingInterval() {
+
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Zieldefinition";
     }
 
     @Override

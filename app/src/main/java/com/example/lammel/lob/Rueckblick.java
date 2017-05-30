@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -20,6 +21,9 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.SeekBar;
 import android.widget.TextView;
+
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
@@ -31,6 +35,13 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
     private TextView txt;
     private int fortschritt;
     private AppCompatDelegate delegate;
+
+    //Tracker
+    private Tracker mTracker;
+    private final static String TAG = "Rückblick";
+    private final static String name = "Rückblick";
+    private long start;
+    private long end;
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -84,6 +95,12 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
         delegate.getSupportActionBar().setLogo(R.drawable.untergang);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        // Get tracker.
+        ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
+        mTracker = application.getDefaultTracker();
+        start = System.currentTimeMillis();
+        trackScreenView();
 
         //Buttons and more in action
         txt = (TextView) findViewById(R.id.Seek1_TextView);
@@ -231,8 +248,28 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /***
+     * Tracking screen view
+     *
+     */
+    public void trackScreenView() {
+        Log.i(TAG, "Setting screen name: " + name);
+
+        // Set screen name.
+        mTracker.setScreenName(name);
+
+        // Send a screen view.
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
+
     @Override
     public void onClick(View view) {
+        // Build and send timing.
+        mTracker.send(new HitBuilders.TimingBuilder()
+                .setCategory(getTimingCategory())
+                .setValue(getTimingInterval())
+                .setVariable(getTimingName())
+                .build());
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
@@ -255,9 +292,19 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
                 else {
                     startActivity(new Intent(this, Neuorientierung.class));
                 }
+    }
 
+    private String getTimingCategory() {
+        return "Duration";
+    }
 
+    private long getTimingInterval() {
 
+        return (end-start);
+    }
+
+    private String getTimingName() {
+        return "Rückblick";
     }
 
     @Override
