@@ -438,6 +438,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        //logging
+        end = System.currentTimeMillis();
+        Log.i(TAG,"Duration: "+(end - start));
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
@@ -448,9 +451,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.loesungswege_ButtonFertig:
-                //logging
-                end = System.currentTimeMillis();
-                Log.i(TAG,"Duration: "+(end - start));
+
                 editor.putBoolean("FertigSaved", true);
                 editor.apply();
                 if(loesungsCounter == 0){

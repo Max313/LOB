@@ -192,8 +192,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         }
 
         file = new File(this.getFilesDir() +"/" + MEDIA_NAME +".3gp");
-        Log.i(LOG_TAG, "FilesDir: "+String.valueOf(getFilesDir()));
-        Log.i(LOG_TAG, "Files List File: " + String.valueOf(file.getAbsoluteFile()));
 
         if(!file.exists()) {
             file = new File(this.getFilesDir(), MEDIA_NAME +".3gp");
@@ -209,8 +207,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
             String durationStr = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION);
             milliSecond = (Integer.parseInt(durationStr));
             initialProgressBar(milliSecond);
-            Log.i(LOG_TAG, "File exist!");
-            Log.i(LOG_TAG, "Files Length: "+ file.length());
+
         }
         else{
             playEnabled.setVisibility(View.GONE);
@@ -359,13 +356,11 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
     private void onPlay(boolean start) {
         if (start) {
-            Log.i(LOG_TAG, "pauseStart = false");
             startPlaying();
         }
 
         else{
             pausePlaying();
-            Log.i(LOG_TAG, "pauseStart = true");
         }
     }
 
@@ -375,7 +370,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
             mPlayer.start();
         }
         else {
-            Log.i(LOG_TAG, "startPlaying");
             Uri uri = Uri.parse(file.getAbsoluteFile().toString());
             MediaMetadataRetriever mmr = new MediaMetadataRetriever();
             mmr.setDataSource(this, uri);
@@ -425,7 +419,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         minutes = endTime/60;
         seconds = (endTime % 60);
         end = endTime;
-        Log.i(LOG_TAG, "Duration: " + endTime);
         // Start long running operation in a background thread
 
         new Thread(new Runnable() {
@@ -434,11 +427,8 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
                     if((progressValue % 10) == 0) {
                         Log.i(LOG_TAG, "ist == 0");
                         end -=1;
-                        Log.i(LOG_TAG, String.valueOf(end));
                         minutes = (int) (end/60);
-                        Log.i(LOG_TAG, "Minutes: " +String.valueOf(minutes));
                         seconds = (int) (end %60);
-                        Log.i(LOG_TAG, "Seconds: " +String.valueOf(seconds));
 
                         start += 1;
                         sMinutes = (int) (start/60);
@@ -482,12 +472,11 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         fertig.setEnabled(true);
         fertig.setTextColor(Color.rgb(255,255,255));
         resetProgressBar();
-        Log.i(LOG_TAG, "Länge File: " + file.length());
+
         if(file.length() > 0){
             file.delete();
             file = new File(this.getFilesDir(), MEDIA_NAME + ".3gp");
         }
-        Log.i(LOG_TAG, "Länge File: " + file.length());
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
@@ -540,7 +529,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
         fertig.setTextColor(Color.rgb(189,189,189));
         startTimer = false;
         mRecorder.stop();
-        Log.i(LOG_TAG, "Länge File: " + file.length());
         mRecorder.reset();
         mRecorder.release();
         Uri uri = Uri.parse(file.getAbsoluteFile().toString());
@@ -567,9 +555,7 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
                     fullTime+=1;
                     rMinutes = (int) (fullTime/60);
-                    Log.i(LOG_TAG, "Minutes: " +String.valueOf(rMinutes));
                     rSeconds = (int) (fullTime %60);
-                    Log.i(LOG_TAG, "Seconds: " +String.valueOf(rSeconds));
 
 
                     // Update current value in the text view
@@ -704,7 +690,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
 
 
             case R.id.play8_Button:
-                Log.i(LOG_TAG,"playButton pressed");
                 mStartPlaying = true;
                 playEnabled.setVisibility(View.GONE);
                 play.setVisibility(View.GONE);
@@ -715,7 +700,6 @@ public class Sonne8 extends FragmentActivity implements View.OnClickListener, Ap
             case R.id.pause8_Button:
                 pauseStart = true;
                 run = false;
-                Log.i(LOG_TAG,"pauseButton pressed");
                 mStartPlaying = false;
                 pause.setVisibility(View.GONE);
                 playEnabled.setVisibility(View.VISIBLE);
