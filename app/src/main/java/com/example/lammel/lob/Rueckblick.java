@@ -270,7 +270,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
                     startActivity(new Intent(this, Neuorientierung.class));
                 }
     }
-    
+
 
     private String getTimingName() {
         return "Rückblick";

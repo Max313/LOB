@@ -140,7 +140,7 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
 
         //logging
         startLog = System.currentTimeMillis();
-        Log.i(TAG,"Duration: "+startLog);
+        Log.i(TAG,"Start: "+startLog);
 
 
         //Buttons and more on action
