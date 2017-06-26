@@ -120,7 +120,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
         switch(loesungsCounter){
             case 1:
-                anfangsText.setText("Trotz deines Problems hast du so lange durchgehalten. Was hat dir geholfen diese Energie immer wieder aufs Neue aufzubringen?");
+                anfangsText.setText("Trotz deines Problems hast du so lange durchgehalten. Was hat dir geholfen diese Energie immer wieder aufs Neue aufzubringen? Das kann dir auch in Zukunft weiterhelfen.");
                 break;
 
             case 2:

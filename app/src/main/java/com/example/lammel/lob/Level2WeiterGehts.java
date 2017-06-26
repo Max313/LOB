@@ -82,6 +82,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
             txt.setText("So individuell jeder von uns ist, so individuell sind auch unsere Lösungswege. Neue Wege sind Übungen, die dir dabei helfen sollen den richtigen Lösungsansatz für dein Problem zu finden. Bist du sicher, dass du keine davon ausprobieren willst? ");
         }
         if(loesungsCounter >= 5){
+            txt.setText("Du hast alle Lösungswege der App ausprobiert. Hoffentlich haben sie dir geholfen auf Ideen zu kommen, wie du der Lösung näher kommst. Gehe nun weiter zu Level 3 um mehr zu erfahren.");
             button2.setEnabled(false);
         }
 

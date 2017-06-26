@@ -1,5 +1,6 @@
 package com.example.lammel.lob;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -14,10 +15,15 @@ import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -26,6 +32,9 @@ public class Level4InselFrage3 extends FragmentActivity implements View.OnClickL
 
     //Buttons and more
     private Button weiter;
+    private EditText frage3;
+    private String eingabe = "Wenn du deine Antwort lieber aufschreiben möchtest hast du hier die Möglichkeit dazu.";
+    private String eingabe3;
     private AppCompatDelegate delegate;
 
     private final static String TAG = "InselFrage3";
@@ -35,6 +44,7 @@ public class Level4InselFrage3 extends FragmentActivity implements View.OnClickL
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,6 +86,27 @@ public class Level4InselFrage3 extends FragmentActivity implements View.OnClickL
         //Button on action
         weiter = (Button) findViewById(R.id.frage3_Button);
         weiter.setOnClickListener(this);
+
+        //Edit Text + sharedPreference
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        eingabe3 = saved.getString("Frage3Save", eingabe);
+        frage3 = (EditText) findViewById(R.id.frage3_editView);
+        frage3.setHorizontallyScrolling(false);
+        frage3.setLines(6);
+        frage3.setHint(eingabe3);
+
+        frage3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -192,7 +223,13 @@ public class Level4InselFrage3 extends FragmentActivity implements View.OnClickL
 
     @Override
     public void onClick(View view) {
-
+        frage3 = (EditText) findViewById(R.id.frage3_editView);
+        saved = getSharedPreferences(PREFS_NAME,0);
+        editor = saved.edit();
+        if(frage3.getText().toString().length() != 0){
+            editor.putString("Frage3Save", frage3.getText().toString());
+            editor.apply();
+        }
         //logging
         end = System.currentTimeMillis();
         Log.i(TAG,"Duration: "+(end -start));

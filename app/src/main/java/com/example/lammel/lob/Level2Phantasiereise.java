@@ -84,12 +84,10 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
             counter = 1;
         }
 
+
         //Buttons and more in action
         phantasieWeiter = (Button) findViewById(R.id.phantasie_ButtonWeiter);
         phantasieWeiter.setOnClickListener(this);
-        if(!saved.getBoolean("GeschichteSaved", false)){
-            phantasieWeiter.setEnabled(false);
-        }
 
         phantasiePlay = (ImageButton) findViewById(R.id.phantasie_play);
         phantasiePlay.setVisibility(View.GONE);
@@ -104,7 +102,18 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
 
 
         player = MediaPlayer.create(Level2Phantasiereise.this,R.raw.phantasiereise);
-        player.start();
+
+        if(!saved.getBoolean("GeschichteSaved", false)){
+            phantasieWeiter.setEnabled(false);
+            player.start();
+        }
+        else{
+            run = false;
+            phantasiePlay.setVisibility(View.VISIBLE);
+            phantasiePause.setVisibility(View.GONE);
+        }
+
+
         player.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
@@ -114,6 +123,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 run = false;
             }
         });
+
 
     }
 

@@ -58,7 +58,7 @@
     <string name="wuerfel_Textview">Wie mit allem: Übung macht den Meister! Daher ein kleines Spiel dazu:\nBei Lösungsweg 4 hast du dir neue, \"verrückte\" Verhaltensweisen überlegt. Klicke auf \"Würfeln\" um die Übung zu starten oder benutze einen echten Würfel.\nDie Augenzahl, die du würfelst, steht für einen Tag. 1 für Montag, 2 für Dienstag, 3 für Mittwoch, usw. Würfle und schaue, welcher Tag herauskommt.\nAn diesem Tag probierst du so ein \"verrücktes\" Verhalten aus. Beobachte ganz genau was an diesem Tag anders ist als am Rest der Woche.\nDa du die Aufgabe noch nicht kennengelernt, hast du hier die Chance dazu, indem du auf \"Übung ansehen\" klickst.</string>
 
     <!-- Onboarding -->
-    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstüzung beim Erreichen deiner Ziele? Dann bist du hier genau richtig!\n</string>
+    <string name="onboard1">Herzlichen Glückwunsch!\nMit dem Download dieser App hast du den ersten Schritt zur Lösungsfindung gemacht! Kompliment und Herzlich Willkommen!\nDu suchst nach Unterstützung beim Erreichen deiner Ziele? Dann bist du hier genau richtig!\n</string>
 
     <!-- Onboarding -->
     <string name="onboard2">Lerne hier erste Schritte kennen um deine Probleme zu lösen. Die genaue Ursache des Problems ist dabei nicht entscheidend. Was zählt ist, wie du deine Situation in Zukunft siehst.\nDas Problem spielt hier eine untergeordnete Rolle. Wichtig ist, dass du dich gut fühlst und das soll durch eine Veränderung deines Blickwinkels erreicht werden - weg von der Problemfokussierung und hin zur Lösungsfokussierung.\nDeswegen bestimmst du auch das Tempo, in dem du dich durch die App bewegen willst. Nehme dir ruhig Pausen zwischen den einzelnen Übungen und verarbeite das Erlernte.\n</string>
@@ -229,13 +229,14 @@
 
     <!-- Insel des Sehenden -->
     <string name="inselDsehenden_TextView">Willkommen auf der Insel des Sehenden. \nDu hast viele großartige Veränderungen verwirklicht. Um dich mit diesen positiven Veränderungen zu befassen werden dir nun vier Fragen gestellt.
-        Nimm dir Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht möchtest du sie auch laut aussprechen.</string>
+        Nimm dir Zeit über jede Frage in Ruhe nachzudenken und eine Antwort zu formulieren. Vielleicht hilft es dir die Antwort laut auszusprechen. Du kannst sie aber auch aufschreiben wenn du möchtest.</string>
     <string name="fragenStart_Button">Fragen starten</string>
     <string name="f1_TextView">Frage 1/4</string>
 
 
     <!-- Insel Frage1 -->
     <string name="frage1_TextView">Was ist in den letzten zehn Tagen besser geworden und wie fühlt es sich an?</string>
+    <string name="frage1_editView">Wenn du deine Antwort lieber aufschreiben möchtest hast du hier die Möglichkeit dazu.</string>
     <string name="frage1Weiter_Button">Weiter</string>
 
     <!-- Insel Frage2 -->
