@@ -1,49 +1,67 @@
 package com.example.lammel.lob;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.NumberPicker;
+import android.widget.TextView;
 
 import java.io.File;
 
-public class Pause extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class Timer3 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-
-    private Button timerStart;
-    private int tage;
-    private long countdown;
     private AppCompatDelegate delegate;
+
 
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private SharedPreferences.Editor editor;
 
+    //Timer
+    private final static String TAG = "BroadcastReceiver";
+
+    //Timer
+    private long countdown;
+    private TextView days;
+    private int d;
+    private TextView hours;
+    private int h;
+    private TextView minutes;
+    private int m;
+    private TextView seconds;
+    private int s;
+    private Button weiter;
+
+    private long currentTime;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pause);
+        setContentView(R.layout.activity_timer3);
         this.setTitle("Pause");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.pause1, fragment);
+        transaction.add(R.id.timer3, fragment);
         transaction.commit();
 
         //Toolbar
@@ -54,7 +72,7 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_pause);
+        delegate.setContentView(R.layout.activity_timer3);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -66,43 +84,121 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        timerStart = (Button) findViewById(R.id.startTimer2_Button);
-        timerStart.setOnClickListener(this);
+        weiter = (Button) findViewById(R.id.Timer3Weiter_Button);
+        weiter.setVisibility(View.GONE);
 
-        //Set Status - Footer
+
+        //Timer der 10 Tage runterläuft 864000000 ms
+        //Timer der 1 Min runterläuft 60000 ms
         saved = getSharedPreferences(PREFS_NAME, 0);
+
+        countdown = saved.getLong("CountdownSave", 30000);
+
         editor = saved.edit();
 
-        if(saved.getInt("ressourceStatus", 0) < 2){
-            editor.putInt("ressourceStatus", 2);
-        }
-
-        editor.putInt("tabStatus", 0);
-
-        //ein Tag falls einfach weiter gedrückt wird
-        editor.putLong("CountdownSave", 30000);//86400000
+        //Set the sourceId for the right AlarmTask
+        editor.putInt("id", 3);
+        editor.putBoolean("alarmStart", false);
         editor.apply();
 
-        final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);
-        np.setMaxValue(14);
-        np.setMinValue(1);
-        np.setWrapSelectorWheel(true);
+        if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
+            currentTime = System.currentTimeMillis();
+            editor.putLong("pauseTime", currentTime);
 
-        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener()
-        {
+            editor.apply();
+        }
 
-            @Override
-            public void onValueChange(NumberPicker picker, int oldVal, int newVal)
-            {
-                //Timer Zeit setzen
-                tage = np.getValue();
-                countdown = tage * 30000;
-                editor.putLong("CountdownSave", countdown);
+        days = (TextView) findViewById(R.id.d3Anzeige_TextView);
+        hours = (TextView) findViewById(R.id.h3Anzeige_TextView);
+        minutes = (TextView) findViewById(R.id.m3Anzeige_TextView);
+        seconds = (TextView) findViewById(R.id.s3Anzeige_TextView);
+
+        //Timer using a Service
+        Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
+        startService(intent_service);
+        Log.i(TAG, "Started service");
+    }
+
+    //Timer
+    private BroadcastReceiver br = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            updateGui(intent);
+        }
+    };
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        registerReceiver(br, new IntentFilter(BroadcastService.COUNTDOWN_BR));
+        Log.i(TAG, "Registered broadcast receiver");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        unregisterReceiver(br);
+        Log.i(TAG, "Unregistered broadcast receiver");
+    }
+
+    @Override
+    public void onStop() {
+        try {
+            unregisterReceiver(br);
+        } catch (Exception e) {
+            // Receiver was probably already stopped in onPause()
+        }
+        super.onStop();
+    }
+    @Override
+    public void onDestroy() {
+        stopService(new Intent(this, BroadcastService.class));
+        Log.i(TAG, "Stopped service");
+        super.onDestroy();
+    }
+
+    private void updateGui(Intent intent){
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        if(intent.getExtras() != null) {
+            long millisUntilFinished = intent.getLongExtra("countdown", countdown);
+
+            editor.putBoolean("alarmStart", true);
+            editor.apply();
+            if (millisUntilFinished > 0) {
+                d = (int) millisUntilFinished / 86400000;
+                h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
+                m = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000))) / 60000);
+                s = (int) ((millisUntilFinished - ((d * 86400000) + (h * 3600000) + (m * 60000))) / 1000);
+
+                days.setText(String.format("%02d", d));
+                hours.setText(String.format("%02d", h));
+                minutes.setText(String.format("%02d", m));
+                seconds.setText(String.format("%02d", s));
+            }
+
+
+            else{
+                Log.i(TAG, "Timer abgelaufen");
+                days.setText("00");
+                hours.setText("00");
+                minutes.setText("00");
+                seconds.setText("00");
+
+                weiter.setVisibility(View.VISIBLE);
+                weiter.setOnClickListener(this);
+
+                //damit man die Pause nur einmal machen muss
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+
+                editor.putBoolean("pause3", true);
+                editor.putLong("pauseTime", (long) 0);
                 editor.apply();
 
             }
-        });
 
+        }
 
     }
 
@@ -128,7 +224,6 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         getMenuInflater().inflate(R.menu.main_menu, menu);
         return true;
     }
-
     //Menüaktivität
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -217,11 +312,20 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         startActivity(new Intent(this, MainActivity.class));
     }
 
-
     @Override
     public void onClick(View view) {
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
 
-        startActivity(new Intent(this, Timer.class));
+        if(saved.getInt("sonneStatus", 0) < 2){
+            editor.putInt("sonneStatus", 2);
+        }
+
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
+        startActivity(new Intent(this, Level3Start.class));
     }
 
 
@@ -240,6 +344,5 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
     public ActionMode onWindowStartingSupportActionMode(ActionMode.Callback callback) {
         return null;
     }
-
 
 }

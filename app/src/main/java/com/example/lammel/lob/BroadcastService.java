@@ -44,7 +44,7 @@ public class BroadcastService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId){
 
         saved = getSharedPreferences(PREFS_NAME, 0);
-        countdown = saved.getLong("CountdownSave", 30000);
+        countdown = saved.getLong("CountdownSave", 30000);//86400000
 
         if(saved.getLong("pauseTime", (long) 0) != (long) 0){
                 long savedTime = saved.getLong("pauseTime", (long) 0);

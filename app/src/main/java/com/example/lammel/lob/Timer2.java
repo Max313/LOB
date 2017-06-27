@@ -40,7 +40,7 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
     private final static String TAG = "BroadcastReceiver";
 
     //Timer
-    private CountDownTimer countdown;
+    private long countdown;
     private TextView days;
     private int d;
     private TextView hours;
@@ -93,6 +93,9 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         //Timer der 10 Tage runterläuft 864000000 ms
         //Timer der 1 Min runterläuft 60000 ms
         saved = getSharedPreferences(PREFS_NAME, 0);
+
+        countdown = saved.getLong("CountdownSave", 30000);
+
         editor = saved.edit();
 
         //Set the sourceId for the right AlarmTask
@@ -160,7 +163,7 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         if(intent.getExtras() != null) {
-            long millisUntilFinished = intent.getLongExtra("countdown", 0);
+            long millisUntilFinished = intent.getLongExtra("countdown", countdown);
 
             editor.putBoolean("alarmStart", true);
             editor.apply();
@@ -317,15 +320,14 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
-        if(saved.getInt("sonneStatus", 0) < 2){
-            editor.putInt("sonneStatus", 2);
+        if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
         }
-        else if(saved.getInt("loesungStatus", 0) < 1){
-            editor.putInt("loesungStatus", 1);
-        }
-        editor.putInt("tabStatus", 5);
 
-        startActivity(new Intent(this, Level5Start.class));
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
+        startActivity(new Intent(this, Level3Start.class));
     }
 
 

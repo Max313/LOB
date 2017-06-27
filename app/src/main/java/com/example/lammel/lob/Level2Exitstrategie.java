@@ -184,6 +184,12 @@ public class Level2Exitstrategie extends FragmentActivity implements View.OnClic
 
     @Override
     public void onClick(View v) {
+        //setze einen Tag Pause
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putLong("CountdownSave", 30000);//86400000
+        editor.apply();
+
         switch (v.getId()){
             case R.id.exitstrategie_Button:
                     startActivity(new Intent(this, ZehnTage.class));

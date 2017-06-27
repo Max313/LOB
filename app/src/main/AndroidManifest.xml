@@ -205,10 +205,16 @@
             android:name=".Timer"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".PauseZwischen2und3"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".PauseZwischen4und5"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Timer2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".Timer3"
             android:screenOrientation="portrait" />
         <activity
             android:name=".LevelIntro"

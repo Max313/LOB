@@ -195,8 +195,11 @@ public class PauseZwischen4und5 extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-
-        startActivity(new Intent(this, Timer2.class));
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putLong("CountdownSave", 30000);//86400000 1 Tag
+        editor.apply();
+        startActivity(new Intent(this, Timer3.class));
     }
 
 

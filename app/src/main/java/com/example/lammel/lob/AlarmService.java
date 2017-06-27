@@ -56,8 +56,13 @@ public class AlarmService extends Service {
             showNotificationP();
 
         }
-        else{
+        else if(source == 2){
+            Log.i(TAG, "Version 3");
             showNotificationP2();
+
+        }
+        else{
+            showNotificationP3();
             Log.i(TAG, "Version 3");
         }
 
@@ -116,9 +121,33 @@ public class AlarmService extends Service {
     }
 
     /**
-     * Creates a notification and shows it in the OS drag-down status bar (Timer zwischen 4 und 5)
+     * Creates a notification and shows it in the OS drag-down status bar (Timer zwischen 2 und 3)
      */
     private void showNotificationP2() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level3Start.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_title))
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle(r.getString(R.string.notification_title))
+                .setContentText(r.getString(R.string.notification_text))
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+
+
+        // Send the notification to the system.
+        mNM.notify(NOTIFICATION, notification);
+
+        // Stop the service when we are finished
+        stopSelf();
+    }
+
+    /**
+     * Creates a notification and shows it in the OS drag-down status bar (Timer zwischen 4 und 5)
+     */
+    private void showNotificationP3() {
         PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level5Start.class), 0);
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)

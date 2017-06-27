@@ -250,7 +250,12 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     dialogX.show();
                 }
                 else{
-                    startActivity(new Intent(this, Level3Start.class));
+                    if(saved.getBoolean("zehnTage", false) || saved.getBoolean("pause2", false)){
+                        startActivity(new Intent(this, Level3Start.class));
+                    }
+                    else{
+                        startActivity(new Intent(this, PauseZwischen2und3.class));
+                    }
                     counter = 0;
                 }
 
@@ -295,7 +300,15 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
     }
 
     private void startNext() {
-        startActivity(new Intent(this, Level3Start.class));
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        if(saved.getBoolean("zehnTage", false) || saved.getBoolean("pause2", false)){
+            startActivity(new Intent(this, Level3Start.class));
+        }
+        else{
+            startActivity(new Intent(this, PauseZwischen2und3.class));
+        }
     }
 
     @Override

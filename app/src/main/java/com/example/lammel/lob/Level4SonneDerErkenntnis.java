@@ -533,7 +533,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
 
 
             case R.id.fertig_Button:
-                if (!saved.getBoolean("pause2", false)){
+                if (!saved.getBoolean("pause3", false)){
                     startActivity(new Intent(this, PauseZwischen4und5.class));
                 }
                 else{

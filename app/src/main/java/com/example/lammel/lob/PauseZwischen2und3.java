@@ -2,12 +2,12 @@ package com.example.lammel.lob;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
@@ -20,7 +20,7 @@ import android.widget.NumberPicker;
 
 import java.io.File;
 
-public class Pause extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class PauseZwischen2und3 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
     private Button timerStart;
@@ -36,14 +36,14 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pause);
+        setContentView(R.layout.activity_pause_zwischen2und3);
         this.setTitle("Pause");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.pause1, fragment);
+        transaction.add(R.id.pause0, fragment);
         transaction.commit();
 
         //Toolbar
@@ -54,7 +54,7 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_pause);
+        delegate.setContentView(R.layout.activity_pause_zwischen2und3);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
@@ -73,14 +73,11 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
-        if(saved.getInt("ressourceStatus", 0) < 2){
-            editor.putInt("ressourceStatus", 2);
+        if(saved.getInt("ideeStatus",0) < 2){
+            editor.putInt("ideeStatus", 2);
         }
 
         editor.putInt("tabStatus", 0);
-
-        //ein Tag falls einfach weiter gedrückt wird
-        editor.putLong("CountdownSave", 30000);//86400000
         editor.apply();
 
         final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);
@@ -96,13 +93,12 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
             {
                 //Timer Zeit setzen
                 tage = np.getValue();
-                countdown = tage * 30000;
+                countdown = tage * 30000;//86400000
                 editor.putLong("CountdownSave", countdown);
                 editor.apply();
 
             }
         });
-
 
     }
 
@@ -221,7 +217,7 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
     @Override
     public void onClick(View view) {
 
-        startActivity(new Intent(this, Timer.class));
+        startActivity(new Intent(this, Timer2.class));
     }
 
 
