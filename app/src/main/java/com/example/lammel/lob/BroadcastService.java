@@ -18,11 +18,12 @@ public class BroadcastService extends Service {
     public static final String COUNTDOWN_BR = "com.example.lammel.lob.countdown_br";
     Intent bi = new Intent(COUNTDOWN_BR);
 
+
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
     private long startValue;
-    private static final long countdown = 30000;
+    private long countdown = 30000;
     CountDownTimer cdt;
 
 
@@ -43,8 +44,9 @@ public class BroadcastService extends Service {
     public int onStartCommand(Intent intent, int flags, int startId){
 
         saved = getSharedPreferences(PREFS_NAME, 0);
+        countdown = saved.getLong("CountdownSave", 30000);
 
-            if(saved.getLong("pauseTime", (long) 0) != (long) 0){
+        if(saved.getLong("pauseTime", (long) 0) != (long) 0){
                 long savedTime = saved.getLong("pauseTime", (long) 0);
                 long currentTime = System.currentTimeMillis();
 
@@ -72,7 +74,9 @@ public class BroadcastService extends Service {
         };
         cdt.start();
         if(!saved.getBoolean("alarmStart", false)) {
-                    new AlarmTask(this).run();
+                    saved = getSharedPreferences(PREFS_NAME, 0);
+                    countdown = saved.getLong("CountdownSave", 30000);
+                    new AlarmTask(this, countdown).run();
         }
         return super.onStartCommand(intent, flags, startId);
     }

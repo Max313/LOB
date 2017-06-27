@@ -37,7 +37,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
 
 
     //Timer
-    private CountDownTimer countdown;
+    private long countdown;
     private TextView days;
     private int d;
     private TextView hours;
@@ -96,6 +96,9 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         //Timer der 10 Tage runterläuft 864000000 ms
         //Timer der 1 Min runterläuft 60000 ms
         saved = getSharedPreferences(PREFS_NAME, 0);
+
+        countdown = saved.getLong("CountdownSave", 30000);
+
         editor = saved.edit();
 
         //Set the sourceId for the right AlarmTask
@@ -166,7 +169,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         if(intent.getExtras() != null) {
             editor.putBoolean("alarmStart", true);
             editor.apply();
-            long millisUntilFinished = intent.getLongExtra("countdown", 0);
+            long millisUntilFinished = intent.getLongExtra("countdown", countdown);
 
             if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;

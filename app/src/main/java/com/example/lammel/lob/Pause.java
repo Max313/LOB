@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.NumberPicker;
 
 import java.io.File;
 
@@ -23,6 +24,8 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
 
 
     private Button timerStart;
+    private int tage;
+    private long countdown;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -76,6 +79,26 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
 
         editor.putInt("tabStatus", 0);
         editor.apply();
+
+        final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);
+        np.setMaxValue(14);
+        np.setMinValue(1);
+        np.setWrapSelectorWheel(true);
+
+        np.setOnValueChangedListener(new NumberPicker.OnValueChangeListener()
+        {
+
+            @Override
+            public void onValueChange(NumberPicker picker, int oldVal, int newVal)
+            {
+                //Timer Zeit setzen
+                tage = np.getValue();
+                countdown = tage * 30000;//86400000
+                editor.putLong("CountdownSave", countdown);
+                editor.apply();
+
+            }
+        });
 
 
     }

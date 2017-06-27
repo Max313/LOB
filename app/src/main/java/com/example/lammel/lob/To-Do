@@ -8,8 +8,9 @@
 
 
 
-- Pause zwischen 2. und 3. Level.
-- Pause einstellbar: Zwischen 1 und 7 Tagen
+- Pause zwischen 2. und 3. Level. 1-14 falls Zehntage (verkürzen auf eine Nacht) gemacht dann keine Pause
+- Pause zwischen 4. und 5. Level eine Nacht fest
+- Pause einstellbar: Zwischen 1 und 14 Tagen
 - geplante Notifications einbauen.
 - eigene Notifications ermöglichen
 - Texteingabe bei Insel des Sehenden --> Sollen wir da eigentlich noch mal über den Namen sprechen?

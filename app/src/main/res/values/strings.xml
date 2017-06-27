@@ -356,7 +356,7 @@
 
     <!-- Notification -->
     <string name="notification_title">Timer</string>
-    <string name="notification_text">Geschafft! Die Zehn Tage sind um.</string>
+    <string name="notification_text">Geschafft! Die Pause ist um.</string>
 
     <!-- EndScreen -->
     <string name="zurueck_TextView">Wenn du möchtest kannst du die App zurücksetzen und mit einem neuen Problem starten. Bedenke dass dadurch deine bisherigen Eingaben verloren gehen.</string>
