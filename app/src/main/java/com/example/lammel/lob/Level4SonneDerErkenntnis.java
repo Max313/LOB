@@ -161,17 +161,17 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         source = getIntent().getExtras().getInt("Source");
 
         if(source == 0){
-            start.setVisibility(View.VISIBLE);
+            start.setVisibility(View.GONE);
             start.setOnClickListener(this);
             fertig.setVisibility(View.GONE);
             isfinished();
         }
         else{
             fertig.setVisibility(View.VISIBLE);
-            fertig.setEnabled(false);
             start.setVisibility(View.GONE);
             count = 0;
             isfinished();
+            fertig.setOnClickListener(this);
         }
     }
 

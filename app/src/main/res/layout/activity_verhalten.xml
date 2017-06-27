@@ -90,7 +90,7 @@
                         android:paddingLeft="@dimen/smallSpace"
                         android:paddingRight="@dimen/smallSpace"
                         android:background="@drawable/table_value_border_odd"
-                        android:hint="@string/platzhalterVerhalten_EditText"
+                        android:hint="@string/verhalten1_EditText"
                         android:ems="10"
                         android:imeOptions="actionDone"
                         android:inputType="text" />
@@ -106,7 +106,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/table_value_border_even"
-                        android:hint="@string/platzhalterVerhalten_EditText"
+                        android:hint="@string/verhalten2_EditText"
                         android:ems="10"
                         android:imeOptions="actionDone"
                         android:inputType="text" />
@@ -124,7 +124,7 @@
                         android:paddingRight="@dimen/smallSpace"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/platzhalterVerhalten_EditText"
+                        android:hint="@string/verhalten3_EditText"
                         android:ems="10"
                         android:imeOptions="actionDone"
                         android:inputType="text" />

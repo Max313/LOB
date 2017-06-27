@@ -189,8 +189,8 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(UebersichtTable.this);
-                builder.setTitle("Ziel - Hilfe");
-                builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Mir fällt nichts ein\" um dorthin zu gelangen.");
+                builder.setTitle("Ressourcentabelle - Übersicht");
+                builder.setMessage("Hier siehst du die Übersicht von den Sachen, die dich bisher immer weiter gebracht haben.\nSchöpfe Kraft aus dem, was funktioniert.\nFalls inzwischen etwas neues hinzu gekommen ist oder du etwas ändern willst hast du hier die Chance dazu. ");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

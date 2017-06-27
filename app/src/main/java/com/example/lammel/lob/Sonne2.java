@@ -102,7 +102,7 @@ private static final String TAG = "Sonne2";
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sonne2);
 
-        this.setTitle("Sonne der Erkenntnis 2/8");
+        this.setTitle("Sonne der Erkenntnis");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

@@ -190,12 +190,21 @@
 
     <!-- Verhalten -->
     <string name="beispielVerhalten_TextView">Welches Verhalten an dir fällt dir positiv auf und wie würdest du es charakterisieren.</string>
-    <string name="platzhalterVerhalten_EditText">Eingabe</string>
+    <string name="verhalten1_EditText">Verhalten 1</string>
+    <string name="verhalten2_EditText">Verhalten 2</string>
+    <string name="verhalten3_EditText">Verhalten 3</string>
+
     <!-- Kompliment -->
     <string name="beispielKompliment_TextView">Gebe dir selbst ein Kompliment, so wie du es auch einem guten Freund geben würdest.</string>
+    <string name="kompliment1_EditText">Kompliment 1</string>
+    <string name="kompliment2_EditText">Kompliment 2</string>
+    <string name="kompliment3_EditText">Kompliment 3</string>
 
     <!-- Ressource -->
     <string name="beispielRessource_TextView">Ressourcen die zur Lösung einer schwierigen Situation beitragen.</string>
+    <string name="ressource1_EditText">Ressource 1</string>
+    <string name="ressource2_EditText">Ressource 2</string>
+    <string name="ressource3_EditText">Ressource 3</string>
 
     <!--\nDamit du eine bessere Vorstellung davon bekommst was zu tun ist,
     ist das erste Feld bereits beispielhaft ausgefüllt. In dem Beispiel geht es um einen Beziehungskonflikt zum Thema Eifersucht. -->

@@ -106,7 +106,7 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sonne3);
 
-        this.setTitle("Sonne der Erkenntnis 3/8");
+        this.setTitle("Sonne der Erkenntnis");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
