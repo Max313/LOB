@@ -34,6 +34,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     //Tracker
     private Tracker mTracker;
+    private Button start_button;
+    private Button skip_button;
 
 
 
@@ -87,8 +89,11 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
 
         //Action preparation
-        Button start_button = (Button) findViewById(R.id.start_button);
+        start_button = (Button) findViewById(R.id.start_button);
         start_button.setOnClickListener(this);
+
+        skip_button = (Button) findViewById(R.id.skip_button);
+        skip_button.setOnClickListener(this);
     }
 
     //Menu: disable Items if necessary
@@ -209,8 +214,19 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onClick(View v) {
+        switch (v.getId()){
 
-        startActivity(new Intent(this, Level1Onboarding.class));
+            case R.id.start_button:
+                startActivity(new Intent(this, Level1Onboarding.class));
+                break;
+
+            case R.id.skip_button:
+                startActivity(new Intent(this, Level1Start.class));
+                break;
+
+            default:
+                break;
+        }
     }
 
 

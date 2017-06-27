@@ -1,7 +1,13 @@
 package com.example.lammel.lob;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.MediaMetadataRetriever;
+import android.media.MediaPlayer;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
@@ -11,25 +17,37 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.VideoView;
+import android.widget.MediaController;
+
 
 import java.io.File;
+import java.io.IOException;
+
+import static java.security.AccessController.getContext;
 
 /**
  * Created by lammel on 11.04.17.
  */
 
-public class Level1Onboarding extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
-
-
+public class Level1Onboarding extends FragmentActivity implements AppCompatCallback {
 
     // Button and more
-    private Button weiter_button;
     private AppCompatDelegate delegate;
+
+    //Video
+    private VideoView videoView;
+    private int position = 0;
+    private ProgressDialog progressDialog;
+    private MediaController mediaControls;
 
     //shared Preferences zum Speichern
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -41,21 +59,16 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //to set the Video to fullscreen
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         setContentView(R.layout.level1_onboarding);
         this.setTitle("Einführung");
 
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-        editor.putInt("tabStatus", 0);
-        editor.apply();
-
-        //Footer
-        Footer_Fragment fragment = new Footer_Fragment();
-        FragmentManager manager = getSupportFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.level1_onboarding, fragment);
-        transaction.commit();
 
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
@@ -192,23 +205,118 @@ public class Level1Onboarding extends FragmentActivity implements View.OnClickLi
     }
 
     private void onboardingProzessStarten() {
-        weiter_button = (Button) findViewById(R.id.weiter_button);
-        weiter_button.setOnClickListener(this);
+
+
+
+        //set the media controller buttons
+        if (mediaControls == null) {
+            mediaControls = new MediaController(this);
+        }
+
+        //initialize the VideoView
+        videoView = (VideoView) findViewById(R.id.video_view);
+
+        // create a progress bar while the video file is loading
+        progressDialog = new ProgressDialog(Level1Onboarding.this);
+        // set a title for the progress bar
+        progressDialog.setTitle("Intro");
+        // set a message for the progress bar
+        progressDialog.setMessage("Loading...");
+
+        //set the progress bar not cancelable on users' touch
+        progressDialog.setCancelable(false);
+
+        // show the progress bar
+        progressDialog.show();
+
+        try {
+
+            //set the media controller in the VideoView
+            videoView.setMediaController(mediaControls);
+
+            //set the uri of the video to be played
+            videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.introfilm));
+
+
+        } catch (Exception e) {
+            Log.e("Error", e.getMessage());
+            e.printStackTrace();
+
+        }
+
+        videoView.requestFocus();
+
+        //we also set an setOnPreparedListener in order to know when the video file is ready for playback
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+
+
+            public void onPrepared(MediaPlayer mediaPlayer) {
+
+                // close the progress bar and play the video
+                progressDialog.dismiss();
+
+                //if we have a position on savedInstanceState, the video playback should start from here
+                videoView.seekTo(position);
+
+                if (position == 0) {
+                    videoView.start();
+                } else {
+
+                    //if we come from a resumed activity, video playback will be paused
+                    videoView.pause();
+                }
+            }
+        });
+
+        // video finish listener -- Start new Activity after the video is finished
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+
+            @Override
+            public void onCompletion(MediaPlayer vmp) {
+                Intent intent = new Intent();
+                intent.setClass(Level1Onboarding.this, LevelIntro.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
     }
 
-    @Override
-    public void onClick(View v) {
 
 
 
-                startActivity(new Intent(this, Onboarding2.class));
 
-    }
+@Override
+public void onSaveInstanceState(Bundle savedInstanceState) {
 
+        super.onSaveInstanceState(savedInstanceState);
+
+        //we use onSaveInstanceState in order to store the video playback position for orientation change
+
+        savedInstanceState.putInt("Position", videoView.getCurrentPosition());
+
+        videoView.pause();
+
+        }
+
+
+
+@Override
+
+public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        super.onRestoreInstanceState(savedInstanceState);
+
+        //we use onRestoreInstanceState in order to play the video playback from the stored position
+
+        position = savedInstanceState.getInt("Position");
+
+        videoView.seekTo(position);
+
+        }
 
 
 

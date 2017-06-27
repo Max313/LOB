@@ -42,7 +42,8 @@
         </activity>
         <activity
             android:name=".Level1Onboarding"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="landscape"
+            />
         <activity
             android:name=".Level1Problemdefinition"
             android:screenOrientation="portrait" />

@@ -2,7 +2,8 @@
     <string name="app_name">LOB</string>
     <string name="welcome_text">Willkommen!</string>
 
-    <string name="start_button">Los geht\'s</string>
+    <string name="start_button">Intro \nstarten</string>
+    <string name="skip_button">Intro \nüberspringen</string>
     <string name="weiter_button">Weiter</string>
 
     <!-- Einführung -->
