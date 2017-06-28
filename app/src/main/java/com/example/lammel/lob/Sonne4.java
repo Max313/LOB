@@ -41,9 +41,7 @@ import java.io.IOException;
 public class Sonne4 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    private Button weiter;
     private Button uebersicht;
-    private Boolean tour;
     private Intent intent;
     private ImageView record;
     private ImageView recordOn;
@@ -144,11 +142,6 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
 
 
         //Buttons and more on action
-        tour = getIntent().getExtras().getBoolean("Tour");
-
-        weiter = (Button) findViewById(R.id.Weiter4_Button);
-        weiter.setOnClickListener(this);
-
         uebersicht = (Button) findViewById(R.id.zurUebersicht4_Button);
         uebersicht.setOnClickListener(this);
 
@@ -185,15 +178,6 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
         fertig.setTextColor(Color.rgb(189,189,189));
         fertig.setOnClickListener(this);
         rPause = false;
-
-
-        if(tour){
-            uebersicht.setVisibility(View.GONE);
-        }
-
-        else {
-            weiter.setVisibility(View.GONE);
-        }
 
         file = new File(this.getFilesDir() +"/" + MEDIA_NAME +".3gp");
 
@@ -260,7 +244,7 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -630,19 +614,11 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.Weiter4_Button:
-                //logging
-                endLog = System.currentTimeMillis();
-                Log.i(TAG,"Duration: "+(endLog - startLog));
 
-                if(fertig.isEnabled()){
-                    stopRecording();
-                }
-                intent = new Intent(view.getContext(), Sonne5.class);
-                intent.putExtra("Tour", true);
-                startActivity(intent);
-                break;
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        switch (view.getId()){
 
             case R.id.zurUebersicht4_Button:
                 //logging
@@ -652,8 +628,10 @@ public class Sonne4 extends FragmentActivity implements View.OnClickListener, Ap
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
+                editor.putBoolean("sonne4", true);
+                editor.apply();
+
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Source", 4);
                 startActivity(intent);
                 break;
 

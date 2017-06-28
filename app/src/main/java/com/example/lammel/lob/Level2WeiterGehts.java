@@ -135,7 +135,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:

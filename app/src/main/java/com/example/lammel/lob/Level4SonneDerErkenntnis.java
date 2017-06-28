@@ -48,11 +48,8 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
     private ImageView img8hell;
 
     //Buttons and more
-    private Button start;
     private Button fertig;
     private Intent intent;
-    private int source;
-    private int count;
     private AppCompatDelegate delegate;
     private static final String LOG_TAG = "FileTest";
 
@@ -154,25 +151,12 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         img8hell.setOnClickListener(this);
 
         //Button and more action
-        start = (Button) findViewById(R.id.startTour_Button);
 
         fertig = (Button) findViewById(R.id.fertig_Button);
+        fertig.setVisibility(View.GONE);
 
-        source = getIntent().getExtras().getInt("Source");
+        isfinished();
 
-        if(source == 0){
-            start.setVisibility(View.GONE);
-            start.setOnClickListener(this);
-            fertig.setVisibility(View.GONE);
-            isfinished();
-        }
-        else{
-            fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
-            count = 0;
-            isfinished();
-            fertig.setOnClickListener(this);
-        }
     }
 
     //Welche Menüoptionen sind enabled
@@ -217,7 +201,7 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -297,126 +281,98 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
     }
 
     public void isfinished(){
-        File file1 = new File(this.getFilesDir() +"/" + "sonne1" +".3gp");
-        Log.i(LOG_TAG, "Files List File: " + String.valueOf(file1.getAbsoluteFile()));
-        if(file1.exists()){
+
+        saved = getSharedPreferences(PREFS_NAME, 0);
+
+        Log.i(LOG_TAG, "IsFinished()");
+
+
+        if(saved.getBoolean("sonne1", false)){
             img1.setVisibility(View.VISIBLE);
             img1hell.setVisibility(View.GONE);
+            fertig.setVisibility(View.VISIBLE);
 
-                fertig.setEnabled(true);
+            fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
-
-        }
-        else if(file1.length() == 0){
-            img1.setVisibility(View.GONE);
-            img1hell.setVisibility(View.VISIBLE);
-
         }
 
-        File file2 = new File(this.getFilesDir() + "/"+ "sonne2" + ".3gp");
+        if(saved.getBoolean("sonne2", false)){
 
-        if(file2.exists()){
             img2.setVisibility(View.VISIBLE);
             img2hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
-                fertig.setEnabled(true);
+            fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file2.length() == 0){
-            img2.setVisibility(View.GONE);
-            img2hell.setVisibility(View.VISIBLE);
-        }
 
-        File file3 = new File(this.getFilesDir() + "/"+ "sonne3" + ".3gp");
-        if(file3.exists()){
+        if(saved.getBoolean("sonne3", false)){
+
             img3.setVisibility(View.VISIBLE);
             img3hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
-                fertig.setEnabled(true);
+            fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file2.length() == 0){
-            img3.setVisibility(View.GONE);
-            img3hell.setVisibility(View.VISIBLE);
-        }
-        File file4 = new File(this.getFilesDir() + "/"+ "sonne4" + ".3gp");
-        if(file4.exists()){
+
+        if(saved.getBoolean("sonne4", false)){
+
             img4.setVisibility(View.VISIBLE);
             img4hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
-                fertig.setEnabled(true);
+            fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file4.length() == 0){
-            img4.setVisibility(View.GONE);
-            img4hell.setVisibility(View.VISIBLE);
-        }
 
-        File file5 = new File(this.getFilesDir() + "/"+ "sonne5" + ".3gp");
-        if(file5.exists()){
+
+        if(saved.getBoolean("sonne5", false)){
+
             img5.setVisibility(View.VISIBLE);
             img5hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file5.length() == 0){
-            img5.setVisibility(View.GONE);
-            img5hell.setVisibility(View.VISIBLE);
-        }
 
-        File file6 = new File(this.getFilesDir() + "/"+ "sonne6" + ".3gp");
-        if(file6.exists()){
+        if(saved.getBoolean("sonne6", false)){
+
             img6.setVisibility(View.VISIBLE);
             img6hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file6.length() == 0){
-            img6.setVisibility(View.GONE);
-            img6hell.setVisibility(View.VISIBLE);
-        }
 
-        File file7 = new File(this.getFilesDir() + "/"+ "sonne7" + ".3gp");
-        if(file7.exists()){
+        if(saved.getBoolean("sonne7", false)){
             img7.setVisibility(View.VISIBLE);
             img7hell.setVisibility(View.GONE);
+
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file7.length() == 0){
-            img7.setVisibility(View.GONE);
-            img7hell.setVisibility(View.VISIBLE);
-        }
 
-        File file8 = new File(this.getFilesDir() + "/"+ "sonne8" + ".3gp");
-        if(file8.exists()){
+
+        if(saved.getBoolean("sonne8", false)){
+
             img8.setVisibility(View.VISIBLE);
             img8hell.setVisibility(View.GONE);
             fertig.setVisibility(View.VISIBLE);
-            start.setVisibility(View.GONE);
                 fertig.setEnabled(true);
                 fertig.setOnClickListener(this);
 
         }
-        else if(file8.length() == 0){
-            img8.setVisibility(View.GONE);
-            img8hell.setVisibility(View.VISIBLE);
-        }
+
     }
 
     public void startNew(){
@@ -428,106 +384,84 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         saved = getSharedPreferences(PREFS_NAME,0);
         switch (view.getId()){
 
-            case R.id.startTour_Button:
-                intent = new Intent(view.getContext(), Sonne1.class);
-                intent.putExtra("Tour", true);
-                startActivity(intent);
-                break;
-
             case R.id.Sonne1_imageView:
                 intent = new Intent(view.getContext(), Sonne1.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.SonneHell1_imageView:
                 intent = new Intent(view.getContext(), Sonne1.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne2_imageView:
                 intent = new Intent(view.getContext(), Sonne2.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne2hell_imageView:
                 intent = new Intent(view.getContext(), Sonne2.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne3_imageView:
                 intent = new Intent(view.getContext(), Sonne3.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne3hell_imageView:
                 intent = new Intent(view.getContext(), Sonne3.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne4_imageView:
                 intent = new Intent(view.getContext(), Sonne4.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne4hell_imageView:
                 intent = new Intent(view.getContext(), Sonne4.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne5_imageView:
                 intent = new Intent(view.getContext(), Sonne5.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne5hell_imageView:
                 intent = new Intent(view.getContext(), Sonne5.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne6_imageView:
                 intent = new Intent(view.getContext(), Sonne6.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne6hell_imageView:
                 intent = new Intent(view.getContext(), Sonne6.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne7_imageView:
                 intent = new Intent(view.getContext(), Sonne7.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne7hell_imageView:
                 intent = new Intent(view.getContext(), Sonne7.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
 
             case R.id.Sonne8_imageView:
                 intent = new Intent(view.getContext(), Sonne8.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 
             case R.id.Sonne8hell_imageView:
                 intent = new Intent(view.getContext(), Sonne8.class);
-                intent.putExtra("Tour", false);
                 startActivity(intent);
                 break;
 

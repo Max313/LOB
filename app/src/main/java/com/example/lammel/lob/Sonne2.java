@@ -39,9 +39,7 @@ import java.io.IOException;
 public class Sonne2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
-    private Button weiter;
     private Button uebersicht;
-    private Boolean tour;
     private Intent intent;
     private ImageView record;
     private ImageView recordOn;
@@ -140,10 +138,6 @@ private static final String TAG = "Sonne2";
         Log.i(TAG,"Start: "+startLog);
 
         //Buttons and more on action
-        tour = getIntent().getExtras().getBoolean("Tour");
-
-        weiter = (Button) findViewById(R.id.Weiter2_Button);
-        weiter.setOnClickListener(this);
 
         uebersicht = (Button) findViewById(R.id.zurUebersicht2_Button);
         uebersicht.setOnClickListener(this);
@@ -181,13 +175,6 @@ private static final String TAG = "Sonne2";
         fertig.setTextColor(Color.rgb(189,189,189));
         fertig.setOnClickListener(this);
         rPause = false;
-
-        if(tour){
-            uebersicht.setVisibility(View.GONE);
-        }
-        else {
-            weiter.setVisibility(View.GONE);
-        }
 
         file = new File(this.getFilesDir() +"/" + MEDIA_NAME +".3gp");
 
@@ -255,7 +242,7 @@ private static final String TAG = "Sonne2";
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -621,19 +608,10 @@ private static final String TAG = "Sonne2";
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.Weiter2_Button:
-                //logging
-                endLog = System.currentTimeMillis();
-                Log.i(TAG,"Duration: "+(endLog - startLog));
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
 
-                if(fertig.isEnabled()){
-                    stopRecording();
-                }
-                intent = new Intent(view.getContext(), Sonne3.class);
-                intent.putExtra("Tour", true);
-                startActivity(intent);
-                break;
+        switch (view.getId()){
 
             case R.id.zurUebersicht2_Button:
                 //logging
@@ -643,8 +621,9 @@ private static final String TAG = "Sonne2";
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
+                editor.putBoolean("sonne2", true);
+                editor.apply();
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Source", 2);
                 startActivity(intent);
                 break;
 

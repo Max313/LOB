@@ -113,7 +113,7 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -188,7 +188,6 @@ public class SonneDerErkenntnisStart extends FragmentActivity implements View.On
     public void onClick(View view) {
 
                 Intent intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Source", 0);
                 startActivity(intent);
 
     }

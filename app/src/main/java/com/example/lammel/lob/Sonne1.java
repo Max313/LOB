@@ -44,9 +44,7 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
     private ImageView playEnabled;
     private ImageView play;
     private ImageView pause;
-    private Button weiter;
     private Button uebersicht;
-    private Boolean tour;
     private Intent intent;
     private File file;
     private AppCompatDelegate delegate;
@@ -142,12 +140,8 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
 
 
         //Buttons and more on action
-        //Ask for Boolean
-        tour = getIntent().getExtras().getBoolean("Tour");
 
         //Set Action - Click
-        weiter = (Button) findViewById(R.id.Weiter1_Button);
-        weiter.setOnClickListener(this);
 
         uebersicht = (Button) findViewById(R.id.zurUebersicht1_Button);
         uebersicht.setOnClickListener(this);
@@ -185,17 +179,6 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
         fertig.setTextColor(Color.rgb(189,189,189));
         fertig.setOnClickListener(this);
         rPause = false;
-
-
-
-
-       //Check if a tour is startet or not and set the necessary visibility of the buttons
-        if(tour){
-            uebersicht.setVisibility(View.GONE);
-        }
-        else {
-            weiter.setVisibility(View.GONE);
-        }
 
         file = new File(this.getFilesDir() +"/" + MEDIA_NAME +".3gp");
 
@@ -262,7 +245,7 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
                 return true;
 
             case R.id.Sonne:
-                startActivity(new Intent(this, SonneDerErkenntnisStart.class));
+                startActivity(new Intent(this, Level4SonneDerErkenntnis.class));
                 return true;
 
             case R.id.Hausaufgabe:
@@ -633,21 +616,12 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
 
     @Override
     public void onClick(View view) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
 
         switch(view.getId()) {
 
-            case R.id.Weiter1_Button:
-                //logging
-                endLog = System.currentTimeMillis();
-                Log.i(TAG,"Duration: "+(endLog - startLog));
 
-                if(fertig.isEnabled()){
-                    stopRecording();
-                }
-               intent = new Intent(view.getContext(), Sonne2.class);
-                intent.putExtra("Tour", true);
-                startActivity(intent);
-                break;
 
             case R.id.zurUebersicht1_Button:
                 //logging
@@ -657,8 +631,9 @@ public class Sonne1 extends FragmentActivity implements View.OnClickListener, Ap
                 if(fertig.isEnabled()){
                     stopRecording();
                 }
+                editor.putBoolean("sonne1", true);
+                editor.apply();
                 intent = new Intent(view.getContext(), Level4SonneDerErkenntnis.class);
-                intent.putExtra("Source", 1);
                 startActivity(intent);
                 break;
 
