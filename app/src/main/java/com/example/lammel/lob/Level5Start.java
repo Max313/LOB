@@ -60,7 +60,9 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
         editor.putBoolean("pause2", true);
         editor.putLong("pauseTime", (long) 0);
 
-            editor.apply();
+        //Notification Alarm wieder erlauben
+        editor.putBoolean("alarmStart", false);
+        editor.apply();
 
 
         //Toolbar

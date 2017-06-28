@@ -104,7 +104,6 @@ public class Timer3 extends FragmentActivity implements View.OnClickListener, Ap
         if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
             currentTime = System.currentTimeMillis();
             editor.putLong("pauseTime", currentTime);
-
             editor.apply();
         }
 
@@ -318,11 +317,12 @@ public class Timer3 extends FragmentActivity implements View.OnClickListener, Ap
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
-        if(saved.getInt("sonneStatus", 0) < 2){
-            editor.putInt("sonneStatus", 2);
+        if (saved.getInt("ideeStatus", 0) < 2) {
+            editor.putInt("ideeStatus", 2);
+        } else if (saved.getInt("ressourceStatus", 0) < 1) {
+            editor.putInt("ressourceStatus", 1);
         }
-
-        editor.putInt("tabStatus", 0);
+        editor.putInt("tabStatus", 3);
         editor.apply();
 
         startActivity(new Intent(this, Level5Start.class));

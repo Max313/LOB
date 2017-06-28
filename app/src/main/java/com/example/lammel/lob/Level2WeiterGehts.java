@@ -217,12 +217,15 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                 saved = getSharedPreferences(PREFS_NAME, 0);
                 editor = saved.edit();
 
-                if (saved.getInt("ideeStatus", 0) < 2) {
-                    editor.putInt("ideeStatus", 2);
-                } else if (saved.getInt("ressourceStatus", 0) < 1) {
-                    editor.putInt("ressourceStatus", 1);
+                if(saved.getInt("zielStatus", 0) < 2){
+                    editor.putInt("zielStatus", 2);
                 }
-                editor.putInt("tabStatus", 3);
+
+                else if(saved.getInt("ideeStatus",0) < 1){
+                    editor.putInt("ideeStatus", 1);
+                }
+
+                editor.putInt("tabStatus", 2);
                 editor.apply();
 
                 if(counter == 0 && !saved.getBoolean("HausaufgabeSave", false)) {

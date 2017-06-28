@@ -22,6 +22,7 @@ public class BroadcastService extends Service {
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
     private long startValue;
     private long countdown = 30000;
     CountDownTimer cdt;
@@ -75,6 +76,9 @@ public class BroadcastService extends Service {
         cdt.start();
         if(!saved.getBoolean("alarmStart", false)) {
                     saved = getSharedPreferences(PREFS_NAME, 0);
+                    editor = saved.edit();
+                    editor.putBoolean("alarmStart", true);
+                    editor.apply();
                     countdown = saved.getLong("CountdownSave", 30000);
                     new AlarmTask(this, countdown).run();
         }

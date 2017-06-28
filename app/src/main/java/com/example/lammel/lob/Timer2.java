@@ -100,7 +100,6 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
 
         //Set the sourceId for the right AlarmTask
         editor.putInt("id", 2);
-        editor.putBoolean("alarmStart", false);
         editor.apply();
 
         if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
@@ -116,9 +115,10 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         seconds = (TextView) findViewById(R.id.s2Anzeige_TextView);
 
         //Timer using a Service
-        Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
-        startService(intent_service);
-        Log.i(TAG, "Started service");
+            Intent intent_service = new Intent(getApplicationContext(), BroadcastService.class);
+            startService(intent_service);
+            Log.i(TAG, "Started service");
+
     }
 
     //Timer
@@ -165,8 +165,6 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
         if(intent.getExtras() != null) {
             long millisUntilFinished = intent.getLongExtra("countdown", countdown);
 
-            editor.putBoolean("alarmStart", true);
-            editor.apply();
             if (millisUntilFinished > 0) {
                 d = (int) millisUntilFinished / 86400000;
                 h = (int) ((millisUntilFinished - (d * 86400000)) / 3600000);
@@ -196,6 +194,7 @@ public class Timer2 extends FragmentActivity implements View.OnClickListener, Ap
 
                 editor.putBoolean("pause2", true);
                 editor.putLong("pauseTime", (long) 0);
+
                 editor.apply();
 
             }

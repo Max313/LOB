@@ -83,7 +83,7 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
         editor.putLong("CountdownSave", 30000);//86400000
         editor.apply();
 
-        final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);
+        final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause2);
         np.setMaxValue(14);
         np.setMinValue(1);
         np.setWrapSelectorWheel(true);
@@ -220,7 +220,8 @@ public class Pause extends FragmentActivity implements View.OnClickListener, App
 
     @Override
     public void onClick(View view) {
-
+        final NumberPicker np2 = (NumberPicker) findViewById(R.id.numberPickerPause2);
+        np2.setEnabled(false);
         startActivity(new Intent(this, Timer.class));
     }
 

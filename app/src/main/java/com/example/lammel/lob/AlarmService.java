@@ -24,6 +24,7 @@ public class AlarmService extends Service {
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
+    private SharedPreferences.Editor editor;
 
     // Unique id to identify the notification.
     private static final int NOTIFICATION = 001;
@@ -44,6 +45,7 @@ public class AlarmService extends Service {
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         source = saved.getInt("id",0);
+
 
         switch (source){
 

@@ -103,7 +103,6 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
 
         //Set the sourceId for the right AlarmTask
         editor.putInt("id", 1);
-        editor.putBoolean("alarmStart", false);
         editor.apply();
 
         if(saved.getLong("pauseTime", (long) 0) == (long) 0) {
@@ -167,8 +166,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
         if(intent.getExtras() != null) {
-            editor.putBoolean("alarmStart", true);
-            editor.apply();
+
             long millisUntilFinished = intent.getLongExtra("countdown", countdown);
 
             if (millisUntilFinished > 0) {

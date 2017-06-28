@@ -52,7 +52,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView1_Pause">
 
                 <NumberPicker
-                    android:id="@+id/numberPickerPause1"
+                    android:id="@+id/numberPickerPause2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"

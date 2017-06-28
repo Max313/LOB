@@ -73,11 +73,15 @@ public class PauseZwischen2und3 extends FragmentActivity implements View.OnClick
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
-        if(saved.getInt("ideeStatus",0) < 2){
-            editor.putInt("ideeStatus", 2);
+        if(saved.getInt("zielStatus", 0) < 2){
+            editor.putInt("zielStatus", 2);
         }
 
-        editor.putInt("tabStatus", 0);
+        else if(saved.getInt("ideeStatus",0) < 1){
+            editor.putInt("ideeStatus", 1);
+        }
+
+        editor.putInt("tabStatus", 2);
         editor.apply();
 
         final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);
@@ -96,7 +100,6 @@ public class PauseZwischen2und3 extends FragmentActivity implements View.OnClick
                 countdown = tage * 30000;//86400000
                 editor.putLong("CountdownSave", countdown);
                 editor.apply();
-
             }
         });
 
@@ -216,7 +219,8 @@ public class PauseZwischen2und3 extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View view) {
-
+        final NumberPicker np2 = (NumberPicker) findViewById(R.id.numberPickerPause1);
+        np2.setEnabled(false);
         startActivity(new Intent(this, Timer2.class));
     }
 

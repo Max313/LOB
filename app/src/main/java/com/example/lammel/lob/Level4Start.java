@@ -48,6 +48,10 @@ public class Level4Start extends FragmentActivity implements View.OnClickListene
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
 
+        //Notification Alarm wieder erlauben
+        editor.putBoolean("alarmStart", false);
+        editor.apply();
+
         if(saved.getInt("ressourceStatus", 0) < 2){
             editor.putInt("ressourceStatus", 2);
         }

@@ -137,6 +137,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
             case 5:
                 anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und was macht dir Freude?");
+                //Notification Alarm wieder erlauben
+                editor.putBoolean("alarmStart", false);
+                editor.apply();
                 break;
 
             case 6:
