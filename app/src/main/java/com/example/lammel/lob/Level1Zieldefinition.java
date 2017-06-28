@@ -223,7 +223,12 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Level1Zieldefinition.this);
                 builder.setTitle("Ziel - Hilfe");
-                builder.setMessage("Dein Ziel sollte einige Kriterien erfüllen:\nBetrachte das Ziel als Beginn von etwas Neuem.\nDas Ziel ist umsetzbar und erreichbar.\nDu willst das Ziel erreichen, weil du es willst, nicht weil du es musst.\nDas Ziel macht einen Unterschied zum jetztigen Zustand.\nFühlst du etwas positives, wenn du an das Ziel denkst?");
+                builder.setMessage("Dein Ziel sollte einige Kriterien erfüllen:\n" +
+                        "\u2022 Betrachte es als Beginn von etwas Neuem\n" +
+                        "\u2022 Es ist umsetzbar und erreichbar\n" +
+                        "\u2022 Du willst es aus eigener Motivation heraus erreichen\n" +
+                        "\u2022 Wenn du es erreicht hast, ist eine Besserung eingetreten\n" +
+                        "\u2022 Du fühlst etwas positives, wenn du an das Ziel denkst");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

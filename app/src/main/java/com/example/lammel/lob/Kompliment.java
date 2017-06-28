@@ -443,7 +443,8 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
                 builder.setTitle("Beispiel");
-                builder.setMessage("Es ist beeindruckend wie einfühlsam und aufmerksam ich auf meinen Partner eingehe.");
+                builder.setMessage("\u2022 Es ist beeindruckend wie offen ich auf andere Menschen zugehe\n\n" +
+                        "\u2022 Ich finde es stark, dass ich immer optimistisch bleibe");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         dialog.cancel();

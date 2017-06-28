@@ -39,7 +39,7 @@
                 android:id="@+id/textView1_Pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mach mal Pause!"
+                android:text="@string/pause23_TextView"
                 android:textSize="@dimen/activity_normalcontent"
                 android:focusableInTouchMode="true"
                 android:focusable="true"/>

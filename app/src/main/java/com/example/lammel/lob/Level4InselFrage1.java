@@ -33,7 +33,7 @@ public class Level4InselFrage1 extends FragmentActivity implements View.OnClickL
     //Buttons and more
     private Button weiter;
     private EditText frage1;
-    private String eingabe = "Wenn du deine Antwort lieber aufschreiben möchtest hast du hier die Möglichkeit dazu.";
+    private String eingabe = "Eingabemöglichkeit";
     private String eingabe1;
     private AppCompatDelegate delegate;
 
