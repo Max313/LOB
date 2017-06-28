@@ -45,35 +45,45 @@ public class AlarmService extends Service {
         saved = getSharedPreferences(PREFS_NAME, 0);
         source = saved.getInt("id",0);
 
+        switch (source){
+
+            case 0:
+                Log.i(TAG, "Version 1");
+                showNotification();
+                break;
+
+            case 1:
+                Log.i(TAG, "Version 2");
+                showNotificationP();
+                break;
+
+            case 2:
+                showNotificationP2();
+                Log.i(TAG, "Version 3");
+                break;
+
+            case 3:
+                showNotificationP3();
+                Log.i(TAG, "Version 4");
+                break;
+
+            case 4:
+                showNotificationP4();
+                Log.i(TAG, "Version 5");
+                break;
+
+            default:
+                break;
+        }
+
         // If this service was started by out AlarmTask intent then we want to show our notification
-        if(source == 0){
-            Log.i(TAG, "Version 1");
-            showNotification();
-        }
-
-        else if(source == 1){
-            Log.i(TAG, "Version 2");
-            showNotificationP();
-
-        }
-        else if(source == 2){
-            Log.i(TAG, "Version 3");
-            showNotificationP2();
-
-        }
-        else{
-            showNotificationP3();
-            Log.i(TAG, "Version 3");
-        }
-
-
         return super.onStartCommand(intent, flags, startId);
     }
 
 
 
     /**
-     * Creates a notification and shows it in the OS drag-down status bar (timer zwischen 2 und 3)
+     * Creates a notification and shows it in the OS drag-down status bar (timer Zehntage)
      */
     private void showNotification() {
         PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, ZehnTage.class), 0);
@@ -111,8 +121,6 @@ public class AlarmService extends Service {
                 .setAutoCancel(true)
                 .build();
 
-
-
         // Send the notification to the system.
         mNM.notify(NOTIFICATION, notification);
 
@@ -134,8 +142,6 @@ public class AlarmService extends Service {
                 .setContentIntent(pi)
                 .setAutoCancel(true)
                 .build();
-
-
 
         // Send the notification to the system.
         mNM.notify(NOTIFICATION, notification);
@@ -159,6 +165,29 @@ public class AlarmService extends Service {
                 .setAutoCancel(true)
                 .build();
 
+        // Send the notification to the system.
+        mNM.notify(NOTIFICATION, notification);
+
+        // Stop the service when we are finished
+        stopSelf();
+    }
+
+
+    /**
+     * Creates a notification and shows it in the OS drag-down status bar (Timer falls man nach 7 Tagen sein Ziel noch nicht eingetragen hat)
+     */
+    private void showNotificationP4() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level1Zieldefinition.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_title))
+                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setContentTitle(r.getString(R.string.notification_title))
+                .setContentText("Was möchtest du für dich erreichen? Ein klares Ziel vor Augen zu haben ist wichtig für deinen Lösungsweg.")
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
 
 
         // Send the notification to the system.
@@ -167,6 +196,7 @@ public class AlarmService extends Service {
         // Stop the service when we are finished
         stopSelf();
     }
+
 
 
 

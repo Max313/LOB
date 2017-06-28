@@ -1,5 +1,7 @@
 package com.example.lammel.lob;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -298,6 +300,9 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
                 editor.putString("ZielSave", ziel);
                 editor.putBoolean("MenuZiel", true);
                 editor.apply();
+
+                new AlarmTask(this).cancelAlarm();
+
                 startActivity(new Intent(this, Level1ZielVerwahren.class));
                 break;
 

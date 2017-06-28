@@ -325,7 +325,7 @@ public class Timer3 extends FragmentActivity implements View.OnClickListener, Ap
         editor.putInt("tabStatus", 0);
         editor.apply();
 
-        startActivity(new Intent(this, Level3Start.class));
+        startActivity(new Intent(this, Level5Start.class));
     }
 
 

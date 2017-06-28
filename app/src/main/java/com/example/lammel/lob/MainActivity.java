@@ -32,6 +32,8 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
     private AppCompatDelegate delegate;
 
+    private AlarmTask alarmTask;
+
     //Tracker
     private Tracker mTracker;
     private Button start_button;
@@ -87,7 +89,16 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         ApplicationAnalytics application = (ApplicationAnalytics) getApplication();
         mTracker = application.getDefaultTracker();
 
+        //Start Timer to push a notification if the user doesn't set a goal after 7 days
+        saved = getSharedPreferences(PREFS_NAME, 0);
 
+        if(saved.getString("ZielSave", "") == ""){
+            editor = saved.edit();
+            editor.putInt("id", 4);
+            editor.apply();
+            alarmTask = new AlarmTask(this);
+            alarmTask.run();
+        }
         //Action preparation
         start_button = (Button) findViewById(R.id.start_button);
         start_button.setOnClickListener(this);
@@ -95,6 +106,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
         skip_button = (Button) findViewById(R.id.skip_button);
         skip_button.setOnClickListener(this);
     }
+
 
     //Menu: disable Items if necessary
     @Override
