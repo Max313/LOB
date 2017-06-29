@@ -12,10 +12,12 @@ import android.support.v7.app.AppCompatCallback;
 import android.support.v7.app.AppCompatDelegate;
 import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -26,6 +28,7 @@ public class MenuImpressum extends FragmentActivity implements View.OnClickListe
     // Button and more
     private Button zurueck_button;
     private AppCompatDelegate delegate;
+    private TextView txt;
 
     //shared Preferences zum Speichern
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -188,6 +191,8 @@ public class MenuImpressum extends FragmentActivity implements View.OnClickListe
     }
 
     private void onboardingProzessStarten() {
+        txt = (TextView) findViewById(R.id.impressum_Textview2);
+        txt.setMovementMethod(LinkMovementMethod.getInstance());
         zurueck_button = (Button) findViewById(R.id.impressum_ButtonBack);
         zurueck_button.setOnClickListener(this);
     }

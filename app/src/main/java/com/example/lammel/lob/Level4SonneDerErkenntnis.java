@@ -72,6 +72,13 @@ public class Level4SonneDerErkenntnis extends FragmentActivity implements View.O
         transaction.add(R.id.level4_sonne_der_erkenntnis, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        editor.putInt("tabStatus", 4);
+        editor.apply();
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);

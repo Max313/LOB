@@ -81,6 +81,13 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
         transaction.add(R.id.level1_zieldefinition, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        editor.putInt("tabStatus", 1);
+        editor.apply();
+
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);
 

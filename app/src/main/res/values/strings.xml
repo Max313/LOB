@@ -16,8 +16,9 @@
     <string name="loesungEinfuehrung_TextView">In Level 5 bestimmst du wie es weiter geht.</string>
 
     <!-- Einführung Menü -->
-    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Dort hast du direkten Zugriff auf verschiedene Übungen. Im Laufe der App schaltest du alle Übungen frei. Neben dem Menü findest du ein Fragezeichen, welches bei einzelnen Übungen erscheint um dir weiterzuhelfen.</string>
-    <string name="menuIntro_Text2">Auf die einzelnen Level kannst du in der Leiste am Boden deines Bildschirms zugreifen. Dabei werden die einzelnen Level nach und nach freigeschaltet. So kannst du direkt an den Anfang eines Levels springen, sobald du es einmal begonnen hast.</string>
+    <string name="menuIntro_Text1">Rechts oben im Bildschirm befindet sich das Hauptmenü. Dort hast du direkten Zugriff auf verschiedene Übungen, die du im laufe der App freischaltest.</string>
+    <string name="menuIntro_help">Bei einzelnen Übungen erscheint links neben dem Menü ein Fragezeichen. Hier erhältst du nähere Informationen und Hilfestellungen zu der jeweiligen Übung.</string>
+    <string name="menuIntro_Text2">In der Leiste am Boden siehst du in welchem Level du dich momentan befindest. Außerdem kannst du die Leiste zur Navigation nutzen und direkt an den Anfang eines Levels springen, sobald du es einmal begonnen hast.</string>
 
     <!-- Menü -->
     <string name="start_Menu">Startmenü</string>
@@ -32,11 +33,13 @@
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
 
     <!--Menü Impressum -->
-    <string name="impressum_Textview1">Diese App ist ein Projekt der Ludwig-Maximilians-Universität München, durchgeführt von Stina Schick und Maximilian Lammel.\nDie eingegebenen Daten werden weder verbreitet, noch außerhalb des Handys gespeichert.\n</string>
-    <string name="impressum_Textview2">\nKontakt:\nStina.Schick@campus.lmu.de\nMaximilian.Lammel@campus.lmu.de\n\nAdresse:\nGeschwister-Scholl-Platz 1\n80539 München\n\n</string>
+    <string name="impressum_Textview1">Diese App ist ein Gemeinschaftsprojekt der Arbeitsgruppen Medieninformatik und Mensch-Maschine-Interaktion des Instituts für Informatik und dem Lehrstuhl für Wirtschafts- und Organisationspsychologie der Ludwig-Maximilians-Universität München.
+        \n\n<i>Umsetzung:</i>\nMaximilian Lammel und Stina Schick\n\nDie eingegebenen Daten werden weder ausgelesen noch weitergegeben und lediglich lokal auf dem Handy gespeichert.\n</string>
+    <string name="impressum_Textview2">\n<i>Kontakt:</i>\nMaximilian.Lammel@campus.lmu.de\nStina.Schick@campus.lmu.de\n\n<i>Adresse:</i>\nLudwig-Maximilians-Universität München\nGeschwister-Scholl-Platz 1\n80539 München\n\n<i>Quellen:</i>\nMusik: Courage by Borrtex\nFrom the
+    <a href="http://freemusicarchive.org">Free Music Archive</a>\nCC BY NC\n\nSoundeffekte:\n<a href="https://www.zapsplat.com/">ZAPSPLAT</a>\n<a href="http://soundbible.com/">SoundBible.com</a></string>
 
     <!-- Menü Hausaufgabe -->
-    <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und so deiner Lösung einen Schritt näher zu kommen. Im Verlauf der App werden neue Aufgaben freigeschaltet.</string>
+    <string name="hausaufgabe_Textview">Hausaufgaben sind nicht verpflichtend! Aber die Übungen können dir helfen, das Erlernte anzuwenden und so deiner Lösung Schritt für Schritt näher zu kommen. Im Verlauf der App werden neue Aufgaben freigeschaltet.</string>
     <string name="hausaufgabe_Button1">Tagebuch</string>
     <string name="hausaufgabe_Button2">Würfeln</string>
     <string name="hausaufgabe_Button3">Münzwurf</string>
@@ -164,8 +167,11 @@
     <string name="wunderbar_Button">Weiter</string>
 
     <!-- Stärkeinsel -->
-    <string name="intro_TextView">Im nächsten Schritt geht es darum, dass du dir anschaust welches hilfreiche Verhalten du trotz der schwierigen Situation zeigst und welche Ressourcen dir dabei helfen. Um diese immer wieder für
-        dich sichtbar zu machen, kannst du sie in eine Tabelle eintragen.\nFalls du ein konkretes Beispiel sehen willst, gehe auf das Fragezeichen neben dem Menü.</string>
+    <string name="intro_TextView">Auch in deiner schwierigen Situation kannst du dich auf einiges verlassen.
+\nAuf positives Verhalten, das dir weiterhilft.
+\nAuf Stärken, die in dir stecken.
+\nAuf Ressourcen, die dir Energie geben.
+\nUm diese immer wieder für dich sichtbar zu machen, sammelst du sie in einer Tabelle. \nKlicke auf Weiter um die Übung zu starten.</string>
     <string name="verhalten_TextView">Verhalten</string>
     <string name="kompliment_TextView">Kompliment</string>
     <string name="ressourcen_TextView">Ressourcen</string>

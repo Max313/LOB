@@ -59,6 +59,13 @@ public class MenuHausaufgabe extends FragmentActivity implements View.OnClickLis
         transaction.add(R.id.menu_hausaufgabe, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        editor.putInt("tabStatus", 0);
+        editor.apply();
+
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);
 

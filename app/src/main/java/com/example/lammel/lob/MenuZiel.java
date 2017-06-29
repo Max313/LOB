@@ -54,6 +54,13 @@ public class MenuZiel extends FragmentActivity implements View.OnClickListener, 
         transaction.add(R.id.menuziel, fragment);
         transaction.commit();
 
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        editor.putInt("tabStatus", 1);
+        editor.apply();
+
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
         delegate = AppCompatDelegate.create(this, this);
