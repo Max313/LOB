@@ -81,7 +81,7 @@ public class PauseZwischen2und3 extends FragmentActivity implements View.OnClick
             editor.putInt("ideeStatus", 1);
         }
 
-        editor.putInt("tabStatus", 2);
+        editor.putInt("tabStatus", 0);
         editor.apply();
 
         final NumberPicker np = (NumberPicker) findViewById(R.id.numberPickerPause1);

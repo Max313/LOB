@@ -49,8 +49,9 @@
 
                 <TextView
                     android:id="@+id/ressourcenTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:background="@drawable/table_header_border"
                     android:clickable="true"
                     android:gravity="center"
@@ -63,8 +64,9 @@
             <TableRow>
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="100dp"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/normalSpace"
                     android:paddingRight="@dimen/normalSpace"
                     android:background="@drawable/example_table_field"
@@ -78,14 +80,15 @@
 
                 <EditText
                     android:id="@+id/ressource1EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/smallSpace"
                     android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"
                     android:hint="@string/ressource1_EditText"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:imeOptions="actionDone" />
 
             </TableRow>
@@ -94,14 +97,15 @@
 
                 <EditText
                     android:id="@+id/ressource2EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/smallSpace"
                     android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_even"
                     android:gravity="top|left"
                     android:hint="@string/ressource2_EditText"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:imeOptions="actionDone"/>
 
             </TableRow>
@@ -110,14 +114,15 @@
 
                 <EditText
                     android:id="@+id/ressource3EditText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
                     android:paddingLeft="@dimen/smallSpace"
                     android:paddingRight="@dimen/smallSpace"
                     android:background="@drawable/table_value_border_odd"
                     android:gravity="top|left"
                     android:hint="@string/ressource3_EditText"
-                    android:inputType="text"
+                    android:inputType="textMultiLine"
                     android:imeOptions="actionDone" />
 
             </TableRow>

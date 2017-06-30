@@ -19,6 +19,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.InputType;
 import android.text.TextWatcher;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -194,6 +195,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         enableButton();
     }
 
+    //add TextChangeListener to each EditText and enable the button
     public void enableButton(){
 
         txt1.addTextChangedListener(new TextWatcher()
@@ -205,9 +207,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 }
                 else {
                     weiter.setEnabled(true);  //otherwise enable
-
-                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input1").build());
-
                     k1 = txt1.getText().toString().trim();
                 }
 
@@ -228,8 +227,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 }
                 else {
                     weiter.setEnabled(true);  //otherwise enable
-                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input2").build());
-
                     k2 = txt2.getText().toString().trim();
                 }
 
@@ -249,8 +246,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 }
                 else {
                     weiter.setEnabled(true);  //otherwise enable
-                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input3").build());
-
                     k3 = txt3.getText().toString().trim();
                 }
 
@@ -262,13 +257,13 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         });
     }
 
-
+    // Set up the View
     public void setUpView(){
         saved = getSharedPreferences(PREFS_NAME, 0);
+        //if there are more than 3 entries EditViews are added for each entry
         for(int i = 4; i<= counter; i++){
             String st = "Kompliment"+i;
             TableRow tr = new TableRow(this);
-            tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
             EditText eTxt = new EditText(this);
             if(i % 2 == 0) {
                 eTxt.setBackgroundResource(R.drawable.table_value_border_even);
@@ -278,6 +273,14 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             }
 
             int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
+            TableRow.LayoutParams params = (new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1.0f));
+            eTxt.setLayoutParams(params);
+            eTxt.setSingleLine(false);
+            eTxt.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
+            eTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+            eTxt.setVerticalScrollBarEnabled(true);
+            eTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
+            eTxt.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
             eTxt.setPadding(paddingDp, 0, paddingDp,0);
             eTxt.setText(saved.getString(st, ""));
             allEds.add(eTxt);
@@ -288,11 +291,11 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             addChangeListener();
         }
     }
+
     //add a new Row after pressing the + Button
     public void addRow(){
         counter++;
         TableRow tr = new TableRow(this);
-        tr.setLayoutParams(new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.WRAP_CONTENT));
         final EditText eTxt = new EditText(this);
         if(counter % 2 == 0) {
             eTxt.setBackgroundResource(R.drawable.table_value_border_even);
@@ -301,10 +304,18 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             eTxt.setBackgroundResource(R.drawable.table_value_border_odd);
         }
 
-        eTxt.setHint("Eingabe");
+        eTxt.setHint("Eingabe " + counter);
+        TableRow.LayoutParams params = (new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1.0f));
+        eTxt.setLayoutParams(params);
         int paddingDp = getResources().getDimensionPixelOffset(R.dimen.smallSpace);
         eTxt.setPadding(paddingDp, 0, paddingDp,0);
         eTxt.setId(counter);
+        eTxt.setSingleLine(false);
+        eTxt.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
+        eTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
+        eTxt.setVerticalScrollBarEnabled(true);
+        eTxt.setMovementMethod(ScrollingMovementMethod.getInstance());
+        eTxt.setScrollBarStyle(View.SCROLLBARS_INSIDE_INSET);
         eTxt.setImeOptions(EditorInfo.IME_ACTION_DONE);
         eTxt.setInputType(InputType.TYPE_CLASS_TEXT);
         allEds.add(eTxt);
@@ -329,6 +340,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
     }
 
+    //Add Change Listener to the new Rows
     public void addChangeListener(){
         for(int i = 0; i<allEds.size(); i++){
 
@@ -338,8 +350,6 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             ed.addTextChangedListener(new TextWatcher()
             {
                 public void afterTextChanged(Editable s){
-                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input"+is).build());
-
                     add.setEnabled(true);
                     weiter.setEnabled(true);
                     if(texts.size() > is){
@@ -361,7 +371,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     }
 
 
-
+    //Set Keyboard Options for each new Row
     public void setKeyboardOptions(){
         for(int i = 0; i< allEds.size(); i++){
             allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -442,7 +452,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Kompliment.this);
-                builder.setTitle("Beispiel");
+                builder.setTitle("Beispiele:");
                 builder.setMessage("\u2022 Es ist beeindruckend wie offen ich auf andere Menschen zugehe\n\n" +
                         "\u2022 Ich finde es stark, dass ich immer optimistisch bleibe");
                 builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
@@ -458,6 +468,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         }
     }
 
+    //Delete all existing files from the Sun Level
     public void deleteFiles(){
         File file1 = new File(this.getFilesDir() +"/" + "sonne1" +".3gp");
         if(file1.exists()){
@@ -502,6 +513,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         }
     }
 
+    //Start the App from the beginning after pressing delete
     public void startNew(){
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -522,6 +534,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 end = System.currentTimeMillis();
                 Log.i(TAG,"Duration: "+(end -start));
 
+                //Zieht die Einträge nach oben, sollte eine Zeile ausgelassen worden sein
                 if(k1.length() == 0){
                     if (k2.length() == 0) {
                         k1 = k3;
@@ -546,12 +559,26 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                     }
                 }
 
+                //Send Events to Google Analytics
+                if (k1.length() != 0) {
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input1").build());
+                }
+                if(k2.length() != 0) {
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input2").build());
+                }
+                if(k3.length() != 0) {
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input3").build());
+                }
+
+                //Deletes added rows which are not filled
                 if(texts.size() < allEds.size()+3){
                     counter = counter - ((allEds.size()+3)-texts.size());
                 }
 
                 for(int i = 3; i < texts.size(); i++){
                     String string = "Kompliment"+(i+1);
+                    //Send Event to Google Analytics
+                    mTracker.send(new HitBuilders.EventBuilder("Kompliment", "Input"+(1+i)).build());
                     editor.putString(string, texts.get(i));
 
                 }

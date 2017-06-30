@@ -19,10 +19,9 @@
        ></include>
 
     <ScrollView
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="400dp"
         android:scrollbars="horizontal"
-        android:layout_weight="1"
         android:layout_marginTop="8dp"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         android:layout_marginLeft="8dp"
@@ -30,8 +29,7 @@
         android:layout_marginRight="8dp"
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/scrollView3"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp">
+       >
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,11 +49,15 @@
                 app:layout_constraintTop_toTopOf="parent"
                 >
 
-                <TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" >
 
                     <TextView
                         android:id="@+id/verhaltenTextView"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:background="@drawable/table_header_border"
                         android:clickable="true"
                         android:gravity="center"
@@ -66,11 +68,14 @@
                 </TableRow>
 
 
-                <TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <TextView
-                        android:layout_width="wrap_content"
+                        android:layout_width="0dp"
                         android:layout_height="100dp"
+                        android:layout_weight="1"
                         android:paddingLeft="@dimen/normalSpace"
                         android:paddingRight="@dimen/normalSpace"
                         android:background="@drawable/example_table_field"
@@ -81,40 +86,50 @@
                         android:textSize="@dimen/activity_tablecontent" />
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/verhalten1EditText"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/table_value_border_odd"
+                        android:ems="10"
+                        android:hint="@string/verhalten1_EditText"
+                        android:imeOptions="actionDone"
                         android:paddingLeft="@dimen/smallSpace"
                         android:paddingRight="@dimen/smallSpace"
-                        android:background="@drawable/table_value_border_odd"
-                        android:hint="@string/verhalten1_EditText"
-                        android:ems="10"
-                        android:imeOptions="actionDone"
-                        android:inputType="text" />
+                        android:inputType="textMultiLine"
+
+                        />
 
                 </TableRow>
 
-                <TableRow>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
                     <EditText
                         android:id="@+id/verhalten2EditText"
                         android:paddingLeft="@dimen/smallSpace"
                         android:paddingRight="@dimen/smallSpace"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:background="@drawable/table_value_border_even"
                         android:hint="@string/verhalten2_EditText"
                         android:ems="10"
                         android:imeOptions="actionDone"
-                        android:inputType="text" />
+                        android:inputType="textMultiLine"
+                        />
 
                 </TableRow>
 
                 <TableRow
-
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
                     >
 
                     <EditText
@@ -122,12 +137,14 @@
                         android:background="@drawable/table_value_border_odd"
                         android:paddingLeft="@dimen/smallSpace"
                         android:paddingRight="@dimen/smallSpace"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
                         android:hint="@string/verhalten3_EditText"
                         android:ems="10"
                         android:imeOptions="actionDone"
-                        android:inputType="text" />
+                        android:inputType="textMultiLine"
+                        />
 
                 </TableRow>
             </TableLayout>

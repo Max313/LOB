@@ -21,9 +21,9 @@
 - Texteingabe ermöglichen bei Sonne der Erkenntnis -> ich würde es eher bei 2 Optionen belassen
 - soll Sonne auch "leuchten" wenn man nichts einspricht/eingibt? --> Ja, DONE
 - App ist gerade abgestürzt als die App mittendrin bei der Tonwidergabe beendet wurde
-- Fortschrittsbalken bei Tonaufnahme stimmt nicht immer
-- Tabellen Text und Beispiele überarbeiten --> Das Verhalten etc im Zusammenhang mit Problem, bei Zieldefinition auch
-- Tabelleninhalt größer machen?
+- Fortschrittsbalken bei Tonaufnahme stimmt nicht immer --> Konnte ich nicht rekonstruieren
+- Tabellen Text und Beispiele überarbeiten --> Das Verhalten etc im Zusammenhang mit Problem, bei Zieldefinition auch --> DONE
+- Tabelleninhalt größer machen? --> DONE
 - ? in einem eigenen Punkt mit dem Bild erklären. Geht sonst unter da Erklärungstext zu lang, liest keiner durch. --> DONE
 
 - Die Zahlen ggf rausnehmen bei der Sonne der Erkenntnis. -> sind draussen
@@ -31,7 +31,7 @@
 - bei Sonne der Erkenntnis kein Start Button mehr, sondern anklicken über Sonnen
 --> dann muss man nicht alle anschauen und es wird nicht zuviel -> im Moment eingebaut
 
-- Verhalten 1, Verhalten 2, Verhalten 3… statt Eingabe -> DONE
+- Verhalten 1, Verhalten 2, Verhalten 3… statt Eingabe -> DONE --> Habe ich in Eingabe 1, 2, 3 geändert
 - Texteingabe ermöglichen bei Insel des Sehenden -> DONE
 - Texte überarbeiten, Rechtschreibung, Komma, Grammatik
 - Eingabefelder Mehrzeilig
@@ -41,7 +41,15 @@
 
 
 
-Impressum: --> DONE
+Impressum:
+Logdaten??
+Datenschutz: Richtlinien?? Anschauen
+
+Studentische Arbeit, Abschlussarbeiten
+Adresse: Amalienstr.
+Mailadresse: cip.ifi.lmu.de
+
+
 Soundeffekt:
 https://www.zapsplat.com/
 http://soundbible.com/
