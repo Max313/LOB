@@ -172,6 +172,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         fertig.setOnClickListener(this);
 
         txt1 = (EditText) findViewById(R.id.loesungswege_edittext1);
+        txt1.setHorizontallyScrolling(false);
+        txt1.setLines(2);
+
         if(weg1 != ""){
             txt1.setText(weg1);
             fertig.setEnabled(true);
@@ -190,6 +193,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         });
 
         txt2 = (EditText) findViewById(R.id.loesungswege_edittext2);
+        txt2.setHorizontallyScrolling(false);
+        txt2.setLines(2);
+
         if(weg2 != ""){
             txt2.setText(weg2);
             fertig.setEnabled(true);
@@ -208,6 +214,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         });
 
         txt3 = (EditText) findViewById(R.id.loesungswege_edittext3);
+        txt3.setHorizontallyScrolling(false);
+        txt3.setLines(2);
+
         if(weg3 != ""){
             txt3.setText(weg3);
             fertig.setEnabled(true);

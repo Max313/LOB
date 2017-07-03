@@ -51,21 +51,21 @@
         <activity
             android:name=".Level1_ProblemBeschreibung"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Level1ProblemBeschreibungDank"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Level1Zieldefinition"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Level1ZielVerwahren"
             android:screenOrientation="portrait" />
         <activity
             android:name=".Level2Loesungswege"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="stateHidden" />
+            android:windowSoftInputMode="stateHidden|adjustPan" />
         <activity
             android:name=".Level2Veraenderung"
             android:screenOrientation="portrait" />

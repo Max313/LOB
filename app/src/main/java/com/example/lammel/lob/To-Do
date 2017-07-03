@@ -8,28 +8,32 @@
 
 
 
-- Pause zwischen 2. und 3. Level. 1-14 falls Zehntage (verkürzen auf eine Nacht) gemacht dann keine Pause
---> Wenn man zurück geht kann man die Pausenzeit neu starten bzw. die Zeit neu setzen
---> Pause zwischen 3 und 4. Wenn man die Pausenzeit so lässt wird nichts angezeigt.
 
-- Pause zwischen 4. und 5. Level eine Nacht fest
-- Pause einstellbar: Zwischen 1 und 14 Tagen
 - Texte bei Pausen nochmal anschaun
 - geplante Notifications einbauen.
 - eigene Notifications ermöglichen
-- Texteingabe bei Insel des Sehenden --> Sollen wir da eigentlich noch mal über den Namen sprechen? --> Nicht immer den gleichen Text
 - Texteingabe ermöglichen bei Sonne der Erkenntnis -> ich würde es eher bei 2 Optionen belassen
-- soll Sonne auch "leuchten" wenn man nichts einspricht/eingibt? --> Ja, DONE
 - App ist gerade abgestürzt als die App mittendrin bei der Tonwidergabe beendet wurde
 - Fortschrittsbalken bei Tonaufnahme stimmt nicht immer --> Konnte ich nicht rekonstruieren
-- Tabellen Text und Beispiele überarbeiten --> Das Verhalten etc im Zusammenhang mit Problem, bei Zieldefinition auch --> DONE
-- Tabelleninhalt größer machen? --> DONE
-- ? in einem eigenen Punkt mit dem Bild erklären. Geht sonst unter da Erklärungstext zu lang, liest keiner durch. --> DONE
 
+
+
+
+- Pause zwischen 2. und 3. Level. 1-14 falls Zehntage (verkürzen auf eine Nacht) gemacht dann keine Pause
+--> Wenn man zurück geht kann man die Pausenzeit neu starten bzw. die Zeit neu setzen
+--> Pause zwischen 3 und 4. Wenn man die Pausenzeit so lässt wird nichts angezeigt.
 - Die Zahlen ggf rausnehmen bei der Sonne der Erkenntnis. -> sind draussen
 - bei Sonne kann man auf fertig klicken sobald man eine Sonne angeschaut hat -> DONE
 - bei Sonne der Erkenntnis kein Start Button mehr, sondern anklicken über Sonnen
 --> dann muss man nicht alle anschauen und es wird nicht zuviel -> im Moment eingebaut
+- Tabellen Text und Beispiele überarbeiten --> Das Verhalten etc im Zusammenhang mit Problem, bei Zieldefinition auch --> DONE
+- Tabelleninhalt größer machen? --> DONE
+- ? in einem eigenen Punkt mit dem Bild erklären. Geht sonst unter da Erklärungstext zu lang, liest keiner durch. --> DONE
+- soll Sonne auch "leuchten" wenn man nichts einspricht/eingibt? --> Ja, DONE
+- Texteingabe bei Insel des Sehenden --> Sollen wir da eigentlich noch mal über den Namen sprechen? --> Nicht immer den gleichen Text
+- Pause einstellbar: Zwischen 1 und 14 Tagen
+- Pause zwischen 4. und 5. Level eine Nacht fest
+
 
 - Verhalten 1, Verhalten 2, Verhalten 3… statt Eingabe -> DONE --> Habe ich in Eingabe 1, 2, 3 geändert
 - Texteingabe ermöglichen bei Insel des Sehenden -> DONE

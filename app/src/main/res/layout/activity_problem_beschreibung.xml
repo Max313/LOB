@@ -37,6 +37,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:inputType="text"
+        android:minLines="2"
         android:imeOptions="actionDone"
         android:hint="@string/beschreibung"
         android:textSize="@dimen/activity_normalcontent"

@@ -236,7 +236,8 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                     editor.putBoolean("MenuHausaufgabe", true);
                     editor.apply();
                     builder.setTitle("Hausaufgabe");
-                    builder.setMessage("Am besten ist es, wenn du die Lösungswege, die du gefunden hast, auch ausprobierst. Eine kleine Hausaufgabe wird dich dabei unterstützen. Du hast jetzt den Zugriff auf alle drei Übungen freigeschaltet.");
+                    builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen.\nDiese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. \nDu kannst sie in den Pausen zwischen den Leveln machen, wenn du Lust hast.");
+                    //builder.setMessage("Am besten ist es, wenn du die Lösungswege, die du gefunden hast, auch ausprobierst. Eine kleine Hausaufgabe wird dich dabei unterstützen. Du hast jetzt den Zugriff auf alle drei Übungen freigeschaltet.");
                     builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -298,7 +299,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
 
     private void startHausaufgaben(View v) {
         Intent intent = new Intent(v.getContext(), MenuHausaufgabe.class);
-        intent.putExtra("Hausaufgabe", 3);
+        //intent.putExtra("Hausaufgabe", 3);
         startActivity(intent);
     }
 

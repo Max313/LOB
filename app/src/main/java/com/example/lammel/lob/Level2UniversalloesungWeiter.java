@@ -294,7 +294,8 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                         }
                     });
                     AlertDialog dialogZ = builder.create();
-                    dialogZ.show();
+                    //Hausaufgabendialog -> zur Zeit ausgeschaltet
+                    //dialogZ.show();
                     counter++;
                 }
                 else{

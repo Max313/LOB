@@ -247,7 +247,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
     public void onClick(View v) {
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
-        editor.putBoolean("MünzeSave", true);
+        //editor.putBoolean("MünzeSave", true);
         editor.apply();
         final View view = v;
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Phantasiereise.this);
@@ -256,7 +256,7 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 player.pause();
                 player.reset();
                 editor.putBoolean("GeschichteSaved", true);
-                editor.putBoolean("MenuHausaufgabe", true);
+                //editor.putBoolean("MenuHausaufgabe", true);
                 editor.apply();
                 if(counter == 0){
                     builder.setTitle("Hausaufgabe");
@@ -274,7 +274,8 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                         }
                     });
                     AlertDialog dialogY = builder.create();
-                    dialogY.show();
+                    //Hausaufgabendialog -> zur Zeit ausgeschaltet
+                    //dialogY.show();
                     counter++;
                     break;
                 }
