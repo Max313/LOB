@@ -188,6 +188,10 @@ public class Level2KeineLoesung extends FragmentActivity implements View.OnClick
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.keineLoesung_ButtonWeiter:
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putInt("level2Save", 6);
+                editor.apply();
                 Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                 intent.putExtra("LoesungsCounter", 6);
                 startActivity(intent);

@@ -257,8 +257,9 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                 player.reset();
                 editor.putBoolean("GeschichteSaved", true);
                 //editor.putBoolean("MenuHausaufgabe", true);
+                editor.putInt("level2Save", 3);
                 editor.apply();
-                if(counter == 0){
+                /*if(counter == 0){
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Ab sofort kannst du auch Hausaufgaben machen. Diese sind freiwillig, aber können dir dabei helfen das Erlernte besser zu verstehen und zu üben. Nach und nach schaltest du neue Übungen frei auf die du im Menü zugreifen kannst.\n");
                     builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
@@ -279,12 +280,12 @@ public class Level2Phantasiereise extends FragmentActivity implements View.OnCli
                     counter++;
                     break;
                 }
-                else if(counter == 1){
-                    Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
-                    intent.putExtra("LoesungsCounter", 3);
-                    startActivity(intent);
-                    break;
-                }
+                else if(counter == 1){*/
+                Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
+                intent.putExtra("LoesungsCounter", 3);
+                startActivity(intent);
+                //break;
+                //}
                 break;
             case R.id.phantasie_play:
                     onPlay(run);

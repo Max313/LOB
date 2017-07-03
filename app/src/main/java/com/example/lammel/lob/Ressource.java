@@ -74,7 +74,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ressource);
 
-        this.setTitle("Ressourcentabelle");
+        this.setTitle(" Ressourcentabelle");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -100,7 +100,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.baum);
+        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action

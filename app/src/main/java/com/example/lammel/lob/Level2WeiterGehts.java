@@ -258,7 +258,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
                         startActivity(new Intent(this, Level3Start.class));
                     }
                     else{
-                        startActivity(new Intent(this, PauseZwischen2und3.class));
+                        startActivity(new Intent(this, PauseZwischen2und3Start.class));
                     }
                     counter = 0;
                 }
@@ -311,7 +311,7 @@ public class Level2WeiterGehts extends FragmentActivity implements View.OnClickL
             startActivity(new Intent(this, Level3Start.class));
         }
         else{
-            startActivity(new Intent(this, PauseZwischen2und3.class));
+            startActivity(new Intent(this, PauseZwischen2und3Start.class));
         }
     }
 

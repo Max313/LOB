@@ -203,6 +203,10 @@ public class Level2Veraenderung extends FragmentActivity implements View.OnClick
 
     @Override
     public void onClick(View v) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putInt("level2Save", 1);
+        editor.apply();
         switch (v.getId()) {
             case R.id.veraenderung_ButtonJa:
                 startActivity(new Intent(this, Level2VeraenderungJa.class));

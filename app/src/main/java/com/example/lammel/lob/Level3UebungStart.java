@@ -38,7 +38,7 @@ public class Level3UebungStart extends FragmentActivity implements View.OnClickL
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level3_uebung_start);
-        this.setTitle("Stärkeninseln");
+        this.setTitle(" Stärkeninseln");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -64,7 +64,7 @@ public class Level3UebungStart extends FragmentActivity implements View.OnClickL
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.baum);
+        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button action

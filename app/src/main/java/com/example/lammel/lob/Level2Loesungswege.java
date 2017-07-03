@@ -40,9 +40,11 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
     private Button mirFaelltNichtsEin;
     private TextView anfangsText;
     private int loesungsCounter;
+    private int level2Stand;
     private AppCompatDelegate delegate;
-    private Boolean txt1leer, txt2leer, txt3leer;
     private EditText txt1, txt2, txt3;
+    private Boolean beispielNeu = false;
+
 
     private Tracker mTracker;
     private final static String TAG = "Lösungswege";
@@ -116,6 +118,11 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         //Action and Hausaufgaben freischalten
         loesungsCounter = getIntent().getExtras().getInt("LoesungsCounter");
+
+        level2Stand = saved.getInt("level2Save", loesungsCounter);
+
+        loesungsCounter = level2Stand;
+
         anfangsText = (TextView) findViewById(R.id.textView4);
         AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
         switch(loesungsCounter){
@@ -138,12 +145,16 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             case 5:
                 anfangsText.setText("Auch wenn sich dein Problem übermächtig anfühlt gibt es bestimmt Sachen, die in deinem Leben positiv laufen. Woraus schöpfst du Energie und was macht dir Freude?");
                 //Notification Alarm wieder erlauben
-                editor.putBoolean("alarmStart", false);
+                editor.putBoolean("alarm1Start", false);
                 editor.apply();
                 break;
 
             case 6:
                 anfangsText.setText("Klicke einfach auf den Weiter-Button wenn du die App weiter erforschen willst und vielleicht tun sich zu einem späteren Zeitpunkt noch Lösungswege auf.");
+                saved = getSharedPreferences(PREFS_NAME, 0);
+                editor = saved.edit();
+                editor.putInt("level2Save", 0);
+                editor.apply();
                 break;
 
             default:
@@ -151,7 +162,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
         }
 
         //Buttons, Speicher, EditTexts
-        saved = getSharedPreferences(PREFS_NAME, 0);
+        //saved = getSharedPreferences(PREFS_NAME, 0);
         weg1 = saved.getString("loesungsweg1", "");
         weg2 = saved.getString("loesungsweg2", "");
         weg3 = saved.getString("loesungsweg3", "");
@@ -163,6 +174,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         if(saved.getBoolean("FertigSaved", false) || weg1.length() != 0 || weg2.length() != 0 || weg3.length() != 0){
             mirFaelltNichtsEin.setText("Neue Wege");
+            beispielNeu = true;
         }
         if(loesungsCounter != 6){
             fertig.setEnabled(false);
@@ -304,9 +316,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
             case R.id.action_help:
                 AlertDialog.Builder builder = new AlertDialog.Builder(Level2Loesungswege.this);
 
-                if(saved.getBoolean("FertigSaved", false)){
+                if(beispielNeu){
                     builder.setTitle("Lösungsweg - Beispiel");
-                    builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Mir fällt nichts ein\" um dorthin zu gelangen.");
+                    builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Neue Wege\" um dorthin zu gelangen.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -317,7 +329,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 }
                 else{
                     builder.setTitle("Lösungsweg - Beispiel");
-                    builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Neue Wege\" um dorthin zu gelangen.");
+                    builder.setMessage("Ein Problem könnte sein, dass du dich gestresst fühlst und du diese App gestartet hast mit dem Ziel, dich im Alltag entspannter zu fühlen.\nEin möglicher Lösungsweg wäre \"Ich halte mir eine bestimmte Zeit am Tag frei, in der ich keine Termine plane\" oder \"Ich schalte mein Handy eine Stunde pro Tag aus\".\nMit Hilfe der Übungen findest du den richtigen Weg für dich. Klicke \"Mir fällt nichts ein\" um dorthin zu gelangen.");
                     builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             dialog.cancel();
@@ -393,6 +405,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                     fertig.setEnabled(true);  //otherwise enable
                     mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input1").build());
 
+                    mirFaelltNichtsEin.setText("Neue Wege");
+                    beispielNeu = true;
+
                     weg1 = txt1.getText().toString();
                 }
             }
@@ -412,6 +427,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 else{
                     fertig.setEnabled(true);
                     mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input2").build());
+
+                    mirFaelltNichtsEin.setText("Neue Wege");
+                    beispielNeu = true;
 
                     //otherwise enable
                 weg2 = txt2.getText().toString();}
@@ -434,6 +452,9 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 else {
                     fertig.setEnabled(true);  //otherwise enable
                     mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input3").build());
+
+                    mirFaelltNichtsEin.setText("Neue Wege");
+                    beispielNeu = true;
 
                     weg3 = txt3.getText().toString();
                 }

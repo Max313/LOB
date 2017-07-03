@@ -98,7 +98,7 @@ public class Timer3 extends FragmentActivity implements View.OnClickListener, Ap
 
         //Set the sourceId for the right AlarmTask
         editor.putInt("id", 3);
-        editor.putBoolean("alarmStart", false);
+        editor.putBoolean("alarm4Start", false);
         editor.apply();
 
         if(saved.getLong("pauseTime", (long) 0) == (long) 0) {

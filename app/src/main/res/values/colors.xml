@@ -9,12 +9,19 @@
     <color name="colorPrimary">#A4A4A4</color>
     <color name="colorPrimaryDark">#A4A4A4</color>
     <color name="colorAccentOld">#FF4081</color>
-    <color name="level1">#E2F3FC</color>
+<!--    <color name="level1">#E2F3FC</color>
     <color name="level1Background">#F1F9FC</color>
     <color name="level2">#FCE2E2</color>
     <color name="level2Background">#FEEDED</color>
     <color name="level3">#EDFCE2</color>
-    <color name="level3Background">#F7FDF3</color>
+    <color name="level3Background">#F7FDF3</color> -->
+    <color name="level1">#FCE2E2</color>
+    <color name="level1Background">#FEEDED</color>
+    <color name="level2">#EDFCE2</color>
+    <color name="level2Background">#F7FDF3</color>
+    <color name="level3">#E2F3FC</color>
+    <color name="level3Background">#F1F9FC</color>
+
     <color name="level4">#FCFBE2</color>
     <color name="level4Background">#FDFDEC</color>
     <color name="level5">#F6E3CE</color>

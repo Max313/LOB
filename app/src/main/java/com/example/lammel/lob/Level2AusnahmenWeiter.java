@@ -194,6 +194,10 @@ public class Level2AusnahmenWeiter extends FragmentActivity implements View.OnCl
 
     @Override
     public void onClick(View v) {
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putInt("level2Save", 2);
+        editor.apply();
         Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
         intent.putExtra("LoesungsCounter", 2);
         startActivity(intent);

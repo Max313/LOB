@@ -177,7 +177,7 @@
     <string name="ressourcen_TextView">Ressourcen</string>
     <string name="einleitungTabelle_TextView">Dein positives Verhalten, deine Komplimente und deine Ressourcen im Überblick. \nDu kannst deine Eingaben jederzeit wieder aufrufen und auch bearbeiten.
         </string>
-<string name="aendern4_Button">Tabelle bearbeiten</string>
+    <string name="aendern4_Button">Tabelle bearbeiten</string>
     <string name="weiter_Button">Weiter</string>
     <string name="ok">OK</string>
 
@@ -212,13 +212,18 @@
     <string name="level4Start_Textview">Schön, dass du wieder da bist! Heute beginnt Level 4, in dem du für dich erkennst, welche positiven Veränderungen bereits eingetreten sind. Verschiedene Fragen werden dir dabei helfen.</string>
 
     <!-- Pause -->
-    <string name="pause23_TextView">Nachdem du bereits Ideen gefunden hast, die dich beim Erreichen des Ziels unterstützen sollen, musst du diese jetzt auch anwenden um ihren Effekt zu spüren. Nehme dir mindestens einen Tag Zeit um welche davon auszuprobieren. Oder du schaust dir in dieser Zeit eine der Hausaufgaben im Menü an. Wenn du merkst, dass dich etwas weiter bringt, dann weißt du, dass du auf einem guten Weg bist.</string>
+    <string name="pause23start_TextView">Nachdem du bereits Ideen gefunden hast, die dich beim Erreichen des Ziels unterstützen sollen, musst du diese jetzt auch anwenden um ihren Effekt zu spüren. Nehme dir mindestens einen Tag Zeit um welche davon auszuprobieren. Oder du schaust dir in dieser Zeit eine der Hausaufgaben im Menü an. Wenn du merkst, dass dich etwas weiter bringt, dann weißt du, dass du auf einem guten Weg bist.</string>
 
-    <string name="pause1_TextView">Bitte gib dir und deinem Körper an dieser spannenden Stelle der Entwicklung mindestens einen Tag Zeit um deine wichtigen Erkenntnisse sacken zu lassen.
+    <string name="pause23_TextView">Du kannst selbst bestimmen wie viel Zeit du dir nehmen willst.</string>
+
+    <string name="pause34start_TextView">Bitte gib dir und deinem Körper an dieser spannenden Stelle der Entwicklung mindestens einen Tag Zeit um deine wichtigen Erkenntnisse sacken zu lassen.
     Dein Gehirn agiert wie ein Muskel beim Training, nach der Übung braucht er Ruhe und Zeit um zu wachsen und die neuen Impulse zu verarbeiten. Damit sich dein Lösungsverhalten
     mental verankern kann ist es am besten wenn du das erlernte übst und deinen Gehirnmuskel Zeit gibst.</string>
 
+    <string name="pause1_TextView">Du kannst selbst bestimmen wie viel Zeit du dir nehmen willst.</string>
+
     <string name="pauseStart_Button">Pause machen</string>
+    <string name="pauseBeginnen_Button">Weiter</string>
 
     <string name="pause2_TextView">Wahnsinn! Du hast wirklich schon viel erreicht und viele Schritte in Richtung deines Ziels unternommen. \nDoch Veränderungen brauchen auch Zeit und vieles geschieht nicht sofort, sondern muss langsam wachsen. Deshalb gönne dir und deinem Körper einen Tag Pause.
         \nDamit sich dein Lösungsverhalten weiter mental verankern kann, ist es am besten wenn du das Erlernte weiterhin übst und mit dem weitermachst was funktioniert. Vielleicht magst du dich auch für deinen bisherigen Fortschritt selbst belohnen?\n</string>

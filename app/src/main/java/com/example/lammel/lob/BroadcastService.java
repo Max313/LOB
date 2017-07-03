@@ -74,14 +74,39 @@ public class BroadcastService extends Service {
             }
         };
         cdt.start();
-        if(!saved.getBoolean("alarmStart", false)) {
+        if(!saved.getBoolean("alarm1Start", false)) {
                     saved = getSharedPreferences(PREFS_NAME, 0);
                     editor = saved.edit();
-                    editor.putBoolean("alarmStart", true);
+                    editor.putBoolean("alarm1Start", true);
                     editor.apply();
                     countdown = saved.getLong("CountdownSave", 30000);
                     new AlarmTask(this, countdown).run();
         }
+        else if(!saved.getBoolean("alarm2Start", false)) {
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            editor.putBoolean("alarm2Start", true);
+            editor.apply();
+            countdown = saved.getLong("CountdownSave", 30000);
+            new AlarmTask(this, countdown).run();
+        }
+        else if(!saved.getBoolean("alarm3Start", false)) {
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            editor.putBoolean("alarm3Start", true);
+            editor.apply();
+            countdown = saved.getLong("CountdownSave", 30000);
+            new AlarmTask(this, countdown).run();
+        }
+        else if(!saved.getBoolean("alarm4Start", false)) {
+            saved = getSharedPreferences(PREFS_NAME, 0);
+            editor = saved.edit();
+            editor.putBoolean("alarm4Start", true);
+            editor.apply();
+            countdown = saved.getLong("CountdownSave", 30000);
+            new AlarmTask(this, countdown).run();
+        }
+
         return super.onStartCommand(intent, flags, startId);
     }
 

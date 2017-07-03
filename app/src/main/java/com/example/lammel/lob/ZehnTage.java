@@ -91,7 +91,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         //Set the sourceId for the right AlarmTask
         editor.putInt("id", 0);
-        editor.putBoolean("alarmStart", false);
+        editor.putBoolean("alarm1Start", false);
         editor.apply();
 
 
@@ -124,10 +124,14 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         inhalt1 = saved.getString("ZehntageEdit1", "");
         inhalt2 = saved.getString("ZehntageEdit2", "");
         inhalt3 = saved.getString("ZehntageEdit3", "");
+        /*
         inhalt4 = saved.getString("ZehntageEdit4", "");
         inhalt5 = saved.getString("ZehntageEdit5", "");
+        */
 
         edit1 = (EditText) findViewById(R.id.zehnTage_edittext1);
+        edit1.setHorizontallyScrolling(false);
+        edit1.setLines(2);
 
         edit1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -142,6 +146,8 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         });
 
         edit2 = (EditText) findViewById(R.id.zehnTage_edittext2);
+        edit2.setHorizontallyScrolling(false);
+        edit2.setLines(2);
 
         edit2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -156,6 +162,8 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         });
 
         edit3 = (EditText) findViewById(R.id.zehnTage_edittext3);
+        edit3.setHorizontallyScrolling(false);
+        edit3.setLines(2);
 
         edit3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -169,6 +177,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             }
         });
 
+        /**
         edit4 = (EditText) findViewById(R.id.zehnTage_edittext4);
 
         edit4.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -196,6 +205,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
                 return false;
             }
         });
+        */
 
         if(inhalt1 != ""){
             edit1.setText(inhalt1);
@@ -209,6 +219,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             edit3.setText(inhalt3);
             fertig.setEnabled(true);
         }
+        /**
         if(inhalt4 != ""){
             edit4.setText(inhalt4);
             fertig.setEnabled(true);
@@ -217,7 +228,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
             edit5.setText(inhalt5);
             fertig.setEnabled(true);
         }
-
+        */
 
 
 ;
@@ -265,7 +276,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
-        editor.putBoolean("alarmStart", true);
+        editor.putBoolean("alarm1Start", true);
         editor.apply();
 
 
@@ -302,6 +313,21 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
                 editor.putBoolean("zehnTage", true);
                 editor.putLong("pauseTime", (long) 0);
+
+
+                inhalt1 = edit1.getText().toString();
+                editor.putString("ZehntageEdit1", inhalt1);
+                inhalt2 = edit2.getText().toString();
+                editor.putString("ZehntageEdit2", inhalt2);
+                inhalt3 = edit3.getText().toString();
+                editor.putString("ZehntageEdit3", inhalt3);
+
+                /*
+                inhalt4 = edit4.getText().toString();
+                editor.putString("ZehntageEdit4", inhalt4);
+                inhalt5 = edit5.getText().toString();
+                editor.putString("ZehntageEdit5", inhalt5);
+                */
 
                 editor.apply();
 
@@ -433,10 +459,14 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
         editor.putString("ZehntageEdit2", inhalt2);
         inhalt3 = edit3.getText().toString();
         editor.putString("ZehntageEdit3", inhalt3);
+
+        /*
         inhalt4 = edit4.getText().toString();
         editor.putString("ZehntageEdit4", inhalt4);
         inhalt5 = edit5.getText().toString();
         editor.putString("ZehntageEdit5", inhalt5);
+        */
+        editor.putInt("level2Save", 5);
 
         editor.apply();
 

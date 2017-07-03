@@ -55,7 +55,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_uebersicht_table);
-        this.setTitle("Ressourentabelle");
+        this.setTitle(" Ressourentabelle");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -88,7 +88,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.baum);
+        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action
@@ -675,7 +675,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
             case R.id.weiterStaerkeButton:
 
                 if (!saved.getBoolean("pause1", false)){
-                startActivity(new Intent(this, Pause.class));
+                startActivity(new Intent(this, PauseZwischen3und4Start.class));
                 }
 
                 else{

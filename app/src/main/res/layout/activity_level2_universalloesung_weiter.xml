@@ -37,6 +37,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Nenne Möglichkeiten"
                 android:inputType="text"
+                android:minLines="2"
                 android:imeOptions="actionDone"
                 android:textSize="@dimen/activity_normalcontent"
                 android:id="@+id/universal_EditText"

@@ -1,6 +1,5 @@
 package com.example.lammel.lob;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.annotation.Nullable;
@@ -8,7 +7,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatCallback;
@@ -20,15 +18,14 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import java.io.File;
 
-public class Staerkeinsel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
+public class PauseZwischen3und4Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
-    //Buttons and more
-    private Button speichern;
+    //Buttons
+    private Button weiter;
     private AppCompatDelegate delegate;
 
     //Speicher
@@ -39,28 +36,29 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_staerkeinsel);
-        this.setTitle(" Ressourcentabelle");
-
-        //Set Status - Footer
-        saved = getSharedPreferences(PREFS_NAME, 0);
-        editor = saved.edit();
-
-         if(saved.getInt("ideeStatus",0) < 2){
-            editor.putInt("ideeStatus", 2);
-        }
-        else if(saved.getInt("ressourceStatus", 0) == 0){
-             editor.putInt("ressourceStatus", 1);
-         }
-        editor.putInt("tabStatus", 3);
-        editor.apply();
+        setContentView(R.layout.activity_pause_zwischen3und4_start);
+        this.setTitle("Pause");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.staerkeinsel, fragment);
+        transaction.add(R.id.pause34start, fragment);
         transaction.commit();
+
+        //Set Status - Footer
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+
+        if(saved.getInt("ressourceStatus", 0) < 2){
+            editor.putInt("ressourceStatus", 2);
+        }
+
+        editor.putInt("tabStatus", 0);
+
+        //ein Tag falls einfach weiter gedrückt wird
+        editor.putLong("CountdownSave", 30000);//86400000
+        editor.apply();
 
         //Toolbar
         //Delegate, passing the activity at both arguments (Activity, AppCompatCallback)
@@ -70,21 +68,24 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
         delegate.onCreate(savedInstanceState);
 
         //Use the delegate to inflate the layout
-        delegate.setContentView(R.layout.activity_staerkeinsel);
+        delegate.setContentView(R.layout.activity_pause_zwischen3und4_start);
 
         //Add the Toolbar
         Toolbar toolbar= (Toolbar) findViewById(R.id.tool_bar);
-        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.level3));
+        toolbar.setBackgroundColor(ContextCompat.getColor(this, R.color.colorTableHeaderText));
         delegate.setSupportActionBar(toolbar);
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
+        delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        //Button
-        speichern = (Button) findViewById(R.id.weiterStaerkeButton);
-        speichern.setOnClickListener(this);
+        //Buttons
+        weiter = (Button) findViewById(R.id.startPause34_Button);
+        weiter.setOnClickListener(this);
+
+
+
     }
 
     //Welche Menüoptionen sind enabled
@@ -144,7 +145,7 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
                 deleteFiles();
                 startNew();
                 return true;
-            
+
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -200,7 +201,8 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
 
     @Override
     public void onClick(View view) {
-                startActivity(new Intent(this, Verhalten.class));
+        startActivity(new Intent(this, Pause.class));
+
     }
 
     @Override
@@ -219,3 +221,4 @@ public class Staerkeinsel extends FragmentActivity implements View.OnClickListen
         return null;
     }
 }
+

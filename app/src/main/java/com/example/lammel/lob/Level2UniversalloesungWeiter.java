@@ -102,7 +102,8 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
         //Edit Text und gespeicherter Text
         universal = saved.getString("UniversalSave", "");
         final EditText txt1 = (EditText) findViewById(R.id.universal_EditText);
-
+        txt1.setHorizontallyScrolling(false);
+        txt1.setLines(3);
         txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -278,7 +279,7 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                 editor.putInt("StoryCounter", 0);
                 editor.putBoolean("WürfelSave", true);
                 editor.apply();
-                if(counter == 0){
+                /*if(counter == 0){
                     builder.setTitle("Hausaufgabe");
                     builder.setMessage("Da du eine passende Möglichkeit gefunden hast wäre es spannend zu sehen, wie die Rekationen darauf aussehen. Du hast eine neue Hausaufgabe freigeschaltet.");
                     builder.setPositiveButton(R.string.weiter_Button, new DialogInterface.OnClickListener() {
@@ -299,28 +300,33 @@ public class Level2UniversalloesungWeiter extends FragmentActivity implements Vi
                     counter++;
                 }
                 else{
+                */
+                    saved = getSharedPreferences(PREFS_NAME, 0);
+                    editor = saved.edit();
+                    editor.putInt("level2Save", 4);
+                    editor.apply();
                     Intent intent = new Intent(v.getContext(), Level2Loesungswege.class);
                     intent.putExtra("LoesungsCounter", 4);
                     startActivity(intent);
-                }
+                //}
                 break;
 
             case R.id.universal_Nichts:
                 if(storyCounter==0){
                     editor.putInt("StoryCounter", 1);
                     editor.apply();
-                    Intent intent = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
-                    intent.putExtra("Anekdote2", false);
-                    intent.putExtra("Source", 0);
-                    startActivity(intent);
+                    Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                    intent2.putExtra("Anekdote2", false);
+                    intent2.putExtra("Source", 0);
+                    startActivity(intent2);
                 }
                 else {
                     editor.putInt("StoryCounter", 2);
                     editor.apply();
-                    Intent intent2 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
-                    intent2.putExtra("Anekdote2", true);
-                    intent2.putExtra("Source", 1);
-                    startActivity(intent2);
+                    Intent intent3 = new Intent(v.getContext(), Level2UniversalloesungAnekdote.class);
+                    intent3.putExtra("Anekdote2", true);
+                    intent3.putExtra("Source", 1);
+                    startActivity(intent3);
                 }
                 break;
 

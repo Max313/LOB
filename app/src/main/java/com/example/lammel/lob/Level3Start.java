@@ -35,7 +35,7 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level3_start);
-        this.setTitle("Level 3");
+        this.setTitle(" Level 3");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -49,8 +49,8 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
         editor = saved.edit();
 
         //Notification Alarm wieder erlauben
-        editor.putBoolean("alarmStart", false);
-        editor.apply();
+        //editor.putBoolean("alarmStart", false);
+        //editor.apply();
 
         if(saved.getInt("ideeStatus",0) < 2){
             editor.putInt("ideeStatus", 2);
@@ -79,7 +79,7 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.baum);
+        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
