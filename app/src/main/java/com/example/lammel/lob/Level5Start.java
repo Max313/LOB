@@ -62,7 +62,7 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
 
         //Notification Alarm wieder erlauben
         //editor.putBoolean("alarmStart", false);
-        //editor.apply();
+        editor.apply();
 
 
         //Toolbar
