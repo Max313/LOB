@@ -143,6 +143,9 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         }
 
         txt1 = (EditText) findViewById(R.id.verhalten1EditText);
+        /*txt1.setHorizontallyScrolling(false);
+        txt1.setLines(2);
+
 
         txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -154,9 +157,11 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 }
                 return false;
             }
-        });
+        });*/
 
         txt2 = (EditText) findViewById(R.id.verhalten2EditText);
+        /*txt2.setHorizontallyScrolling(false);
+        txt2.setLines(2);
 
         txt2.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -168,9 +173,11 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 }
                 return false;
             }
-        });
+        });*/
 
         txt3 = (EditText) findViewById(R.id.verhalten3EditText);
+       /* txt3.setHorizontallyScrolling(false);
+        txt3.setLines(2);
 
         txt3.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -182,7 +189,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
                 }
                 return false;
             }
-        });
+        });*/
 
 
 
@@ -297,7 +304,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
            texts.add(i-1, saved.getString(st, ""));
            tr.addView(eTxt);
            table.addView(tr);
-           setKeyboardOptions();
+           //setKeyboardOptions();
            addChangeListener();
         }
     }
@@ -322,7 +329,6 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         eTxt.setId(counter);
         TableRow.LayoutParams params = (new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1.0f));
         eTxt.setLayoutParams(params);
-
         eTxt.setSingleLine(false);
         eTxt.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
         eTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
@@ -379,7 +385,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
         }
     }
 
-//Set Keyboard Options for each new Row
+/*Set Keyboard Options for each new Row
     public void setKeyboardOptions(){
         for(int i = 0; i< allEds.size(); i++){
             allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -395,7 +401,7 @@ public class Verhalten extends FragmentActivity implements View.OnClickListener,
             });
         }
 
-    }
+    }*/
 
 
     //Welche Menüoptionen sind enabled

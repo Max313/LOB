@@ -147,6 +147,16 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
         txt2 = (EditText) findViewById(R.id.kompliment2EditText);
         txt3 = (EditText) findViewById(R.id.kompliment3EditText);
 
+       /*
+        txt1.setHorizontallyScrolling(false);
+        txt1.setLines(4);
+
+        txt2.setHorizontallyScrolling(false);
+        txt2.setLines(4);
+
+        txt3.setHorizontallyScrolling(false);
+        txt3.setLines(4);
+
         txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -181,7 +191,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
                 }
                 return false;
             }
-        });
+        });*/
 
         if(k1 != "" || k2 != "" || k3 != ""){
 
@@ -287,7 +297,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
             texts.add(i-1, saved.getString(st, ""));
             tr.addView(eTxt);
             table.addView(tr);
-            setKeyboardOptions();
+           // setKeyboardOptions();
             addChangeListener();
         }
     }
@@ -371,7 +381,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
     }
 
 
-    //Set Keyboard Options for each new Row
+    /*Set Keyboard Options for each new Row
     public void setKeyboardOptions(){
         for(int i = 0; i< allEds.size(); i++){
             allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -388,7 +398,7 @@ public class Kompliment extends FragmentActivity implements View.OnClickListener
 
             }
 
-    }
+    }*/
 
     //Welche Menüoptionen sind enabled
     @Override

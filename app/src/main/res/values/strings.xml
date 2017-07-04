@@ -20,6 +20,13 @@
     <string name="menuIntro_help">Bei einzelnen Übungen erscheint links neben dem Menü ein Fragezeichen. Hier erhältst du nähere Informationen und Hilfestellungen zu der jeweiligen Übung.</string>
     <string name="menuIntro_Text2">In der Leiste am Boden siehst du in welchem Level du dich momentan befindest. Außerdem kannst du die Leiste zur Navigation nutzen und direkt an den Anfang eines Levels springen, sobald du es einmal begonnen hast.</string>
 
+
+    <!-- Notification -->
+    <string name="einleitung_notification">Hier hast du die Möglichkeit dir eigene Erinnerungen zu erstellen, die dich individuell beim erreichen deines Zieles unterstützen sollen.</string>
+    <string name="wochentage_notification">Wochentage</string>
+    <string name="uhrzeit_notification">Uhrzeit</string>
+    <string name="text_notification">Text</string>
+
     <!-- Menü -->
     <string name="start_Menu">Startmenü</string>
     <string name="ziel_Menu">Ziel</string>
@@ -33,9 +40,11 @@
     <string name="menuZiel_Editview">Hier steht dein Ziel!</string>
 
     <!--Menü Impressum -->
-    <string name="impressum_Textview1">Diese App ist ein Gemeinschaftsprojekt der Arbeitsgruppen Medieninformatik und Mensch-Maschine-Interaktion des Instituts für Informatik und dem Lehrstuhl für Wirtschafts- und Organisationspsychologie der Ludwig-Maximilians-Universität München.
-        \n\n<i>Umsetzung:</i>\nMaximilian Lammel und Stina Schick\n\nDie eingegebenen Daten werden weder ausgelesen noch weitergegeben und lediglich lokal auf dem Handy gespeichert.\n</string>
-    <string name="impressum_Textview2">\n<i>Kontakt:</i>\nMaximilian.Lammel@campus.lmu.de\nStina.Schick@campus.lmu.de\n\n<i>Adresse:</i>\nLudwig-Maximilians-Universität München\nGeschwister-Scholl-Platz 1\n80539 München\n\n<i>Quellen:</i>\nMusik: Courage by Borrtex\nFrom the
+    <string name="impressum_Textview1">Die App entstand im Rahmen von zwei studentischen Abschlussarbeiten. Sie ist ein Gemeinschaftsprojekt der Arbeitsgruppen Medieninformatik und Mensch-Maschine-Interaktion des Instituts für Informatik und dem Lehrstuhl für Wirtschafts- und Organisationspsychologie der Ludwig-Maximilians-Universität München.
+        \n\n<i>Umsetzung:</i>\nMaximilian Lammel und Stina Schick\n\n<i>Datenschutzerklärung:</i>Beschreibung der Datenarten, die von der App erhoben werden (Zugriffsrechte)\nErklärung des Zwecks für die diese Daten erhoben werden\nSpeicherdauer\n
+        Information über Übermittlung an Dritte und deren Zweck\nGoogle Analytics gesondert aufführen\nDatum der Erstellung\n</string>
+
+    <string name="impressum_Textview2">\n<i>Kontakt:</i>\nMaximilian.Lammel@cip.ifi.lmu.de\nStina.Schick@cip.ifi.lmu.de\n\n<i>Adresse:</i>\nInstitut für Informatik\nLFE Medieninformatik\nAmalienstraße 17\n80333 München\n\n<i>Quellen:</i>\nMusik: Homegrown by Blue Dot Sessions\nFrom the
     <a href="http://freemusicarchive.org">Free Music Archive</a>\nCC BY NC\n\nSoundeffekte:\n<a href="https://www.zapsplat.com/">ZAPSPLAT</a>\n<a href="http://soundbible.com/">SoundBible.com</a></string>
 
     <!-- Menü Hausaufgabe -->

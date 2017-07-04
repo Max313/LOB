@@ -92,7 +92,7 @@ public class Level4InselFrage4 extends FragmentActivity implements View.OnClickL
         eingabe4 = saved.getString("Frage4Save", eingabe);
         frage4 = (EditText) findViewById(R.id.frage4_editView);
         frage4.setHorizontallyScrolling(false);
-        frage4.setLines(6);
+        frage4.setLines(8);
         frage4.setHint(eingabe4);
 
         frage4.setOnEditorActionListener(new TextView.OnEditorActionListener() {

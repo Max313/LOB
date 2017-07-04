@@ -292,6 +292,10 @@
             android:screenOrientation="portrait" />
         <activity android:name=".PauseZwischen3und4Start"
             android:screenOrientation="portrait"></activity>
+        <activity android:name=".Notification"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="stateHidden|adjustPan"
+            ></activity>
     </application>
 
 </manifest>

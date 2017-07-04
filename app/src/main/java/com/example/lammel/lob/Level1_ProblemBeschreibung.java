@@ -115,7 +115,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
         //Edit Text Action -> enables Button and saves Problem
         txt = (EditText) findViewById(R.id.problem_editText);
         txt.setHorizontallyScrolling(false);
-        txt.setLines(3);
+        txt.setLines(8);
         txt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {

@@ -220,7 +220,7 @@ public class MenuIntro extends FragmentActivity implements View.OnClickListener,
         editor.putInt("tabStatus", 1);
         editor.apply();
 
-        startActivity(new Intent(this, Level1Start.class));
+        startActivity(new Intent(this, Notification.class));
 
         //startActivity(new Intent(this, Staerkeinsel.class));
 

@@ -140,35 +140,13 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         }
 
         txt1 = (EditText) findViewById(R.id.ressource1EditText);
-
-        txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    return true;
-                }
-                return false;
-            }
-        });
-
         txt2 = (EditText) findViewById(R.id.ressource2EditText);
-
-        txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                if (actionId == EditorInfo.IME_ACTION_DONE) {
-                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
-                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-                    return true;
-                }
-                return false;
-            }
-        });
-
         txt3 = (EditText) findViewById(R.id.ressource3EditText);
 
+        /*
+        txt1.setHorizontallyScrolling(false);
+        txt1.setLines(4);
+
         txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
             public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
@@ -180,6 +158,38 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
                 return false;
             }
         });
+
+
+        txt2.setHorizontallyScrolling(false);
+        txt2.setLines(4);
+
+        txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });
+
+
+        txt3.setHorizontallyScrolling(false);
+        txt3.setLines(4);
+
+        txt1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+                if (actionId == EditorInfo.IME_ACTION_DONE) {
+                    InputMethodManager imm = (InputMethodManager)v.getContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                    return true;
+                }
+                return false;
+            }
+        });*/
 
         if(r1 != "" || r2 != "" || r3 != ""){
 
@@ -275,7 +285,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
             eTxt.setText(saved.getString(st, ""));
             TableRow.LayoutParams params = (new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1.0f));
             eTxt.setLayoutParams(params);
-
             eTxt.setSingleLine(false);
             eTxt.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
             eTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
@@ -286,7 +295,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
             texts.add(i-1, saved.getString(st, ""));
             tr.addView(eTxt);
             table.addView(tr);
-            setKeyboardOptions();
+           // setKeyboardOptions();
             addChangeListener();
         }
     }
@@ -309,7 +318,6 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
         eTxt.setId(counter);
         TableRow.LayoutParams params = (new TableRow.LayoutParams(0,TableRow.LayoutParams.MATCH_PARENT,1.0f));
         eTxt.setLayoutParams(params);
-
         eTxt.setSingleLine(false);
         eTxt.setImeOptions(EditorInfo.IME_FLAG_NO_ENTER_ACTION);
         eTxt.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE);
@@ -368,7 +376,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
     }
 
 
-//Set Keyboard Options for each new Row
+/*Set Keyboard Options for each new Row
     public void setKeyboardOptions(){
         for(int i = 0; i< allEds.size(); i++){
             allEds.get(i).setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -384,7 +392,7 @@ public class Ressource extends FragmentActivity implements View.OnClickListener,
             });
         }
 
-    }
+    }*/
 
     //Welche Menüoptionen sind enabled
     @Override

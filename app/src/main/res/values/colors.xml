@@ -28,6 +28,7 @@
     <color name="level5Background">#F7ECE2</color>
     <color name="evenTable">#BDBDBD</color>
     <color name="oddTable">#E6E6E6</color>
+    <color name="colorDark">#000000</color>
 
 </resources>
 

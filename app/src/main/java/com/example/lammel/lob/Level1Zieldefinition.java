@@ -148,11 +148,6 @@ public class Level1Zieldefinition extends FragmentActivity implements View.OnCli
                     ziel = zieltxt.getText().toString();
                     zielFesthalten_Button.setEnabled(true);  //otherwise enabled
                 }
-                if (zieltxt.length() == 0)
-                    zielFesthalten_Button.setEnabled(false); //disable button if no text entered
-                else
-                    ziel = zieltxt.getText().toString();
-                zielFesthalten_Button.setEnabled(true);  //otherwise enabled
 
             }
 
