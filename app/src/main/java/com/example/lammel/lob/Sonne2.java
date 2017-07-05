@@ -126,7 +126,7 @@ private static final String TAG = "Sonne2";
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.mipmap.sonne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Get tracker.

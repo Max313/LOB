@@ -63,7 +63,7 @@ public class Level2Exitstrategie extends FragmentActivity implements View.OnClic
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
+        delegate.getSupportActionBar().setLogo(R.mipmap.wegweiser);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons Action

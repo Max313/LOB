@@ -69,7 +69,7 @@ public class Level2UniversalloesungAnekdote extends FragmentActivity implements 
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
+        delegate.getSupportActionBar().setLogo(R.mipmap.wegweiser);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button and more in action

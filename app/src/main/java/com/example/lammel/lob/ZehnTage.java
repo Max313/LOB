@@ -77,7 +77,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
+        delegate.getSupportActionBar().setLogo(R.mipmap.wegweiser);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         timer = (TextView) findViewById(R.id.zehnTage_Textview2);

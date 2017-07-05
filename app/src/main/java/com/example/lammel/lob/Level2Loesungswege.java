@@ -104,7 +104,7 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.wegweiserb);
+        delegate.getSupportActionBar().setLogo(R.mipmap.wegweiser);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Get tracker und Logging

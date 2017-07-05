@@ -92,7 +92,7 @@ public class AlarmService extends Service {
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)
                 .setTicker(r.getString(R.string.notification_title))
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setSmallIcon(R.mipmap.notificationicon)
                 .setContentTitle(r.getString(R.string.notification_title))
                 .setContentText(r.getString(R.string.notification_text))
                 .setContentIntent(pi)
@@ -116,7 +116,7 @@ public class AlarmService extends Service {
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)
                 .setTicker(r.getString(R.string.notification_title))
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setSmallIcon(R.mipmap.notificationicon)
                 .setContentTitle(r.getString(R.string.notification_title))
                 .setContentText(r.getString(R.string.notification_text))
                 .setContentIntent(pi)
@@ -138,7 +138,7 @@ public class AlarmService extends Service {
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)
                 .setTicker(r.getString(R.string.notification_title))
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setSmallIcon(R.mipmap.notificationicon)
                 .setContentTitle(r.getString(R.string.notification_title))
                 .setContentText(r.getString(R.string.notification_text))
                 .setContentIntent(pi)
@@ -160,7 +160,7 @@ public class AlarmService extends Service {
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)
                 .setTicker(r.getString(R.string.notification_title))
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setSmallIcon(R.mipmap.notificationicon)
                 .setContentTitle(r.getString(R.string.notification_title))
                 .setContentText(r.getString(R.string.notification_text))
                 .setContentIntent(pi)
@@ -183,7 +183,7 @@ public class AlarmService extends Service {
         Resources r = getResources();
         Notification notification = new NotificationCompat.Builder(this)
                 .setTicker(r.getString(R.string.notification_title))
-                .setSmallIcon(android.R.drawable.ic_menu_report_image)
+                .setSmallIcon(R.mipmap.notificationicon)
                 .setContentTitle(r.getString(R.string.notification_title))
                 .setContentText("Was möchtest du für dich erreichen? Ein klares Ziel vor Augen zu haben ist wichtig für deinen Lösungsweg.")
                 .setContentIntent(pi)

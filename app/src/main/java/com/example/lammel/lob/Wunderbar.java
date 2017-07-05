@@ -77,7 +77,7 @@ public class Wunderbar extends FragmentActivity implements View.OnClickListener,
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
+        delegate.getSupportActionBar().setLogo(R.mipmap.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons

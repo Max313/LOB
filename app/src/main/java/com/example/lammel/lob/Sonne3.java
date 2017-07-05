@@ -130,7 +130,7 @@ public class Sonne3 extends FragmentActivity implements View.OnClickListener, Ap
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.mipmap.sonne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Get tracker.

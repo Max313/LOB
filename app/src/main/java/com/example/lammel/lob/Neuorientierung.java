@@ -39,7 +39,7 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_neuorientierung);
 
-        this.setTitle("Neuorientierung");
+        this.setTitle(" Neuorientierung");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -65,7 +65,7 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons in action

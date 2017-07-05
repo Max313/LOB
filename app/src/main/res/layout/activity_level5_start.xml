@@ -36,10 +36,10 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/unterganglevel"
+        android:background="@drawable/flaggegross"
         app:layout_constraintTop_toBottomOf="@+id/tool_bar"
         android:id="@+id/level5image"
-        android:layout_marginTop="0dp"
+        android:layout_marginTop="32dp"
         android:layout_marginLeft="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginRight="8dp"

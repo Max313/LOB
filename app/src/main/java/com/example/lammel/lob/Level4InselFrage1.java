@@ -76,7 +76,7 @@ public class Level4InselFrage1 extends FragmentActivity implements View.OnClickL
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.mipmap.sonne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //logging
@@ -92,7 +92,7 @@ public class Level4InselFrage1 extends FragmentActivity implements View.OnClickL
         eingabe1 = saved.getString("Frage1Save", eingabe);
         frage1 = (EditText) findViewById(R.id.frage1_editView);
         frage1.setHorizontallyScrolling(false);
-        frage1.setLines(8);
+        frage1.setLines(3);
         frage1.setHint(eingabe1);
         frage1.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override

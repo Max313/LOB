@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LOB</string>
+    <string name="app_name">Digital Coach</string>
     <string name="welcome_text">Willkommen!</string>
 
     <string name="startIntro_button">Intro \nstarten</string>
@@ -221,7 +221,13 @@
     <string name="level4Start_Textview">Schön, dass du wieder da bist! Heute beginnt Level 4, in dem du für dich erkennst, welche positiven Veränderungen bereits eingetreten sind. Verschiedene Fragen werden dir dabei helfen.</string>
 
     <!-- Pause -->
-    <string name="pause23start_TextView">Nachdem du bereits Ideen gefunden hast, die dich beim Erreichen des Ziels unterstützen sollen, musst du diese jetzt auch anwenden um ihren Effekt zu spüren. Nehme dir mindestens einen Tag Zeit um welche davon auszuprobieren. Oder du schaust dir in dieser Zeit eine der Hausaufgaben im Menü an. Wenn du merkst, dass dich etwas weiter bringt, dann weißt du, dass du auf einem guten Weg bist.</string>
+    <string name="pause23start_TextView">Du hast jetzt erste Ideen wie du dein Ziel erreichen kannst.
+        Nehme dir mindestens einen Tag Zeit und probiere etwas davon aus.
+        Veränderungen stellen sich nicht immer sofort ein und von der Idee zu neuen Verhaltensweisen ist es oft ein längerer Prozess.
+        Lasse dich nicht davon entmutigen, wenn die Umsetzung deiner Ideen nicht sofort funktioniert.
+        Schließlich wurde Rom auch nicht in einem Tag erbaut.
+        Vielleicht magst du auch eine der Hausaufgaben ausprobieren.
+        Diese findest du oben rechts im Menü. Wenn du merkst, dass dir etwas hilft, dann mache weiter damit um deinem Ziel näher zu kommen.\n</string>
 
     <string name="pause23_TextView">Du kannst selbst bestimmen wie viel Zeit du dir nehmen willst.</string>
 

@@ -78,7 +78,7 @@ public class Ende extends FragmentActivity implements View.OnClickListener, AppC
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Button and more (in action)

@@ -84,7 +84,7 @@ public class Level4Start extends FragmentActivity implements View.OnClickListene
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.mipmap.sonne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

@@ -63,7 +63,7 @@ public class Lob extends FragmentActivity implements View.OnClickListener, AppCo
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.sonnevoll);
+        delegate.getSupportActionBar().setLogo(R.mipmap.sonne);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

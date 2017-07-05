@@ -88,7 +88,7 @@ public class UebersichtTable extends FragmentActivity implements View.OnClickLis
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
+        delegate.getSupportActionBar().setLogo(R.mipmap.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons and more in action

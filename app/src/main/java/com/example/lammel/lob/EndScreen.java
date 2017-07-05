@@ -37,7 +37,7 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_screen);
-        this.setTitle("Gratulation");
+        this.setTitle(" Gratulation");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -65,7 +65,7 @@ public class EndScreen extends FragmentActivity implements View.OnClickListener,
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

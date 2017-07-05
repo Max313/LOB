@@ -92,7 +92,7 @@ public class Level1_ProblemBeschreibung extends FragmentActivity implements View
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.berg);
+        delegate.getSupportActionBar().setLogo(R.mipmap.gipfel);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Get tracker.

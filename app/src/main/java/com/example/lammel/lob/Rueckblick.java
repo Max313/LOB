@@ -90,7 +90,7 @@ public class Rueckblick extends FragmentActivity implements View.OnClickListener
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         // Get tracker.

@@ -71,7 +71,7 @@ public class Level1Problemdefinition extends FragmentActivity implements View.On
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.berg);
+        delegate.getSupportActionBar().setLogo(R.mipmap.gipfel);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

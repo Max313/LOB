@@ -79,7 +79,7 @@ public class Level3Start extends FragmentActivity implements View.OnClickListene
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.quelle);
+        delegate.getSupportActionBar().setLogo(R.mipmap.quelle);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

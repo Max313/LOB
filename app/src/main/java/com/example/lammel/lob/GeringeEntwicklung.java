@@ -37,7 +37,7 @@ public class GeringeEntwicklung extends FragmentActivity implements View.OnClick
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_geringe_entwicklung);
 
-        this.setTitle("Neuorientierung");
+        this.setTitle(" Neuorientierung");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -63,7 +63,7 @@ public class GeringeEntwicklung extends FragmentActivity implements View.OnClick
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         //Buttons in action

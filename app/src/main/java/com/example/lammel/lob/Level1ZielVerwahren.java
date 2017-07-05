@@ -66,7 +66,7 @@ public class Level1ZielVerwahren extends FragmentActivity implements View.OnClic
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.berg);
+        delegate.getSupportActionBar().setLogo(R.mipmap.gipfel);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 

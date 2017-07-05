@@ -35,7 +35,7 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_level5_start);
-        this.setTitle("Level 5");
+        this.setTitle(" Level 5");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();
@@ -82,7 +82,7 @@ public class Level5Start extends FragmentActivity implements View.OnClickListene
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.untergang);
+        delegate.getSupportActionBar().setLogo(R.mipmap.flagge);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
 
