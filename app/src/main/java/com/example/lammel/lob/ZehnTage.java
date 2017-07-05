@@ -54,6 +54,7 @@ public class ZehnTage extends FragmentActivity implements View.OnClickListener, 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_zehn_tage);
+        this.setTitle("Lösungsweg 5");
 
         //Add Footer
         Footer_Fragment fragment = new Footer_Fragment();

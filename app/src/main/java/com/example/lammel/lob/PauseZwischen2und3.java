@@ -63,7 +63,7 @@ public class PauseZwischen2und3 extends FragmentActivity implements View.OnClick
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
+        delegate.getSupportActionBar().setLogo(R.mipmap.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         timerStart = (Button) findViewById(R.id.startTimer2_Button);

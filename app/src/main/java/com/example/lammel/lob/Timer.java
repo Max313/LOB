@@ -86,7 +86,7 @@ public class Timer extends FragmentActivity implements View.OnClickListener, App
 
         //display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.pauseicon);
+        delegate.getSupportActionBar().setLogo(R.mipmap.pauseicon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);
 
         weiter = (Button) findViewById(R.id.Timer1Weiter_Button);

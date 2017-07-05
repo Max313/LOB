@@ -42,7 +42,7 @@
         android:layout_height="wrap_content"
         android:background="@drawable/wegweisereinfuehrung"
         app:layout_constraintTop_toBottomOf="@id/zielImageView"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         ></ImageView>
 
     <TextView
@@ -62,11 +62,10 @@
     <ImageView android:id="@+id/ressourceImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/quelle"
+        android:background="@drawable/quelleeinfuehrung"
         app:layout_constraintTop_toBottomOf="@id/ideeImageView"
         android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
         ></ImageView>
 
     <TextView
@@ -74,7 +73,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/ideeEinfuehrung_TextView"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:layout_marginLeft="15dp"
         android:text="@string/ressourceEinfuehrung_TextView"
         android:textSize="@dimen/einfuehrung"
@@ -87,9 +86,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/sonnevolleinfuehrung"
         app:layout_constraintTop_toBottomOf="@id/ressourceImageView"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
         ></ImageView>
 
     <TextView
@@ -97,7 +95,7 @@
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/ressourceEinfuehrung_TextView"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="34dp"
         android:layout_marginLeft="15dp"
         android:text="@string/festhaltenEinfuehrung_TextView"
         android:textSize="@dimen/einfuehrung"
@@ -108,11 +106,10 @@
     <ImageView android:id="@+id/loesungImageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/flaggebunt"
+        android:background="@drawable/flaggeeinfuehrung"
         app:layout_constraintTop_toBottomOf="@id/festigungImageView"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="8dp"
         ></ImageView>
 
     <TextView
