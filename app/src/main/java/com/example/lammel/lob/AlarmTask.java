@@ -15,7 +15,7 @@ public class AlarmTask implements Runnable {
 
     // The android system alarm manager
     private final AlarmManager am;
-    // Your context to retrieve the alarm manager from
+    // Context to retrieve the alarm manager from
     private final Context context ;
     private long countdown = 30000;
 
@@ -26,7 +26,7 @@ public class AlarmTask implements Runnable {
         Log.i(TAG, "start timer..");
         this.context = context;
         this.am = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-        this.time = System.currentTimeMillis() + 30000;
+        this.time = System.currentTimeMillis() + countdown;
 
     }
 
@@ -44,7 +44,7 @@ public class AlarmTask implements Runnable {
         Intent intent = new Intent(context, AlarmService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 0, intent, 0);
 
-        // Sets an alarm - note this alarm will be lost if the phone is turned off and on again
+        // Sets an alarm
         am.set(AlarmManager.RTC, time, pendingIntent);
     }
 

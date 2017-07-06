@@ -106,7 +106,7 @@
 
 
             <Button
-                android:id="@+id/D1_Button"
+                android:id="@+id/D1b_Button"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/dayselectedbutton"
@@ -120,7 +120,7 @@
                 />
 
             <Button
-                android:id="@+id/D1b_Button"
+                android:id="@+id/D1_Button"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/daybutton"
@@ -134,7 +134,7 @@
                 />
 
             <Button
-                android:id="@+id/M2_Button"
+                android:id="@+id/M2b_Button"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/dayselectedbutton"
@@ -148,7 +148,7 @@
                 />
 
             <Button
-                android:id="@+id/M2b_Button"
+                android:id="@+id/M2_Button"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:background="@drawable/daybutton"

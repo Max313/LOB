@@ -24,7 +24,8 @@ public class AlarmService extends Service {
     //Speicher
     public static final String PREFS_NAME = "LOBPrefFile";
     private SharedPreferences saved;
-    private SharedPreferences.Editor editor;
+
+    private String text;
 
     // Unique id to identify the notification.
     private static final int NOTIFICATION = 001;
@@ -45,6 +46,8 @@ public class AlarmService extends Service {
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         source = saved.getInt("id",0);
+        text = saved.getString("Notification", "");
+
 
 
         switch (source){
@@ -72,6 +75,10 @@ public class AlarmService extends Service {
             case 4:
                 showNotificationP4();
                 Log.i(TAG, "Version 5");
+                break;
+
+            case 5:
+                showNotificationP5();
                 break;
 
             default:
@@ -198,6 +205,31 @@ public class AlarmService extends Service {
         // Stop the service when we are finished
         stopSelf();
     }
+
+    /**
+     * Creates a notification and shows it in the OS drag-down status bar (Timer falls man nach 7 Tagen sein Ziel noch nicht eingetragen hat)
+     */
+    private void showNotificationP5() {
+        PendingIntent pi = PendingIntent.getActivity(this, 0, new Intent(this, Level1Zieldefinition.class), 0);
+        Resources r = getResources();
+        Notification notification = new NotificationCompat.Builder(this)
+                .setTicker(r.getString(R.string.notification_title))
+                .setSmallIcon(R.mipmap.notificationicon)
+                .setContentTitle(r.getString(R.string.notification_title))
+                .setContentText(text)
+                .setContentIntent(pi)
+                .setAutoCancel(true)
+                .build();
+
+
+
+        // Send the notification to the system.
+        mNM.notify(NOTIFICATION, notification);
+
+        // Stop the service when we are finished
+        stopSelf();
+    }
+
 
 
 

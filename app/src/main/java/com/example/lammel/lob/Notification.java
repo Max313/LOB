@@ -17,6 +17,7 @@ import android.support.v7.view.ActionMode;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -30,6 +31,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 
 import java.io.File;
+import java.util.Calendar;
 
 public class Notification extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
@@ -59,6 +61,7 @@ public class Notification extends FragmentActivity implements View.OnClickListen
     private Button sb2;
     private Boolean s2Set;
 
+
     //TimePicker
     private TimePicker tp;
     private int hours;
@@ -69,6 +72,7 @@ public class Notification extends FragmentActivity implements View.OnClickListen
     private String nTxt;
 
     private AppCompatDelegate delegate;
+    private final static String TAG = "Notification";
 
     //shared Preferences zum Speichern
     public static final String PREFS_NAME = "LOBPrefFile";
@@ -119,6 +123,8 @@ public class Notification extends FragmentActivity implements View.OnClickListen
 
         saved = getSharedPreferences(PREFS_NAME, 0);
         editor = saved.edit();
+
+
 
 
         //Monday
@@ -251,6 +257,14 @@ public class Notification extends FragmentActivity implements View.OnClickListen
         }
         //Handle EditText
         txt = (EditText) findViewById(R.id.notification_editText);
+
+        //Set Notification Text
+        if(saved.getString("Notification", "") != ""){
+            nTxt = saved.getString("Notification", "");
+            txt.setText(nTxt);
+            weiter.setEnabled(true);
+        }
+
         txt.setHorizontallyScrolling(false);
         txt.setLines(6);
         txt.setOnEditorActionListener(new TextView.OnEditorActionListener() {
@@ -317,39 +331,645 @@ public class Notification extends FragmentActivity implements View.OnClickListen
 
 
     //Notifications for the different Days
-    //Alarm each Monday
-    private void setForMonday(){
+    private void setNotification(){
+        Log.i(TAG, "Notification: " + "Hour: "+hours + " minutes: "+minutes);
+        Calendar cM = Calendar.getInstance();
+        saved = getSharedPreferences(PREFS_NAME, 0);
+        editor = saved.edit();
+        editor.putInt("id", 5);
+        editor.apply();
+        Log.i(TAG, "Day: " + cM.get(Calendar.DAY_OF_WEEK) + " Stunde: " + cM.get(Calendar.HOUR_OF_DAY) + " Minute: " +cM.get(Calendar.MINUTE));
+        switch (cM.get(Calendar.DAY_OF_WEEK)){
+            case 1:
+                Log.i(TAG, "case 1");
+                //Day is Today: Look if the time is in the future
+                if(s2Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
-    }
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (m1Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) (((24 - cM.get(Calendar.HOUR_OF_DAY)) + hours) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration).run();
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
 
-    //Alarm each Tuesday
-    private void setForTuesday(){
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(m1Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) (((24 - cM.get(Calendar.HOUR_OF_DAY)) + hours) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration).run();
+                                break;
+                            }
 
-    }
+                            else{
+                                //No calculate is necessary
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
 
-    //Alarm each Wednesday
-    private void setForWednesday(){
+            case 2:
+                Log.i(TAG, "case 2");
+                //Day is Today: Look if the time is in the future
+                if(m1Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
-    }
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (d1Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration).run();
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
 
-    //Alarm each Thursday
-    private void setForThursday(){
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(d1Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
-    }
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+            case 3:
+                Log.i(TAG, "case 3");
+                //Day is Today: Look if the time is in the future
+                if(d1Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
-    //Alarm each Friday
-    private void setForFriday(){
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (m2Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration).run();
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
 
-    }
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(m2Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
-    //Alarm each Saturday
-    private void setForSaturday(){
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+            case 4:
+                Log.i(TAG, "case 4");
+                //Day is Today: Look if the time is in the future
+                if(m2Set) {
+                    Log.i(TAG, "isSet: "+m2Set);
 
-    }
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        Log.i(TAG, "hour > hour");
 
-    //Alarm each Sunday
-    private void setForSunday(){
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if((cM.get(Calendar.HOUR_OF_DAY) == hours) && (cM.get(Calendar.MINUTE) < minutes)) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        Log.i(TAG, "Zeit: " + duration);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
 
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        Log.i(TAG, "else 1");
+                        if (d2Set) {
+                            Log.i(TAG, "ja: " +d2Set);
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                Log.i(TAG, "hour > hour");
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration).run();
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                Log.i(TAG, "else 2");
+
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+
+                        }
+
+                    }
+
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(d2Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration).run();
+                        break;
+                    }
+
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+            case 5:
+                Log.i(TAG, "case 5");
+                //Day is Today: Look if the time is in the future
+                if(d2Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (f1Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration);
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(f1Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+            case 6:
+                Log.i(TAG, "case 6");
+                //Day is Today: Look if the time is in the future
+                if(f1Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (s1Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration);
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(s1Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+            case 7:
+                //Day is Today: Look if the time is in the future
+                if(s1Set) {
+                    //Hour is in the future -> calculate
+                    if (cM.get(Calendar.HOUR_OF_DAY) < hours) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+                    //Hour is now, but minutes are in the future -> calculate
+                    else if (cM.get(Calendar.HOUR_OF_DAY) == hours && cM.get(Calendar.MINUTE) < minutes) {
+                        long duration = (minutes -cM.get(Calendar.MINUTE)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    //Look if the Time is less than 24 hours in the future
+                    else {
+                        if (s2Set) {
+                            //Is less than 24 hours -> calculate
+                            if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                                long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                new AlarmTask(this, duration);
+                                break;
+                            }
+                            //Normal Alarm is set -> No calculate is necessary
+                            else {
+                                cM.set(Calendar.HOUR, hours);
+                                cM.set(Calendar.MINUTE, minutes);
+                                cM.set(Calendar.SECOND, 0);
+                                cM.set(Calendar.MILLISECOND, 0);
+                                new AlarmNotificationTask(this, cM).run();
+                                break;
+                            }
+                        }
+                    }
+
+                }
+                //Alarm isn't set for today. Look if the next day is set and the time is shorter than 24 Hours
+                else if(s2Set) {
+                    //Is less than 24 hours -> calculate
+                    if ((hours - cM.get(Calendar.HOUR_OF_DAY)) <= 0) {
+                        long duration = (long) ((hours - cM.get(Calendar.HOUR_OF_DAY)) * 60 + (cM.get(Calendar.MINUTE) - minutes)) * 60 * 1000;
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        new AlarmTask(this, duration);
+                        break;
+                    }
+
+                    else{
+                        //No calculate is necessary
+                        cM.set(Calendar.HOUR, hours);
+                        cM.set(Calendar.MINUTE, minutes);
+                        cM.set(Calendar.SECOND, 0);
+                        cM.set(Calendar.MILLISECOND, 0);
+                        new AlarmNotificationTask(this, cM).run();
+                        break;
+                    }
+                }
+                else{
+                    //No calculate is necessary
+                    cM.set(Calendar.HOUR, hours);
+                    cM.set(Calendar.MINUTE, minutes);
+                    cM.set(Calendar.SECOND, 0);
+                    cM.set(Calendar.MILLISECOND, 0);
+                    new AlarmNotificationTask(this, cM).run();
+                    break;
+                }
+
+            default:
+                break;
+        }
+        cM.set(Calendar.HOUR, hours);
+        cM.set(Calendar.MINUTE, minutes);
+        cM.set(Calendar.SECOND, 0);
+        cM.set(Calendar.MILLISECOND, 0);
+        new AlarmNotificationTask(this, cM).run();
     }
 
 
@@ -564,39 +1184,35 @@ public void onClick(View v) {
         case R.id.SpeichernN_Button:
             if(m1Set){
                 editor.putBoolean("Monday", true);
-                setForMonday();
             }
             else{
                 editor.putBoolean("Monday", false);
             }
             if(d1Set){
                 editor.putBoolean("Tuesday", true);
-                setForTuesday();
             }
             else{
                 editor.putBoolean("Tuesday", false);
-
             }
 
             if(m2Set){
-                editor.putBoolean("Thursday", true);
-                setForThursday();
-            }
-            else{
-                editor.putBoolean("Thursday", false);
-            }
-
-            if(d2Set){
                 editor.putBoolean("Wednesday", true);
-                setForWednesday();
             }
             else{
                 editor.putBoolean("Wednesday", false);
             }
 
+            if(d2Set){
+                editor.putBoolean("Thursday", true);
+
+            }
+            else{
+                editor.putBoolean("Thursday", false);
+            }
+
             if(f1Set){
                 editor.putBoolean("Friday", true);
-                setForFriday();
+
             }
             else{
                 editor.putBoolean("Friday", false);
@@ -604,14 +1220,14 @@ public void onClick(View v) {
 
             if(s1Set){
                 editor.putBoolean("Saturday", true);
-                setForSaturday();
+
             }
             else{
                 editor.putBoolean("Saturday", false);
             }
             if(s2Set){
                 editor.putBoolean("Sunday", true);
-                setForSunday();
+
             }
             else{
                 editor.putBoolean("Sunday", false);
@@ -619,6 +1235,15 @@ public void onClick(View v) {
 
             editor.putInt("Hours", hours);
             editor.putInt("Minutes", minutes);
+            editor.putString("Notification", nTxt);
+
+            if(m2Set || m1Set || d2Set || d1Set || f1Set || s1Set || s2Set){
+                Log.i(TAG, "is Set: " + s1Set+ ", " + m1Set + ", " + d1Set + ", " + m2Set + ", " + d2Set + ", " + f1Set + ", " + s2Set);
+                setNotification();
+            }
+            else{
+                new AlarmNotificationTask(this, Calendar.getInstance()).cancelAlarm();
+            }
 
             startActivity(new Intent(this, Level1Start.class));
             break;
