@@ -22,6 +22,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * bei Wunderbar wird der Nutzer für seine Durchhaltekraft gelobt
+ * es wird ein Bild und Text gezeigt
+ */
+
 public class Wunderbar extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons

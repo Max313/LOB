@@ -23,8 +23,9 @@ import android.widget.TextView;
 import java.io.File;
 
 /**
- * Created by lammel on 11.04.17.
+ * In Problemdefinition kann der Nutzer entscheiden ob er sein Problem aufschreiben will oder direkt weiter will
  */
+
 public class Level1Problemdefinition extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

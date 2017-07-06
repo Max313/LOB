@@ -20,6 +20,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level4Start ist der Beginn von Level 4, welches in 2 Übungen unterteilt ist (erst Insel des Sehenden, dann Sonne der Erkenntnis)
+ * Es wird ein Bild und Text gezeigt
+ */
+
 public class Level4Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

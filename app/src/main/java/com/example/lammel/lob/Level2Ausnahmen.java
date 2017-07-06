@@ -22,6 +22,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Level2Ausnahmen ist der zweite Lösungsweg: Hier wird nach Ausnahmen gefragt in welchen Fällen das Problem nicht auftritt
+ * (nur Text)
+ */
+
 public class Level2Ausnahmen extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

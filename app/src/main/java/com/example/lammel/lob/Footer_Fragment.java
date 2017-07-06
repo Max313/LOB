@@ -18,6 +18,13 @@ import org.w3c.dom.Text;
 
 import static com.example.lammel.lob.R.id.container;
 
+/**
+ * Diese Klasse beschäftigt sich mit dem Footer und der Veränderung Eigenschaften sowie der Bilder
+ * Zu Beginn und zu Ende eines Levels ändert sich die Funktionalität
+ * Ein Level kann noch nicht freigschaltet (grau), das aktuelle Level sein (halb bunt) oder freisgeschalten (bunt) sein
+ * außerdem wird angezeigt wo man sich gerade befindet
+ */
+
 public class Footer_Fragment extends Fragment implements View.OnClickListener{
 
     //stati

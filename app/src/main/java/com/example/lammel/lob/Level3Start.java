@@ -20,6 +20,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level3Start ist der Beginn von Level 3
+ * Es wird ein Bild und Text gezeigt
+ */
+
 public class Level3Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

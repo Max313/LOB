@@ -41,6 +41,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Kompliment ist die zweite Spalte der Ressourcentabelle
+ * Nutzer kann dort seine Einträge einfügen
+ * Tabelle und Texteingabe
+ */
+
 public class Kompliment extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

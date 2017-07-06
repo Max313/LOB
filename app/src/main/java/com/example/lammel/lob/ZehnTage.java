@@ -28,6 +28,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * ZehnTage ist die Pause, die man sich in Lösungsweg 5 nehmen soll: Man kann positives hier auch festhalten
+ * Es wird ein Countdown gestartet und eine Notification erstellt; nach der Pause kann man weitermachen
+ * (Text und Texteingabe, sowie ein Countdown der anzeigt wie lange die Pause ist)
+ */
 public class ZehnTage extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     private final static String TAG = "ZehnTage";

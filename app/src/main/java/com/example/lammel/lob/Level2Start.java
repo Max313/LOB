@@ -19,6 +19,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Hier startet Level 2
+ * Es ist ein kleiner Einleitungstext und -bild zu sehen
+ */
+
 public class Level2Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

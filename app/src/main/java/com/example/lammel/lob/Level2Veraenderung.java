@@ -19,6 +19,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level2Veraenderung betrachtet den ersten Lösungsweg: Es geht um Veränderung, die bereits eingetreten ist seit Download der App
+ * Dabei wird eine Ja/Nein Frage gestellt, die beantwortet werden soll
+ */
 public class Level2Veraenderung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons

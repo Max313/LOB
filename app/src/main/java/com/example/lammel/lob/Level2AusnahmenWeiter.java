@@ -23,6 +23,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Level2AusnahmenWeiter ist der zweite Teil des zweiten Lösungswegs (nur Text)
+ */
+
 public class Level2AusnahmenWeiter extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

@@ -21,6 +21,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier ist das Ende der App (Teil 2), der Nutzer wird mit Texten und Bildern "entlassen"
+ */
+
 public class Ende2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

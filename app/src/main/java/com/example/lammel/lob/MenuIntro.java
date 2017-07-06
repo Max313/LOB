@@ -21,6 +21,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * In MenuIntro befindet sich eine Text Erklärung zum Menü (:), zum Hilfebutton (?) und zum Footer (_)
+ */
+
 public class MenuIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     // Button and more

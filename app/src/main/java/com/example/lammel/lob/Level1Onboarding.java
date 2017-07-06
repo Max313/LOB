@@ -35,7 +35,7 @@ import java.io.IOException;
 import static java.security.AccessController.getContext;
 
 /**
- * Created by lammel on 11.04.17.
+ * Hier wird das Introvideo abgespielt
  */
 
 public class Level1Onboarding extends FragmentActivity implements AppCompatCallback {

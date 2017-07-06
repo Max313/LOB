@@ -22,6 +22,12 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * In Mantra wird der Nutzer erneut gelobt, dass er dabei bleibt
+ * es ist der Übergang von Übung 1(Insel des Sehenden) zu Übung 2(Sonne der Erkenntnis) in Level 4
+ * ein Bild und Text wird gezeigt
+ */
+
 public class Mantra extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

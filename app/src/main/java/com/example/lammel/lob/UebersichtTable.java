@@ -29,6 +29,12 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * UebersichtTable zeigt die gesamte Ressourcentabelle, also 3 Spalten
+ * Nutzer kann Einträge anklicken zum ansehen und ändern
+ * Danach geht es weiter zu Level 4 bzw der Pause zwischen den Leveln, falls es das erste Mal ist
+ */
+
 public class UebersichtTable extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

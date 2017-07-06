@@ -20,6 +20,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level5Start ist der Beginn von Level 5, welches das Ende der App beinhaltet
+ * Es wird ein Bild und Text gezeigt
+ */
+
 public class Level5Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

@@ -19,6 +19,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level2Universalloesung ist Start des vierten Lösungswegs: Der Nutzer über soll sich mit anderen Strategien auseinandersetzen (Outside-of-the-box)
+ * (nur Text)
+ */
 public class Level2Universalloesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

@@ -28,6 +28,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Der Nutzer hat hier die Möglichkeit sein Ziel erneut zu betrachten oder es zu verändern
+ */
+
 public class MenuZiel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     private Button speicherButton, zurueckButton;

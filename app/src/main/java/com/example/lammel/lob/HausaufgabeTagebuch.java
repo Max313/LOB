@@ -22,6 +22,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier eine Hausaufgabe zu den Lösungsideen; der Nutzer kann seine Erlebnisse hier aufschreiben
+ */
+
 public class HausaufgabeTagebuch extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

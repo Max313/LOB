@@ -37,6 +37,11 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
+/**
+ * Hier kann der Nutzer sein Problem aufschreiben.
+ * Er kann allerdings auch direkt weiter falls er sich umentscheidet
+ */
+
 public class Level1_ProblemBeschreibung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button

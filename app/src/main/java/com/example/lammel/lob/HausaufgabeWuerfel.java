@@ -24,6 +24,11 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.Random;
 
+/**
+ * Diese Hausaufgabe beschäftigt sich mit Level2Universalloesung
+ * Es wird ein Würfel gewürfelt und je nach Zahl soll man an einem bestimmten Tag eine Aufgabe machen
+ */
+
 public class HausaufgabeWuerfel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

@@ -22,6 +22,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Auch wenn die App schon etwas weitergeholfen hat, hat man hier die Wahl zurück zu Level 2 zu gehen oder zum Ende
+ */
+
 public class Neuorientierung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
@@ -193,7 +197,7 @@ public class Neuorientierung extends FragmentActivity implements View.OnClickLis
         switch (view.getId()){
 
             case R.id.level2_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
+                startActivity(new Intent(this, Level2Loesungswege.class));
                 break;
 
             case R.id.wEnde_Button:

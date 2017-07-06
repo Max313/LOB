@@ -19,6 +19,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level2KeineLoesung ist der "letzte" Lösungsweg: eventuell ist die App nicht das richtige Tool also werden dem Nutzer andere Möglichkeiten aufgezeigt (Kontaktiere einen echten Berater)
+ * (nur Text)
+ */
+
 public class Level2KeineLoesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

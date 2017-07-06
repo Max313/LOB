@@ -20,6 +20,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier kann man sich Beispiele zu Lösungsweg 4 durchlesen
+ * Beim ersten Aufruf kommt die erste Geschichte, beim zweiten Mal die andere
+ * (nur Text)
+ */
 public class Level2UniversalloesungAnekdote extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

@@ -22,6 +22,12 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Hier ist das Ende der App (Teil 3), der Nutzer wird mit Texten und Bildern "entlassen"
+ * Der Nutzer hat hier die Möglichkeit (sein Problem zu speichern,) die App erneut zu beginnen mit neuem Problem und seine Eingaben zu löschen
+ * Die App endet hier
+ */
+
 public class EndScreen extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

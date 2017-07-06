@@ -22,6 +22,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * SonneDerErkenntnisStart ist der Beginn der zweiten Übung aus Level 4: Die Sonne der Erkenntnis
+ * nur Text
+ */
+
 public class SonneDerErkenntnisStart extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

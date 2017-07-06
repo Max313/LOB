@@ -24,6 +24,10 @@ import org.w3c.dom.Text;
 
 import java.io.File;
 
+/**
+ * Hier startet das Ende der App (Teil 1), der Nutzer wird mit Texten und Bildern "entlassen"
+ */
+
 public class Ende extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

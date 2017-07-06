@@ -20,6 +20,12 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Hier ist der Einführungstext zur Pause zwischen Level 4 und 5
+ * Diese ist im Gegensatz zu den anderen Pausen zwischen den Leveln fest auf einen Tag gesetzt
+ * (nur Text)
+ */
+
 public class PauseZwischen4und5 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

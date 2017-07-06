@@ -19,6 +19,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * In Level2HypoLoesung startet der dritte Lösungsweg: Man wird gebeten sich auf eine Geschichte vorzubereiten
+ * (nur Text)
+ */
 public class Level2HypoLoesung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

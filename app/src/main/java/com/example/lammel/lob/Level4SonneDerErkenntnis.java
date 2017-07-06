@@ -27,6 +27,12 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Level4SonneDerErkenntnis ist die zweite Übung in Level 4: Man kann 8 Buttons/Sonnen, die im Kreis angeordnet sind, klicken um zu den Fragen zu gelangen
+ * Antwortet man die Fragen bzw klickt sie einmal an kann man von hier aus über den erscheinenden Fertig-Button weiter zur Pause zwischen Level 4 und 5 oder direkt zu Level 5 falls dieses schon freigeschalten wurde
+ * Button, die auch anzeigen ob es schon bearbeitet wurde oder nicht
+ */
+
 public class Level4SonneDerErkenntnis extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

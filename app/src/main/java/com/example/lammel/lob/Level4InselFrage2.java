@@ -27,6 +27,12 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Level4InselFrage2 ist die zweite Frage der Übung Insel des Sehenden
+ * Der Nutzer kann die Antwort aufschreiben wenn er will
+ * Text und Textingabemöglichkeit
+ */
+
 public class Level4InselFrage2 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

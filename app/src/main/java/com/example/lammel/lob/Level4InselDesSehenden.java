@@ -19,6 +19,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level4InselDesSehenden ist Übung 1 in Level 4
+ * Dem Nutzer werden nach und nach 4 Fragen gestellt, deren Antworten er aufschreiben kann oder sich im Kopf überlegt
+ */
+
 public class Level4InselDesSehenden extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

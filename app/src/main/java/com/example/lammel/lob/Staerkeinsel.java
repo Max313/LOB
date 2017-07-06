@@ -25,6 +25,11 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Staerkeinsel ist die Einleitung/Erklärung zur Übung von Level 3, der Ressourcentabelle
+ * (Text)
+ */
+
 public class Staerkeinsel extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

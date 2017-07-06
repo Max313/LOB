@@ -27,6 +27,12 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
+/**
+ * In Rueckblick kann der Nutzer seinen Fortschritt mit Hilfe eines Sliders eintragen (= Skalierungsfrage)
+ * Je nach Eintrag kommt man zu GeringeEntwicklung (0-3), Neuorientierung (4-7) oder zum Ende (8-10)
+ * (Slider und Text)
+ */
+
 public class Rueckblick extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

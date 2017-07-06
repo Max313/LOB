@@ -24,7 +24,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
-
+/**
+ * Hier befindet sich die Übersicht über die Hausaufgaben, im Moment gibt es 3 verschiedene
+ * (Buttons und Text)
+ */
 public class MenuHausaufgabe extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

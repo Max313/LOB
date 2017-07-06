@@ -18,6 +18,9 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * In LevelIntro findet man eine Übersicht und Erklärung der einzelnen Level
+ */
 public class LevelIntro extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
@@ -199,14 +202,7 @@ public class LevelIntro extends FragmentActivity implements View.OnClickListener
     @Override
     public void onClick(View v) {
 
-
                     startActivity(new Intent(this, MenuIntro.class));
-
-                    //startActivity(new Intent(this, Staerkeinsel.class));
-
-                    //startActivity(new Intent(this, Rueckblick.class));
-
-                    //startActivity(new Intent(this, SonneDerErkenntnisStart.class));
 
     }
 

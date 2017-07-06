@@ -33,6 +33,14 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
+/**
+ * Level2Loesungswege ist der Ankerpunkt von Level 2
+ * Hier wird der Nutzer gebeten nach Ideen aufzuschreiben die ihm bei der Problemlösung helfen sollen
+ * Wenn er keine findet sollte er die eigentlichen Lösungswege ausprobieren, ansonsten kann er auch direkt weiter Richtung Level 3
+ * Hierher kehrt man immer wieder zurück solange man nichts eingibt und auf "Fertig" klickt
+ * Wenn alle Lösungswege(6) ausgeschöpft sind kann der Nutzer weiter wenn er es möchte
+ */
+
 public class Level2Loesungswege extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Viewteile der Activity (Buttons, Textviews,..)
@@ -425,14 +433,13 @@ public class Level2Loesungswege extends FragmentActivity implements View.OnClick
                 if(txt2.length() == 0)
                     fertig.setEnabled(false); //disable button if no text entered
                 else{
-                    fertig.setEnabled(true);
+                    fertig.setEnabled(true);    //otherwise enable
                     mTracker.send(new HitBuilders.EventBuilder("Lösungswege", "Input2").build());
 
                     mirFaelltNichtsEin.setText("Neue Wege");
                     beispielNeu = true;
 
-                    //otherwise enable
-                weg2 = txt2.getText().toString();}
+                    weg2 = txt2.getText().toString();}
 
             }
             public void beforeTextChanged(CharSequence s, int start, int count, int after){

@@ -24,6 +24,13 @@ import org.w3c.dom.Text;
 
 import java.io.File;
 
+/**
+ * Level2WeiterGehts ist der Übergang von Level 2 zu Level 3: Hier kann man noch einmal entscheiden ob man mit seinen Ideen zufrieden ist oder ob man doch noch mehr Lösungswege betrachten will
+ * (Text und 2 Buttons)
+ * Geht man weiter Richtung Level 3 werden die Hausaufgaben freigeschaltet, auf die man entweder mit dem Popup oder über das Menü zugreifen kann
+ * Hat der Nutzer bereits bei ZehnTage gewartet oder war schon in Level 3 so wird die Pause übersprungen, ansonsten kommt eine Pause zwischen Level 2 und 3
+ */
+
 public class Level2WeiterGehts extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons

@@ -23,6 +23,10 @@ import android.widget.TextView;
 import java.io.File;
 import java.util.Random;
 
+/**
+ * In dieser Hausaufgabe wird eine Münze geworden, der Nutzer hat je nach Kopf/Zahl eine Aufgabe anhand Level2HypoLoesung
+ */
+
 public class HausaufgabeMuenzwurf extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

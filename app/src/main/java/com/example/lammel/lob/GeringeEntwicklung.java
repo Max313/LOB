@@ -20,6 +20,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * GeringeEntwicklung gibt Tipps wie es weitergehen kann falls die App nicht hilft
+ * Trotzdem hat man hier die Wahl zurück zu Level 2 zu gehen oder zum Ende
+ */
+
 public class GeringeEntwicklung extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more
@@ -191,7 +196,7 @@ public class GeringeEntwicklung extends FragmentActivity implements View.OnClick
         switch (view.getId()){
 
             case R.id.zulevel2_Button:
-                startActivity(new Intent(this, Level2Veraenderung.class));
+                startActivity(new Intent(this, Level2Loesungswege.class));
                 break;
 
             case R.id.weiterEnde_Button:

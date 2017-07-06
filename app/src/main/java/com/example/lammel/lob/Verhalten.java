@@ -42,6 +42,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Verhalten ist die erste Spalte der Ressourcentabelle
+ * Nutzer kann dort seine Einträge einfügen
+ * Tabelle und Texteingabe
+ */
+
 public class Verhalten extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

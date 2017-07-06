@@ -20,6 +20,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Mit Level 1 beginnt Level 1. Es ist eine kleine Einführung mit Bild und Text zu sehen
+ */
+
 public class Level1Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

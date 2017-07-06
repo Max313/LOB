@@ -22,6 +22,9 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier wird der Nutzer gelobt für das Aufschreiben des Ziels und weitergeleitet zu Level 2
+ */
 public class Level1ZielVerwahren extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button

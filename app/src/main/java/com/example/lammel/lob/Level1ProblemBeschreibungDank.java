@@ -22,6 +22,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Wenn man sein Problem aufschreibt bekommt man hier ein "Lob" dafür, weil das keine einfache Aufgabe ist
+ */
+
 public class Level1ProblemBeschreibungDank extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button

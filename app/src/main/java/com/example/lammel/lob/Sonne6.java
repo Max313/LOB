@@ -38,6 +38,11 @@ import com.google.android.gms.analytics.Tracker;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * Sonne6 ist eine der Sonne der Erkenntnis - Fragen
+ * Man kann seine Antwort aufnehmen über das Handymikrofon oder einfach zurück zur Übersicht
+ */
+
 public class Sonne6 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

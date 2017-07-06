@@ -29,6 +29,13 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * In Level2UniversalloesungWeiter muss der Nutzer sich seine eigene "verrückte/neue" Strategie überlegen (Lösungsweg 4)
+ * Falls er nicht weiterweiß kann er sich zwei Beispiele durchlesen ansonsten Weiter zu Level2Loesungswege
+ * Zu dieser Übung gibt es eine Hausaufgabe
+ * (Text und Texteingabe)
+ */
+
 public class Level2UniversalloesungWeiter extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

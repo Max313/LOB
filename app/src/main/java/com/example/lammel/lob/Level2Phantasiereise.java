@@ -29,6 +29,12 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Level2Phantasiereise ist der Hauptteil des dritten Lösungsweg: der Nutzer hört sich eine Geschichte an und überlegt
+ * Diese startet sofort, kann unterbrochen werden und falls bereits abgepielt auch wiederholt werden
+ * es gibt eine Hausaufgabe zu dieser Aufgabe die beim Übergang von Level 2 auf Level 3 freigeschaltet wird
+ * (Ton und Text)
+ */
 public class Level2Phantasiereise extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons and more

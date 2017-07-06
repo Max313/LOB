@@ -19,6 +19,11 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Level2Exitstrategie ist der Start des fünften und letzten wirklichen Lösungsweg: Auch wenn nichts klappt findet man vielleicht etwas positives in seinem Leben
+ * Geht man weiter muss man einen Tag Pause einlegen
+ * (nur Text)
+ */
 public class Level2Exitstrategie extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button

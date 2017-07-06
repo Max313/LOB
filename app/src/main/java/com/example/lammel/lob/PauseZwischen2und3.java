@@ -20,6 +20,11 @@ import android.widget.NumberPicker;
 
 import java.io.File;
 
+/**
+ * Hier kann man die Dauer der Pause einstellen: Diese ist zwischen 1 und 14 Tagen
+ * Text und Numberpicker/Rad zur Auswahl der Zeit
+ */
+
 public class PauseZwischen2und3 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

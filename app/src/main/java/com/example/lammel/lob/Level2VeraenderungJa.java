@@ -19,6 +19,10 @@ import android.widget.Button;
 
 import java.io.File;
 
+/**
+ * Immer noch Lösungsweg 1, falls bereits eine Veränderung eingetreten ist (nur Text)
+ */
+
 public class Level2VeraenderungJa extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Button and more

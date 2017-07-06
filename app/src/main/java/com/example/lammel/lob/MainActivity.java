@@ -26,6 +26,10 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
+/**
+ * Startseite der App, die aufgerufen wird wenn die App gestartet wird
+ * Von hier aus kann man das Intro starten oder direkt in Level 1 starten
+ */
 public class MainActivity extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 
@@ -73,7 +77,7 @@ public class MainActivity extends FragmentActivity implements View.OnClickListen
 
         /**display Toolbar Icon
         delegate.getSupportActionBar().setDisplayShowHomeEnabled(true);
-        delegate.getSupportActionBar().setLogo(R.drawable.kopficon);
+         delegate.getSupportActionBar().setLogo(R.mipmap.icon);
         delegate.getSupportActionBar().setDisplayUseLogoEnabled(true);**/
 
 

@@ -22,6 +22,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier ist der Einführungstext zur Pause zwischen Level 2 und 3
+ * (nur Text)
+ */
 public class PauseZwischen2und3Start extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Buttons

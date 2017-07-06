@@ -24,6 +24,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier läuft der Countdown der Pause zwischen 4 und 5 herunter: am Ende erscheint eine Notification und Level 5 kann gestartet werden
+ */
+
 public class Timer3 extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     private AppCompatDelegate delegate;

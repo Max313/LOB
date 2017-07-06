@@ -21,6 +21,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hier ist das Impressum der App (wer hat daran gearbeitet, Copyright,...
+ */
+
 public class MenuImpressum extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

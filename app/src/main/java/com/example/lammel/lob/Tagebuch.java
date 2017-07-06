@@ -30,6 +30,10 @@ import android.widget.TextView;
 
 import java.io.File;
 
+/**
+ * Hausaufgabe Tagebuch: Hier kann man seine Eindrücke eines Tages eingeben
+ */
+
 public class Tagebuch extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     //Toolbar

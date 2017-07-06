@@ -41,6 +41,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Ressource ist die dritte Spalte der Ressourcentabelle
+ * Nutzer kann dort seine Einträge einfügen
+ * Tabelle und Texteingabe
+ */
+
 public class Ressource extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
 

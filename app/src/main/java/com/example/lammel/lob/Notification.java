@@ -33,6 +33,10 @@ import android.widget.TimePicker;
 import java.io.File;
 import java.util.Calendar;
 
+/**
+ * In Notification kann der Nutzer seine eigenen Notifications setzen (Uhrzeit und Tage sowie Text)
+ */
+
 public class Notification extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
     // Button and more

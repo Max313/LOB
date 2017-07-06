@@ -37,8 +37,12 @@ import com.google.android.gms.analytics.Tracker;
 
 import java.io.File;
 
-//Hier wird in Level 1 das Ziel zum ersten Mal festgelegt und gespeichert.
-//Ab hier kann man im Menü auf Ziele zugreifen
+/**
+ * In Level1Zieldefinition muss der Nutzer sein Ziel aufschreiben und speichern
+ * Erst danach kann er weiter
+ * Hier wird der Menüpunkt Ziele freigeschaltet
+ */
+
 
 public class Level1Zieldefinition extends FragmentActivity implements View.OnClickListener, AppCompatCallback {
 
