@@ -44,12 +44,32 @@
                 android:focusableInTouchMode="true"
                 android:focusable="true"/>
 
+            <View
+                android:id="@+id/hintergrundPicker2_View"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:text=""
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textView1_Pause"
+                android:layout_marginTop="16dp"
+                />
+
             <LinearLayout
+                android:id="@+id/ll2_pause"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:gravity="center"
-                app:layout_constraintTop_toBottomOf="@+id/textView1_Pause">
+                app:layout_constraintTop_toBottomOf="@+id/hintergrundPicker2_View"
+                android:layout_marginTop="10dp">
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    />
 
                 <NumberPicker
                     android:id="@+id/numberPickerPause2"
@@ -58,6 +78,11 @@
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true">
                 </NumberPicker>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    />
 
                 <TextView
                     android:id="@+id/textView2_Pause"
@@ -69,6 +94,19 @@
                 </TextView>
 
             </LinearLayout>
+
+            <View
+                android:id="@+id/hintergrundPicker3_View"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:background="@color/colorPrimary"
+                android:text=""
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/ll2_pause"
+                android:layout_marginTop="8dp"
+                />
 
         </android.support.constraint.ConstraintLayout>
     </ScrollView>
